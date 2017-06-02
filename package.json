@@ -1,0 +1,41 @@
+{
+  "name": "vn-seriewijzer",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "xo",
+    "expose": "ngrok http 3006"
+  },
+  "engines": {
+    "node": "v5.7",
+    "npm": "3.6.0"
+  },
+  "dependencies": {
+    "body-parser": "~1.17.1",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.3",
+    "dotenv": "^4.0.0",
+    "ejs": "~2.5.6",
+    "express": "~4.15.2",
+    "express-session": "^1.15.3",
+    "less-middleware": "~2.2.0",
+    "mongoose": "^4.9.7",
+    "morgan": "~1.8.1",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "serve-favicon": "~2.4.2",
+    "socket.io": "^2.0.2"
+  },
+  "xo": {
+    "fix": true,
+    "space": true,
+    "open": true,
+    "esnext": false
+  },
+  "devDependencies": {
+    "ngrok": "^2.2.9",
+    "nodemon": "^1.11.0",
+    "xo": "^0.18.1"
+  }
+}

@@ -22,10 +22,9 @@ function getData(recieve, value) {
         console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
         // console.log('body:', body); // Print the HTML for the Google homepage.
         var data = JSON.parse(body);
-        // recieve(data);
+
 
         saveData(data, recieve);
-        // console.log(env.parsed);
 
     });
 
@@ -33,10 +32,10 @@ function getData(recieve, value) {
 
 function saveData(data, recieve) {
     var query = 'data';
-
+    // if the data field exist update it and only add new values to the array so there are no duplicates
     seriesSchema.findOneAndUpdate(query, {
         "$addToSet": {
-            "series.data": data.results
+            "series.data": { $each: data.results }
 
 
         }

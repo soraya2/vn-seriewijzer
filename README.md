@@ -7,23 +7,24 @@
 
 Install guide
 
-Clone the repository
+### Clone the repository
 
-To install the project run:
+
+### To install the project run:
 
 ```
  npm install
 
 ```
 
-To run ngrok:
+### To run ngrok:
 ```
  npm run expose
 
 ```
 
 
-To run XO:
+### To run XO:
 
 ```
 npm test

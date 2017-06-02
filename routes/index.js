@@ -8,7 +8,6 @@ router.get('/', function(req, res) {
     getData(receiveData, '');
 
     function receiveData(data) {
-        console.log(data);
 
         res.render('index', { data: data, title: 'Home' });
 

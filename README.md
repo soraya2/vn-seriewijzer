@@ -1,12 +1,30 @@
 # vrij-nederland-seriewijzer
 
-- [](http://gulpjs.com)
-- [](https://developer.mozilla.org/es/docs/HTML/HTML5)
-- [Install guide](http://lesscss.org)
+- [Install guide](#install)
 
+
+
+
+Install guide
+
+Clone the repository
+
+To install the project run:
+
+```
+ npm install
+
+```
+
+To run ngrok:
+```
+ npm run expose
 
 ```
 
 
-```
+To run XO:
 
+```
+npm test
+```

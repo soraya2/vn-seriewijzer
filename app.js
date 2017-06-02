@@ -38,7 +38,9 @@ app.use(sessions({
 
 // app.use(passport.initialize());
 // app.use(passport.session());
+mongoose.connect(process.env.USERDB);
 
+// console.log(mongoose.connection.readyState); //test database connection
 
 app.use(lessMiddleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));

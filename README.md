@@ -1,11 +1,8 @@
-# vrij-nederland-seriewijzer
-
-- [Install guide](#install)
+# Vrij Nederland seriewijzer
 
 
 
-
-Install guide
+## Install guide
 
 ### Clone the repository
 

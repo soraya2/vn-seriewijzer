@@ -5,7 +5,17 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+
+    <%- include partials/header.ejs %>
+    <main class="overview-container">
+        <% for(var i=0; i<data.results.length; i++) {%>
+            <div class="movie">
+                <div>
+                    <img src="http://image.tmdb.org/t/p/w185/<%=data.results[i].poster_path%>" alt="">
+                </div>
+                <h3><%= data.results[i].original_name %></h3>
+            </div>
+        <% } %>
+    </main>
   </body>
 </html>

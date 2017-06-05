@@ -1,0 +1,14 @@
+<h1>Upload</h1>
+
+<form action="/upload" enctype="multipart/form-data" method="post">
+    <input type="text" name="name" placeholder="Je naam"><br>
+    <input type="email" name="email" placeholder="Je email"><br>
+    <hr>
+    <label>Om welke serie gaat deze recensie?<br>
+      <input type="text" name="series_name" placeholder="Serienaam">
+    </label>
+    <br><br>
+    <textarea name="review" rows="8" cols="80"></textarea>
+    <br>
+    <input type="submit" value="Upload">
+</form>

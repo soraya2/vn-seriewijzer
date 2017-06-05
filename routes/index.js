@@ -1,11 +1,7 @@
 var express = require('express');
-
 var router = express.Router();
-
 var request = require('request');
-
 var env = require('dotenv').config();
-
 var seriesSchema = require('../models/seriesschema');
 
 router.get('/', function (req, res) {

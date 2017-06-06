@@ -4,25 +4,22 @@
 <h1>Recensie Uploaden</h1>
 
 <form id="review-form" action="/upload" enctype="multipart/form-data" method="post">
-    <label>Je naam:<br>
+    <label>Je naam:
       <input type="text" name="name" placeholder="Bijv. 'John Doe'">
     </label>
-    <br>
-    <label>Je email:<br>
+    <label>Je email:
       <input type="email" name="email" placeholder="Bijv. 'john@company.com'">
     </label>
-    <br>
-    <hr>
-    <br>
-    <label>Om welke serie gaat deze recensie?<br>
+
+    <label>Om welke serie gaat deze recensie?
       <input type="text" name="series_name" placeholder="Bijv. 'Game Of Thrones'">
     </label>
-    <br>
+
     <label>De recensie:</label>
     <div id="editor">
     </div>
     <textarea id='review' hidden name="review"></textarea>
-    <br>
+
     <input type="submit" value="Upload">
 </form>
 

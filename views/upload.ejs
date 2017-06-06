@@ -14,7 +14,19 @@
     <label>Om welke serie gaat deze recensie?
       <input type="text" name="series_name" placeholder="Bijv. 'Game Of Thrones'">
     </label>
-
+    <label>Datum: <br>
+      <input type="date" name="post_date">
+    </label>
+    <label>
+      Beoordeling (1 t/m 5): <br>
+      <select name="rating">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+    </label>
     <label>De recensie:</label>
     <div id="editor">
     </div>

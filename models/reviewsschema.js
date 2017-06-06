@@ -9,7 +9,9 @@ var reviewsSchema = mongoose.Schema({
 
   review: {
     series_name: String,
-    body: String
+    body: String,
+    rating: Number,
+    date: String
     // seriesImg: hier de link naar de afbeelding van de serie die de gebruiker uploaden kan
   }
 });

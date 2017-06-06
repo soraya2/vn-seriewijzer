@@ -23,8 +23,7 @@ h1 {
 }
 
 input {
-  display: flex;
-  flex-direction: column;
+  display: inherit;
   padding: 0.7em 1.5em;
   margin: 1em 0;
 }
@@ -47,10 +46,29 @@ input[type="submit"]:focus {
   transition: 0.2s;
 }
 
+select {
+  cursor: pointer;
+  margin: 1em 0;
+  border: none;
+  width: 10em;
+  height: 2em;
+}
+
+select:focus {
+  outline: none;
+}
+
 .ql-toolbar {
   margin-top: 1em;
 }
 
 #editor {
   height: 15em;
+}
+
+#upload-complete {
+  display: block;
+  height: 6em;
+  width: 6em;
+  margin: 0 auto;
 }

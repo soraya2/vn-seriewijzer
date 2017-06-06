@@ -26,7 +26,9 @@ function processUploadForm(req, res) {
         },
         review: {
           series_name: fields.series_name,
-          body: fields.review
+          body: fields.review,
+          rating: fields.rating,
+          date: fields.date
         }
       }, function (err) {
            if (err) {

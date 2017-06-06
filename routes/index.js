@@ -6,7 +6,9 @@ var request = require('request');
 
 var env = require('dotenv').config();
 
-var seriesSchema = require('../models/seriesschema');
+var user = require('../models/user');
+
+var series = require('../models/series');
 
 router.get('/', function(req, res) {
     getData(receiveData, '');
@@ -34,7 +36,7 @@ function getData(recieve, value) {
 function saveData(data, recieve) {
     var query = 'data';
     // If the data field exist update it and only add new values to the array so there are no duplicates
-    seriesSchema.findOneAndUpdate(query, {
+    series.findOneAndUpdate(query, {
         $addToSet: {
             'series.data': { $each: data.results }
         }
@@ -42,6 +44,7 @@ function saveData(data, recieve) {
         if (err) {
             return console.log(err);
         }
+
         recieve(document.series.data);
     });
 }

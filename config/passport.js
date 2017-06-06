@@ -4,7 +4,7 @@ var FacebookStrategy = require('passport-facebook').Strategy;
 
 var env = require('dotenv').config();
 
-var seriesSchema = require('../models/seriesschema');
+var userSchema = require('../models/user');
 
 module.exports = function(passport) {
 
@@ -15,7 +15,7 @@ module.exports = function(passport) {
 
     // used to deserialize the user
     passport.deserializeUser(function(id, done) {
-        seriesSchema.findById(id, function(err, user) {
+        userSchema.findById(id, function(err, user) {
             done(err, user);
         });
     });
@@ -44,7 +44,7 @@ module.exports = function(passport) {
                 console.log(profile);
 
                 // find the user in the database based on their facebook id
-                seriesSchema.findOne({ 'facebook.id': profile.id }, function(err, user) {
+                userSchema.findOne({ 'facebook.id': profile.id }, function(err, user) {
 
                     // if there is an error, stop everything and return that
                     // ie an error connecting to the database
@@ -56,7 +56,7 @@ module.exports = function(passport) {
                         return done(null, user); // user found, return that user
                     } else {
                         // if there is no user found with that facebook id, create them
-                        var newUser = new seriesSchema();
+                        var newUser = new userSchema();
 
                         // set all of the facebook information in our user model
                         newUser.user.facebook.id = profile.id; // set the users facebook id

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+    <%- include partials/head.ejs %>
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
 
@@ -13,7 +13,9 @@
                 <div>
                     <img src="http://image.tmdb.org/t/p/w185/<%=data[i].poster_path%>" alt="">
                 </div>
-                <h3><%= data[i].original_name %></h3>
+                <a href="/detail/<%=data[i].id%>">
+                  <h3><%= data[i].original_name %></h3>
+                </a>
             </div>
         <% } %>
     </main>

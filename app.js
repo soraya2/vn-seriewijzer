@@ -20,8 +20,7 @@ require('./config/passport')(passport);
 mongoose.Promise = global.Promise;
 
 var index = require('./routes/index');
-var users = require('./routes/users');
-
+var detail = require('./routes/detail');
 // View engine setup
 
 app.set('views', path.join(__dirname, 'views'));
@@ -49,16 +48,14 @@ app.use(flash());
 mongoose.connect(process.env.USERDB);
 var fbLogin = require('./routes/facebook-login')(passport);
 
-
-
 // Console.log(mongoose.connection.readyState); //test database connection
 
 app.use(lessMiddleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
-app.use('/users', users);
 app.use('/auth/facebook', fbLogin);
+app.use('/detail', detail);
 
 
 // Catch 404 and forward to error handler

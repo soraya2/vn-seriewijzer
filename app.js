@@ -19,9 +19,9 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 var upload = require('./routes/upload');
 
-var port = process.env.PORT || 3000;
-// View engine setup
+var port = process.env.PORT || 3006;
 
+// View engine setup
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -30,7 +30,7 @@ app.set('port', port);
 // app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(cookieParser());
 app.use(sessions({
   secret: process.env.EXPRESS_SESSION_SECRET,

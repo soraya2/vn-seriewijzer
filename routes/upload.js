@@ -15,8 +15,10 @@ router.get('/', function (req, res) {
 // Used Formidable for form handling
 // https://www.npmjs.com/package/formidable
 function processUploadForm(req, res) {
+
     var form = new formidable.IncomingForm();
     form.parse(req, function (err, fields, files) {
+      console.log(fields);
       reviewsSchema.create({
         user: {
           name: fields.name,
@@ -36,12 +38,12 @@ function processUploadForm(req, res) {
          }
     );
   });
-};
-
+}
 
 router.post('/', function (req, res) {
   console.log('New form recieved');
   processUploadForm(req, res)
+
   // Needs better handling for when upload has errors
   res.render('upload_complete');
 });

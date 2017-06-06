@@ -1,14 +1,32 @@
-<h1>Upload</h1>
+<link rel="stylesheet" href="stylesheets/uploadform.css">
+<link href="https://cdn.quilljs.com/1.2.6/quill.snow.css" rel="stylesheet">
 
-<form action="/upload" enctype="multipart/form-data" method="post">
-    <input type="text" name="name" placeholder="Je naam"><br>
-    <input type="email" name="email" placeholder="Je email"><br>
-    <hr>
-    <label>Om welke serie gaat deze recensie?<br>
-      <input type="text" name="series_name" placeholder="Serienaam">
+<h1>Recensie Uploaden</h1>
+
+<form id="review-form" action="/upload" enctype="multipart/form-data" method="post">
+    <label>Je naam:<br>
+      <input type="text" name="name" placeholder="Bijv. 'John Doe'">
     </label>
-    <br><br>
-    <textarea name="review" rows="8" cols="80"></textarea>
+    <br>
+    <label>Je email:<br>
+      <input type="email" name="email" placeholder="Bijv. 'john@company.com'">
+    </label>
+    <br>
+    <hr>
+    <br>
+    <label>Om welke serie gaat deze recensie?<br>
+      <input type="text" name="series_name" placeholder="Bijv. 'Game Of Thrones'">
+    </label>
+    <br>
+    <label>De recensie:</label>
+    <div id="editor">
+    </div>
+    <textarea id='review' hidden name="review"></textarea>
     <br>
     <input type="submit" value="Upload">
 </form>
+
+<script src="//cdn.quilljs.com/1.2.6/quill.min.js"></script>
+<script type="text/javascript" src="js/editor.js">
+
+</script>

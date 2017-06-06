@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include partials/head.ejs %>
+<title>Details</title>
+</head>
+
+<body>
+  <%- include partials/header.ejs %>
+   <div class="movie-details">
+       <div>
+           <img src="http://image.tmdb.org/t/p/w185<%=data.poster_path%>" alt="">
+       </div>
+
+         <h3><%= data.original_name %></h3>
+         <p><%= data.overview %></p>
+
+   </div>
+</body>
+
+</html>

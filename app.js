@@ -19,8 +19,6 @@ var io = require('socket.io').listen(server); // Use socket io in seperate files
 require('./config/passport')(passport);
 mongoose.Promise = global.Promise;
 
-var index = require('./routes/index');
-var detail = require('./routes/detail');
 // View engine setup
 
 app.set('views', path.join(__dirname, 'views'));
@@ -30,7 +28,7 @@ app.set('port', process.env.PORT || 3000);
 // app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(sessions({
     secret: process.env.EXPRESS_SESSION_SECRET,
@@ -46,8 +44,13 @@ app.use(passport.session());
 app.use(flash());
 
 mongoose.connect(process.env.USERDB);
-var fbLogin = require('./routes/facebook-login')(passport);
 
+
+var index = require('./routes/index');
+var detail = require('./routes/detail');
+var fbLogin = require('./routes/facebook-login')(passport, io);
+var profile = require('./routes/profile');
+var personal = require('./routes/personal');
 // Console.log(mongoose.connection.readyState); //test database connection
 
 app.use(lessMiddleware(path.join(__dirname, 'public')));
@@ -56,8 +59,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/auth/facebook', fbLogin);
 app.use('/detail', detail);
+app.use('/profile', profile);
+app.use('/personal', personal);
 
-
+app.use('/personal/step1');
+app.use('/personal/step2');
+app.use('/personal/step3');
 // Catch 404 and forward to error handler
 app.use(function(req, res, next) {
     var err = new Error('Not Found');

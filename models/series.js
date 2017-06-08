@@ -3,9 +3,7 @@ var mongoose = require('mongoose');
 
 var seriesSchema = mongoose.Schema({
 
-    series: {
-        data: Array
-    }
+    series: Array
 
 });
 

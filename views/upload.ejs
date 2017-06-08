@@ -1,24 +1,24 @@
 <link rel="stylesheet" href="stylesheets/uploadform.css">
 <link href="https://cdn.quilljs.com/1.2.6/quill.snow.css" rel="stylesheet">
 
-<h1>Recensie Uploaden</h1>
-
 <form id="review-form" action="/upload" enctype="multipart/form-data" method="post">
+  <h1>Recensie Uploaden</h1>
+
   <section>
     <h2>Over de recensent</h2>
     <label>
       <p>Je naam:</p>
-      <input type="text" name="name" placeholder="Bijv. 'John Doe'">
+      <input type="text" name="name" placeholder="Bijv. 'John Doe'" required>
     </label>
 
     <label>
       <p>Je email:</p>
-      <input type="email" name="email" placeholder="Bijv. 'john@company.com'">
+      <input type="email" name="email" placeholder="Bijv. 'john@company.com'" required>
     </label>
 
     <label>
       <p>Upload Datum:</p>
-      <input type="date" name="post_date">
+      <input type="date" name="post_date" required>
     </label>
   </section>
 
@@ -28,25 +28,25 @@
     <label>
       <p>Titel:</p>
       <p class="sub-line">Zorg ervoor dat de titel uniek is. Wanneer een serie twee verschillende titels heeft. Gebruik dan de meest frequent gebruikte titel.</p>
-      <input type="text" name="series_name" placeholder="Bijv. 'Game Of Thrones'">
+      <input type="text" name="series_name" placeholder="Bijv. 'Game Of Thrones'" required>
     </label>
 
     <label>
       <p>Land van herkomst:</p>
       <p class="sub-line">Gebruik de internationale landcodes. Zorg ervoor dat ze allemaal in hoofdletters zijn, zodat er altijd overeenkomsten zijn.</p>
-      <input type="text" name="region_code" placeholder="Bijv. 'GB' voor Groot-Brittannië">
+      <input type="text" name="region_code" placeholder="Bijv. 'GB' voor Groot-Brittannië" required>
     </label>
 
     <label>
       <p>Beginjaar:</p>
       <p class="sub-line">Het jaartal waarin de serie begon met opnemen.</p>
-      <input type="text" name="starting_year" placeholder="Bijv. 2011">
+      <input type="text" name="starting_year" placeholder="Bijv. 2011" required>
     </label>
 
     <label>
       <p>Eindjaar:</p>
       <p class="sub-line">Draait de serie nog steeds? Zet dan ‘heden’ in het veld.</p>
-      <input type="text" name="end_year" placeholder="Bijv. 2015">
+      <input type="text" name="end_year" placeholder="Bijv. 2015" required>
     </label>
 
     <div>
@@ -335,7 +335,7 @@
       <h3>Leeftijdsclassificatie</h3>
       <label>
         <p class="sub-line">Vanaf welke leeftijd mag de serie bekeken worden?</p>
-        <input type="text" name="leeftijd" placeholder="Bijv. 12">
+        <input type="text" name="leeftijd" placeholder="Bijv. 12" required>
       </label>
     </div>
 
@@ -343,7 +343,7 @@
       <h3>Seizoenen</h3>
       <label>
         <span>Aantal:</span>
-        <input type="text" name="seizoenen" placeholder="Bijv. 4">
+        <input type="text" name="seizoenen" placeholder="Bijv. 4" required>
       </label>
     </div>
 
@@ -351,11 +351,11 @@
       <h3>Afleveringen</h3>
       <label>
         <span>Aantal:</span>
-        <input type="text" name="afleveringen" placeholder="Bijv. 32">
+        <input type="text" name="afleveringen" placeholder="Bijv. 32" required>
       </label>
       <label>
         <span>Duur:</span>
-        <input type="text" name="duur" placeholder="Bijv. 55 minuten">
+        <input type="text" name="duur" placeholder="Bijv. 55 minuten" required>
       </label>
     </div>
 
@@ -363,7 +363,7 @@
       <h3>Cast</h3>
       <label>
         <span>Hoofdacteurs/actrices (maximaal 6, scheiden met komma)</span>
-        <input type="text" name="acteurs" placeholder="Bijv. Johnny Depp, Leonardo DiCaprio">
+        <input type="text" name="acteurs" placeholder="Bijv. Johnny Depp, Leonardo DiCaprio" required>
       </label>
     </div>
 
@@ -371,7 +371,7 @@
       <h3>Producenten</h3>
       <label>
         <span>Producenten (maximaal 6, scheiden met komma)</span>
-        <input type="text" name="producers" placeholder="Bijv. Peter Jackson, Steven Spielberg">
+        <input type="text" name="producers" placeholder="Bijv. Peter Jackson, Steven Spielberg" required>
       </label>
     </div>
 
@@ -379,7 +379,7 @@
       <h3>Awards</h3>
       <label>
         <span>Hoeveel awards heeft de serie gewonnen?</span>
-        <input type="text" name="awards" placeholder="Bijv. 4">
+        <input type="text" name="awards" placeholder="Bijv. 4" required>
       </label>
     </div>
 
@@ -387,7 +387,7 @@
       <h3>Nominaties</h3>
       <label>
         <span>Hoevaak is de serie genomineerd?</span>
-        <input type="text" name="awards" placeholder="Bijv. 12">
+        <input type="text" name="awards" placeholder="Bijv. 12" required>
       </label>
     </div>
 
@@ -395,7 +395,7 @@
       <h3>IMDB rating</h3>
       <label>
         <span>Wat is de IMDB beoordeling?</span>
-        <input type="text" name="imdb_rating" placeholder="Bijv. 7.4">
+        <input type="text" name="imdb_rating" placeholder="Bijv. 7.4" required>
       </label>
     </div>
 
@@ -413,7 +413,7 @@
       <p class="sub-line">Plaats hier de URL naar de poster van de serie, in portret modus.</p>
       <label>
         <span>Link naar afbeelding</span>
-        <input type="text" name="img_url" placeholder="Bijv. https://img.com/serie">
+        <input type="text" name="img_url" placeholder="Bijv. https://img.com/serie" required>
       </label>
     </div>
 
@@ -423,7 +423,7 @@
     <h2>Recensie</h2>
     <h3>Plot:</h3>
     <p class="sub-line">Hierin komt een korte omschrijving van de serie te staan.</p>
-    <textarea id="plot" name="plot" rows="8" cols="80" placeholder="Korte omschrijving van de serie"></textarea>
+    <textarea id="plot" name="plot" rows="8" cols="80" placeholder="Korte omschrijving van de serie" required></textarea>
     <h3>Complete recensie:</h3>
     <div id="editor">
     </div>

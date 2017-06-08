@@ -9,6 +9,8 @@ var lessMiddleware = require('less-middleware');
 var env = require('dotenv').config();
 var sessions = require('express-session');
 var mongoose = require('mongoose');
+var formidable = require('formidable');
+var util = require('util');
 
 var app = express();
 var server = http.createServer(app);
@@ -16,6 +18,10 @@ var io = require('socket.io').listen(server); // Use socket io in seperate files
 
 var index = require('./routes/index');
 var users = require('./routes/users');
+var login = require('./routes/login');
+var persona = require('./routes/persona');
+var freetime = require('./routes/freetime');
+var mood = require('./routes/mood');
 
 // View engine setup
 
@@ -48,6 +54,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
+app.use('/login', login);
+app.use('/persona', persona);
+app.use('/freetime', freetime);
+app.use('/mood', mood);
 
 // Catch 404 and forward to error handler
 app.use(function (req, res, next) {

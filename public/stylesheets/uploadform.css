@@ -22,10 +22,21 @@ h1 {
   box-shadow: 1px 2px 10px 0 rgba(0,0,0,.05);
 }
 
-input {
+form section {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  border-bottom: 2px solid lightgrey;
+  padding-bottom: 2em;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"] {
   display: inherit;
   padding: 0.7em 1.5em;
   margin: 1em 0;
+  width: 100%;
 }
 
 input[type="submit"] {
@@ -46,6 +57,16 @@ input[type="submit"]:focus {
   transition: 0.2s;
 }
 
+input[type="checkbox"] {
+}
+
+label {
+  display: block;
+  width: 100%;
+  margin-bottom: 0.5em;
+}
+
+
 select {
   cursor: pointer;
   margin: 1em 0;
@@ -64,6 +85,7 @@ select:focus {
 
 #editor {
   height: 15em;
+  margin-bottom: 1em;
 }
 
 #upload-complete {

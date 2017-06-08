@@ -1,36 +1,59 @@
 var express = require('express');
 var router = express.Router();
 var bodyParser = require('body-parser');
-var formidable = require('formidable');
 var util = require('util');
 var mongoose = require('mongoose');
 var reviewsSchema = require('../models/reviewsschema.js');
 
+// Connect to main database
 mongoose.connect(process.env.MAINDB);
 
 router.get('/', function (req, res) {
   res.render('upload');
 });
 
-// Used Formidable for form handling
-// https://www.npmjs.com/package/formidable
-function processUploadForm(req, res) {
+router.post('/', function (req, res) {
+  console.log('New form recieved');
+  processUploadForm(req, res)
+  res.render('upload_complete');
+});
 
-    var form = new formidable.IncomingForm();
-    form.parse(req, function (err, fields, files) {
+function processUploadForm(req, res) {
+      var fields = req.body;
       console.log(fields);
+    // Put incoming form field data into a new model in the database
       reviewsSchema.create({
         user: {
-          name: fields.name,
-          email: fields.email
+          name:           fields.name,
+          email:          fields.email,
+          postDate:       fields.post_date,
         },
         review: {
-          series_name: fields.series_name,
-          body: fields.review,
-          rating: fields.rating,
-          date: fields.date
+          seriesName:     fields.seriesName,
+          region:         fields.regionCode,
+          startYear:      fields.startingYear,
+          endYear:        fields.endYear,
+          genre:          fields.genre,
+          platform:       fields.platform,
+          period:         fields.period,
+          persona:        fields.persona,
+          hobby:          fields.hobby,
+          mood:           fields.mood,
+          ageRestriction: fields.ageRestriction,
+          seasons:        fields.seasons,
+          episodes:       fields.episodes,
+          duration:       fields.duration,
+          producers:      fields.producers,
+          awards:         fields.awards,
+          nominations:    fields.nominations,
+          imdbRating:     fields.imdbRating,
+          trailerURL:     fields.trailerURL,
+          imgURL:         fields.imgURL,
+          plot:           fields.plot,
+          reviewBody:     fields.reviewBody,
+          rating:         fields.rating
         }
-      }, function (err) {
+      }, function (err) { // Error handling
            if (err) {
             console.log('[Server] ERROR: Cannot add form information to database');
             console.log(err);
@@ -39,15 +62,7 @@ function processUploadForm(req, res) {
            }
          }
     );
-  });
-}
+};
 
-router.post('/', function (req, res) {
-  console.log('New form recieved');
-  processUploadForm(req, res)
-
-  // Needs better handling for when upload has errors
-  res.render('upload_complete');
-});
 
 module.exports = router;

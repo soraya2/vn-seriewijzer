@@ -6,46 +6,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Stemming</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/personacheck.less' />
 </head>
 <body>
-    <header>
+    <header class="personacheck">
         <progress max="3" value="2"></progress>
         <h1>Wie ben jij?</h1>
         <h2>Ik wil graag...</h2>
         <h3>Meerdere antwoorden mogelijk</h3>
     </header>
     <main>
-        <form method="post">
-            <section class="moods">
+        <form method="post" enctype="multipart/form-data" class="moods">
+            <section class="mood">
                 <div>
 
                 </div>
                 <input type="checkbox" id="lachen" name="mood" value="lachen" />
                 <label for="lachen"><h4>huilen van het lachen</h4></label>
             </section>
-            <section class="moods">
+            <section class="mood">
                 <div>
 
                 </div>
                 <input type="checkbox" id="janken" name="mood" value="janken" />
                 <label for="janken"><h4>lekker janken</h4></label>
             </section>
-            <section class="moods">
+            <section class="mood">
                 <div>
 
                 </div>
                 <input type="checkbox" id="spanning" name="mood" value="spanning" />
                 <label for="spanning"><h4>van spanning stoppen met ademen</h4></label>
             </section>
-            <section class="moods">
+            <section class="mood">
                 <div>
 
                 </div>
                 <input type="checkbox" id="bang" name="mood" value="bang" />
                 <label for="bang"><h4>bang gemaakt worden</h4></label>
             </section>
-            <section class="moods">
+            <section class="mood">
                 <div>
 
                 </div>

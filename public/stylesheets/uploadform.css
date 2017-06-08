@@ -66,6 +66,12 @@ label {
   margin-bottom: 0.5em;
 }
 
+.sub-line {
+  font-style: italic;
+  font-size: 80%;
+  color: #7D7D7D;
+}
+
 
 select {
   cursor: pointer;

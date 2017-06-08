@@ -6,15 +6,18 @@
 <form id="review-form" action="/upload" enctype="multipart/form-data" method="post">
   <section>
     <h2>Over de recensent</h2>
-    <label>Je naam:
+    <label>
+      <p>Je naam:</p>
       <input type="text" name="name" placeholder="Bijv. 'John Doe'">
     </label>
 
-    <label>Je email:
+    <label>
+      <p>Je email:</p>
       <input type="email" name="email" placeholder="Bijv. 'john@company.com'">
     </label>
 
-    <label>Datum: <br>
+    <label>
+      <p>Upload Datum:</p>
       <input type="date" name="post_date">
     </label>
   </section>
@@ -23,115 +26,104 @@
     <h2>Serie meta informatie</h2>
 
     <label>
-      Serienaam:
+      <p>Titel:</p>
+      <p class="sub-line">Zorg ervoor dat de titel uniek is. Wanneer een serie twee verschillende titels heeft. Gebruik dan de meest frequent gebruikte titel.</p>
       <input type="text" name="series_name" placeholder="Bijv. 'Game Of Thrones'">
     </label>
 
     <label>
-      Land van herkomst:
+      <p>Land van herkomst:</p>
+      <p class="sub-line">Gebruik de internationale landcodes. Zorg ervoor dat ze allemaal in hoofdletters zijn, zodat er altijd overeenkomsten zijn.</p>
       <input type="text" name="region_code" placeholder="Bijv. 'GB' voor Groot-Brittannië">
     </label>
 
     <label>
-      Beginjaar:
+      <p>Beginjaar:</p>
+      <p class="sub-line">Het jaartal waarin de serie begon met opnemen.</p>
       <input type="text" name="starting_year" placeholder="Bijv. 2011">
     </label>
 
     <label>
-      Eindjaar:
+      <p>Eindjaar:</p>
+      <p class="sub-line">Draait de serie nog steeds? Zet dan ‘heden’ in het veld.</p>
       <input type="text" name="end_year" placeholder="Bijv. 2015">
     </label>
 
     <div>
       <h3>Categorie:</h3>
+      <p class="sub-line">Hierin vul je de genres in waarbij deze serie hoort. Scheidt de verschillende genres met een komma en begin ieder genre met een hoofdletter. Als het een afkorting is mag het natuurlijk allemaal een hoofdletter zijn.</p>
       <label>
           <input type="checkbox" name="genre" value="action">
           <span>Actie</span>
-
-        </label>
-
       <label>
           <input type="checkbox" name="genre" value="avontuur">
           <span>Avontuur</span>
-
-        </label>
+      </label>
 
       <label>
           <input type="checkbox" name="genre" value="comedy">
           <span>Comedy</span>
-
-        </label>
+      </label>
 
       <label>
           <input type="checkbox" name="genre" value="documentaire">
           <span>Documentaire</span>
-
-        </label>
+      </label>
 
       <label>
           <input type="checkbox" name="genre" value="drama">
           <span>Drama</span>
-
-        </label>
+      </label>
 
       <label>
           <input type="checkbox" name="genre" value="episch">
           <span>Episch
-
-        </label>
+      </label>
 
       <label>
           <input type="checkbox" name="genre" value="horror">
           <span>Horror</span>
-
-        </label>
+      </label>
 
       <label>
           <input type="checkbox" name="genre" value="sci-fi">
           <span>Sci-fi</span>
-
-        </label>
+      </label>
 
       <label>
           <input type="checkbox" name="genre" value="oorlog">
           <span>Oorlog</span>
-
-        </label>
+      </label>
 
       <label>
           <input type="checkbox" name="genre" value="romantiek">
           <span>Romantiek</span>
-
-        </label>
+      </label>
 
       <label>
           <input type="checkbox" name="genre" value="muziek">
           <span>Muziek</span>
-
-        </label>
+      </label>
 
       <label>
           <input type="checkbox" name="genre" value="fantasy">
           <span>Fantasy</span>
-
-        </label>
+      </label>
 
       <label>
           <input type="checkbox" name="genre" value="sport">
           <span>Sport</span>
-
-        </label>
+      </label>
 
       <label>
           <input type="checkbox" name="genre" value="mystery">
           <span>Mystery</span>
-
-        </label>
+      </label>
     </div>
 
     <div>
       <h3>Beschikbaarheid</h3>
-      <p>Op welk platform kan de serie bekeken worden?</p>
+      <p class="sub-line">Op welk platform kan de serie bekeken worden?</p>
       <label>
         <input type="checkbox" name="platform" value="netflix">
         <span>Netflix</span>
@@ -151,7 +143,7 @@
 
     <div>
       <h3>Tijdperk</h3>
-      <p>In welke tijd speelt het zich af?</p>
+      <p class="sub-line">In welke tijd speelt het zich af?</p>
       <label>
         <input type="checkbox" name="tijdperk" value="prehistorie">
         <span>Prehistorie</span>
@@ -261,7 +253,7 @@
 
     <div>
       <h3>Passende Hobby's</h3>
-      <p>Welke hobby's passen het beste bij deze serie?</p>
+      <p class="sub-line">Welke hobby's passen het beste bij deze serie?</p>
       <label>
         <input type="checkbox" name="hobby" value="gamen">
         <span>Gamen</span>
@@ -311,7 +303,7 @@
 
     <div>
       <h3>Passende Moods</h3>
-      <p>Welke moods passen het beste bij deze serie?</p>
+      <p class="sub-line">Welke moods passen het beste bij deze serie?</p>
       <label>
         <input type="checkbox" name="mood" value="bang-worden">
         <span>Ik wil bang gemaakt worden</span>
@@ -342,7 +334,7 @@
     <div>
       <h3>Leeftijdsclassificatie</h3>
       <label>
-        <span>Vanaf welke leeftijd mag de serie bekeken worden?</span>
+        <p class="sub-line">Vanaf welke leeftijd mag de serie bekeken worden?</p>
         <input type="text" name="leeftijd" placeholder="Bijv. 12">
       </label>
     </div>
@@ -409,6 +401,7 @@
 
     <div>
       <h3>Trailer</h3>
+      <p class="sub-line">Plaats hier de URL naar de trailer op YouTube. Geen trailer? Laat het veld dan leeg.</p>
       <label>
         <span>Link naar de trailer</span>
         <input type="text" name="trailer_url" placeholder="Bijv. https://youtube.com/trailer">
@@ -417,6 +410,7 @@
 
     <div>
       <h3>Afbeelding</h3>
+      <p class="sub-line">Plaats hier de URL naar de poster van de serie, in portret modus.</p>
       <label>
         <span>Link naar afbeelding</span>
         <input type="text" name="img_url" placeholder="Bijv. https://img.com/serie">
@@ -428,6 +422,7 @@
   <section>
     <h2>Recensie</h2>
     <h3>Plot:</h3>
+    <p class="sub-line">Hierin komt een korte omschrijving van de serie te staan.</p>
     <textarea id="plot" name="plot" rows="8" cols="80" placeholder="Korte omschrijving van de serie"></textarea>
     <h3>Complete recensie:</h3>
     <div id="editor">

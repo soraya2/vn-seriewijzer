@@ -5,18 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
     <title>Kies je persona</title>
-    <link rel='stylesheet' href='/stylesheets/personacheck.css' />
 </head>
 <body>
         <progress max="3" value="1"></progress>
     <header class="header-personacheck">
         <h1>Wie ben jij?</h1>
-        <h3>Meerdere antwoorden mogelijk</h3>
+        <p>Meerdere antwoorden mogelijk</p>
     </header>
     <main class="form-for-check">
         <form method="post" enctype="multipart/form-data" action="/" class="personas">
-        <fieldset id="persona">
+        <fieldset class="persona-check">
         <legend><h2>Ik ben echt een...</h2></legend>
 
             <section class="persona">
@@ -100,7 +100,7 @@
         </fieldset>
 
 
-        <fieldset>
+        <fieldset class="persona-check">
         <legend><h2>In mijn vrije tijd doe ik aan...</h2></legend>
 
         <section class="hobby">
@@ -183,7 +183,7 @@
             </section>
         </fieldset>
 
-        <fieldset>
+        <fieldset class="persona-check">
             <legend><h2>Ik wil graag...</h2></legend>
 
             <section class="mood">
@@ -222,11 +222,13 @@
                 <label for="hersendood"><h4>hersendood voor de tv zitten</h4></label>
             </section>
         </fieldset>
-
-
-        <input type="submit" value="Volgende" class="submit-persona" />
+<!--         <button id="persona-button-back" class="submit-persona">Volgende</button> -->
+        <button id="persona-button" class="submit-persona">Volgende</button>
+        <input id="persona-submit" type="submit" value="Volgende" class="submit-persona"/>
         </form>
     </main>
+
+ <script src="/javascripts/persona-steps.js"></script>
 </body>
 </html>
 <!-- END Chanel -->

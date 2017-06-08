@@ -1,7 +1,6 @@
 var express = require('express');
 var router = express.Router();
 var bodyParser = require('body-parser');
-var util = require('util');
 var mongoose = require('mongoose');
 var reviewsSchema = require('../models/reviewsschema.js');
 
@@ -15,7 +14,7 @@ router.get('/', function (req, res) {
 router.post('/', function (req, res) {
   console.log('New form recieved');
   processUploadForm(req, res)
-  res.render('upload_complete');
+  res.redirect('/upload_complete');
 });
 
 function processUploadForm(req, res) {

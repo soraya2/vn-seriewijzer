@@ -100,3 +100,10 @@ select:focus {
   width: 6em;
   margin: 0 auto;
 }
+
+.back-link {
+  display: block;
+  color: white;
+  text-align: center;
+  margin: 10em 41vw;
+}

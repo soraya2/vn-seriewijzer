@@ -9,7 +9,6 @@ var lessMiddleware = require('less-middleware');
 var env = require('dotenv').config();
 var sessions = require('express-session');
 var mongoose = require('mongoose');
-var formidable = require('formidable');
 
 var app = express();
 var server = http.createServer(app);
@@ -18,6 +17,7 @@ var io = require('socket.io').listen(server); // Use socket io in seperate files
 var index = require('./routes/index');
 var users = require('./routes/users');
 var upload = require('./routes/upload');
+var uploadComplete = require('./routes/upload_complete');
 
 var port = process.env.PORT || 3006;
 
@@ -52,7 +52,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
-app.use('/upload', upload)
+app.use('/upload', upload);
+app.use('/upload_complete', uploadComplete);
 
 // Catch 404 and forward to error handler
 app.use(function (req, res, next) {

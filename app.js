@@ -11,8 +11,6 @@ var sessions = require('express-session');
 var mongoose = require('mongoose');
 
 var passport = require('passport');
-var flash = require('connect-flash');
-
 
 var app = express();
 var server = http.createServer(app);
@@ -48,7 +46,6 @@ app.use(sessions({
 
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(flash());
 
 mongoose.connect(process.env.USERDB);
 

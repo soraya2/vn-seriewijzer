@@ -1,15 +1,106 @@
 // GENERAL PERSONACHECK
 body {
+    margin: 0.5rem;
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+fieldset {
+    border: 0 none;
+}
+
+fieldset legend {
+    display: block;
 }
 
 .login {
     margin: 0.5rem;
 }
 
-.form-for-check > form > section:last-of-type {
+.item {
+    margin-top: 0.5rem;
+    position: relative;
+    text-align: center;
+}
+
+.submit-persona {
+    background-color: #FF5300;
+    border: none;
+    bottom: 0;
+    color: white;
+    font-size: 1.3em;
+    font-weight: bold;
+    left: 0;
+    padding: 0.7rem;
+    position: fixed;
+    text-transform: lowercase;
+    width: 100%;
+}
+
+// .submit-persona:focus {
+//
+// }
+
+.header-personacheck p {
+    font-style: italic;
+}
+
+.item div {
+    background: #DDD;
+    height: 5.8rem;
+    margin-left: 50%;
+    padding: 0.2rem;
+    transform: translateX(-50%);
+    width: 5.8rem;
+}
+
+.item h4 {
+    height: 2.5rem;
+    margin-top: 0.2rem;
+}
+
+.flexdiv .item {
+    display: inline-block;
+    width: 33.33333%;
+    width: calc(100% / 3);
+}
+
+.item label::after {
+    bottom: 0;
+    content: '';
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.item input:checked + h4 > label {
+    //background: #f53a24;
+    color: #FF5300;
+}
+
+.item input:focus + h4 > label::after {
+    outline: #FF5300 dashed;
+}
+
+.form-for-check fieldset {
     margin-bottom: 3.5rem;
 }
+
+@supports(display:flex){
+    .flexdiv {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+}
+
+//@supports(clip:rect(0, 0, 0, 0){
+    input[type="checkbox"]{
+        clip: rect(0, 0, 0, 0);
+        position: absolute;
+    }
+//}
 
 // LOGIN
 .login header {
@@ -30,51 +121,7 @@ body {
     padding: 0.3rem;
 }
 
-.submit-persona {
-    background-color: #FF5300;
-    border: none;
-    bottom: 0;
-    color: white;
-    font-size: 1.3em;
-    font-weight: bold;
-    left: 0;
-    padding: 0.7rem;
-    position: fixed;
-    text-transform: lowercase;
-    width: 100%;
-}
-
 // PERSONA
-.persona {
-    position: relative;
-}
-
-.persona h4 {
-    display: inline;
-}
-
-.persona div {
-    background: #DDD;
-    height: 5rem;
-    width: 5rem;
-}
-
-.persona input::after {
-    bottom: 0;
-    content: '';
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-}
-
-.persona input:checked + h4 > label {
-    background: #f53a24;
-}
-
-fieldset {
-    border: 0 none;
-}
 
 // FREETIME
 // MOODS

@@ -52,6 +52,7 @@ mongoose.connect(process.env.USERDB);
 
 var index = require('./routes/index');
 var detail = require('./routes/detail');
+var login = require('./routes/login');
 var fbLogin = require('./routes/facebook-login')(passport, io);
 var profile = require('./routes/profile');
 var personal = require('./routes/personal');

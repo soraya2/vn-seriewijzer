@@ -7,60 +7,59 @@ var reviewsSchema = require('../models/reviewsschema.js');
 // Connect to main database
 mongoose.connect(process.env.MAINDB);
 
-router.get('/', function (req, res) {
-  res.render('upload');
+router.get('/', function(req, res) {
+    res.render('upload');
 });
 
-router.post('/', function (req, res) {
-  console.log('New form recieved');
-  processUploadForm(req, res)
-  res.redirect('/upload_complete');
+router.post('/', function(req, res) {
+    console.log('New form recieved');
+    processUploadForm(req, res);
+    res.redirect('/upload_complete');
 });
 
 function processUploadForm(req, res) {
-      var fields = req.body;
-      console.log(fields);
+    var fields = req.body;
+    console.log(fields);
     // Put incoming form field data into a new model in the database
-      reviewsSchema.create({
+    reviewsSchema.create({
         user: {
-          name:           fields.name,
-          email:          fields.email,
-          postDate:       fields.post_date,
+            name: fields.name,
+            email: fields.email,
+            postDate: fields.post_date,
         },
         review: {
-          seriesName:     fields.seriesName,
-          region:         fields.regionCode,
-          startYear:      fields.startingYear,
-          endYear:        fields.endYear,
-          genre:          fields.genre,
-          platform:       fields.platform,
-          period:         fields.period,
-          persona:        fields.persona,
-          hobby:          fields.hobby,
-          mood:           fields.mood,
-          ageRestriction: fields.ageRestriction,
-          seasons:        fields.seasons,
-          episodes:       fields.episodes,
-          duration:       fields.duration,
-          producers:      fields.producers,
-          awards:         fields.awards,
-          nominations:    fields.nominations,
-          imdbRating:     fields.imdbRating,
-          trailerURL:     fields.trailerURL,
-          imgURL:         fields.imgURL,
-          plot:           fields.plot,
-          reviewBody:     fields.reviewBody,
-          rating:         fields.rating
+            seriesName: fields.seriesName,
+            region: fields.regionCode,
+            startYear: fields.startingYear,
+            endYear: fields.endYear,
+            genre: fields.genre,
+            platform: fields.platform,
+            period: fields.period,
+            persona: fields.persona,
+            hobby: fields.hobby,
+            mood: fields.mood,
+            ageRestriction: fields.ageRestriction,
+            seasons: fields.seasons,
+            episodes: fields.episodes,
+            duration: fields.duration,
+            producers: fields.producers,
+            awards: fields.awards,
+            nominations: fields.nominations,
+            imdbRating: fields.imdbRating,
+            trailerURL: fields.trailerURL,
+            imgURL: fields.imgURL,
+            plot: fields.plot,
+            reviewBody: fields.reviewBody,
+            rating: fields.rating
         }
-      }, function (err) { // Error handling
-           if (err) {
+    }, function(err) { // Error handling
+        if (err) {
             console.log('[Server] ERROR: Cannot add form information to database');
             console.log(err);
-           } else {
+        } else {
             console.log('[Server] New review saved to database');
-           }
-         }
-    );
+        }
+    });
 };
 
 

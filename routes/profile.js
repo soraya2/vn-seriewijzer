@@ -10,49 +10,116 @@ var request = require('request');
 
 var series2 = require('../data/series.json');
 
-var serieData = [{ 'name': 'a', 'color': 'black', 'period': 'middeleeuwen' }, { 'name': 'b', 'color': 'blue', 'period': 'victoriaans' }, { 'name': 'c', 'color': 'black', 'period': 'romeins' }];
+// var serieData = [{ 'name': 'a', 'color': 'black', 'period': 'middeleeuwen' }, { 'name': 'b', 'color': 'blue', 'period': 'victoriaans' }, { 'name': 'c', 'color': 'black', 'period': 'romeins' }];
 
 var filters = {};
+var i;
+var hobbyAray = [];
+var peronalityAray = [];
+var moodsArray = [];
+
 
 // begin soraya
-router.get('/', function(req, res) {
-
-    getData(receiveData, '');
-
-    function receiveData(data) {
-        if (req.user !== undefined) {
-
-            res.locals.user = req.user.user.facebook.displayName;
-
-            res.render('profile', { title: 'Home', data: data, name: req.user.user.facebook.displayName });
-        } else {
-            res.render('login2');
-        }
-    }
-});
-
 router.post('/', function(req, res) {
 
-    if (req.body.selected_period) {
-        filterColor([req.body.selected_period]);
+    // if (req.body.tagspersoonlijkheid) {
+
+    //     filterPersonality(req.body.tagspersoonlijkheid.sort());
+    // }
+
+    // console.log(Array.isArray(req.body.tagshobby) === false);
+
+    // if (Array.isArray(req.body.tagshobby) === false) {
+    //     hobbyAray.push(req.body.tagshobby);
+
+    //     return filterHobby(hobbyAray);
+
+    // }
+    // if (req.body.tagshobby && Array.isArray(req.body.tagshobby)) {
+    //     hobbyAray.push(req.body.tagshobby);
+
+    //     filterHobby(req.body.tagshobby);
+    //     // for (i = 0; i < req.body.tagshobby.length; i++) {
+    //     //     hobbyAray.push(req.body.tagshobby[i]);
+    //     // }
+
+
+    // }
+
+
+    var filterdData = [];
+
+    // Get random friends from user account
+    var arr = [];
+    var randomnumber = Math.floor(Math.random() * series2.length);
+    while (arr.length < randomnumber) {
+        var randomnumber2 = Math.floor(Math.random() * series2.length);
+        if (arr.indexOf(randomnumber2) > -1) {
+            continue;
+        }
+        arr[arr.length] = randomnumber2;
+    }
+    for (var i = 0; i < arr.length; i++) {
+        filterdData.push(series2[arr[i]]);
     }
 
-    if (req.body.country) {
-        filterLanguage([req.body.country]);
-    }
+    // if (req.body.tagsikwil) {
 
-    var filterdData = series2.filter(function(series) {
-        return Object.keys(filters).every(function(keys) {
+    //     filterMoods([req.body.tagsikwil]);
+    // }
 
-            return filters[keys].some(function(filterOptions) {
 
-                return filterOptions == series[keys];
-            });
-        });
-    });
+
+    // var elements = Array.from(req.body.country);
+
+
+    // console.log(Array.isArray(req.body.country));
+
+
+
+    // var filterdData = series2.filter(function(series) {
+
+    //     return Object.keys(filters).every(function(keys) {
+
+    //         return filters[keys].some(function(filterOptions) {
+    //             // console.log(filterOptions == series[keys]);
+
+
+    //             for (i; i < series[keys].split(",").length; i++) {
+    //                 // console.log(series[keys].split(", ")[i]);
+
+    //                 series[keys].split(",")[i];
+    //                 console.log(filters[keys]);
+
+
+    //                 return filterOptions == series[keys].split(",")[i];
+    //             }
+
+    //             // return filterOptions == series[keys];
+    //         });
+    //     });
+    // });
+
+
 
     // console.log(req.user, 'username');
-    res.render('profile', { title: 'Home', data: filterdData, name: 'sor' });
+
+    // res.send('hello');
+    res.render('profile', { title: 'Home', data: filterdData, name: req.user.user.facebook.displayName });
+
+    // router.get('/', function(req, res) {
+
+    //     getData(receiveData, '');
+
+    //     function receiveData(data) {
+    //         if (req.user !== undefined) {
+
+    //             res.render('profile', { title: 'Home', data: data, name: req.user.user.facebook.displayName });
+    //         } else {
+    //             res.render('login2');
+    //         }
+    //     }
+    // });
 
 });
 
@@ -84,14 +151,24 @@ function saveData(data, recieve) {
 }
 
 // add object array per filter
-function filterColor(filterOption) {
-    filters.tijdperk = filterOption;
-    return filters.tijdperk;
+function filterPersonality(filterOption) {
+    filters.tagspersoonlijkheid = filterOption;
+
+
+    console.log(filters.tagspersoonlijkheid, "[filterpersoonlijkheid]");
+    return filters.tagspersoonlijkheid;
 }
 
-function filterLanguage(filterOption) {
-    filters.land = filterOption;
-    return filters.land;
+function filterHobby(filterOption) {
+    filters.tagshobby = filterOption;
+    console.log(filters.tagshobby, "[tagshobby]");
+    return filters.tagshobby;
+}
+
+function filterMoods(filterOption) {
+    filters.tagsikwil = filterOption;
+    console.log(filters.tagsikwil, "[tagsikwil]");
+    return filters.tagsikwil;
 }
 
 module.exports = router;

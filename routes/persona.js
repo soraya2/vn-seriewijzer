@@ -9,9 +9,11 @@ router.get('/', function(req, res) {
 
 router.post('/', function(req, res) {
     // store form data in route
-    res.locals.step1 = req.body;
-    res.send('hello');
-
+    res.locals.persona = req.body;
+    res.locals.user = req.user.user.facebook.displayName;
+    // res.red
+    res.redirect(307, '/profile');
+    // res.send(req.body);
 });
 
 

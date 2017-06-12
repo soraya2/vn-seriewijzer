@@ -29,9 +29,11 @@ var reviewsSchema = mongoose.Schema({
     imdbRating:     String,
     trailerURL:     String,
     imgURL:         String,
-    plot:           String,
+    reviewPlot:     String,
+    reviewTitle:    String,
+    reviewIntro:    String,
     reviewBody:     String,
-    rating:         String
+    reviewRating:   String
   }
 
 });

@@ -1,0 +1,28 @@
+#serie-steps {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+    #serie-steps h1 {
+        flex-basis: 100%;
+        width: 100%;
+    }
+    #serie-steps section {
+        flex-basis: 50%;
+        width: 50%;
+        padding: 30px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+    }
+        #serie-steps section img {
+            width: 100%;
+            max-height: 80%;
+        }
+        #serie-steps section h2 {
+            margin: 0;
+            text-align: center;
+            font-size: 16px;
+            line-height: 2em;
+            white-space: nowrap;
+        }

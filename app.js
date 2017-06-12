@@ -23,6 +23,11 @@ var login = require('./routes/login');
 var persona = require('./routes/persona');
 var freetime = require('./routes/freetime');
 var mood = require('./routes/mood');
+var seriesGame = require('./routes/series-game');
+var detail = require('./routes/detail');
+var fbLogin = require('./routes/facebook-login')(passport, io);
+var profile = require('./routes/profile');
+var personal = require('./routes/personal');
 
 require('./config/passport')(passport);
 
@@ -59,14 +64,6 @@ app.use(passport.session());
 
 mongoose.connect(process.env.USERDB);
 
-
-
-var index = require('./routes/index');
-var detail = require('./routes/detail');
-var fbLogin = require('./routes/facebook-login')(passport, io);
-var profile = require('./routes/profile');
-var personal = require('./routes/personal');
-
 // Console.log(mongoose.connection.readyState); //test database connection
 
 app.use(lessMiddleware(path.join(__dirname, 'public')));
@@ -83,6 +80,7 @@ app.use('/auth/facebook', fbLogin);
 app.use('/detail', detail);
 app.use('/profile', profile);
 app.use('/personal', personal);
+app.use('/seriespel', seriesGame);
 
 // Catch 404 and forward to error handler
 app.use(function(req, res, next) {

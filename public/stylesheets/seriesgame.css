@@ -23,7 +23,7 @@
 }
 
 .series-game-intro header {
-  background-color: #F76655;
+  background-color: #0099FF;
 }
 
 .series-game-intro .block-container {
@@ -53,17 +53,17 @@
 }
 
 .start-btn {
-  transition: 0.3s;
-  display: block;
-  text-align: center;
-  text-decoration: none;
-  cursor: pointer;
-  width: 7em;
-  border-radius: 1em;
-  color: black;
-  padding: 0.5em 1em;
-  background-color: #7DBC37;
-  margin: 0 auto 2em auto;
+    transition: 0.3s;
+    font-size: 150%;
+    text-transform: uppercase;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 1em;
+    color: black;
+    padding: 1em 2em;
+    background-color: #7DBC37;
 }
 
 .start-btn:hover {
@@ -83,6 +83,7 @@
     #intro-3 {
     	  position: absolute;
           display: flex;
+          margin-top: 2em;
           flex-direction: column;
           justify-content: space-around;
     	  animation-duration: 10s;

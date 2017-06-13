@@ -8,7 +8,14 @@
         <title>Het Serie Spel</title>
     </head>
     <body id="serie-steps">
-        <h1>Stap <%- stepNum %></h1>
+        <header data-steps="<%- stepNum %>">
+            <ul>
+                <li><span>1</span></li>
+                <li><span>2</span></li>
+                <li><span>3</span></li>
+                <li><span>4</span></li>
+            </ul>
+        </header>
         <section>
             <img src="<%- stepData[0].img_url%>" alt="<%- stepData[0].title%>">
             <h2><%- stepData[0].title%></h2>

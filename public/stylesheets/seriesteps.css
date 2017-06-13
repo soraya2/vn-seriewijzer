@@ -3,6 +3,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     background-color: #000;
+    font-family: sans-serif;
 }
     #serie-steps h1 {
         flex-basis: 100%;
@@ -17,7 +18,44 @@
         box-sizing: border-box;
         display: flex;
         flex-direction: column;
+        position: relative;
+        transition: .4s;
     }
+        #serie-steps section.active {
+            padding: 0px;
+            position: relative;
+        }
+        #serie-steps section:before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #f01c35;
+            text-align: center;
+            line-height: 50px;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: white;
+            transition: .4s;
+        }
+            #serie-steps section.active:before {
+                top: -5px;
+                left: -5px;
+            }
+            #serie-steps section#one:before {
+                content: '1';
+            }
+            #serie-steps section#two:before {
+                content: '2';
+            }
+            #serie-steps section#three:before {
+                content: '3';
+            }
+            #serie-steps section#four:before {
+                content: '4';
+            }
         #serie-steps section img {
             width: 100%;
             max-height: 80%;
@@ -27,7 +65,7 @@
             padding: 1em 0;
             box-sizing: border-box;
             text-align: center;
-            font-size: 16px;
+            font-size: 14px;
             height: 3em;
             background-color: #fff;
         }

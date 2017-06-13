@@ -19,6 +19,7 @@ router.get('/1', function (req, res) {
         }
     ]
     res.locals.stepNum = 1;
+    res.locals.stepWidth = 25;
     res.locals.stepData = step1;
     res.render('series-game/steps');
 })
@@ -35,6 +36,7 @@ router.get('/2', function (req, res) {
         }
     ]
     res.locals.stepNum = 2;
+    res.locals.stepWidth = 50;
     res.locals.stepData = step2;
     res.render('series-game/steps');
 })

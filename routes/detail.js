@@ -10,6 +10,8 @@ var series = require('../models/series');
 
 var reviewsSchema = require('../models/reviewsschema');
 
+var mongoose = require('mongoose');
+
 var router = express.Router();
 
 /* GET users listing. */
@@ -23,12 +25,20 @@ router.get('/:id', function(req, res) {
 
         res.render('detail', { data: doc, title: 'Home' });
 
-
     });
 
 });
 
-
-
+// exports.index = function(req, res){
+//     var io = req.app.get('io');
+//
+//     io.on('connection', function(socket){
+//
+//         socket.broadcast.on('comment', function(comm){
+//             io.emit('comment', comm);
+//         });
+//
+//     });
+// }
 
 module.exports = router;

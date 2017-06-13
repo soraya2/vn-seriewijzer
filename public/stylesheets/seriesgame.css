@@ -12,6 +12,12 @@
   padding: 1em;
 }
 
+.series-game-intro section p {
+    width: 15em;
+    display: block;
+    margin: 0 auto;
+}
+
 .series-game-intro header h1 {
   margin: 0;
 }
@@ -30,14 +36,14 @@
 
 .series-game-intro .block {
   margin: 1em;
-  height: 6em;
-  width: 4.5em;
+  height: 10em;
+  width: 7em;
   background: grey;
 }
 
 .order-number {
   position: absolute;
-  margin-top: 0.6em;
+  margin-top: 1em;
   font-size: 450%;
 }
 
@@ -63,4 +69,83 @@
 .start-btn:hover {
   transition: 0.3s;
   background-color: #0090E3;
+}
+
+@supports(animation: fadeIn){
+
+    .series-game-intro main {
+        display: flex;
+        justify-content: center;
+    }
+
+    #intro-1,
+    #intro-2,
+    #intro-3 {
+    	  position: absolute;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+    	  animation-duration: 10s;
+    	  animation-timing-function: ease-in-out;
+          animation-iteration-count: infinite;
+    }
+
+    #intro-3 {
+        margin-top: 10em;
+    }
+
+    #next {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+
+    #intro-1{
+    	animation-name: anim-1;
+    }
+
+    #intro-2{
+    	animation-name: anim-2;
+    }
+
+    #intro-3{
+    	animation-name: anim-3;
+    }
+
+    @keyframes anim-1 {
+    	0%, 8.3% {
+            opacity: 0;
+        }
+        8.3%,25% {
+            opacity: 1;
+        }
+        33.33%, 100% {
+            opacity: 0;
+        }
+    }
+
+    @keyframes anim-2 {
+    	0%, 33.33% {
+            opacity: 0;
+        }
+        41.63%, 58.29% {
+            opacity: 1;
+        }
+        66.66%, 100% {
+            opacity: 0;
+        }
+    }
+
+    @keyframes anim-3 {
+    	0%, 66.66% {
+            opacity: 0;
+        }
+        74.96%, 91.62% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+        }
+    }
 }

@@ -110,14 +110,6 @@ button, input[type="submit"] {
     margin-bottom: 3.5rem;
 }
 
-.flexdiv .item:nth-of-type(3n + 1) {
-    margin-right: 0.5rem;
-}
-
-.flexdiv .item:nth-of-type(3n + 2) {
-    margin-right: 0.5rem;
-}
-
 @supports(display:flex){
     .flexdiv {
         display: flex;
@@ -208,6 +200,10 @@ button, input[type="submit"] {
 }
 
 .flexdiv .persona:nth-of-type(11) div {
+    background: url('/img/small-icons_tomboy.png');
+}
+
+.flexdiv .persona:nth-of-type(12) div {
     background: url('/img/small-icons_wie.png');
 }
 
@@ -300,6 +296,10 @@ button, input[type="submit"] {
     }
 
     .flexdiv .persona:nth-of-type(11) div {
+        background: url('/img/icons-tomboy.png');
+    }
+
+    .flexdiv .persona:nth-of-type(12) div {
         background: url('/img/icons-wie.png');
     }
 
@@ -356,6 +356,18 @@ button, input[type="submit"] {
 @media screen and (min-width: 38rem){
     .item {
         width: 20vw;
+    }
+
+    .submit-persona {
+        box-shadow: none;
+        float: right;
+        padding: 0.5rem 4rem;
+        position: relative;
+        width: auto;
+    }
+
+    .form-for-check fieldset {
+        margin-bottom: 2rem;
     }
 
     .item div {

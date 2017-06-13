@@ -1,7 +1,5 @@
 var express = require('express');
 
-var router = express.Router();
-
 var request = require('request');
 
 var env = require('dotenv').config();
@@ -12,8 +10,7 @@ var series = require('../models/series');
 
 var reviewsSchema = require('../models/reviewsschema');
 
-var testData = require('../data/data.json');
-
+var router = express.Router();
 
 /* GET users listing. */
 router.get('/:id', function(req, res) {
@@ -30,7 +27,6 @@ router.get('/:id', function(req, res) {
     });
 
 });
-
 
 
 

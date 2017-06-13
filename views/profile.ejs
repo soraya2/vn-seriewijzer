@@ -14,11 +14,14 @@
         <% for(var i=0; i<data.length; i++) {%>
             <div class="movie">
                 <div>
-                    <img src="<%=data[i].urlbeeld%>" alt="">
+                    <img src="<%=data[i].review.imgURL%>" alt="">
                 </div>
-                <a href="/detail">
-                  <h3><%= data[i].titel %></h3>
+                <div>
+                <p><%=data[i].review.reviewRating%></p>
+                <a href="/detail/<%= data[i].review.seriesName %>">
+                  <h3><%= data[i].review.seriesName %></h3>
                 </a>
+                <div>
             </div>
         <% } %>
     </main>

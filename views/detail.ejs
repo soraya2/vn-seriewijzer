@@ -9,13 +9,30 @@
   <%- include partials/header.ejs %>
    <div class="movie-details">
        <div>
-           <img src="http://image.tmdb.org/t/p/w185<%=data.poster_path%>" alt="">
+           <img src="<%=data.review.imgURL%>" alt="">
        </div>
 
-       <h3><%= data.original_name %></h3>
-       <p><%= data.overview %></p>
+       <h2><%=data.review.seriesName%></h2>
+       <article>
+            <h3><%= data.review.titleName %></h3>
+            <!-- <p><%= data.review.seriesName %></p> -->
+            <p><%= data.review.imdbRating%></p>
+            <p><%= data.review.plot%></p>
+       </article>
 
    </div>
+   <section>
+      <ul></ul>
+     <form action="/details" enctype="multipart/form-data" method="post">
+
+  <label for="">
+  <span>Reactie plaatsen</span>
+
+      <input type="text" placeholder="Reageer">
+  </label>
+
+     </form>
+   </section>
 </body>
 
 </html>

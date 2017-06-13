@@ -32,12 +32,6 @@ img {
     display: none!important;
 }
 
-.message-area {
-    margin: 0 0.5em;
-    display: flex;
-    flex-direction: column;
-}
-
 .active {
     background-color: #F76655;
     color: #ffffff!important;
@@ -70,7 +64,6 @@ img {
     @media screen and (min-width: 30em) {
         max-width: 30%;
         // width: 16em;
-
     }
     @media screen and (min-width: 60em) {
         max-width: 13%;
@@ -106,13 +99,10 @@ img {
         margin-top: 1em;
     }
     li {
-        padding: 1.5em;
         text-align: center;
         width: 100%;
-        padding: 1em 1.5em;
         @media screen and (min-width: 40em) {
             width: auto;
-            padding: 0.5em 1em;
             margin: 1em;
         }
     }
@@ -120,6 +110,10 @@ img {
         color: inherit;
         padding: 0.5em 2em;
         font-weight: 600;
+        white-space: nowrap;
+    }
+    .active {
+        background-color: #F76655;
     }
 }
 

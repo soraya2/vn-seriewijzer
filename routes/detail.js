@@ -10,48 +10,29 @@ var user = require('../models/user');
 
 var series = require('../models/series');
 
+var reviewsSchema = require('../models/reviewsschema');
+
+var testData = require('../data/data.json');
+
+
 /* GET users listing. */
 router.get('/:id', function(req, res) {
-    getData(receiveData, req.params.id);
+    // getData(receiveData, req.params.id);
+
+    reviewsSchema.findOne({ "review.seriesName": req.params.id }, function(error, doc) {
+        console.log(doc.review);
+
+        // console.log(testData.review.reviewPlot);
+
+        res.render('detail', { data: doc, title: 'Home' });
 
 
+    });
 
-    function receiveData(data) {
-        if (data) {
-            res.render('detail', { data: data, title: 'Home' });
-        }
-    }
 });
 
-function getData(recieve, value) {
 
-    request.get('https://api.themoviedb.org/3/tv/' + value + '?api_key=' + env.parsed.MOVIEDBKEY + '&format=json' + value, function(error, response, body) {
-        if (error) {
-            console.log('error:', error); // Print the error if one occurred
-        }
-        console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
 
-        var data = JSON.parse(body);
-
-        recieve(data);
-    });
-}
-
-function saveData(data, recieve) {
-    // var query = 'data';
-    // // If the data field exist update it and only add new values to the array so there are no duplicates
-    // series.findOneAndUpdate(query, {
-    //     $addToSet: {
-    //         'series.data': { $each: data.results }
-    //     }
-    // }, { upsert: true }, function(err, document) {
-    //     if (err) {
-    //         return console.log(err);
-    //     }
-
-    //     recieve(document.series.data);
-    // });
-}
 
 
 module.exports = router;

@@ -15,20 +15,23 @@ var passport = require('passport');
 var app = express();
 var server = http.createServer(app);
 var io = require('socket.io').listen(server); // Use socket io in seperate files
+var port = process.env.PORT || 3006;
 
+//routes
 var index = require('./routes/index');
 var upload = require('./routes/upload');
 var uploadComplete = require('./routes/upload_complete');
 var login = require('./routes/login');
 var persona = require('./routes/persona');
-var freetime = require('./routes/freetime');
-var mood = require('./routes/mood');
+var detail = require('./routes/detail');
+var fbLogin = require('./routes/facebook-login')(passport, io);
+var profile = require('./routes/profile');
 
 require('./config/passport')(passport);
 
 // mongoose.Promise = global.Promise;
 
-var port = process.env.PORT || 3006;
+
 
 
 // View engine setup
@@ -53,6 +56,14 @@ app.use(sessions({
     cookie: { secure: true }
 }));
 
+app.use('/', index);
+app.use('/upload', upload);
+app.use('/upload_complete', uploadComplete);
+app.use('/login', login);
+app.use('/persona', persona);
+app.use('/auth/facebook', fbLogin);
+app.use('/detail', detail);
+app.use('/profile', profile);
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -61,28 +72,12 @@ mongoose.connect(process.env.USERDB);
 
 
 
-var index = require('./routes/index');
-var detail = require('./routes/detail');
-var fbLogin = require('./routes/facebook-login')(passport, io);
-var profile = require('./routes/profile');
-var personal = require('./routes/personal');
 
 // Console.log(mongoose.connection.readyState); //test database connection
 
 app.use(lessMiddleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', index);
-app.use('/upload', upload);
-app.use('/upload_complete', uploadComplete);
-app.use('/login', login);
-app.use('/persona', persona);
-app.use('/freetime', freetime);
-app.use('/mood', mood);
-app.use('/auth/facebook', fbLogin);
-app.use('/detail', detail);
-app.use('/profile', profile);
-app.use('/personal', personal);
 
 // Catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -23,13 +23,12 @@ var upload = require('./routes/upload');
 var uploadComplete = require('./routes/upload_complete');
 var login = require('./routes/login');
 var persona = require('./routes/persona');
-var detail = require('./routes/detail');
+var detail = require('./routes/detail')(io);
 var fbLogin = require('./routes/facebook-login')(passport, io);
 var profile = require('./routes/profile');
 
 require('./config/passport')(passport);
 
-// mongoose.Promise = global.Promise;
 
 
 
@@ -54,8 +53,10 @@ app.use(sessions({
     proxy: true,
     resave: true,
     saveUninitialized: true,
-    cookie: { secure: true }
+    cookie: { secure: false, expires: false }
 }));
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use('/', index);
 app.use('/upload', upload);
@@ -65,8 +66,7 @@ app.use('/persona', persona);
 app.use('/auth/facebook', fbLogin);
 app.use('/detail', detail);
 app.use('/profile', profile);
-app.use(passport.initialize());
-app.use(passport.session());
+
 
 
 mongoose.connect(process.env.USERDB);
@@ -98,9 +98,9 @@ app.use(function(err, req, res) {
     res.render('error');
 });
 
-io.on('connection', function(socket){
+io.on('connection', function(socket) {
 
-    socket.broadcast.on('comment', function(comm){
+    socket.broadcast.on('comment', function(comm) {
         io.emit('comment', comm);
     });
 

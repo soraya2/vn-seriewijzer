@@ -14,14 +14,14 @@ var mongoose = require('mongoose');
 
 var router = express.Router();
 
-/* GET users listing. */
+var seriesId;
+
 router.get('/:id', function(req, res) {
-    // getData(receiveData, req.params.id);
 
+    //get serie based on serie name
     reviewsSchema.findOne({ "review.seriesName": req.params.id }, function(error, doc) {
-        console.log(doc.review);
 
-        // console.log(testData.review.reviewPlot);
+        seriesId = req.params.id;
 
         res.render('detail', { data: doc, title: 'Home' });
 
@@ -29,16 +29,26 @@ router.get('/:id', function(req, res) {
 
 });
 
-// exports.index = function(req, res){
-//     var io = req.app.get('io');
-//
-//     io.on('connection', function(socket){
-//
-//         socket.broadcast.on('comment', function(comm){
-//             io.emit('comment', comm);
-//         });
-//
-//     });
-// }
+module.exports = function(io) {
 
-module.exports = router;
+    io.on('connection', function(sockets) {
+
+        sockets.broadcast.on('comment', function(comm) {
+
+            //add comments to  the database based on series name
+            reviewsSchema.findOneAndUpdate({ "review.seriesName": seriesId }, {
+                "$addToSet": {
+                    "comments": comm
+                }
+            }, { upsert: true }, function(err, document) {
+                if (err) {
+                    return console.log(err);
+                }
+            });
+            // io.emit('comment', comm);
+        });
+
+    });
+
+    return router;
+};

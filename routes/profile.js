@@ -20,10 +20,14 @@ router.get('/', function(req, res) {
         if (err) {
             return err;
         }
-
         // req.user.user.facebook.displayName
 
-        req.session.username = 'soraya';
+        console.log(req.session);
+
+
+        console.log(req.query);
+
+
 
         res.render('profile', { title: 'Home', data: docs, name: '' });
 

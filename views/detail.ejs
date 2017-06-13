@@ -22,7 +22,15 @@
 
    </div>
    <section>
-    <ul class="comment-list"></ul>
+    <ul class="comment-list">
+      <% for(var i=0; i<data.comments.length; i++) {%>
+            <li>
+              <h4><%= data.comments[i].username%></h4>
+              <p><%= data.comments[i].text%></p>
+              <time><%= data.comments[i].time%></time>
+            </li>
+        <% } %>
+    </ul>
      <form action="/details" enctype="multipart/form-data" method="post">
 
         <label for="">

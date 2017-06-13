@@ -1,4 +1,4 @@
-(function(){
+(function() {
     'use strict'
 
     var socket = io();
@@ -7,35 +7,35 @@
     var textField = document.querySelector('[type="text"]');
     var showTitle = document.querySelector('.movie-details h2').innerHTML;
 
-    document.querySelector('[type="submit"]').addEventListener('click', function(e){
+    document.querySelector('[type="submit"]').addEventListener('click', function(e) {
         e.preventDefault();
 
         comment.getValue();
     });
 
     var comment = {
-        getValue: function(){
+        getValue: function() {
             var text = textField.value;
 
             comment.emit(text);
 
             textField.value = '';
         },
-        emit: function(comm){
+        emit: function(comm) {
             socket.emit('comment', {
                 text: comm,
                 username: 'testuser',
                 time: new Date().toLocaleString()
             });
         },
-        render: function(newComment){
+        render: function(newComment) {
             var listItem = document.createElement('li'),
                 textEl = document.createElement('p'),
                 userEl = document.createElement('h4'),
                 timeEl = document.createElement('time');
 
             var textNode = document.createTextNode(newComment.text),
-                userNode = document.createTextNode(newComment.user),
+                userNode = document.createTextNode(newComment.username),
                 timeNode = document.createTextNode(newComment.time);
 
             textEl.appendChild(textNode);
@@ -48,9 +48,9 @@
 
             commentList.appendChild(listItem);
         }
-    }
+    };
 
-    socket.on('comment', function(comm){
+    socket.on('comment', function(comm) {
         comment.render(comm);
-    })
+    });
 })();

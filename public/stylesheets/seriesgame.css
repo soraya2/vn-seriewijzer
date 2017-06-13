@@ -1,28 +1,66 @@
-#serie-steps {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+.series-game-intro {
+  padding: 0;
+  margin: 0;
+  background: black;
+  color: white;
+  font-family: sans-serif;
 }
-    #serie-steps h1 {
-        flex-basis: 100%;
-        width: 100%;
-    }
-    #serie-steps section {
-        flex-basis: 50%;
-        width: 50%;
-        padding: 30px;
-        box-sizing: border-box;
-        display: flex;
-        flex-direction: column;
-    }
-        #serie-steps section img {
-            width: 100%;
-            max-height: 80%;
-        }
-        #serie-steps section h2 {
-            margin: 0;
-            text-align: center;
-            font-size: 16px;
-            line-height: 2em;
-            white-space: nowrap;
-        }
+
+.series-game-intro header,
+.series-game-intro section {
+  text-align: center;
+  padding: 1em;
+}
+
+.series-game-intro header h1 {
+  margin: 0;
+}
+
+.series-game-intro header {
+  background-color: #F76655;
+}
+
+.series-game-intro .block-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 auto;
+  width: 18em;
+}
+
+.series-game-intro .block {
+  margin: 1em;
+  height: 6em;
+  width: 4.5em;
+  background: grey;
+}
+
+.order-number {
+  position: absolute;
+  margin-top: 0.6em;
+  font-size: 450%;
+}
+
+.detail-img {
+  height: 5em;
+  margin: 2em 0;
+}
+
+.start-btn {
+  transition: 0.3s;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  width: 7em;
+  border-radius: 1em;
+  color: black;
+  padding: 0.5em 1em;
+  background-color: #7DBC37;
+  margin: 0 auto 2em auto;
+}
+
+.start-btn:hover {
+  transition: 0.3s;
+  background-color: #0090E3;
+}

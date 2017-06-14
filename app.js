@@ -9,6 +9,8 @@ var lessMiddleware = require('less-middleware');
 var env = require('dotenv').config();
 var sessions = require('express-session');
 var mongoose = require('mongoose');
+var passport = require('passport');
+var flash = require('connect-flash');
 
 var passport = require('passport');
 
@@ -30,9 +32,6 @@ var profile = require('./routes/profile');
 require('./config/passport')(passport);
 
 
-
-
-
 // View engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -41,10 +40,10 @@ app.set('io', io);
 // Uncomment after placing your favicon in /public
 // app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
-app.use(bodyParser.json());
+// app.use(bodyParser.json());
+
 
 app.use(bodyParser.urlencoded({ extended: true }));
-
 
 app.use(cookieParser());
 app.use(sessions({
@@ -54,9 +53,11 @@ app.use(sessions({
     resave: true,
     saveUninitialized: true,
     cookie: { secure: false, expires: false }
+
 }));
 app.use(passport.initialize());
 app.use(passport.session());
+mongoose.connect(process.env.USERDB);
 
 app.use('/', index);
 app.use('/upload', upload);
@@ -69,9 +70,6 @@ app.use('/profile', profile);
 
 
 
-mongoose.connect(process.env.USERDB);
-
-
 
 
 // Console.log(mongoose.connection.readyState); //test database connection
@@ -79,6 +77,10 @@ mongoose.connect(process.env.USERDB);
 app.use(lessMiddleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+app.use('/', index);
+app.use('/auth/facebook', fbLogin);
+app.use('/detail', detail);
 
 // Catch 404 and forward to error handler
 app.use(function(req, res, next) {

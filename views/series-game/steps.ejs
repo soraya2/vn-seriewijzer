@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link rel="stylesheet" href="../stylesheets/seriesteps.css">
+        <link rel="stylesheet" href="/stylesheets/seriesteps.css">
         <title>Het Serie Spel</title>
     </head>
     <body id="serie-steps">
@@ -18,20 +18,23 @@
         </header>
         <section>
             <img src="<%- stepData[0].img_url%>" alt="<%- stepData[0].title%>">
-            <h2><%- stepData[0].title%></h2>
+            <h2><span><%- stepData[0].title%></span></h2>
         </section>
         <section>
             <img src="<%- stepData[1].img_url%>" alt="<%- stepData[1].title%>">
-            <h2><%- stepData[1].title%></h2>
+            <h2><span><%- stepData[1].title%></span></h2>
         </section>
         <section>
             <img src="<%- stepData[2].img_url%>" alt="<%- stepData[2].title%>">
-            <h2><%- stepData[2].title%></h2>
+            <h2><span><%- stepData[2].title%></span></h2>
         </section>
         <section>
             <img src="<%- stepData[3].img_url%>" alt="<%- stepData[3].title%>">
-            <h2><%- stepData[3].title%></h2>
+            <h2><span><%- stepData[3].title%></span></h2>
         </section>
+        <footer>
+            <button id="next-btn"><a href="<%- stepNext%>">Volgende</a></button>
+        </footer>
         <script src="/js/seriesgame.js"></script>
     </body>
 </html>

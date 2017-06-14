@@ -10,36 +10,24 @@
         width: 100%;
         height: 2px;
         margin: 30px 0;
-        background-color: silver;
+        background-color: #4a4a4a;
         position: relative;
     }
         #serie-steps header[data-steps="1"]{
-            background-image: linear-gradient(left, #4d8de3, #4d8de3 25%, transparent 25%, transparent 100%);
-            background-image: -webkit-linear-gradient(left, #4d8de3, #4d8de3 25%, transparent 25%, transparent 100%)
+            background-image: linear-gradient(left, #4d8de3, #4d8de3 15%, transparent 15%, transparent 100%);
+            background-image: -webkit-linear-gradient(left, #4d8de3, #4d8de3 15%, transparent 15%, transparent 100%)
         }
         #serie-steps header[data-steps="2"]{
-            background-image: linear-gradient(left, #4d8de3, #4d8de3 50%, transparent 50%, transparent 100%);
-            background-image: -webkit-linear-gradient(left, #4d8de3, #4d8de3 50%, transparent 50%, transparent 100%)
+            background-image: linear-gradient(left, #4d8de3, #4d8de3 35%, transparent 35%, transparent 100%);
+            background-image: -webkit-linear-gradient(left, #4d8de3, #4d8de3 35%, transparent 35%, transparent 100%)
         }
         #serie-steps header[data-steps="3"]{
-            background-image: linear-gradient(left, #4d8de3, #4d8de3 75%, transparent 75%, transparent 100%);
-            background-image: -webkit-linear-gradient(left, #4d8de3, #4d8de3 75%, transparent 75%, transparent 100%)
+            background-image: linear-gradient(left, #4d8de3, #4d8de3 60%, transparent 60%, transparent 100%);
+            background-image: -webkit-linear-gradient(left, #4d8de3, #4d8de3 60%, transparent 60%, transparent 100%)
         }
         #serie-steps header[data-steps="4"]{
             background-color: #4d8de3;
         }
-            #serie-steps header[data-steps="1"] ul li:nth-of-type(1) span,
-            #serie-steps header[data-steps="2"] ul li:nth-of-type(1) span,
-            #serie-steps header[data-steps="2"] ul li:nth-of-type(2) span,
-            #serie-steps header[data-steps="3"] ul li:nth-of-type(1) span,
-            #serie-steps header[data-steps="3"] ul li:nth-of-type(2) span,
-            #serie-steps header[data-steps="3"] ul li:nth-of-type(3) span,
-            #serie-steps header[data-steps="4"] ul li:nth-of-type(1) span,
-            #serie-steps header[data-steps="4"] ul li:nth-of-type(2) span,
-            #serie-steps header[data-steps="4"] ul li:nth-of-type(3) span,
-            #serie-steps header[data-steps="4"] ul li:nth-of-type(4) span{
-                background-color: #4d8de3;
-            }
         #serie-steps header ul {
             padding: 0;
             width: 100%;
@@ -51,35 +39,53 @@
             margin: 0;
         }
             #serie-steps header ul li {
-                color: white;
                 flex-basis: 25%;
                 width: 25%;
-                text-align: center;
+                text-align: right;
             }
                 #serie-steps header ul li span {
                     width: 40px;
                     height: 40px;
                     display: block;
                     margin: 0 auto;
-                    line-height: 40px;
+                    padding-right: 5px;
+                    box-sizing: border-box;
+                    font-size: 2.8em;
+                    font-weight: bold;
+                    line-height: 50px;
                     border-radius: 50%;
-                    background-color: silver;
+                    background-color: #4a4a4a;
                 }
+                    #serie-steps header[data-steps="1"] ul li:nth-of-type(1) span,
+                    #serie-steps header[data-steps="2"] ul li:nth-of-type(1) span,
+                    #serie-steps header[data-steps="2"] ul li:nth-of-type(2) span,
+                    #serie-steps header[data-steps="3"] ul li:nth-of-type(1) span,
+                    #serie-steps header[data-steps="3"] ul li:nth-of-type(2) span,
+                    #serie-steps header[data-steps="3"] ul li:nth-of-type(3) span,
+                    #serie-steps header[data-steps="4"] ul li:nth-of-type(1) span,
+                    #serie-steps header[data-steps="4"] ul li:nth-of-type(2) span,
+                    #serie-steps header[data-steps="4"] ul li:nth-of-type(3) span,
+                    #serie-steps header[data-steps="4"] ul li:nth-of-type(4) span{
+                        background-color: #4d8de3;
+                    }
     #serie-steps section {
         flex-basis: 50%;
         width: 50%;
-        padding: 20px;
+        padding: 10px 20px;
         box-sizing: border-box;
         display: flex;
         flex-direction: column;
         position: relative;
         transition: .4s;
+        z-index: 1;
     }
         #serie-steps section.active {
-            padding: 0px;
-            position: relative;
+            transform: scale(1.2);
+            z-index: 2;
         }
         #serie-steps section:before {
+            content: '';
+            opacity: 0;
             position: absolute;
             top: 0;
             left: 0;
@@ -99,27 +105,60 @@
                 left: -5px;
             }
             #serie-steps section#one:before {
+                opacity: 1;
                 content: '1';
             }
             #serie-steps section#two:before {
+                opacity: 1;
                 content: '2';
             }
             #serie-steps section#three:before {
+                opacity: 1;
                 content: '3';
             }
             #serie-steps section#four:before {
+                opacity: 1;
                 content: '4';
             }
         #serie-steps section img {
             width: 100%;
-            max-height: 80%;
+            height: 80%;
         }
         #serie-steps section h2 {
             margin: 0;
-            padding: 1em 0;
             box-sizing: border-box;
             text-align: center;
             font-size: 14px;
-            height: 3em;
             background-color: #fff;
+            height: 3em;
+            line-height: 3em;
         }
+            #serie-steps section h2 span {
+                display: inline-block;
+                vertical-align: middle;
+                line-height: normal;
+            }
+        #serie-steps footer {
+            width: 100%;
+            text-align: center;
+            margin-top: 20px;
+        }
+            #serie-steps footer button {
+                padding: .5em 1em;
+                cursor: pointer;
+                border-radius: 1em;
+                background-color: #7DBC37;
+                border: 0;
+                transition: 0.3s;
+            }
+                #serie-steps footer button[disabled]{
+                    background-color: #4f4f4f;
+                }
+                #serie-steps footer button a {
+                    font-size: 150%;
+                    text-transform: uppercase;
+                    text-align: center;
+                    text-decoration: none;
+                    color: black;
+                }
+/*Fix transitie zodat de pagina niet verschuift*/

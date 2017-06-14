@@ -1,6 +1,9 @@
 (function() {
     'use-strict';
     var serieChoices = document.getElementsByTagName('section');
+    var numbersArr = ['one', 'two', 'three', 'four'];
+    var nextBtn = document.getElementById('next-btn');
+    nextBtn.disabled = true;
 
     for (var i = 0; i < serieChoices.length; i++) {
         serieChoices[i].addEventListener('click', function(){
@@ -8,20 +11,25 @@
             if (document.querySelector('.active')){
                 document.querySelector('.active').removeAttribute('class', 'active');
             }
-            // Check what classes already exist to check what rating each element gets, also set that Item to active to give it a different styling.
-            if (document.getElementById('three') !== null){
-                this.setAttribute('id', 'four');
-                this.setAttribute('class', 'active');
-            } else if (document.getElementById('two') !== null){
-                this.setAttribute('id', 'three');
-                this.setAttribute('class', 'active');
-            } else if (document.getElementById('one') !== null){
-                this.setAttribute('id', 'two');
-                this.setAttribute('class', 'active');
+            // Check if it already has an ID, if so, remove it, else, set the attribute
+            if ((this.id).length > 0){
+                this.removeAttribute('id');
+                this.classList.remove('active');
             } else {
-                this.setAttribute('id', 'one');
-                this.setAttribute('class', 'active');
+                for (var i = numbersArr.length; i >= 0; i--) {
+                    if(document.getElementById(numbersArr[i]) === null){
+                        this.setAttribute('id', numbersArr[i]);
+                        this.setAttribute('class', 'active');
+                    }
+                }
+            }
+            if (document.getElementById('four') !== null){
+                nextBtn.disabled = false;
+            } else {
+                nextBtn.disabled = true;
             }
         })
     }
 }());
+
+// Volgende knop pas beschikbaar wanneer je alles hebt ingevuld

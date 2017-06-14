@@ -74,4 +74,8 @@ router.get('/4', function (req, res) {
     res.locals.stepNext = 'overview';
     res.render('series-game/steps');
 })
+
+router.get('/details/:id', function (req, res) {
+    res.render('series-game/detail-view')
+});
 module.exports = router;

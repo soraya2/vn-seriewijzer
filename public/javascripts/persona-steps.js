@@ -1,21 +1,21 @@
 // BEGIN SORAYA
 (function() {
+    "use strict";
+
     if (document.getElementsByTagName('persona-check')) {
-        var personaSteps = document.getElementsByClassName('persona-check');
-        var personaButton = document.getElementById('persona-button');
-        var personaSubmit = document.getElementById('persona-submit');
-        var count = 1;
-        var i;
-        var index;
-        // Hideing submit button untill the last step;
+        var personaSteps = document.getElementsByClassName('persona-check'),
+            personaButton = document.getElementById('persona-button'),
+            personaSubmit = document.getElementById('persona-submit'),
+            count = 1,
+            i,
+            index;
+        // Hiding submit button untill the last step;
         personaButton.removeAttribute('hidden');
         personaSubmit.className += ' hide';
 
         //hide all sections except the first
         for (i = 1; i < personaSteps.length; i++) {
-            personaSteps[i].classList.add('fade-in');
-            personaSteps[i].classList.add('fade-out');
-            personaSteps[i].classList.add('to-back');
+            personaSteps[i].classList.add('fade-in', 'fade-out', 'to-back');
 
             toggleCheckboxes(i, true);
         }
@@ -29,8 +29,8 @@
 
                 case 1:
                     personaSteps[0].classList.add('fade-out');
-                    toggleCheckboxes(0, true);
                     personaSteps[count].classList.remove('fade-out');
+                    toggleCheckboxes(0, true);
                     toggleCheckboxes(count, false);
 
                     break;
@@ -44,19 +44,18 @@
                         toggleCheckboxes(index, true);
                     }
 
-                    toggleCheckboxes(count, false);
-
                     personaSteps[count].classList.remove('fade-out');
+                    toggleCheckboxes(count, false);
             }
 
             return personaSteps[count++];
         }
 
         // BEGIN CHANEL
-        function toggleCheckboxes(el, value){
+        function toggleCheckboxes(el, value) {
             var checkboxes = document.querySelectorAll('.persona-check:nth-of-type(' + (el + 1) + ') input[type="checkbox"]');
 
-            for(var checkbox of checkboxes){
+            for (var checkbox of checkboxes) {
                 checkbox.disabled = value;
             }
         }

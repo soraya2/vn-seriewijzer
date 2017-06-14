@@ -71,7 +71,7 @@ Also the website will contain a diffent way to get to the best suited series for
 
 ## Code Soraya
 
-Css to the rescue
+### Css to the rescue
 
 I made use of the latest features by making use of css grid.
 
@@ -97,7 +97,7 @@ I made use of the latest features by making use of css grid.
 
 ```
 
-Web app from scratch
+### Web app from scratch
 
 I made sure that the functions are doing 1 thing and put the code . In the example function i store comments in the database in the review object.
 ```
@@ -118,7 +118,9 @@ I made sure that the functions are doing 1 thing and put the code . In the examp
 ```
 
 I also kept my code dry by using loops and used an IIFE to make sure that the variables can’t be overwritten by scripts outside this scope.
+
 See more at: https://github.com/soraya2/vn-seriewijzer/blob/feature-persona-check/public/javascripts/persona-steps.js
+
 ```
  (function() {
      "use strict";

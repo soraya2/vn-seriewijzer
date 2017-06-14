@@ -20,9 +20,12 @@
             switch (count) {
 
                 case 1:
+                //personaSteps[0].style.opacity = 0;
+                //setTimeout(function(){
                     personaSteps[0].classList.add('hide');
+                    //personaSteps[count].style.opacity = 1;
                     personaSteps[count].classList.remove('hide');
-
+                //}, 500);
                     break;
 
                 case 2:

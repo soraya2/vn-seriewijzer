@@ -85,8 +85,9 @@ button, input[type="submit"] {
 
 .item p {
     color: #333;
-    font-family: serif;
-    font-size: 1rem;
+    font-family: 'Lato', "Lucida Grande";
+    font-size: 0.9rem;
+    font-weight: 400;
 }
 
 .item label::after {
@@ -98,11 +99,11 @@ button, input[type="submit"] {
     top: 0;
 }
 
-.item input:checked + p > label {
+.item input:checked + div + p > label {
     color: #F76655;
 }
 
-.item input:focus + p > label::after {
+.item input:focus + div + p > label::after {
     outline: #333 dashed;
 }
 
@@ -157,6 +158,12 @@ button, input[type="submit"] {
 
 .flexdiv .item div {
     background-size: 100% !important;
+    filter: grayscale(70%);
+    transition: 0.5s filter;
+}
+
+input:checked + div {
+    filter: grayscale(0%) !important;
 }
 
 .flexdiv .persona:nth-of-type(1) div {
@@ -354,6 +361,10 @@ button, input[type="submit"] {
 }
 
 @media screen and (min-width: 38rem){
+    body {
+        background-color: #F6F6F6;
+    }
+
     .item {
         width: 8rem;
     }
@@ -363,21 +374,56 @@ button, input[type="submit"] {
         float: right;
         padding: 0.5rem 4rem;
         position: relative;
+        transform: translateY(-2.5rem);
         width: auto;
     }
 
+    .header-personacheck {
+        margin-bottom: 3rem;
+        transform: rotate(-10deg);
+
+    }
+
+    .form-for-check {
+        background-color: white;
+        box-shadow: 5px 5px 0 0 #ddd;
+    }
+
     .header-personacheck, .form-for-check {
+        box-sizing: border-box;
         margin-left: auto;
         margin-right: auto;
+        padding: 0.5rem;
         width: 37rem;
     }
 
+    .header-personacheck h1 {
+        font-size: 5rem;
+    }
+
+    .header-personacheck p {
+        font-size: 1rem;
+    }
+
     .form-for-check fieldset {
-        margin-bottom: 2rem;
+        margin-bottom: 4rem;
+        opacity: 1;
+        transition: opacity 0.5s;
+    }
+
+    .form-for-check h2 {
+        font-size: 2rem;
     }
 
     .item div {
         height: 8rem;
         width: 8rem;
+    }
+
+    .item p {
+        font-family: 'Lato', "Lucida Grande";
+        font-size: 1.1rem;
+        font-weight: 400;
+        padding: 0.4rem 0;
     }
 }

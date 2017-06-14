@@ -32,14 +32,6 @@
                     personaSteps[count].classList.remove('fade-out');
                     toggleCheckboxes(count, false);
 
-                    // BEGIN CHANEL
-                    //transition in css won't work if the class fade-out contains z-index = -1, with setTimeout the element the fade out works
-                    setTimeout(function(){
-                        personaSteps[count].classList.add('to-back');
-                        personaSteps[0].classList.remove('to-back');
-                    }, 500);
-                    //END CHANEL
-
                     break;
 
                 case 2:
@@ -49,18 +41,9 @@
                     for (index = 0; index < personaSteps.length; index++) {
                         personaSteps[index].classList.add('fade-out');
                         toggleCheckboxes(index, true);
-
-                        setTimeout(function(){
-                            personaSteps[index].classList.remove('to-back');
-                        }, 500);
                     }
 
                     toggleCheckboxes(count, false);
-
-                    setTimeout(function(){
-                        personaSteps[count].classList.add('to-back');
-                    }, 500);
-
 
                     personaSteps[count].classList.remove('fade-out');
             }

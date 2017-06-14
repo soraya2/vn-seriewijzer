@@ -12,25 +12,39 @@ var mongoose = require('mongoose');
 var passport = require('passport');
 var flash = require('connect-flash');
 
+var passport = require('passport');
+
 var app = express();
 var server = http.createServer(app);
 var io = require('socket.io').listen(server); // Use socket io in seperate files
+var port = process.env.PORT || 3006;
+
+//routes
+var index = require('./routes/index');
+var upload = require('./routes/upload');
+var uploadComplete = require('./routes/upload_complete');
+var login = require('./routes/login');
+var persona = require('./routes/persona');
+var detail = require('./routes/detail')(io);
+var fbLogin = require('./routes/facebook-login')(passport, io);
+var profile = require('./routes/profile');
 
 require('./config/passport')(passport);
-mongoose.Promise = global.Promise;
 
-var index = require('./routes/index');
-var detail = require('./routes/detail');
+
 // View engine setup
-
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-app.set('port', process.env.PORT || 3000);
+app.set('port', port);
+app.set('io', io);
 // Uncomment after placing your favicon in /public
 // app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+// app.use(bodyParser.json());
+
+
+app.use(bodyParser.urlencoded({ extended: true }));
+
 app.use(cookieParser());
 app.use(sessions({
     secret: process.env.EXPRESS_SESSION_SECRET,
@@ -38,25 +52,35 @@ app.use(sessions({
     proxy: true,
     resave: true,
     saveUninitialized: true,
-    cookie: { secure: true }
-}));
+    cookie: { secure: false, expires: false }
 
+}));
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(flash());
-
 mongoose.connect(process.env.USERDB);
-var fbLogin = require('./routes/facebook-login')(passport);
+
+app.use('/', index);
+app.use('/upload', upload);
+app.use('/upload_complete', uploadComplete);
+app.use('/login', login);
+app.use('/persona', persona);
+app.use('/auth/facebook', fbLogin);
+app.use('/detail', detail);
+app.use('/profile', profile);
+
+
+
+
 
 // Console.log(mongoose.connection.readyState); //test database connection
 
 app.use(lessMiddleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 
+
 app.use('/', index);
 app.use('/auth/facebook', fbLogin);
 app.use('/detail', detail);
-
 
 // Catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -76,6 +100,15 @@ app.use(function(err, req, res) {
     res.render('error');
 });
 
+io.on('connection', function(socket) {
+
+    socket.broadcast.on('comment', function(comm) {
+        io.emit('comment', comm);
+    });
+
+});
+
 server.listen(app.get('port'), function() {
-    console.log('app started on localhost:3006');
+    console.log(`app started on http://localhost:${port}`);
+
 });

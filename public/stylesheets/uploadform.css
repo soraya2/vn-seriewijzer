@@ -1,0 +1,105 @@
+* {
+  font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+.upload-form-body {
+  padding: 3em 0 0 0;
+  background: #0099FF;
+}
+
+#review-form {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  max-width: 40em;
+  padding: 2em;
+  margin: 0 auto;
+  background: #fff;
+  box-shadow: 1px 2px 10px 0 rgba(0,0,0,.05);
+}
+
+#review-form .form-title {
+  text-align: center;
+}
+
+#review-form section {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  border-bottom: 2px solid lightgrey;
+  padding-bottom: 2em;
+}
+
+#review-form input[type="text"],
+#review-form input[type="email"],
+#review-form input[type="date"] {
+  display: inherit;
+  padding: 0.7em 1.5em;
+  margin: 1em 0;
+  width: 95%;
+}
+
+#review-form input[type="submit"] {
+  max-width: 8em;
+  background-color: #F76655;
+  color: white;
+  text-transform: uppercase;
+  padding: 1em 2em;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+#review-form input[type="submit"]:hover,
+#review-form input[type="submit"]:active,
+#review-form input[type="submit"]:focus {
+  background: crimson;
+  transition: 0.2s;
+}
+
+#review-form label {
+  display: block;
+  width: 100%;
+  margin-bottom: 0.5em;
+}
+
+#review-form .sub-line {
+  font-style: italic;
+  font-size: 80%;
+  color: #7D7D7D;
+}
+
+#review-form select {
+  cursor: pointer;
+  margin: 1em 0;
+  border: none;
+  width: 10em;
+  height: 2em;
+}
+
+#review-form select:focus {
+  outline: none;
+}
+
+#review-form .ql-toolbar {
+  margin-top: 1em;
+}
+
+#editor {
+  height: 15em;
+  margin-bottom: 1em;
+}
+
+#upload-complete {
+  display: block;
+  height: 6em;
+  width: 6em;
+  margin: 0 auto;
+}
+
+#review-form .back-link {
+  display: block;
+  color: white;
+  text-align: center;
+  margin: 10em 41vw;
+}

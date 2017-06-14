@@ -1,14 +1,32 @@
 <!DOCTYPE html>
 <html>
-  <head>
+    <%- include partials/head.ejs %>
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
+      <%- include partials/header.ejs %>
 
-    <%- include partials/header.ejs %>
-    <main class="overview-container">
-       <p>User: <%=name%></p>
-    </main>
+      <p>Logged in as: <%=name%></p>
+
+      <main class="overview-container">
+
+          <% for(var i=0; i<data.length; i++) {%>
+
+              <div class="movie">
+
+                  <div>
+                      <img src="<%=data[i].review.imgURL%>" alt="">
+                  </div>
+
+                  <a href="/detail/<%= data[i].review.seriesName %>">
+                      <h3><%= data[i].review.seriesName %></h3>
+                  </a>
+
+              </div>
+
+          <% } %>
+      </main>
+
+      <script src="/javascripts/filter.js"></script>
   </body>
 </html>

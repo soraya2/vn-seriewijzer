@@ -100,6 +100,9 @@ I made use of the latest features by making use of css grid.
 ### Web app from scratch
 
 I made sure that the functions are doing 1 thing and put the code . In the example function i store comments in the database in the review object.
+
+See more at: https://github.com/soraya2/vn-seriewijzer/blob/master/routes/detail.js
+
 ```
  function commentsToDatabase() {
 

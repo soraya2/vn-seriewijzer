@@ -3,6 +3,7 @@
 
 // GENERAL PERSONACHECK
 body {
+    background-color: white;
     margin: 0.5rem;
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
@@ -44,6 +45,7 @@ button, input[type="submit"] {
     position: absolute;
     top: 0;
     transition: opacity 0.5s;
+    width: 100%;
     z-index: -1;
 }
 
@@ -128,7 +130,7 @@ button, input[type="submit"] {
     color: #F76655;
 }
 
-.item input:focus + div + p > label::after {
+.item input:focus + div + p > label::after, .submit-persona:focus {
     outline: #333 dashed;
 }
 
@@ -150,7 +152,13 @@ button, input[type="submit"] {
 }
 
 @supports(display:grid){
-
+    .form-for-check .flexdiv {
+        display: grid;
+        grid-column-gap: 0.5rem;
+        grid-row-gap: 0.5rem;
+        grid-template-columns: auto auto auto;
+        grid-template-rows: auto auto auto;
+    }
 }
 
 // LOGIN
@@ -306,6 +314,10 @@ input:checked + div {
 }
 
 @media screen and (min-width: 23rem){
+    .item p {
+        font-size: 1.1rem;
+    }
+
     .flexdiv .persona:nth-of-type(1) div {
         background: url('/img/icons-jamie.png');
     }
@@ -488,9 +500,13 @@ input:checked + div {
     }
 
     .item p {
-        font-family: 'Lato', "Lucida Grande";
-        font-size: 1.1rem;
-        font-weight: 400;
+        font-size: 1.2rem;
         padding: 0.4rem 0;
+    }
+
+    @supports(display:grid){
+        .form-for-check .flexdiv {
+            grid-template-columns: auto auto auto auto;
+        }
     }
 }

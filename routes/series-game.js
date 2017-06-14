@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
+var Reviews = require('../models/reviewsschema');
 
 router.get('/', function (req, res) {
   res.render('series-game/intro');
@@ -76,6 +77,11 @@ router.get('/4', function (req, res) {
 })
 
 router.get('/details/:id', function (req, res) {
-    res.render('series-game/detail-view')
+    Reviews.findOne({ 'review.seriesName': req.params.id }, function(err, series) {
+        console.log('Found show: ' + series);
+        res.render('series-game/detail-view', { data: series });
+    });
+
+
 });
 module.exports = router;

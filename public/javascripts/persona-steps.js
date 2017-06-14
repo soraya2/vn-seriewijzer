@@ -11,8 +11,11 @@
 
         //hide all sections except the first
         for (i = 1; i < personaSteps.length; i++) {
-            personaSteps[i].classList.add('hide');
+            personaSteps[i].classList.add('fade-in');
+            personaSteps[i].classList.add('fade-out');
         }
+
+        personaSteps[0].classList.add('fade-in');
 
         function nextStep(e) {
             e.preventDefault();
@@ -20,12 +23,8 @@
             switch (count) {
 
                 case 1:
-                //personaSteps[0].style.opacity = 0;
-                //setTimeout(function(){
-                    personaSteps[0].classList.add('hide');
-                    //personaSteps[count].style.opacity = 1;
-                    personaSteps[count].classList.remove('hide');
-                //}, 500);
+                    personaSteps[0].classList.add('fade-out');
+                    personaSteps[count].classList.remove('fade-out');
                     break;
 
                 case 2:
@@ -33,11 +32,10 @@
                     personaButton.classList.add('hide');
 
                     for (index = 0; index < personaSteps.length; index++) {
-                        personaSteps[index].classList.add('hide');
+                        personaSteps[index].classList.add('fade-out');
                     }
 
-                    personaSteps[count].classList.remove('hide');
-                    break;
+                    personaSteps[count].classList.remove('fade-out');
             }
 
             return personaSteps[count++];

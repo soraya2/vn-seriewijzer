@@ -17,20 +17,28 @@
             </ul>
         </header>
         <section>
-            <img src="<%- stepData[0].img_url%>" alt="<%- stepData[0].title%>">
-            <a href="details/<%- stepData[0].title%>"><h2><%- stepData[0].title%></h2></a>
+            <div>
+                <img src="<%- stepData[0].data.review.imgURL%>" alt="<%- stepData[0].data.review.seriesName%>">
+            </div>
+            <a href="details/<%- stepData[0].data.review.seriesName%>"><h2><%- stepData[0].data.review.seriesName%></h2></a>
         </section>
         <section>
-            <img src="<%- stepData[1].img_url%>" alt="<%- stepData[1].title%>">
-            <a href="details/<%- stepData[1].title%>"><h2><%- stepData[1].title%></h2></a>
+            <div>
+                <img src="<%- stepData[1].data.review.imgURL%>" alt="<%- stepData[0].data.review.seriesName%>">
+            </div>
+            <a href="details/<%- stepData[1].data.review.seriesName%>"><h2><%- stepData[1].data.review.seriesName%></h2></a>
         </section>
         <section>
-            <img src="<%- stepData[2].img_url%>" alt="<%- stepData[2].title%>">
-            <a href="details/<%- stepData[2].title%>"><h2><%- stepData[2].title%></h2></a>
+            <div>
+                <img src="<%- stepData[2].data.review.imgURL%>" alt="<%- stepData[0].data.review.seriesName%>">
+            </div>
+            <a href="details/<%- stepData[2].data.review.seriesName%>"><h2><%- stepData[2].data.review.seriesName%></h2></a>
         </section>
         <section>
-            <img src="<%- stepData[3].img_url%>" alt="<%- stepData[3].title%>">
-            <a href="details/<%- stepData[3].title%>"><h2><%- stepData[3].title%></h2></a>
+            <div>
+                <img src="<%- stepData[3].data.review.imgURL%>" alt="<%- stepData[0].data.review.seriesName%>">
+            </div>
+            <a href="details/<%- stepData[3].data.review.seriesName%>"><h2><%- stepData[3].data.review.seriesName%></h2></a>
         </section>
         <footer>
             <button id="next-btn"><a href="<%- stepNext%>">Volgende</a></button>

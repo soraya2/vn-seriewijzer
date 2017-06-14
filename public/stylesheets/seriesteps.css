@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: space-between;
     background-color: #000;
     font-family: sans-serif;
 }
@@ -69,9 +70,9 @@
                         background-color: #4d8de3;
                     }
     #serie-steps section {
-        flex-basis: 45%;
-        width: 45%;
-        margin: 1% 2.5%;
+        flex-basis: 35%;
+        width: 35%;
+        margin: 10px 7.5%;
         box-sizing: border-box;
         display: flex;
         flex-direction: column;
@@ -123,21 +124,22 @@
             }
         #serie-steps section img {
             width: 100%;
-            height: 80%;
+            max-height:9em;
         }
-        #serie-steps section h2 {
-            margin: 0;
+        #serie-steps section a {
             box-sizing: border-box;
             text-align: center;
-            font-size: 14px;
+            text-decoration: none;
             background-color: #fff;
             height: 3em;
             line-height: 3em;
         }
-            #serie-steps section h2 span {
+            #serie-steps section a h2 {
+                margin: 0;
                 display: inline-block;
                 vertical-align: middle;
                 line-height: normal;
+                font-size: 14px;
             }
         #serie-steps footer {
             width: 100%;

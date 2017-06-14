@@ -3,21 +3,26 @@ var router = express.Router();
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var Reviews = require('../models/reviewsschema');
+var reviewArr;
+
+Reviews.find("review", function(err, docs) {
+    if (err) {
+        return err;
+    } else{
+        reviewArr = docs;
+    }
+
+});
 
 router.get('/', function (req, res) {
   res.render('series-game/intro');
 });
 router.get('/1', function (req, res) {
     var step1 = [
-        {   title: 'The Vampire Diaries',
-            img_url: 'http://static.tvgcdn.net/rovi/showcards/tvshow/297527/thumbs/16917305_900x1200.jpg'
-        },{ title: 'Game of Thrones',
-            img_url: 'https://upload.wikimedia.org/wikipedia/en/e/e8/Game_of_Thrones_Season_1.jpg'
-        },{ title: 'Pretty Little Liars',
-            img_url: 'https://images-na.ssl-images-amazon.com/images/I/81tpqkna9XL._SY445_.jpg'
-        },{ title: 'Friends',
-            img_url: 'https://www.warnerbros.co.uk/~/media/images/warner%20bro/tv%20series/friends/friends_season_1%20jpg.ashx?mw=240'
-        }
+        {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'fawlty towers')},
+        {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'teen wolf')},
+        {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'friends')},
+        {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'game of thrones')}
     ]
     res.locals.stepNum = 1;
     res.locals.stepData = step1;
@@ -26,15 +31,10 @@ router.get('/1', function (req, res) {
 })
 router.get('/2', function (req, res) {
     var step2 = [
-        {   title: 'The Vampire Diaries2',
-            img_url: 'http://static.tvgcdn.net/rovi/showcards/tvshow/297527/thumbs/16917305_900x1200.jpg'
-        },{ title: 'Game of Thrones2',
-            img_url: 'https://upload.wikimedia.org/wikipedia/en/e/e8/Game_of_Thrones_Season_1.jpg'
-        },{ title: 'Pretty Little Liars2',
-            img_url: 'https://images-na.ssl-images-amazon.com/images/I/81tpqkna9XL._SY445_.jpg'
-        },{ title: 'Friends2',
-            img_url: 'https://www.warnerbros.co.uk/~/media/images/warner%20bro/tv%20series/friends/friends_season_1%20jpg.ashx?mw=240'
-        }
+        {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'doctor who')},
+        {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'breaking bad')},
+        {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'sons of anarchy')},
+        {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'the bridge')}
     ]
     res.locals.stepNum = 2;
     res.locals.stepData = step2;
@@ -43,15 +43,10 @@ router.get('/2', function (req, res) {
 })
 router.get('/3', function (req, res) {
     var step3 = [
-        {   title: 'The Vampire Diaries3',
-            img_url: 'http://static.tvgcdn.net/rovi/showcards/tvshow/297527/thumbs/16917305_900x1200.jpg'
-        },{ title: 'Game of Thrones3',
-            img_url: 'https://upload.wikimedia.org/wikipedia/en/e/e8/Game_of_Thrones_Season_1.jpg'
-        },{ title: 'Pretty Little Liars3',
-            img_url: 'https://images-na.ssl-images-amazon.com/images/I/81tpqkna9XL._SY445_.jpg'
-        },{ title: 'Friends3',
-            img_url: 'https://www.warnerbros.co.uk/~/media/images/warner%20bro/tv%20series/friends/friends_season_1%20jpg.ashx?mw=240'
-        }
+        {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'sopranos')},
+        {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'planet earth')},
+        {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'the vampire diaries')},
+        {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'pretty little liars')}
     ]
     res.locals.stepNum = 3;
     res.locals.stepData = step3;
@@ -60,15 +55,10 @@ router.get('/3', function (req, res) {
 })
 router.get('/4', function (req, res) {
     var step4 = [
-        {   title: 'The Vampire Diaries4',
-            img_url: 'http://static.tvgcdn.net/rovi/showcards/tvshow/297527/thumbs/16917305_900x1200.jpg'
-        },{ title: 'Game of Thrones4',
-            img_url: 'https://upload.wikimedia.org/wikipedia/en/e/e8/Game_of_Thrones_Season_1.jpg'
-        },{ title: 'Pretty Little Liars4',
-            img_url: 'https://images-na.ssl-images-amazon.com/images/I/81tpqkna9XL._SY445_.jpg'
-        },{ title: 'Friends4',
-            img_url: 'https://www.warnerbros.co.uk/~/media/images/warner%20bro/tv%20series/friends/friends_season_1%20jpg.ashx?mw=240'
-        }
+        {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'sherlock')},
+        {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'the walking dead')},
+        {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'chicago fire')},
+        {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'suits')}
     ]
     res.locals.stepNum = 4;
     res.locals.stepData = step4;

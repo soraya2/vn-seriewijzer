@@ -118,6 +118,7 @@ I made sure that the functions are doing 1 thing and put the code . In the examp
 ```
 
 I also kept my code dry by using loops and used an IIFE to make sure that the variables can’t be overwritten by scripts outside this scope.
+See more at: https://github.com/soraya2/vn-seriewijzer/blob/feature-persona-check/public/javascripts/persona-steps.js
 ```
  (function() {
      "use strict";

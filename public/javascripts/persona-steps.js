@@ -8,7 +8,8 @@
         var i;
         var index;
         // Hideing submit button untill the last step;
-        personaSubmit.className += " hide";
+        personaButton.removeAttribute('hidden');
+        personaSubmit.className += ' hide';
 
         //hide all sections except the first
         for (i = 1; i < personaSteps.length; i++) {

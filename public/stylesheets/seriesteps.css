@@ -69,15 +69,16 @@
                         background-color: #4d8de3;
                     }
     #serie-steps section {
-        flex-basis: 50%;
-        width: 50%;
-        padding: 10px 20px;
+        flex-basis: 45%;
+        width: 45%;
+        margin: 1% 2.5%;
         box-sizing: border-box;
         display: flex;
         flex-direction: column;
         position: relative;
         transition: .4s;
         z-index: 1;
+        cursor: pointer;
     }
         #serie-steps section.active {
             transform: scale(1.2);

@@ -9,11 +9,16 @@ router.get('/', function(req, res) {
 
 router.post('/', function(req, res) {
     // store form data in route
+
     res.locals.persona = req.body;
-    res.locals.user = req.user.user.facebook.displayName;
-    // res.red
+
+    if (req.user) {
+
+        res.locals.user = req.user.user.facebook.displayName;
+    }
+
     res.redirect(307, '/profile');
-    // res.send(req.body);
+
 });
 
 

@@ -1,50 +1,30 @@
-var express = require('express');
+var express = require('express'),
+    router = express.Router(),
+    reviewsSchema = require('../models/reviewsschema'),
+    seriesName;
 
-var request = require('request');
-
-var env = require('dotenv').config();
-
-var user = require('../models/user');
-
-var series = require('../models/series');
-
-var reviewsSchema = require('../models/reviewsschema');
-
-var mongoose = require('mongoose');
-
-var router = express.Router();
-
-var seriesId;
 
 router.get('/:id', function(req, res) {
 
+    seriesName = req.params.id;
     //get serie based on serie name
-    reviewsSchema.findOne({ "review.seriesName": req.params.id }, function(error, doc) {
+    reviewsSchema.findOne({ "review.seriesName": seriesName }, function(error, doc) {
 
-        seriesId = req.params.id;
-
-        res.render('detail', { data: doc, title: 'Home' });
+        res.render('detail', { data: doc, title: seriesName });
 
     });
 
 });
+
 
 module.exports = function(io) {
 
     io.on('connection', function(sockets) {
 
         sockets.broadcast.on('comment', function(comm) {
+            commentsToDatabase();
 
-            //add comments to  the database based on series name
-            reviewsSchema.findOneAndUpdate({ "review.seriesName": seriesId }, {
-                "$addToSet": {
-                    "comments": comm
-                }
-            }, { upsert: true }, function(err, document) {
-                if (err) {
-                    return console.log(err);
-                }
-            });
+            //Todo: sending facebookname to client
             // io.emit('comment', comm);
         });
 
@@ -52,3 +32,20 @@ module.exports = function(io) {
 
     return router;
 };
+
+
+function commentsToDatabase() {
+
+    //Save comments to the database based on series name
+    reviewsSchema.findOneAndUpdate({ "review.seriesName": seriesName }, {
+
+        "$addToSet": {
+            "comments": comm
+        }
+    }, { upsert: true }, function(err, document) {
+
+        if (err) {
+            return console.log(err);
+        }
+    });
+}

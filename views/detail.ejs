@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 
 <%- include partials/head.ejs %>
 <title>Details</title>
@@ -7,20 +7,34 @@
 
 <body>
   <%- include partials/header.ejs %>
-   <div class="movie-details">
+   <article class="movie-details">
        <div>
            <img src="<%=data.review.imgURL%>" alt="">
        </div>
 
        <h2><%=data.review.seriesName%></h2>
-       <article>
-            <h3><%= data.review.titleName %></h3>
-            <!-- <p><%= data.review.seriesName %></p> -->
-            <p><%= data.review.imdbRating%></p>
-            <p><%= data.review.plot%></p>
+
+             <header>
+                  <h3><%= data.review.titleName %></h3>
+                  <p><%= data.review.reviewIntro %></p>
+             </header>
+
+             <section>
+               <ul>
+                 <li>Seizoenen: <%=data.review.seasons %></li>
+                 <li>Gemiddelde tijd per aflervering: <%=data.review.duration %></li>
+                 <li>IMDB cijfer: <%=data.review.imdbRating %></li>
+               </ul>
+             </section>
+
+            <section>
+                  <p><%= data.review.reviewTitle%></p>
+                  <p><%= data.review.plot%></p>
+            </section>
+
        </article>
 
-   </div>
+   </article>
    <section>
     <ul class="comment-list">
       <% for(var i=0; i<data.comments.length; i++) {%>

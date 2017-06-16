@@ -4,12 +4,9 @@ var router = express.Router();
 
 var env = require('dotenv').config();
 
-var series = require('../models/series');
-
-var request = require('request');
-
 var series2 = require('../data/series.json');
 
+var reviewsSchema = require('../models/reviewsschema');
 // var serieData = [{ 'name': 'a', 'color': 'black', 'period': 'middeleeuwen' }, { 'name': 'b', 'color': 'blue', 'period': 'victoriaans' }, { 'name': 'c', 'color': 'black', 'period': 'romeins' }];
 
 var filters = {};
@@ -18,6 +15,24 @@ var hobbyAray = [];
 var peronalityAray = [];
 var moodsArray = [];
 
+router.get('/', function(req, res) {
+    reviewsSchema.find("review", function(err, docs) {
+        if (err) {
+            return err;
+        }
+        // req.user.user.facebook.displayName
+
+        console.log(req.session);
+
+
+        console.log(req.query);
+
+
+
+        res.render('profile', { title: 'Home', data: docs, name: '' });
+
+    });
+});
 
 // begin soraya
 router.post('/', function(req, res) {
@@ -101,16 +116,6 @@ router.post('/', function(req, res) {
     // });
 
 
-
-    // console.log(req.user, 'username');
-
-    // res.send('hello');
-    res.render('profile', { title: 'Home', data: filterdData, name: req.user.user.facebook.displayName });
-
-    // router.get('/', function(req, res) {
-
-    //     getData(receiveData, '');
-
     //     function receiveData(data) {
     //         if (req.user !== undefined) {
 
@@ -123,32 +128,6 @@ router.post('/', function(req, res) {
 
 });
 
-function getData(recieve, value) {
-    request.get('https://api.themoviedb.org/3/discover/tv?api_key=' + env.parsed.MOVIEDBKEY + '&format=json&page=2' + value, function(error, response, body) {
-        if (error) {
-            console.log('error:', error); // Print the error if one occurred
-        }
-        console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
-
-        saveData(JSON.parse(body), recieve);
-    });
-}
-
-function saveData(data, recieve) {
-    var query = 'data';
-    // If the data field exist update it and only add new values to the array so there are no duplicates
-    series.findOneAndUpdate(query, {
-        $addToSet: {
-            'series': { $each: data.results }
-        }
-    }, { upsert: true }, function(err, document) {
-        if (err) {
-            return console.log(err);
-        }
-
-        recieve(series2);
-    });
-}
 
 // add object array per filter
 function filterPersonality(filterOption) {

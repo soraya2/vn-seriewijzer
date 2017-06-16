@@ -8,17 +8,8 @@
     <%- include partials/header.ejs %>
 
     <main class="overview-container">
-        <% for(var i=0; i<data.length; i++) {%>
-            <div class="movie">
-                <div>
-                    <img src="http://image.tmdb.org/t/p/w185/<%=data[i].poster_path%>" alt="">
-                </div>
-                <a href="/detail/<%=data[i].id%>">
-                  <h3><%= data[i].original_name %></h3>
-                </a>
-            </div>
-        <% } %>
+
     </main>
-    
+
   </body>
 </html>

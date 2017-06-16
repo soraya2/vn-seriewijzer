@@ -1,0 +1,36 @@
+body {
+    font-family: sans-serif;
+}
+
+.reviews-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20em, 1fr));
+    grid-gap: 2em;
+    justify-content: center;
+}
+
+.review-block {
+    grid-column-start: 1/5;
+    padding: 2em;
+    -webkit-box-shadow: 5px 5px 30px -12px rgba(0,0,0,0.72);
+    -moz-box-shadow: 5px 5px 30px -12px rgba(0,0,0,0.72);
+    box-shadow: 5px 5px 30px -12px rgba(0,0,0,0.72);
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-btn {
+    bottom: 0;
+    padding: 0.5em 1em;
+    width: 5em;
+    text-align: center;
+    background: skyblue;
+    color: white;
+    border-radius: 0.2em;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.edit-btn:hover {
+    background: deepskyblue;
+}

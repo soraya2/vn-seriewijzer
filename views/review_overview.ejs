@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="stylesheets/reviewoverview.css">
+  <title>Alle recensies</title>
+</head>
+
+<body>
+    <main>
+        <h1>Alle Recensies</h1>
+        <section class="reviews-container">
+            <% data.forEach(function(item) { %>
+                <div class="review-block">
+                    <h2><%= item.review.seriesName %></h2>
+                    <h4><%= item.review.reviewTitle %></h4>
+                    <p><%= item.review.reviewIntro %></p>
+                    <a class="edit-btn" href="/review/<%= item.review.reviewTitle %>">Aanpassen</a>
+                </div>
+            <% }) %>
+        </section>
+    </main>
+
+</body>
+</html>

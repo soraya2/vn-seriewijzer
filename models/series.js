@@ -8,5 +8,5 @@ var seriesSchema = mongoose.Schema({
 });
 
 
-// Create the model for users and expose it to our app
+// Create the model for series and expose it to our app
 module.exports = mongoose.model('Series', seriesSchema);

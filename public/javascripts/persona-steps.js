@@ -40,22 +40,16 @@
                     personaButton.classList.add('hide');
 
                     for (index = 0; index < personaSteps.length; index++) {
-                        personaSteps[index].classList.add('hide');
+                        personaSteps[index].classList.add('fade-out');
+                        toggleCheckboxes(index, true);
                     }
 
-                    personaSteps[count].classList.remove('hide');
                     personaSteps[count].classList.remove('fade-out');
-                    personaSteps[index].classList.add('fade-out');
-                    toggleCheckboxes(index, true);
-
                     toggleCheckboxes(count, false);
-
             }
 
             return personaSteps[count++];
         }
-
-
 
 
         // BEGIN CHANEL

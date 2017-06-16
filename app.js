@@ -19,8 +19,6 @@ var io = require('socket.io').listen(server); // Use socket io in seperate files
 var index = require('./routes/index');
 var login = require('./routes/login');
 var persona = require('./routes/persona');
-var freetime = require('./routes/freetime');
-var mood = require('./routes/mood');
 require('./config/passport')(passport);
 mongoose.Promise = global.Promise;
 
@@ -64,8 +62,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/login', login);
 app.use('/persona', persona);
-app.use('/freetime', freetime);
-app.use('/mood', mood);
 
 app.use('/auth/facebook', fbLogin);
 app.use('/detail', detail);

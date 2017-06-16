@@ -10,7 +10,6 @@ var env = require('dotenv').config();
 var sessions = require('express-session');
 var mongoose = require('mongoose');
 var passport = require('passport');
-var flash = require('connect-flash');
 
 var passport = require('passport');
 
@@ -25,12 +24,9 @@ var upload = require('./routes/upload');
 var uploadComplete = require('./routes/upload_complete');
 var login = require('./routes/login');
 var persona = require('./routes/persona');
-var freetime = require('./routes/freetime');
-var mood = require('./routes/mood');
 var seriesGame = require('./routes/series-game');
 var fbLogin = require('./routes/facebook-login')(passport, io);
 var profile = require('./routes/profile');
-var personal = require('./routes/personal');
 var detail = require('./routes/detail')(io);
 var profile = require('./routes/profile');
 

@@ -34,9 +34,7 @@ var personal = require('./routes/personal');
 var detail = require('./routes/detail')(io);
 var profile = require('./routes/profile');
 
-
 require('./config/passport')(passport);
-
 
 // View engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -73,19 +71,12 @@ app.use('/persona', persona);
 app.use('/auth/facebook', fbLogin);
 app.use('/detail', detail);
 app.use('/profile', profile);
+app.use('/seriespel', seriesGame);
 
 // Console.log(mongoose.connection.readyState); //test database connection
 
 app.use(lessMiddleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
-
-
-app.use('/', index);
-app.use('/auth/facebook', fbLogin);
-app.use('/detail', detail);
-app.use('/profile', profile);
-app.use('/personal', personal);
-app.use('/seriespel', seriesGame);
 
 
 // Catch 404 and forward to error handler

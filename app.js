@@ -73,6 +73,7 @@ app.use('/detail', detail);
 app.use('/profile', profile);
 app.use('/seriespel', seriesGame);
 
+
 // Console.log(mongoose.connection.readyState); //test database connection
 
 app.use(lessMiddleware(path.join(__dirname, 'public')));

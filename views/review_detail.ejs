@@ -9,12 +9,496 @@
   <title><%= data.review.reviewTitle %></title>
 </head>
 
+<!-- { _id: 593e7ece19e2bb1b546cade9,
+  __v: 0,
+  comments: [],
+  review:
+   { seriesName: 'Friends',
+     region: 'USA',
+     startYear: '1994',
+     endYear: '2004',
+     platform: 'netflix',
+     ageRestriction: '8',
+     seasons: '10',
+     episodes: '240',
+     duration: '25',
+     producers: 'Marta Kaufmann',
+     awards: '13',
+     nominations: '26',
+     imdbRating: '9.0',
+     trailerURL: 'https://www.youtube.com/watch?v=hDNNmeeJs1Q',
+     imgURL: 'https://images-na.ssl-images-amazon.com/images/M/MV5BMTg4NzEyNzQ5OF5BMl5BanBnXkFtZTYwNTY3NDg4._V1._CR24,0,293,443_UY1200_CR82,0,630,1200_AL_.jpg',
+     reviewTitle: 'Lekker lachen over 6 Amerikaanse friends',
+     reviewIntro: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. ',
+     reviewBody: '',
+     reviewRating: '10',
+     plot: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec.',
+     mood: [ 'lachen' ],
+     hobby: [ 'gamen', 'koken', 'werken' ],
+     persona:
+      [ 'foodie',
+        'creatieveling',
+        'joker',
+        'girly-girl',
+        'intellectual' ],
+     period: [ 'late20' ],
+     genre: [ 'comedy', 'drama', 'romantiek' ] },
+  user:
+   { name: 'Shyanta Vleugel',
+     email: 'shyantavleugel@gmail.com',
+     postDate: '2017-06-12' } } -->
+
 <body>
     <main>
         <h1><%= data.review.reviewTitle %></h1>
-        <section class="reviews-container">
-        
-        </section>
+        <form id="review-form" action="/upload" method="post" autocomplete="on">
+          <h1 class="form-title">Recensie Uploaden</h1>
+
+          <section>
+            <h2>Over de recensent</h2>
+            <label>
+              <p>Je naam:</p>
+              <input type="text" name="name" required value="<%= data.user.name %>">
+            </label>
+
+            <label>
+              <p>Je email:</p>
+              <input type="email" name="email" required value="<%= data.user.email %>">
+            </label>
+
+            <label>
+              <p>Upload Datum:</p>
+              <input type="date" name="post_date" required value="<%= data.user.postDate %>">
+            </label>
+          </section>
+
+          <section>
+            <h2>Serie meta informatie</h2>
+
+            <label>
+              <p>Titel:</p>
+              <p class="sub-line">Zorg ervoor dat de titel uniek is. Wanneer een serie twee verschillende titels heeft. Gebruik dan de meest frequent gebruikte titel.</p>
+              <input type="text" name="seriesName" required value="<%= data.review.seriesName %>">
+            </label>
+
+            <label>
+              <p>Land van herkomst:</p>
+              <p class="sub-line">Gebruik de internationale landcodes. Zorg ervoor dat ze allemaal in hoofdletters zijn, zodat er altijd overeenkomsten zijn.</p>
+              <input type="text" name="regionCode" value="<%= data.review.region %>" required>
+            </label>
+
+            <label>
+              <p>Beginjaar:</p>
+              <p class="sub-line">Het jaartal waarin de serie begon met opnemen.</p>
+              <input type="text" name="startingYear" value="<%= data.review.startYear %>" required>
+            </label>
+
+            <label>
+              <p>Eindjaar:</p>
+              <p class="sub-line">Draait de serie nog steeds? Zet dan ‘heden’ in het veld.</p>
+              <input type="text" name="endYear" value="<%= data.review.endYear %>" required>
+            </label>
+
+            <div>
+              <h3>Categorie:</h3>
+              <p class="sub-line">Hierin vul je de genres in waarbij deze serie hoort.</p>
+              <label>
+                  <input type="checkbox" name="genre" value="action">
+                  <span>Actie</span>
+              </label>
+              <label>
+                  <input type="checkbox" name="genre" value="avontuur">
+                  <span>Avontuur</span>
+              </label>
+
+              <label>
+                  <input type="checkbox" name="genre" value="comedy">
+                  <span>Comedy</span>
+              </label>
+
+              <label>
+                  <input type="checkbox" name="genre" value="documentaire">
+                  <span>Documentaire</span>
+              </label>
+
+              <label>
+                  <input type="checkbox" name="genre" value="drama">
+                  <span>Drama</span>
+              </label>
+
+              <label>
+                  <input type="checkbox" name="genre" value="episch">
+                  <span>Episch
+              </label>
+
+              <label>
+                  <input type="checkbox" name="genre" value="horror">
+                  <span>Horror</span>
+              </label>
+
+              <label>
+                  <input type="checkbox" name="genre" value="sci-fi">
+                  <span>Sci-fi</span>
+              </label>
+
+              <label>
+                  <input type="checkbox" name="genre" value="oorlog">
+                  <span>Oorlog</span>
+              </label>
+
+              <label>
+                  <input type="checkbox" name="genre" value="romantiek">
+                  <span>Romantiek</span>
+              </label>
+
+              <label>
+                  <input type="checkbox" name="genre" value="muziek">
+                  <span>Muziek</span>
+              </label>
+
+              <label>
+                  <input type="checkbox" name="genre" value="fantasy">
+                  <span>Fantasy</span>
+              </label>
+
+              <label>
+                  <input type="checkbox" name="genre" value="sport">
+                  <span>Sport</span>
+              </label>
+
+              <label>
+                  <input type="checkbox" name="genre" value="mystery">
+                  <span>Mystery</span>
+              </label>
+            </div>
+
+            <div>
+              <h3>Beschikbaarheid</h3>
+              <p class="sub-line">Op welk platform kan de serie bekeken worden?</p>
+              <label>
+                <input type="checkbox" name="platform" value="netflix">
+                <span>Netflix</span>
+              </label>
+              <label>
+                <input type="checkbox" name="platform" value="hbo">
+                <span>HBO</span>
+              </label>
+              <label>
+                <input type="checkbox" name="platform" value="videoland">
+                <span>Videoland</span>
+              </label>
+            </div>
+
+            <div>
+              <h3>Tijdperk</h3>
+              <p class="sub-line">In welke tijd speelt het zich af?</p>
+              <label>
+                <input type="checkbox" name="period" value="prehistorie">
+                <span>Prehistorie</span>
+
+              </label>
+              <label>
+                <input type="checkbox" name="period" value="romeinse-tijd">
+                <span>Romeinse Tijd</span>
+
+              </label>
+              <label>
+                <input type="checkbox" name="period" value="middeleeuwen">
+                <span>Middeleeuwen</span>
+
+              </label>
+              <label>
+                <input type="checkbox" name="period" value="victoriaans">
+                <span>Victoriaanse Tijd</span>
+
+              </label>
+              <label>
+                <input type="checkbox" name="period" value="wo1">
+                <span>Eerste Wereldoorlog</span>
+
+              </label>
+              <label>
+                <input type="checkbox" name="period" value="wo2">
+                <span>Tweede Wereldoorlog</span>
+
+              </label>
+              <label>
+                <input type="checkbox" name="period" value="late20">
+                <span>Late 20e Eeuw</span>
+
+              </label>
+              <label>
+                <input type="checkbox" name="period" value="heden">
+                <span>Heden</span>
+
+              </label>
+              <label>
+                <input type="checkbox" name="period" value="toekomst">
+                <span>Toekomst</span>
+
+              </label>
+            </div>
+
+            <div>
+              <h3>Passende Persona's</h3>
+              <p>Welke persona's passen het beste bij deze serie?</p>
+              <label>
+                <input type="checkbox" name="persona" value="foodie">
+                <span>Foodie</span>
+
+              </label>
+              <label>
+                <input type="checkbox" name="persona" value="creatieveling">
+                <span>Creatieveling</span>
+
+              </label>
+              <label>
+                <input type="checkbox" name="persona" value="sensatiezoeker">
+                <span>Sensatiezoeker</span>
+
+              </label>
+              <label>
+                <input type="checkbox" name="persona" value="soldaat">
+                <span>Soldaat</span>
+
+              </label>
+              <label>
+                <input type="checkbox" name="persona" value="joker">
+                <span>Joker</span>
+
+              </label>
+              <label>
+                <input type="checkbox" name="persona" value="girly-girl">
+                <span>Girly Girl</span>
+
+              </label>
+              <label>
+                <input type="checkbox" name="persona" value="waaghals">
+                <span>Waaghals</span>
+
+              </label>
+              <label>
+                <input type="checkbox" name="persona" value="avonturier">
+                <span>Avonturier</span>
+
+              </label>
+              <label>
+                <input type="checkbox" name="persona" value="geeky-nerd">
+                <span>Geeky Nerd</span>
+
+              </label>
+              <label>
+                <input type="checkbox" name="persona" value="animal-lover">
+                <span>Animal Lover</span>
+
+              </label>
+              <label>
+                <input type="checkbox" name="persona" value="intellectual">
+                <span>Intellectual</span>
+
+              </label>
+            </div>
+
+            <div>
+              <h3>Passende Hobby's</h3>
+              <p class="sub-line">Welke hobby's passen het beste bij deze serie?</p>
+              <label>
+                <input type="checkbox" name="hobby" value="gamen">
+                <span>Gamen</span>
+
+              </label>
+              <label>
+                <input type="checkbox" name="hobby" value="uitgaan">
+                <span>Uitgaan/borrelen</span>
+
+              </label>
+              <label>
+                <input type="checkbox" name="hobby" value="reizen">
+                <span>Reizen</span>
+
+              </label>
+              <label>
+                <input type="checkbox" name="hobby" value="muziek">
+                <span>Muziek</span>
+
+              </label>
+              <label>
+                <input type="checkbox" name="hobby" value="shoppen">
+                <span>Shoppen</span>
+
+              </label>
+              <label>
+                <input type="checkbox" name="hobby" value="koken">
+                <span>Koken</span>
+
+              </label>
+              <label>
+                <input type="checkbox" name="hobby" value="lezen">
+                <span>Lezen</span>
+
+              </label>
+              <label>
+                <input type="checkbox" name="hobby" value="drugs">
+                <span>Drugs</span>
+
+              </label>
+              <label>
+                <input type="checkbox" name="hobby" value="werken">
+                <span>Werken</span>
+
+              </label>
+            </div>
+
+            <div>
+              <h3>Passende Moods</h3>
+              <p class="sub-line">Welke moods passen het beste bij deze serie?</p>
+              <label>
+                <input type="checkbox" name="mood" value="bang-worden">
+                <span>Ik wil bang gemaakt worden</span>
+
+              </label>
+              <label>
+                <input type="checkbox" name="mood" value="janken">
+                <span>Ik wil lekker janken</span>
+
+              </label>
+              <label>
+                <input type="checkbox" name="mood" value="spanning">
+                <span>Ik wil van spanning stoppen met ademen</span>
+
+              </label>
+              <label>
+                <input type="checkbox" name="mood" value="lachen">
+                <span>Ik wil huilen van het lachen</span>
+
+              </label>
+              <label>
+                <input type="checkbox" name="mood" value="chillen">
+                <span>Ik wil hersendood voor de TV zitten</span>
+
+              </label>
+            </div>
+
+            <div>
+              <h3>Leeftijdsclassificatie</h3>
+              <label>
+                <p class="sub-line">Vanaf welke leeftijd mag de serie bekeken worden?</p>
+                <input type="text" name="ageRestriction" value="<%= data.review.ageRestriction %>" required>
+              </label>
+            </div>
+
+            <div>
+              <h3>Seizoenen</h3>
+              <label>
+                <span>Aantal:</span>
+                <input type="text" name="seasons" value="<%= data.review.seasons %>" required>
+              </label>
+            </div>
+
+            <div>
+              <h3>Afleveringen</h3>
+              <label>
+                <span>Aantal:</span>
+                <input type="text" name="episodes" value="<%= data.review.episodes %>" required>
+              </label>
+              <label>
+                <span>Duur:</span>
+                <input type="text" name="duration" value="<%= data.review.duration %>" required>
+              </label>
+            </div>
+
+            <div>
+              <h3>Cast</h3>
+              <label>
+                <span>Hoofdacteurs/actrices (maximaal 6, scheiden met komma)</span>
+                <input type="text" name="actors" value="<%= data.review.actors %>" required>
+              </label>
+            </div>
+
+            <div>
+              <h3>Producenten</h3>
+              <label>
+                <span>Producenten (maximaal 6, scheiden met komma)</span>
+                <input type="text" name="producers" value="<%= data.review.producers %>" required>
+              </label>
+            </div>
+
+            <div>
+              <h3>Awards</h3>
+              <label>
+                <span>Hoeveel awards heeft de serie gewonnen?</span>
+                <input type="text" name="awards" value="<%= data.review.awards %>" required>
+              </label>
+            </div>
+
+            <div>
+              <h3>Nominaties</h3>
+              <label>
+                <span>Hoevaak is de serie genomineerd?</span>
+                <input type="text" name="nominations" value="<%= data.review.nominations %>" required>
+              </label>
+            </div>
+
+            <div>
+              <h3>IMDB rating</h3>
+              <label>
+                <span>Wat is de IMDB beoordeling?</span>
+                <input type="text" name="imdbRating" value="<%= data.review.imdbRating %>" required>
+              </label>
+            </div>
+
+            <div>
+              <h3>Trailer</h3>
+              <p class="sub-line">Plaats hier de URL naar de trailer op YouTube. Geen trailer? Laat het veld dan leeg.</p>
+              <label>
+                <span>Link naar de trailer</span>
+                <input type="text" name="trailerURL" value="<%= data.review.trailerURL %>">
+              </label>
+            </div>
+
+            <div>
+              <h3>Afbeelding</h3>
+              <p class="sub-line">Plaats hier de URL naar de poster van de serie, in portret modus.</p>
+              <label>
+                <span>Link naar afbeelding</span>
+                <input type="text" name="imgURL" value="<%= data.review.imgURL %>" required>
+              </label>
+            </div>
+
+
+          </section>
+          <section>
+            <h2>Recensie</h2>
+
+            <label>
+              <h3>Titel</h3>
+              <input type="text" name="reviewTitle" value="<%= data.review.reviewTitle %>">
+            </label>
+
+            <label>
+              <h3>Plot:</h3>
+              <p class="sub-line">Korte omschrijving van de serie (voor op de website):</p>
+              <textarea name="reviewPlot" rows="8" cols="80" required><%= data.review.plot %></textarea>
+            </label>
+
+            <label>
+              <h3>Inleiding:</h3>
+              <textarea name="reviewIntro" rows="8" cols="80"><%= data.review.reviewIntro %></textarea>
+            </label>
+
+            <label>
+              <h3>Recensie:</h3>
+              <textarea name="reviewBody" rows="8" cols="80"><%= data.review.reviewBody %></textarea>
+            </label>
+
+            <label>
+              Welk cijfer geef je aan deze serie? (1 t/m 10): <br>
+                <input type="text" name="reviewRating" required value="<%= data.review.reviewRating %>">
+            </label>
+          </section>
+
+          <input type="submit" value="Upload">
+        </form>
     </main>
 
 </body>

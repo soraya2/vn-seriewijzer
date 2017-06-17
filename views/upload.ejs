@@ -60,7 +60,7 @@
 
       <div>
         <h3>Categorie:</h3>
-        <p class="sub-line">Hierin vul je de genres in waarbij deze serie hoort. Scheidt de verschillende genres met een komma en begin ieder genre met een hoofdletter. Als het een afkorting is mag het natuurlijk allemaal een hoofdletter zijn.</p>
+        <p class="sub-line">Hierin vul je de genres in waarbij deze serie hoort.</p>
         <label>
             <input type="checkbox" name="genre" value="action">
             <span>Actie</span>
@@ -447,24 +447,12 @@
 
       <label>
         <h3>Recensie:</h3>
-        <div id="editor"></div>
-        <textarea hidden name="reviewBody" rows="8" cols="80"></textarea>
+        <textarea name="reviewBody" rows="8" cols="80" placeholder="Plaats de recensie hier"></textarea>
       </label>
 
       <label>
         Welk cijfer geef je aan deze serie? (1 t/m 10): <br>
-          <select name="reviewRating">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
-          </select>
+         <input type="text" name="reviewRating" required placeholder="Bijv. 8">
       </label>
     </section>
 

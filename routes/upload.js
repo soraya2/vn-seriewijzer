@@ -42,6 +42,7 @@ function processUploadForm(req, res) {
             seasons:        fields.seasons,
             episodes:       fields.episodes,
             duration:       fields.duration,
+            actors:         fields.actors,
             producers:      fields.producers,
             awards:         fields.awards,
             nominations:    fields.nominations,

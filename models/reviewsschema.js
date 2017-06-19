@@ -29,12 +29,13 @@ var reviewsSchema = mongoose.Schema({
         reviewRating: String,
         reviewIntro: String,
         producers: String,
+        actors: String,
         awards: String,
         nominations: String,
         imdbRating: String,
         trailerURL: String,
         imgURL: String,
-        plot: String
+        reviewPlot: String
     },
 
     comments: Array

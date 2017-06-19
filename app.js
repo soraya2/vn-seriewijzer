@@ -25,12 +25,9 @@ var upload = require('./routes/upload');
 var uploadComplete = require('./routes/upload_complete');
 var login = require('./routes/login');
 var persona = require('./routes/persona');
-var freetime = require('./routes/freetime');
-var mood = require('./routes/mood');
 var seriesGame = require('./routes/series-game');
 var fbLogin = require('./routes/facebook-login')(passport, io);
 var profile = require('./routes/profile');
-var personal = require('./routes/personal');
 var detail = require('./routes/detail')(io);
 var profile = require('./routes/profile');
 
@@ -84,7 +81,6 @@ app.use('/', index);
 app.use('/auth/facebook', fbLogin);
 app.use('/detail', detail);
 app.use('/profile', profile);
-app.use('/personal', personal);
 app.use('/seriespel', seriesGame);
 
 

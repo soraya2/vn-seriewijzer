@@ -16,33 +16,39 @@
                 <li><span>4</span></li>
             </ul>
         </header>
-        <section>
-            <div>
-                <img src="<%- stepData[0].data.review.imgURL%>" alt="<%- stepData[0].data.review.seriesName%>">
-            </div>
-            <a href="details/<%- stepData[0].data.review.seriesName%>"><h2><%- stepData[0].data.review.seriesName%></h2></a>
-        </section>
-        <section>
-            <div>
-                <img src="<%- stepData[1].data.review.imgURL%>" alt="<%- stepData[0].data.review.seriesName%>">
-            </div>
-            <a href="details/<%- stepData[1].data.review.seriesName%>"><h2><%- stepData[1].data.review.seriesName%></h2></a>
-        </section>
-        <section>
-            <div>
-                <img src="<%- stepData[2].data.review.imgURL%>" alt="<%- stepData[0].data.review.seriesName%>">
-            </div>
-            <a href="details/<%- stepData[2].data.review.seriesName%>"><h2><%- stepData[2].data.review.seriesName%></h2></a>
-        </section>
-        <section>
-            <div>
-                <img src="<%- stepData[3].data.review.imgURL%>" alt="<%- stepData[0].data.review.seriesName%>">
-            </div>
-            <a href="details/<%- stepData[3].data.review.seriesName%>"><h2><%- stepData[3].data.review.seriesName%></h2></a>
-        </section>
-        <footer>
-            <button id="next-btn"><a href="<%- stepNext%>">Volgende</a></button>
-        </footer>
+        <form action="/seriespel/1" method="post">
+            <label>
+                <input type="checkbox" name="" value="<%- stepData[0].data.review.seriesName%>">
+                <div>
+                    <img src="<%- stepData[0].data.review.imgURL%>" alt="<%- stepData[0].data.review.seriesName%>">
+                </div>
+                <a href="details/<%- stepData[0].data.review.seriesName%>"><h2><%- stepData[0].data.review.seriesName%></h2></a>
+            </label>
+            <label>
+                <input type="checkbox" name="" value="<%- stepData[1].data.review.seriesName%>">
+                <div>
+                    <img src="<%- stepData[1].data.review.imgURL%>" alt="<%- stepData[0].data.review.seriesName%>">
+                </div>
+                <a href="details/<%- stepData[1].data.review.seriesName%>"><h2><%- stepData[1].data.review.seriesName%></h2></a>
+            </label>
+            <label>
+                <input type="checkbox" name="" value="<%- stepData[2].data.review.seriesName%>">
+                <div>
+                    <img src="<%- stepData[2].data.review.imgURL%>" alt="<%- stepData[0].data.review.seriesName%>">
+                </div>
+                <a href="details/<%- stepData[2].data.review.seriesName%>"><h2><%- stepData[2].data.review.seriesName%></h2></a>
+            </label>
+            <label>
+                <input type="checkbox" name="" value="<%- stepData[3].data.review.seriesName%>">
+                <div>
+                    <img src="<%- stepData[3].data.review.imgURL%>" alt="<%- stepData[0].data.review.seriesName%>">
+                </div>
+                <a href="details/<%- stepData[3].data.review.seriesName%>"><h2><%- stepData[3].data.review.seriesName%></h2></a>
+            </label>
+            <footer>
+                <button type="submit" id="next-btn"><a href="">Volgende</a></button>
+            </footer>
+        </form>
         <script src="/js/seriesgame.js"></script>
     </body>
 </html>

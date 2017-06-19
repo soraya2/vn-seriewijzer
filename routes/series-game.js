@@ -11,7 +11,6 @@ Reviews.find("review", function(err, docs) {
     } else{
         reviewArr = docs;
     }
-
 });
 
 router.get('/', function (req, res) {
@@ -28,6 +27,9 @@ router.get('/1', function (req, res) {
     res.locals.stepData = step1;
     res.locals.stepNext = 2;
     res.render('series-game/steps');
+})
+router.post('/1', function(req, res){
+    console.log(req.body);
 })
 router.get('/2', function (req, res) {
     var step2 = [

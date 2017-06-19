@@ -10,7 +10,7 @@
 </head>
 <body class="upload-form-body">
   <form id="review-form" action="/upload" method="post" autocomplete="on">
-    <h1 class="form-title">Recensie Uploaden</h1> 
+    <h1 class="form-title">Recensie Uploaden</h1>
 
     <section>
       <h2>Over de recensent</h2>
@@ -47,7 +47,7 @@
 
       <label>
         <p>Beginjaar:</p>
-        <p class="sub-line">Het jaartal waarin de serie begon met opnemen.</p>
+        <p class="sub-line">Het jaartal waarin de serie begon met uitzenden.</p>
         <input type="text" name="startingYear" placeholder="Bijv. 2011" required>
       </label>
 
@@ -59,7 +59,7 @@
 
       <div>
         <h3>Categorie:</h3>
-        <p class="sub-line">Hierin vul je de genres in waarbij deze serie hoort.</p>
+        <p class="sub-line">Vink de genres aan waarin deze serie hoort.</p>
         <label>
             <input type="checkbox" name="genre" value="action">
             <span>Actie</span>
@@ -145,11 +145,15 @@
           <input type="checkbox" name="platform" value="videoland">
           <span>Videoland</span>
         </label>
+        <label>
+          <input type="checkbox" name="platform" value="disc">
+          <span>DVD/Bluray</span>
+        </label>
       </div>
 
       <div>
         <h3>Tijdperk</h3>
-        <p class="sub-line">In welke tijd speelt het zich af?</p>
+        <p class="sub-line">In welke tijd speelt het verhaal zich af?</p>
         <label>
           <input type="checkbox" name="period" value="prehistorie">
           <span>Prehistorie</span>
@@ -356,11 +360,11 @@
       <div>
         <h3>Afleveringen</h3>
         <label>
-          <span>Aantal:</span>
+          <span>Totaal Aantal:</span>
           <input type="text" name="episodes" placeholder="Bijv. 32" required>
         </label>
         <label>
-          <span>Duur:</span>
+          <span>Duur per aflevering:</span>
           <input type="text" name="duration" placeholder="Bijv. 55 minuten" required>
         </label>
       </div>
@@ -374,26 +378,10 @@
       </div>
 
       <div>
-        <h3>Producenten</h3>
+        <h3>Regie</h3>
         <label>
-          <span>Producenten (maximaal 6, scheiden met komma)</span>
+          <span>Regie (maximaal 2, scheiden met komma)</span>
           <input type="text" name="producers" placeholder="Bijv. Peter Jackson, Steven Spielberg" required>
-        </label>
-      </div>
-
-      <div>
-        <h3>Awards</h3>
-        <label>
-          <span>Hoeveel awards heeft de serie gewonnen?</span>
-          <input type="text" name="awards" placeholder="Bijv. 4" required>
-        </label>
-      </div>
-
-      <div>
-        <h3>Nominaties</h3>
-        <label>
-          <span>Hoevaak is de serie genomineerd?</span>
-          <input type="text" name="nominations" placeholder="Bijv. 12" required>
         </label>
       </div>
 
@@ -407,10 +395,10 @@
 
       <div>
         <h3>Trailer</h3>
-        <p class="sub-line">Plaats hier de URL naar de trailer op YouTube. Geen trailer? Laat het veld dan leeg.</p>
+        <p class="sub-line">Plaats hier de <em>Embed URL</em> (dus niet de reguliere link) naar de trailer op YouTube. Geen trailer? Laat het veld dan leeg.</p>
         <label>
-          <span>Link naar de trailer</span>
-          <input type="text" name="trailerURL" placeholder="Bijv. https://youtube.com/trailer">
+          <span>Link naar de emtrailer</span>
+          <input type="text" name="trailerURL" placeholder="Bijv. https://www.youtube.com/embed/v7MGUNV8MxU">
         </label>
       </div>
 

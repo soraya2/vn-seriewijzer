@@ -30,8 +30,6 @@ var reviewsSchema = mongoose.Schema({
         reviewIntro: String,
         producers: String,
         actors: String,
-        awards: String,
-        nominations: String,
         imdbRating: String,
         trailerURL: String,
         imgURL: String,

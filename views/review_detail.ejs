@@ -60,7 +60,7 @@
 
             <div>
               <h3>Categorie:</h3>
-              <p class="sub-line">Hierin vul je de genres in waarbij deze serie hoort.</p>
+              <p class="sub-line">Vink de genres aan waarbin deze serie hoort.</p>
               <label>
                   <input type="checkbox"
                       <% if (data.review.genre.includes('action')) { %>
@@ -214,11 +214,19 @@
                 name="platform" value="videoland">
                 <span>Videoland</span>
               </label>
+              <label>
+                <input type="checkbox"
+                <% if (data.review.platform.includes('disc')) { %>
+                    checked
+                <% } %>
+                name="platform" value="disc">
+                <span>DVD/Bluray</span>
+              </label>
             </div>
 
             <div>
               <h3>Tijdperk</h3>
-              <p class="sub-line">In welke tijd speelt het zich af?</p>
+              <p class="sub-line">In welke tijd speelt het verhaal zich af?</p>
               <label>
                 <input type="checkbox"
                 <% if (data.review.period.includes('prehistorie')) { %>
@@ -561,11 +569,11 @@
             <div>
               <h3>Afleveringen</h3>
               <label>
-                <span>Aantal:</span>
+                <span>Totaal Aantal:</span>
                 <input type="text" name="episodes" value="<%= data.review.episodes %>" required>
               </label>
               <label>
-                <span>Duur:</span>
+                <span>Duur Per Aflevering:</span>
                 <input type="text" name="duration" value="<%= data.review.duration %>" required>
               </label>
             </div>
@@ -579,26 +587,10 @@
             </div>
 
             <div>
-              <h3>Producenten</h3>
+              <h3>Regie</h3>
               <label>
-                <span>Producenten (maximaal 6, scheiden met komma)</span>
+                <span>Regie (maximaal 2, scheiden met komma)</span>
                 <input type="text" name="producers" value="<%= data.review.producers %>" required>
-              </label>
-            </div>
-
-            <div>
-              <h3>Awards</h3>
-              <label>
-                <span>Hoeveel awards heeft de serie gewonnen?</span>
-                <input type="text" name="awards" value="<%= data.review.awards %>" required>
-              </label>
-            </div>
-
-            <div>
-              <h3>Nominaties</h3>
-              <label>
-                <span>Hoevaak is de serie genomineerd?</span>
-                <input type="text" name="nominations" value="<%= data.review.nominations %>" required>
               </label>
             </div>
 
@@ -612,10 +604,10 @@
 
             <div>
               <h3>Trailer</h3>
-              <p class="sub-line">Plaats hier de URL naar de trailer op YouTube. Geen trailer? Laat het veld dan leeg.</p>
+              <p class="sub-line">Plaats hier de <em>Embed URL</em> (dus niet de reguliere link) naar de trailer op YouTube. Geen trailer? Laat het veld dan leeg.</p>
               <label>
                 <span>Link naar de trailer</span>
-                <input type="text" name="trailerURL" value="<%= data.review.trailerURL %>">
+                <input type="text" name="trailerURL" value="<%= data.review.trailerURL %>" placeholder="Bijv. https://www.youtube.com/embed/v7MGUNV8MxU">
               </label>
             </div>
 

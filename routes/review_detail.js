@@ -48,8 +48,6 @@ function processUploadForm(req, res) {
             duration:       fields.duration,
             actors:         fields.actors,
             producers:      fields.producers,
-            awards:         fields.awards,
-            nominations:    fields.nominations,
             imdbRating:     fields.imdbRating,
             trailerURL:     fields.trailerURL,
             imgURL:         fields.imgURL,

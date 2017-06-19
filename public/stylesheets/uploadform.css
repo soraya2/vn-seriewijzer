@@ -17,6 +17,11 @@
     color: #333;
 }
 
+.back-btn:hover {
+    background-color: deepskyblue;
+    color: white;
+}
+
 #review-form {
   display: flex;
   flex-direction: column;

@@ -1,5 +1,5 @@
 (function() {
-    'use strict'
+    'use strict';
 
     var socket = io();
 
@@ -22,9 +22,8 @@
             textField.value = '';
         },
         emit: function(comm) {
-            socket.emit('comment', {
+            socket.emit('save comment', {
                 text: comm,
-                username: 'testuser',
                 time: new Date().toLocaleString()
             });
         },
@@ -53,4 +52,5 @@
     socket.on('comment', function(comm) {
         comment.render(comm);
     });
+
 })();

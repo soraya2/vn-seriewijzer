@@ -4,8 +4,6 @@ var router = express.Router();
 
 var env = require('dotenv').config();
 
-var series2 = require('../data/series.json');
-
 var reviewsSchema = require('../models/reviewsschema');
 // var serieData = [{ 'name': 'a', 'color': 'black', 'period': 'middeleeuwen' }, { 'name': 'b', 'color': 'blue', 'period': 'victoriaans' }, { 'name': 'c', 'color': 'black', 'period': 'romeins' }];
 
@@ -23,7 +21,7 @@ router.get('/', function(req, res) {
         // req.user.user.facebook.displayName
 
         console.log(req.session);
-
+        req.is('json');
 
         console.log(req.query);
 

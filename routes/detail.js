@@ -11,8 +11,6 @@ router.get('/:id', function(req, res) {
     //get serie based on serie name
     username = req.session.user;
 
-    // console.log(username);
-
     reviewsSchema.findOne({ "review.seriesName": seriesName }, function(error, doc) {
 
         res.render('detail', { data: doc, title: seriesName });
@@ -28,14 +26,11 @@ module.exports = function(io) {
 
         sockets.broadcast.on('save comment', function(comment) {
 
-            console.log(username, "username");
             comment.username = username;
-            console.log(req.session.persona);
-
+            // console.log(req.session.persona);
 
             commentsToDatabase(comment);
 
-            //Todo: sending facebookname to client
             io.emit('comment', comment);
         });
 

@@ -33,21 +33,21 @@ router.get('/', function(req, res) {
 
         var filterdData = docs.filter(function(serie) {
             return Object.keys(filters).every(function(key) {
-                console.log(filters);
 
-                // return filters[key].some(function(filterOptions) {
-                //     // console.log(serie);
 
-                //     // return serie[key].some(function(seriesTags) {
+                return filters.persona[key].some(function(filterOptions) {
 
-                //     //     return filterOptions == seriesTags;
-                //     // });
-                // });
+                    return serie.review[key].some(function(seriesTags) {
+
+                        return filterOptions === seriesTags;
+                    });
+
+                });
             });
         });
 
-        console.log(filterdData);
-        res.render('profile', { title: 'Home', data: docs, name: 'req.session.user' });
+        console.log(filterdData, "filterdata");
+        res.render('profile', { title: 'Home', data: filterdData, name: 'req.session.user' });
 
     });
 });

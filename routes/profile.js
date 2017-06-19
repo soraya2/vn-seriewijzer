@@ -18,16 +18,8 @@ router.get('/', function(req, res) {
         if (err) {
             return err;
         }
-        // req.user.user.facebook.displayName
 
-        console.log(req.session);
-        req.is('json');
-
-        console.log(req.query);
-
-
-
-        res.render('profile', { title: 'Home', data: docs, name: '' });
+        res.render('profile', { title: 'Home', data: docs, name: req.session.user });
 
     });
 });

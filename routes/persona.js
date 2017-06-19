@@ -8,7 +8,12 @@ router.get('/', function(req, res) {
 
 
 router.post('/', function(req, res) {
+
+
     // store form data in route
+
+    console.log(req.body);
+
     if (req.user) {
 
         req.session.persona = req.body;

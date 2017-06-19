@@ -5,7 +5,7 @@ var router = express.Router();
 var env = require('dotenv').config();
 
 var reviewsSchema = require('../models/reviewsschema');
-// var serieData = [{ 'name': 'a', 'color': 'black', 'period': 'middeleeuwen' }, { 'name': 'b', 'color': 'blue', 'period': 'victoriaans' }, { 'name': 'c', 'color': 'black', 'period': 'romeins' }];
+// var serieData = [{ 'name': 'a', 'color': 'black', "tagshobby": ["gamen", "shoppen"] }, { 'name': 'b', 'color': 'blue', "tagshobby": ["reizen"] }, { 'name': 'c', 'color': 'black', "tagshobby": ["muziek", "sporten"] }];
 
 var filters = {};
 var i;
@@ -19,18 +19,41 @@ router.get('/', function(req, res) {
             return err;
         }
 
-        res.render('profile', { title: 'Home', data: docs, name: req.session.user });
+        // console.log(req.session.persona.tagspersoonlijkheid);
+
+        // console.log(req.body.persona, "personaform");
+
+        if (req.session.personaform) {
+
+            filterPersonality(req.session.personaform);
+            // console.log(filters);
+        }
+
+
+
+        var filterdData = docs.filter(function(serie) {
+            return Object.keys(filters).every(function(key) {
+                console.log(filters);
+
+                // return filters[key].some(function(filterOptions) {
+                //     // console.log(serie);
+
+                //     // return serie[key].some(function(seriesTags) {
+
+                //     //     return filterOptions == seriesTags;
+                //     // });
+                // });
+            });
+        });
+
+        console.log(filterdData);
+        res.render('profile', { title: 'Home', data: docs, name: 'req.session.user' });
 
     });
 });
 
 // begin soraya
 router.post('/', function(req, res) {
-
-    // if (req.body.tagspersoonlijkheid) {
-
-    //     filterPersonality(req.body.tagspersoonlijkheid.sort());
-    // }
 
     // console.log(Array.isArray(req.body.tagshobby) === false);
 
@@ -50,60 +73,37 @@ router.post('/', function(req, res) {
 
 
     // }
-
-
-    var filterdData = [];
+    //--------------------------------------------------------
+    //fake data filter werkt niet echt!!
+    // var filterdData = [];
 
     // Get random friends from user account
-    var arr = [];
-    var randomnumber = Math.floor(Math.random() * series2.length);
-    while (arr.length < randomnumber) {
-        var randomnumber2 = Math.floor(Math.random() * series2.length);
-        if (arr.indexOf(randomnumber2) > -1) {
-            continue;
-        }
-        arr[arr.length] = randomnumber2;
-    }
-    for (var i = 0; i < arr.length; i++) {
-        filterdData.push(series2[arr[i]]);
-    }
+    // var arr = [];
+    // var randomnumber = Math.floor(Math.random() * series2.length);
+    // while (arr.length < randomnumber) {
+    //     var randomnumber2 = Math.floor(Math.random() * series2.length);
+    //     if (arr.indexOf(randomnumber2) > -1) {
+    //         continue;
+    //     }
+    //     arr[arr.length] = randomnumber2;
+    // }
+    // for (var i = 0; i < arr.length; i++) {
+    //     filterdData.push(series2[arr[i]]);
+    // }
 
-    // if (req.body.tagsikwil) {
+
+    //------------------------------------------------------
+
+    // if (req.body.persona.tagsikwil) {
 
     //     filterMoods([req.body.tagsikwil]);
     // }
 
 
 
-    // var elements = Array.from(req.body.country);
-
-
-    // console.log(Array.isArray(req.body.country));
 
 
 
-    // var filterdData = series2.filter(function(series) {
-
-    //     return Object.keys(filters).every(function(keys) {
-
-    //         return filters[keys].some(function(filterOptions) {
-    //             // console.log(filterOptions == series[keys]);
-
-
-    //             for (i; i < series[keys].split(",").length; i++) {
-    //                 // console.log(series[keys].split(", ")[i]);
-
-    //                 series[keys].split(",")[i];
-    //                 console.log(filters[keys]);
-
-
-    //                 return filterOptions == series[keys].split(",")[i];
-    //             }
-
-    //             // return filterOptions == series[keys];
-    //         });
-    //     });
-    // });
 
 
     //     function receiveData(data) {
@@ -121,23 +121,23 @@ router.post('/', function(req, res) {
 
 // add object array per filter
 function filterPersonality(filterOption) {
-    filters.tagspersoonlijkheid = filterOption;
+    filters.persona = filterOption;
 
 
-    console.log(filters.tagspersoonlijkheid, "[filterpersoonlijkheid]");
-    return filters.tagspersoonlijkheid;
+    console.log(filters.persona, "[filterpersoonlijkheid]");
+    return filters.persona;
 }
 
 function filterHobby(filterOption) {
-    filters.tagshobby = filterOption;
-    console.log(filters.tagshobby, "[tagshobby]");
-    return filters.tagshobby;
+    filters.hobby = filterOption;
+    console.log(filters.hobby, "[tagshobby]");
+    return filters.hobby;
 }
 
 function filterMoods(filterOption) {
-    filters.tagsikwil = filterOption;
-    console.log(filters.tagsikwil, "[tagsikwil]");
-    return filters.tagsikwil;
+    filters.mood = filterOption;
+    console.log(filters.mood, "[tagsikwil]");
+    return filters.mood;
 }
 
 module.exports = router;

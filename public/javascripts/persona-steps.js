@@ -54,11 +54,12 @@
 
         // BEGIN CHANEL
         function toggleCheckboxes(el, value) {
-            var checkboxes = document.querySelectorAll('.persona-check:nth-of-type(' + (el + 1) + ') input[type="checkbox"]');
+            // var checkboxes = document.querySelectorAll('.persona-check:nth-of-type(' + (el + 1) + ') input[type="checkbox"]');
 
-            for (var checkbox of checkboxes) {
-                checkbox.disabled = value;
-            }
+ // for (var checkbox of checkboxes) {
+ //     checkbox.disabled = value;
+ // }
+
         }
         // END CHANEL
 

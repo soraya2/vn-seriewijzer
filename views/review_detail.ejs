@@ -74,7 +74,7 @@
                   <% if (data.review.genre.includes('adventure')) { %>
                       checked
                   <% } %>
-                  name="genre" value="avontuur">
+                  name="genre" value="adventure">
                   <span>Avontuur</span>
               </label>
 
@@ -92,7 +92,7 @@
                   <% if (data.review.genre.includes('documentary')) { %>
                       checked
                   <% } %>
-                   name="genre" value="documentaire">
+                   name="genre" value="documentary">
                   <span>Documentaire</span>
               </label>
 
@@ -110,7 +110,7 @@
                   <% if (data.review.genre.includes('epic')) { %>
                       checked
                   <% } %>
-                  name="genre" value="episch">
+                  name="genre" value="epic">
                   <span>Episch
               </label>
 
@@ -128,7 +128,7 @@
                   <% if (data.review.genre.includes('scifi')) { %>
                       checked
                   <% } %>
-                  name="genre" value="sci-fi">
+                  name="genre" value="scifi">
                   <span>Sci-fi</span>
               </label>
 
@@ -137,7 +137,7 @@
                   <% if (data.review.genre.includes('war')) { %>
                       checked
                   <% } %>
-                  name="genre" value="oorlog">
+                  name="genre" value="war">
                   <span>Oorlog</span>
               </label>
 
@@ -146,7 +146,7 @@
                   <% if (data.review.genre.includes('romance')) { %>
                       checked
                   <% } %>
-                  name="genre" value="romantiek">
+                  name="genre" value="romance">
                   <span>Romantiek</span>
               </label>
 
@@ -155,7 +155,7 @@
                   <% if (data.review.genre.includes('music')) { %>
                       checked
                   <% } %>
-                  name="genre" value="muziek">
+                  name="genre" value="music">
                   <span>Muziek</span>
               </label>
 
@@ -232,7 +232,7 @@
                 <% if (data.review.period.includes('prehistoric')) { %>
                     checked
                 <% } %>
-                name="period" value="prehistorie">
+                name="period" value="prehistoric">
                 <span>Prehistorie</span>
 
               </label>
@@ -241,7 +241,7 @@
                 <% if (data.review.period.includes('roman')) { %>
                     checked
                 <% } %>
-                name="period" value="romeinse-tijd">
+                name="period" value="roman">
                 <span>Romeinse Tijd</span>
 
               </label>
@@ -250,7 +250,7 @@
                 <% if (data.review.period.includes('middleages')) { %>
                     checked
                 <% } %>
-                name="period" value="middeleeuwen">
+                name="period" value="middleages">
                 <span>Middeleeuwen</span>
 
               </label>
@@ -259,7 +259,7 @@
                 <% if (data.review.period.includes('victorian')) { %>
                     checked
                 <% } %>
-                name="period" value="victoriaans">
+                name="period" value="victorian">
                 <span>Victoriaanse Tijd</span>
 
               </label>
@@ -295,7 +295,7 @@
                 <% if (data.review.period.includes('present')) { %>
                     checked
                 <% } %>
-                name="period" value="heden">
+                name="period" value="present">
                 <span>Heden</span>
 
               </label>
@@ -304,7 +304,7 @@
                 <% if (data.review.period.includes('future')) { %>
                     checked
                 <% } %>
-                name="period" value="toekomst">
+                name="period" value="future">
                 <span>Toekomst</span>
 
               </label>
@@ -327,7 +327,7 @@
                 <% if (data.review.persona.includes('creative')) { %>
                     checked
                 <% } %>
-                name="persona" value="creatieveling">
+                name="persona" value="creative">
                 <span>Creatieveling</span>
 
               </label>
@@ -336,17 +336,8 @@
                 <% if (data.review.persona.includes('sensationalist')) { %>
                     checked
                 <% } %>
-                name="persona" value="sensatiezoeker">
+                name="persona" value="sensationalist">
                 <span>Sensatiezoeker</span>
-
-              </label>
-              <label>
-                <input type="checkbox"
-                <% if (data.review.persona.includes('soldier')) { %>
-                    checked
-                <% } %>
-                name="persona" value="soldaat">
-                <span>Soldaat</span>
 
               </label>
               <label>
@@ -355,7 +346,7 @@
                     checked
                 <% } %>
                 name="persona" value="joker">
-                <span>Joker</span>
+                <span>Grappenmaker</span>
 
               </label>
               <label>
@@ -363,8 +354,17 @@
                 <% if (data.review.persona.includes('girly')) { %>
                     checked
                 <% } %>
-                name="persona" value="girly-girl">
+                name="persona" value="girly">
                 <span>Girly Girl</span>
+
+              </label>
+              <label>
+                <input type="checkbox"
+                <% if (data.review.persona.includes('tomboy')) { %>
+                    checked
+                <% } %>
+                name="persona" value="tomboy">
+                <span>Tomboy</span>
 
               </label>
               <label>
@@ -372,7 +372,7 @@
                 <% if (data.review.persona.includes('daredevil')) { %>
                     checked
                 <% } %>
-                name="persona" value="waaghals">
+                name="persona" value="daredevil">
                 <span>Waaghals</span>
 
               </label>
@@ -381,7 +381,7 @@
                 <% if (data.review.persona.includes('adventurer')) { %>
                     checked
                 <% } %>
-                name="persona" value="avonturier">
+                name="persona" value="adventurer">
                 <span>Avonturier</span>
 
               </label>
@@ -390,7 +390,7 @@
                 <% if (data.review.persona.includes('nerd')) { %>
                     checked
                 <% } %>
-                name="persona" value="geeky-nerd">
+                name="persona" value="nerd">
                 <span>Geeky Nerd</span>
 
               </label>
@@ -399,8 +399,8 @@
                 <% if (data.review.persona.includes('animallover')) { %>
                     checked
                 <% } %>
-                name="persona" value="animal-lover">
-                <span>Animal Lover</span>
+                name="persona" value="animallover">
+                <span>Dierenliefhebber</span>
 
               </label>
               <label>
@@ -409,7 +409,7 @@
                     checked
                 <% } %>
                 name="persona" value="intellectual">
-                <span>Intellectual</span>
+                <span>Intellectueell</span>
 
               </label>
             </div>
@@ -422,7 +422,7 @@
                 <% if (data.review.hobby.includes('gaming')) { %>
                     checked
                 <% } %>
-                name="hobby" value="gamen">
+                name="hobby" value="gaming">
                 <span>Gamen</span>
 
               </label>
@@ -431,7 +431,7 @@
                 <% if (data.review.hobby.includes('party')) { %>
                     checked
                 <% } %>
-                name="hobby" value="uitgaan">
+                name="hobby" value="party">
                 <span>Uitgaan/borrelen</span>
 
               </label>
@@ -440,7 +440,7 @@
                 <% if (data.review.hobby.includes('travel')) { %>
                     checked
                 <% } %>
-                name="hobby" value="reizen">
+                name="hobby" value="travel">
                 <span>Reizen</span>
 
               </label>
@@ -449,7 +449,7 @@
                 <% if (data.review.hobby.includes('music')) { %>
                     checked
                 <% } %>
-                name="hobby" value="muziek">
+                name="hobby" value="music">
                 <span>Muziek</span>
 
               </label>
@@ -458,7 +458,7 @@
                 <% if (data.review.hobby.includes('shopping')) { %>
                     checked
                 <% } %>
-                name="hobby" value="shoppen">
+                name="hobby" value="shopping">
                 <span>Shoppen</span>
 
               </label>
@@ -467,7 +467,7 @@
                 <% if (data.review.hobby.includes('cooking')) { %>
                     checked
                 <% } %>
-                name="hobby" value="koken">
+                name="hobby" value="cooking">
                 <span>Koken</span>
 
               </label>
@@ -476,7 +476,7 @@
                 <% if (data.review.hobby.includes('reading')) { %>
                     checked
                 <% } %>
-                name="hobby" value="lezen">
+                name="hobby" value="reading">
                 <span>Lezen</span>
 
               </label>
@@ -494,7 +494,7 @@
                 <% if (data.review.hobby.includes('working')) { %>
                     checked
                 <% } %>
-                name="hobby" value="werken">
+                name="hobby" value="working">
                 <span>Werken</span>
 
               </label>
@@ -508,7 +508,7 @@
                 <% if (data.review.mood.includes('scared')) { %>
                     checked
                 <% } %>
-                name="mood" value="bang-worden">
+                name="mood" value="scared">
                 <span>Ik wil bang gemaakt worden</span>
 
               </label>
@@ -517,7 +517,7 @@
                 <% if (data.review.mood.includes('cry')) { %>
                     checked
                 <% } %>
-                name="mood" value="janken">
+                name="mood" value="cry">
                 <span>Ik wil lekker janken</span>
 
               </label>
@@ -526,7 +526,7 @@
                 <% if (data.review.mood.includes('thrill')) { %>
                     checked
                 <% } %>
-                name="mood" value="spanning">
+                name="mood" value="thrill">
                 <span>Ik wil van spanning stoppen met ademen</span>
 
               </label>
@@ -535,7 +535,7 @@
                 <% if (data.review.mood.includes('laugh')) { %>
                     checked
                 <% } %>
-                name="mood" value="lachen">
+                name="mood" value="laugh">
                 <span>Ik wil huilen van het lachen</span>
 
               </label>
@@ -544,8 +544,17 @@
                 <% if (data.review.mood.includes('chill')) { %>
                     checked
                 <% } %>
-                name="mood" value="chillen">
+                name="mood" value="chill">
                 <span>Ik wil hersendood voor de TV zitten</span>
+
+              </label>
+              <label>
+                <input type="checkbox"
+                <% if (data.review.mood.includes('learn')) { %>
+                    checked
+                <% } %>
+                name="mood" value="learn">
+                <span>Ik wil iets leren</span>
 
               </label>
             </div>

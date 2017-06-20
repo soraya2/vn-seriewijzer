@@ -47,7 +47,8 @@
 
 #review-form input[type="text"],
 #review-form input[type="email"],
-#review-form input[type="date"] {
+#review-form input[type="date"],
+#review-form textarea {
   display: inherit;
   padding: 0.7em 1.5em;
   margin: 1em 0;

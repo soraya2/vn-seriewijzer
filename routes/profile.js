@@ -11,6 +11,7 @@ var express = require('express'),
     key;
 
 router.get('/', function(req, res) {
+
     reviewsSchema.find("review", function(err, docs) {
         if (err) {
             return err;
@@ -18,12 +19,11 @@ router.get('/', function(req, res) {
 
         for (key in req.session.personaform) {
             if (req.session.personaform.hasOwnProperty(key)) {
+
                 arrayCheck(key, req.session.personaform[key]);
 
             }
         }
-
-        // console.log(filters);
 
         var filterdData = docs.filter(function(serie) {
 
@@ -61,14 +61,6 @@ function arrayCheck(filterName, filterValue) {
 
         setFilter(filterName, filterValue);
     }
-
-
 }
-
-
-
-
-
-
 
 module.exports = router;

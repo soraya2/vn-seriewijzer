@@ -15,7 +15,7 @@ var reviewsSchema = mongoose.Schema({
         startYear: String,
         endYear: String,
         genre: Array,
-        platform: String,
+        platform: Array,
         period: Array,
         persona: Array,
         hobby: Array,

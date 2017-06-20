@@ -14,7 +14,7 @@ router.get('/', function(req, res) {
 router.post('/', function(req, res) {
     console.log('New form recieved');
     processUploadForm(req, res);
-    res.redirect('/upload_complete');
+    res.redirect('/review_overview');
 });
 
 function processUploadForm(req, res) {

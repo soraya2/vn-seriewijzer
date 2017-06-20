@@ -1,7 +1,5 @@
 // BEGIN SORAYA
 (function() {
-    "use strict";
-
     if (document.getElementsByTagName('persona-check')) {
         var personaSteps = document.getElementsByClassName('persona-check'),
             personaButton = document.getElementById('persona-button'),
@@ -15,12 +13,21 @@
 
         //hide all sections except the first
         for (i = 1; i < personaSteps.length; i++) {
-            personaSteps[i].classList.add('fade-in', 'fade-out', 'to-back');
+            //FEATURE DETECTIONS BY CHANEL
+            if(personaSteps[i].classList){
+                personaSteps[i].classList.add('fade-in', 'fade-out', 'to-back');
+            } else {
+                personaSteps[i].className += ' fade-in fade-out to-back';
+            }
 
             toggleCheckboxes(i, true);
         }
 
-        personaSteps[0].classList.add('fade-in');
+        if(personaSteps[0].classList){
+            personaSteps[0].classList.add('fade-in');
+        } else {
+            personaSteps[0].className += ' fade-in';
+        }
 
         function nextStep(e) {
             e.preventDefault();
@@ -28,8 +35,13 @@
             switch (count) {
 
                 case 1:
-                    personaSteps[0].classList.add('fade-out');
-                    personaSteps[count].classList.remove('fade-out');
+                    if(personaSteps[0].classList){
+                        personaSteps[0].classList.add('fade-out');
+                        personaSteps[count].classList.remove('fade-out');
+                    } else {
+                        personaSteps[0].className += ' fade-out';
+                        personaSteps[count].className = personaSteps[count].className.replace(' fade-out', '');
+                    }
                     toggleCheckboxes(0, true);
                     toggleCheckboxes(count, false);
 
@@ -37,14 +49,29 @@
 
                 case 2:
                     personaSubmit.className = ' submit-persona';
-                    personaButton.classList.add('hide');
+                    personaButton.className += ' hide';
 
                     for (index = 0; index < personaSteps.length; index++) {
-                        personaSteps[index].classList.add('fade-out');
+                        if(personaSteps[index].classList){
+                            personaSteps[index].classList.add('fade-out');
+                        } else {
+                            //BEGIN CHANEL
+                            var sub = 'fade-out';
+
+                            //Check if item already has class 'fade-out'
+                            if(personaSteps[index].className.indexOf(sub) == -1){
+                                personaSteps[index].className += ' fade-out';
+                            }
+                            //END CHANEL
+                        }
                         toggleCheckboxes(index, true);
                     }
 
-                    personaSteps[count].classList.remove('fade-out');
+                    if(personaSteps[count].classList){
+                        personaSteps[count].classList.remove('fade-out');
+                    } else {
+                        personaSteps[count].className = personaSteps[count].className.replace(' fade-out', '');
+                    }
                     toggleCheckboxes(count, false);
             }
 
@@ -55,8 +82,8 @@
         function toggleCheckboxes(el, value) {
             var checkboxes = document.querySelectorAll('.persona-check:nth-of-type(' + (el + 1) + ') input[type="checkbox"]');
 
-            for (var checkbox of checkboxes) {
-                checkbox.disabled = value;
+            for (var b = 0; b < checkboxes.length; b++) {
+                checkboxes[b].disabled = value;
             }
         }
         // END CHANEL

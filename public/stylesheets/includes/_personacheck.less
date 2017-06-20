@@ -9,6 +9,10 @@ body {
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+main {
+    display: block;
+}
+
 h1 {
     font-family: "Lato", sans-serif;
 }
@@ -515,6 +519,20 @@ input:checked + div {
     .item p {
         font-size: 1.2rem;
         padding: 0.4rem 0;
+    }
+
+    .item {
+        margin: 0 0.4rem;
+    }
+
+    @supports(justify-content: space-between){
+        .flexdiv {
+            justify-content: space-between;
+        }
+
+        .item {
+            margin: 0.5rem 0 0 0;
+        }
     }
 
     @supports(display:grid){

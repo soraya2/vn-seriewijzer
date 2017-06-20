@@ -473,6 +473,15 @@
               </label>
               <label>
                 <input type="checkbox"
+                <% if (data.review.hobby.includes('sport')) { %>
+                    checked
+                <% } %>
+                name="hobby" value="sport">
+                <span>Sporten</span>
+
+              </label>
+              <label>
+                <input type="checkbox"
                 <% if (data.review.hobby.includes('reading')) { %>
                     checked
                 <% } %>

@@ -170,6 +170,24 @@
 
               <label>
                   <input type="checkbox"
+                  <% if (data.review.genre.includes('thriller')) { %>
+                      checked
+                  <% } %>
+                  name="genre" value="thriller">
+                  <span>Thriller</span>
+              </label>
+
+              <label>
+                  <input type="checkbox"
+                  <% if (data.review.genre.includes('crime')) { %>
+                      checked
+                  <% } %>
+                  name="genre" value="crime">
+                  <span>Misdaad</span>
+              </label>
+
+              <label>
+                  <input type="checkbox"
                   <% if (data.review.genre.includes('sport')) { %>
                       checked
                   <% } %>

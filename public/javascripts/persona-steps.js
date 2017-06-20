@@ -2,6 +2,7 @@
 (function() {
 //    if (document.getElementsByTagName('persona-check')) {
         var personaSteps = document.getElementsByClassName('persona-check'),
+            backButtons = document.getElementsByClassName('go-back'),
             personaButton = document.getElementById('persona-button'),
             personaSubmit = document.getElementById('persona-submit'),
             confirmOverlay = document.getElementById('confirm-persona'),
@@ -71,6 +72,8 @@
                     toggleCheckboxes(0, true);
                     toggleCheckboxes(count, false);
 
+                    backButtons[0].removeAttribute('hidden');
+
                     break;
                 case 2:
                     personaSubmit.className = ' submit-persona';
@@ -120,6 +123,15 @@
         classes.add(personaSteps[0], 'fade-in');
 
         personaButton.addEventListener('click', nextStep);
+
+        for(var f = 0; f < backButtons.length; f++){
+            backButtons[f].addEventListener('click', function(e){
+                count--;
+                count--;
+                console.log(count);
+                nextStep(e);
+            });
+        }
 //    }
 })();
 // END SORAYA

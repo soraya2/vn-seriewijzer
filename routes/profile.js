@@ -18,9 +18,12 @@ router.get('/', function(req, res) {
 
         for (key in req.session.personaform) {
             if (req.session.personaform.hasOwnProperty(key)) {
-                setFilter(key, req.session.personaform[key]);
+                arrayCheck(key, req.session.personaform[key]);
+
             }
         }
+
+        // console.log(filters);
 
         var filterdData = docs.filter(function(serie) {
 
@@ -37,14 +40,35 @@ router.get('/', function(req, res) {
             });
         });
 
+        console.log(filterdData);
+
         res.render('profile', { title: 'Home', data: filterdData, name: 'req.session.user' });
 
     });
 });
 
-function setFilter(filtername, filtervalue) {
-    filters[filtername] = filtervalue;
+function setFilter(filterName, filterValue) {
+    filters[filterName] = filterValue;
 
 }
+
+function arrayCheck(filterName, filterValue) {
+
+    if (Array.isArray(filterValue) === false) {
+
+        setFilter(filterName, new Array(filterValue));
+    } else {
+
+        setFilter(filterName, filterValue);
+    }
+
+
+}
+
+
+
+
+
+
 
 module.exports = router;

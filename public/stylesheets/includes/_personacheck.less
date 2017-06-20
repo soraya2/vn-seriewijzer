@@ -335,8 +335,8 @@ input:checked + div {
 }
 
 //CONFIRMATION PAGE
-.confirm-persona {
-    background-color: rgba(0, 0, 0, 0.8);
+#confirm-persona {
+    background-color: rgba(255, 255, 255, 0.9);
     bottom: 0;
     left: 0;
     position: fixed;
@@ -344,12 +344,42 @@ input:checked + div {
     top: 0;
 }
 
-.confirm-persona div {
-    color: white;
-    left: 50%;
+#confirm-persona div {
     position: absolute;
+    padding: 0.5rem;
     top: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateY(-50%);
+    width: 100vw;
+}
+
+#confirm-persona h2 {
+    font-size: 1.8rem;
+}
+
+#confirm-persona ul {
+    list-style-type: initial;
+    margin: 1rem 0;
+    padding-left: 1rem;
+}
+
+#confirm-persona li {
+    font-size: 1rem;
+    padding-bottom: 0.3rem;
+}
+
+#confirm-persona .submit-persona {
+    box-shadow: none;
+    font-size: 1rem;
+    position: static;
+    transform: none;
+    width: 60%;
+}
+
+#confirm-persona button.submit-persona {
+    background-color: #ddd;
+    color: black;
+    float: left;
+    width: 40%;
 }
 
 @media screen and (min-width: 23rem) {
@@ -506,6 +536,15 @@ input:checked + div {
         margin: 0 0.4rem;
     }
     @supports(justify-content: space-between) {
+        #confirm-persona div {
+            left: 50%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            max-width: 37rem;
+        }
+        #confirm-persona .submit-persona {
+            width: auto;
+        }
         .flexdiv {
             justify-content: space-between;
         }

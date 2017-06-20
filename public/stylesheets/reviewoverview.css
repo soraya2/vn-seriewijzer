@@ -11,19 +11,23 @@
 .reviews-container {
     width: 70em;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(20em, 1fr));
-    grid-gap: 2em;
     justify-content: center;
 }
 
 .review-block {
+    margin: 2em;
     padding: 2em;
     -webkit-box-shadow: 5px 5px 30px -12px rgba(0,0,0,0.72);
     -moz-box-shadow: 5px 5px 30px -12px rgba(0,0,0,0.72);
     box-shadow: 5px 5px 30px -12px rgba(0,0,0,0.72);
     background-color: white;
     position: relative;
+    display: flex;
+}
+
+.review-block .img-container .review-img {
+    height: 15em;
+    margin-right: 2em;
 }
 
 .edit-btn {

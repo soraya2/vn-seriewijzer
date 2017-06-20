@@ -334,8 +334,8 @@ input:checked + div {
 }
 
 //CONFIRMATION PAGE
-.confirm-persona {
-    background-color: rgba(0, 0, 0, 0.8);
+#confirm-persona {
+    background-color: rgba(0, 0, 0, 0.9);
     bottom: 0;
     left: 0;
     position: fixed;
@@ -343,12 +343,34 @@ input:checked + div {
     top: 0;
 }
 
-.confirm-persona div {
+#confirm-persona div {
     color: white;
-    left: 50%;
     position: absolute;
+    padding: 0.5rem;
     top: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateY(-50%);
+    width: 100vw;
+}
+
+#confirm-persona h2 {
+    font-size: 1.8rem;
+}
+
+#confirm-persona ul {
+    margin: 1rem 0;
+}
+
+#confirm-persona .submit-persona {
+    box-shadow: none;
+    position: static;
+    transform: none;
+    width: 50%;
+}
+
+#confirm-persona button.submit-persona {
+    background-color: #ddd;
+    color: black;
+    float: left;
 }
 
 @media screen and (min-width: 23rem){
@@ -545,6 +567,12 @@ input:checked + div {
 
     .item {
         margin: 0 0.4rem;
+    }
+
+    #confirm-persona div {
+        left: 50%;
+        transform: translate(-50%, -50%);
+        max-width: 37rem;
     }
 
     @supports(justify-content: space-between){

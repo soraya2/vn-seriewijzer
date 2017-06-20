@@ -4,13 +4,14 @@
         var personaSteps = document.getElementsByClassName('persona-check'),
             personaButton = document.getElementById('persona-button'),
             personaSubmit = document.getElementById('persona-submit'),
+            confirmOverlay = document.getElementById('confirm-persona'),
+            personalList = document.getElementById('personal-list'),
             count = 1,
             i,
             index;
-        // Hiding submit button untill the last step;
-        personaButton.removeAttribute('hidden');
 
         // BEGIN CHANEL
+        //Function to disable or enable checkboxes
         function toggleCheckboxes(el, value) {
             var checkboxes = document.querySelectorAll('.persona-check:nth-of-type(' + (el + 1) + ') input[type="checkbox"]');
 
@@ -19,6 +20,7 @@
             }
         }
 
+        //Functions for adding or removing checkboxes with feature detection
         var classes = {
             add: function(el, className){
                 if(el.classList){
@@ -35,18 +37,28 @@
                 }
             }
         }
-        // END CHANEL
 
-        //hide all sections except the first
-        for (i = 1; i < personaSteps.length; i++) {
-            classes.add(personaSteps[i], 'fade-in');
-            classes.add(personaSteps[i], 'fade-out');
-            classes.add(personaSteps[i], 'to-back');
+        var checkedInputs = {
+            get: function(){
+                var allCheckboxes = document.querySelectorAll('input[type="checkbox"]:checked + div + p label');
 
-            toggleCheckboxes(i, true);
+                for(var d = 0; d < allCheckboxes.length; d++){
+                    this.createEl(allCheckboxes[d].innerHTML);
+                };
+            },
+            createEl: function(label){
+                console.log('create el');
+                var li = document.createElement('li');
+                var text = document.createTextNode(label);
+
+                li.appendChild(text);
+                this.render(li);
+            },
+            render: function(el){
+                personalList.appendChild(el);
+            }
         }
-
-        classes.add(personaSteps[0], 'fade-in');
+        // END CHANEL
 
         function nextStep(e) {
             e.preventDefault();
@@ -62,7 +74,6 @@
                     break;
                 case 2:
                     personaSubmit.className = ' submit-persona';
-                    personaButton.className += ' hide';
 
                     for (index = 0; index < personaSteps.length; index++) {
                         //BEGIN CHANEL
@@ -79,10 +90,34 @@
                     classes.remove(personaSteps[count], 'fade-out');
 
                     toggleCheckboxes(count, false);
+                    break;
+                //BEGIN CHANEL
+                case 3:
+                    for(var c = 0; c < personaSteps.length; c++){
+                        toggleCheckboxes(c, false);
+                    }
+
+                    checkedInputs.get();
+                    confirmOverlay.removeAttribute('hidden');
+                //END CHANEL
             }
 
             return personaSteps[count++];
         }
+
+        // Hiding submit button untill the last step;
+        personaButton.removeAttribute('hidden');
+
+        //hide all sections except the first
+        for (i = 1; i < personaSteps.length; i++) {
+            classes.add(personaSteps[i], 'fade-in');
+            classes.add(personaSteps[i], 'fade-out');
+            classes.add(personaSteps[i], 'to-back');
+
+            toggleCheckboxes(i, true);
+        }
+
+        classes.add(personaSteps[0], 'fade-in');
 
         personaButton.addEventListener('click', nextStep);
 //    }

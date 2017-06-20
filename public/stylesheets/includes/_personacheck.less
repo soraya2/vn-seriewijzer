@@ -8,6 +8,10 @@ body {
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+main {
+    display: block;
+}
+
 h1 {
     font-family: "Lato", sans-serif;
 }
@@ -28,6 +32,10 @@ button,
 input[type="submit"] {
     -webkit-appearance: none;
     appearance: none;
+}
+
+[hidden] {
+    display: none;
 }
 
 .hide {
@@ -326,9 +334,27 @@ input:checked + div {
     background: url('/img/small-icons_bigbang.png');
 }
 
+//CONFIRMATION PAGE
+.confirm-persona {
+    background-color: rgba(0, 0, 0, 0.8);
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+}
+
+.confirm-persona div {
+    color: white;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
 @media screen and (min-width: 23rem) {
     .item p {
-        font-size: 1.1rem;
+        font-size: 1rem;
     }
     .flexdiv .persona:nth-of-type(1) div::before {
         background: #F76655;
@@ -475,6 +501,17 @@ input:checked + div {
     .item p {
         font-size: 1.2rem;
         padding: 0.4rem 0;
+    }
+    .item {
+        margin: 0 0.4rem;
+    }
+    @supports(justify-content: space-between) {
+        .flexdiv {
+            justify-content: space-between;
+        }
+        .item {
+            margin: 0.5rem 0 0 0;
+        }
     }
     @supports(display:grid) {
         .form-for-check .flexdiv {

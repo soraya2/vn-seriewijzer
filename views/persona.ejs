@@ -20,7 +20,9 @@
         <p class="text-label">Meerdere antwoorden mogelijk</p>
     </header>
     <main class="form-for-check">
+
         <form method="post" action="/persona">
+
         <fieldset class="persona-check">
             <legend><h2>Ik ben echt een...</h2></legend>
             <div class="flexdiv">
@@ -67,7 +69,9 @@
                     <p><label for="waaghals">Waaghals</label></p>
                 </section>
                 <section class="item persona">
-                    <input type="checkbox" id="avonturier" name="persona" value="avonturier" />
+
+                    <input type="checkbox" id="avonturier" name="persona" value="adventurer" />
+
                     <div>
 
                     </div>
@@ -102,7 +106,9 @@
                     <p><label for="tomboy">Tomboy</label></p>
                 </section>
                 <section class="item persona">
-                    <input type="checkbox" id="wie-ben-ik" name="persona" value="wie" />
+
+                    <input type="checkbox" id="wie-ben-ik" name="persona" value="everything" />
+
                     <div>
 
                     </div>
@@ -131,6 +137,7 @@
                 </section>
                 <section class="item hobby">
                     <input type="checkbox" id="uitgaan-borrelen"  name="hobby"  value="uitgaan" />
+
                     <div>
 
                     </div>
@@ -179,7 +186,8 @@
                     <p><label for="drugs">Drugs</label></p>
                 </section>
                 <section class="item hobby">
-                    <input type="checkbox" id="werken" name="hobby"  value="werken" />
+
+                    <input type="checkbox" id="werken" name="hobby"  value="work" />
                     <div>
 
                     </div>
@@ -243,7 +251,21 @@
             </div>
         </fieldset>
         <button id="persona-button" class="submit-persona" hidden>Volgende</button>
+
         <input id="persona-submit" type="submit" value="Volgende" class="submit-persona"/>
+
+        <section class="confirm-persona" hidden>
+            <div>
+                <h2>Bevestig je keuzes</h2>
+                <h3>Dit is wat je hebt gekozen</h3>
+                <ul>
+
+                </ul>
+                <button>Ga terug</button>
+                <input id="persona-submit" type="submit" value="Klopt! Bekijk jouw aanbod" class="submit-persona"/>
+            </div>
+        </section>
+
         </form>
     </main>
 

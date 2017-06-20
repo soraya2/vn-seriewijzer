@@ -83,11 +83,17 @@ input[type="submit"] {
     position: fixed;
     text-align: center;
     text-transform: lowercase;
+    transition: background-color 0.2s;
     width: 100%;
 }
 
 .submit-persona:focus {
     background-color: #F76655;
+}
+
+.submit-persona:hover {
+    background-color: #FF5300;
+    cursor: pointer;
 }
 
 .text-label {
@@ -145,6 +151,23 @@ input[type="submit"] {
     position: absolute;
     right: 0;
     top: 0;
+}
+
+.flexdiv .item label:hover {
+    color: #F76655;
+    cursor: pointer;
+}
+
+.flexdiv .item label:active {
+    color: #333;
+}
+
+.flexdiv .item:hover div {
+    filter: grayscale(0%);
+}
+
+.flexdiv .item:active div {
+    filter: grayscale(70%);
 }
 
 .item input:checked + div + p > label {
@@ -382,6 +405,10 @@ input:checked + div {
     width: 40%;
 }
 
+#confirm-persona button.submit-persona:hover {
+    background-color: #A0A0A0;
+}
+
 @media screen and (min-width: 23rem) {
     .item p {
         font-size: 1rem;
@@ -512,6 +539,9 @@ input:checked + div {
         padding: 0.5rem;
         width: 37rem;
     }
+    .go-back {
+        float: left;
+    }
     .header-personacheck h1 {
         font-size: 5rem;
     }
@@ -535,16 +565,16 @@ input:checked + div {
     .item {
         margin: 0 0.4rem;
     }
+    #confirm-persona div {
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        max-width: 37rem;
+    }
+    #confirm-persona .submit-persona {
+        width: auto;
+    }
     @supports(justify-content: space-between) {
-        #confirm-persona div {
-            left: 50%;
-            -ms-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
-            max-width: 37rem;
-        }
-        #confirm-persona .submit-persona {
-            width: auto;
-        }
         .flexdiv {
             justify-content: space-between;
         }

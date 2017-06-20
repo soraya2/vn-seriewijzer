@@ -40,14 +40,13 @@ router.get('/', function(req, res) {
             });
         });
 
-        console.log(filterdData);
-
         res.render('profile', { title: 'Home', data: filterdData, name: 'req.session.user' });
 
     });
 });
 
 function setFilter(filterName, filterValue) {
+
     filters[filterName] = filterValue;
 
 }

@@ -1,0 +1,44 @@
+.review-overview-body {
+    font-family: sans-serif;
+    background-color: #0099FF;
+}
+
+.review-overview-body h1 {
+    color: white;
+    text-align: center;
+}
+
+.reviews-container {
+    width: 70em;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20em, 1fr));
+    grid-gap: 2em;
+    justify-content: center;
+}
+
+.review-block {
+    padding: 2em;
+    -webkit-box-shadow: 5px 5px 30px -12px rgba(0,0,0,0.72);
+    -moz-box-shadow: 5px 5px 30px -12px rgba(0,0,0,0.72);
+    box-shadow: 5px 5px 30px -12px rgba(0,0,0,0.72);
+    background-color: white;
+    position: relative;
+}
+
+.edit-btn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 0.5em 1em;
+    width: 5em;
+    text-align: center;
+    background: skyblue;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.edit-btn:hover {
+    background: deepskyblue;
+}

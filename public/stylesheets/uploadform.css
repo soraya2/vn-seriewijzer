@@ -7,6 +7,21 @@
   background: #0099FF;
 }
 
+.back-btn {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    background: white;
+    color: #333;
+}
+
+.back-btn:hover {
+    background-color: deepskyblue;
+    color: white;
+}
+
 #review-form {
   display: flex;
   flex-direction: column;

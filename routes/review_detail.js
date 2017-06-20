@@ -7,21 +7,25 @@ var reviewsSchema = require('../models/reviewsschema.js');
 // Connect to main database
 mongoose.connect(process.env.MAINDB);
 
-router.get('/', function(req, res) {
-    res.render('upload');
+router.get('/:id', function (req, res) {
+    console.log(`[Server] Search database for ${req.params.id}`);
+    reviewsSchema.findOne({'_id': req.params.id}, function (error, review) {
+        res.render('review_detail', {
+            data: review
+         });
+    })
 });
 
-router.post('/', function(req, res) {
-    console.log('New form recieved');
+router.post('/:id', function(req, res) {
     processUploadForm(req, res);
-    res.redirect('/upload_complete');
+    res.redirect('/review_overview');
 });
 
 function processUploadForm(req, res) {
     var fields = req.body;
-    console.log(fields);
-    // Put incoming form field data into a new model in the database
-    reviewsSchema.create({
+    var query = { '_id': req.params.id};
+    var options = { new: true };
+    var update = {
         user: {
             name:           fields.name,
             email:          fields.email,
@@ -53,15 +57,15 @@ function processUploadForm(req, res) {
             reviewBody:     fields.reviewBody,
             reviewRating:   fields.reviewRating
         }
-    }, function(err) { // Error handling
-        if (err) {
-            console.log('[Server] ERROR: Cannot add form information to database');
-            console.log(err);
-        } else {
-            console.log('[Server] New review saved to database');
-        }
-    });
+    };
+    reviewsSchema.findOneAndUpdate(query, update, options, function(err, review) { // Error handling
+            if (err) {
+                console.log('[Server] ERROR: Cannot update form information to database');
+                console.log(err);
+            } else {
+                console.log('[Server] Form updated in database');
+            }
+        });
 };
-
 
 module.exports = router;

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="/stylesheets/seriesoverview.css">
+        <title>Het Serie Spel</title>
+    </head>
+    <body id="serie-overview">
+        <p>Hobby: <br/><%- hobby %></p>
+        <p>Mood: <br/><%- mood %></p>
+        <p>Persona: <br/><%- persona %></p>
+        <% for (var i = 0; i < results.length; i++) { %>
+            <div>
+                <img src="<%- results[i].review.imgURL%>" alt="<%- results[i].review.seriesName%>">
+            </div>
+            <a href="details/<%- results[i].review.seriesName%>"><h2><%- results[i].review.seriesName%></h2></a>
+        <% } %>
+    </body>
+</html>

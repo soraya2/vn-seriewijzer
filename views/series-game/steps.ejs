@@ -16,7 +16,7 @@
                 <li><span>4</span></li>
             </ul>
         </header>
-        <form action="/seriespel/<%- stepNext -1 %>" method="post">
+        <form action="/seriespel/<%- stepNum %>" method="post">
             <label>
                 <input type="checkbox" name="" value="<%- stepData[0].data.review.seriesName%>">
                 <div>
@@ -46,7 +46,7 @@
                 <a href="details/<%- stepData[3].data.review.seriesName%>"><h2><%- stepData[3].data.review.seriesName%></h2></a>
             </label>
             <footer>
-                <button type="submit" id="next-btn"><a href="">Volgende</a></button>
+                <input type="submit" id="next-btn" value="Volgende">
             </footer>
         </form>
         <script src="/js/seriesgame.js"></script>

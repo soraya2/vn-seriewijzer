@@ -43,7 +43,7 @@
                 flex-basis: 25%;
                 width: 25%;
                 text-align: right;
-            }   
+            }
                 #serie-steps header ul li span {
                     width: 40px;
                     height: 40px;
@@ -71,6 +71,7 @@
                     }
     #serie-steps form {
         flex-basis: 100%;
+        width: 100%;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
@@ -120,7 +121,7 @@
                 opacity: 1;
                 content: '2';
             }
-            #serie-steps label#three:before {
+            #serie-flesteps label#three:before {
                 opacity: 1;
                 content: '3';
             }
@@ -128,6 +129,10 @@
                 opacity: 1;
                 content: '4';
             }
+        #serie-steps label input[type="checkbox"]{
+            clip: rect(0,0,0,0);
+            position: absolute;
+        }
         #serie-steps label img {
             width: 100%;
             max-height: 11em;
@@ -152,7 +157,7 @@
             text-align: center;
             margin-top: 20px;
         }
-            #serie-steps footer button {
+            #serie-steps footer input {
                 padding: .5em 1em;
                 cursor: pointer;
                 border-radius: 1em;
@@ -160,10 +165,10 @@
                 border: 0;
                 transition: 0.3s;
             }
-                #serie-steps footer button[disabled]{
+                #serie-steps footer input[disabled]{
                     background-color: #4f4f4f;
                 }
-                #serie-steps footer button a {
+                #serie-steps footer a {
                     font-size: 150%;
                     text-transform: uppercase;
                     text-align: center;

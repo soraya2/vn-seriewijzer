@@ -123,8 +123,8 @@ router.get('/overview', function (req, res) {
     console.log(reviewArr.length);
     for (var i = 0; i < reviewArr.length; i++) {
         var hobbyArr = reviewArr[i].review.hobby;
-            for (var j = 0; j < hobby.length; j++) {
-                if (hobbyArr.includes(hobby[j])){
+            for (var j = 0; j < hobbyUnique.length; j++) {
+                if (hobbyArr.includes(hobbyUnique[j])){
                     resultsHobby.push(reviewArr[i]);
                 }
             }

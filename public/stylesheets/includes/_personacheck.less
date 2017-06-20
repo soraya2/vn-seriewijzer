@@ -335,7 +335,7 @@ input:checked + div {
 
 //CONFIRMATION PAGE
 #confirm-persona {
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: rgba(255, 255, 255, 0.9);
     bottom: 0;
     left: 0;
     position: fixed;
@@ -344,7 +344,6 @@ input:checked + div {
 }
 
 #confirm-persona div {
-    color: white;
     position: absolute;
     padding: 0.5rem;
     top: 50%;
@@ -357,20 +356,29 @@ input:checked + div {
 }
 
 #confirm-persona ul {
+    list-style-type: initial;
     margin: 1rem 0;
+    padding-left: 1rem;
+}
+
+#confirm-persona li {
+    font-size: 1rem;
+    padding-bottom: 0.3rem;
 }
 
 #confirm-persona .submit-persona {
     box-shadow: none;
+    font-size: 1rem;
     position: static;
     transform: none;
-    width: 50%;
+    width: 60%;
 }
 
 #confirm-persona button.submit-persona {
     background-color: #ddd;
     color: black;
     float: left;
+    width: 40%;
 }
 
 @media screen and (min-width: 23rem){
@@ -571,8 +579,13 @@ input:checked + div {
 
     #confirm-persona div {
         left: 50%;
+        -ms-transform: translate(-50%, -50%);
         transform: translate(-50%, -50%);
         max-width: 37rem;
+    }
+
+    #confirm-persona .submit-persona {
+        width: auto;
     }
 
     @supports(justify-content: space-between){

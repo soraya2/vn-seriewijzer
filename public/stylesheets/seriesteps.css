@@ -75,11 +75,11 @@
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
+        justify-content: space-around;
     }
     #serie-steps label {
-        flex-basis: 35%;
-        width: 35%;
-        margin: 10px 7.5%;
+        width: 9em;
+        margin: 10px 20px;
         box-sizing: border-box;
         display: flex;
         flex-direction: column;
@@ -121,7 +121,7 @@
                 opacity: 1;
                 content: '2';
             }
-            #serie-flesteps label#three:before {
+            #serie-steps label#three:before {
                 opacity: 1;
                 content: '3';
             }
@@ -135,7 +135,7 @@
         }
         #serie-steps label img {
             width: 100%;
-            max-height: 11em;
+            height: 12em;
         }
         #serie-steps label a {
             box-sizing: border-box;

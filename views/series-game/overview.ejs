@@ -12,10 +12,12 @@
         <p>Mood: <br/><%- mood %></p>
         <p>Persona: <br/><%- persona %></p>
         <% for (var i = 0; i < results.length; i++) { %>
-            <div>
-                <img src="<%- results[i].review.imgURL%>" alt="<%- results[i].review.seriesName%>">
-            </div>
-            <a href="details/<%- results[i].review.seriesName%>"><h2><%- results[i].review.seriesName%></h2></a>
+            <label>
+                <div>
+                    <img src="<%- results[i].review.imgURL%>" alt="<%- results[i].review.seriesName%>">
+                </div>
+                <a href="details/<%- results[i].review.seriesName%>"><h2><%- results[i].review.seriesName%></h2></a>
+            </label>
         <% } %>
     </body>
 </html>

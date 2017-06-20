@@ -7,7 +7,7 @@
     nextBtn.disabled = true;
 
     for (var i = 0; i < serieChoicesInput.length; i++) {
-        serieChoicesInput[i].addEventListener('click', function(){
+        serieChoicesInput[i].addEventListener('change', function(){
             console.log(this);
             // Check if there already is an active class, if so, remove it
             if (document.querySelector('.active')){

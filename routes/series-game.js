@@ -14,7 +14,7 @@ var persona = [];
 Reviews.find("review", function(err, docs) {
     if (err) {
         return err;
-    } else{
+    } else {
         reviewArr = docs;
     }
 });
@@ -63,7 +63,7 @@ router.post('/2', function(req, res){
 });
 router.get('/3', function (req, res) {
     var step3 = [
-        {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'sopranos')},
+        {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'the sopranos')},
         {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'planet earth')},
         {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'the vampire diaries')},
         {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'pretty little liars')}
@@ -108,7 +108,7 @@ router.get('/details/:id', function (req, res) {
     });
 });
 router.get('/overview', function (req, res) {
-    var results = [];
+    var resultsHobby = [];
 
     hobbyUnique = hobby.filter(function( el, pos, self){
         return self.indexOf(el) == pos;
@@ -123,14 +123,17 @@ router.get('/overview', function (req, res) {
     console.log(reviewArr.length);
     for (var i = 0; i < reviewArr.length; i++) {
         var hobbyArr = reviewArr[i].review.hobby;
-        console.log(reviewArr[i].review.hobby);
-            if((hobbyArr.includes(hobby[0]) && hobbyArr.includes(hobby[1])) || (hobbyArr.includes(hobby[2]) && hobbyArr.includes(hobby[3]))){
-                results.push(reviewArr[i]);
+            for (var j = 0; j < hobby.length; j++) {
+                if (hobbyArr.includes(hobby[j])){
+                    resultsHobby.push(reviewArr[i]);
+                }
             }
+            var fours = resultsHobby.filter(it => it.review.seriesName === reviewArr[i].review.seriesName);
+            var result = fours.length;
+            console.log(reviewArr[i].review.seriesName, result);
     }
-    console.log(results);
 
-    res.locals.results = results;
+    res.locals.results = resultsHobby;
     res.locals.hobby = hobbyUnique;
     res.locals.mood = moodUnique;
     res.locals.persona = personaUnique;

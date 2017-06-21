@@ -88,7 +88,7 @@ button[disabled="true"], button[disabled="true"]:hover, button[disabled="true"]:
     padding: 0.7rem;
     position: fixed;
     text-align: center;
-    text-p: lowercase;
+    text-transform: lowercase;
     transition: background-color 0.2s;
     width: 50%;
 }
@@ -608,7 +608,8 @@ input:checked + div {
     }
 
     .flexdiv {
-        justify-content: flex-center;
+        transform: translateX(1%);
+        justify-content: flex-start;
     }
 
     @supports(display:grid) {

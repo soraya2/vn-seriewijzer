@@ -1,7 +1,8 @@
 // BEGIN SORAYA
 (function() {
     //    if (document.getElementsByTagName('persona-check')) {
-    var personaSteps = document.getElementsByClassName('persona-check'),
+    var form = document.getElementsByTagName('form')[0],
+        personaSteps = document.getElementsByClassName('persona-check'),
         backButtons = document.getElementsByClassName('go-back'),
         personaButton = document.getElementById('persona-button'),
         personaSubmit = document.getElementById('persona-submit'),
@@ -37,7 +38,7 @@
         }
     }
 
-    //Functions for adding or removing checkboxes with feature detection
+    //Functions for adding or removing classes with feature detection
     var classes = {
         add: function(el, className) {
             if (el.classList) {
@@ -52,6 +53,12 @@
             } else {
                 el.className = el.className.replace(' ' + className, '');
             }
+        }
+    }
+
+    function validateFieldset(num){
+        if(document.querySelectorAll('fieldset:nth-of-type')){
+            
         }
     }
 
@@ -163,6 +170,7 @@
             //END CHANEL
         }
 
+    form.addEventListener('change', validateFieldset(count));
     personaButton.addEventListener('click', step.next);
 
     for (var f = 0; f < backButtons.length; f++) {

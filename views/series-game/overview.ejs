@@ -14,9 +14,10 @@
         <% for (var i = 0; i < results.length; i++) { %>
             <label>
                 <div>
-                    <img src="<%- results[i].review.imgURL%>" alt="<%- results[i].review.seriesName%>">
+                    <img src="<%- results[i].data.review.imgURL%>" alt="<%- results[i].name%>">
                 </div>
-                <a href="details/<%- results[i].review.seriesName%>"><h2><%- results[i].review.seriesName%></h2></a>
+                <a href="details/<%- results[i].name%>"><h2><%- results[i].name%><br/>
+                    <%- results[i].matchAll + '%'%></h2></a>
             </label>
         <% } %>
     </body>

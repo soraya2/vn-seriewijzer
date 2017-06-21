@@ -109,31 +109,64 @@ router.get('/details/:id', function (req, res) {
 });
 router.get('/overview', function (req, res) {
     var resultsHobby = [];
+    var resultsMood = [];
+    var resultsPersona = [];
+    var resultsAll = [];
+    var resultsBest = [];
+    var hobbyUnique = hobby.filter(function( el, pos, self){
+        return self.indexOf(el) == pos;
+    });
+    var moodUnique = mood.filter(function( el, pos, self){
+        return self.indexOf(el) == pos;
+    });
+    var personaUnique = persona.filter(function( el, pos, self){
+        return self.indexOf(el) == pos;
+    });
 
-    hobbyUnique = hobby.filter(function( el, pos, self){
-        return self.indexOf(el) == pos;
-    });
-    moodUnique = mood.filter(function( el, pos, self){
-        return self.indexOf(el) == pos;
-    });
-    personaUnique = persona.filter(function( el, pos, self){
-        return self.indexOf(el) == pos;
-    });
-
-    console.log(reviewArr.length);
+    console.log(hobbyUnique);
+    console.log(moodUnique);
+    console.log(personaUnique);
     for (var i = 0; i < reviewArr.length; i++) {
         var hobbyArr = reviewArr[i].review.hobby;
-            for (var j = 0; j < hobbyUnique.length; j++) {
-                if (hobbyArr.includes(hobbyUnique[j])){
-                    resultsHobby.push(reviewArr[i]);
-                }
+        var moodArr = reviewArr[i].review.mood;
+        var personaArr = reviewArr[i].review.persona;
+        for (var j = 0; j < hobbyUnique.length; j++) {
+            if (hobbyArr.includes(hobbyUnique[j])){
+                resultsHobby.push(reviewArr[i]);
             }
-            var fours = resultsHobby.filter(it => it.review.seriesName === reviewArr[i].review.seriesName);
-            var result = fours.length;
-            console.log(reviewArr[i].review.seriesName, result);
+        }
+        for (var k = 0; k < moodUnique.length; k++) {
+            if (moodArr.includes(moodUnique[k])){
+                resultsMood.push(reviewArr[i]);
+            }
+        }
+        for (var h = 0; h < personaUnique.length; h++) {
+            if (hobbyArr.includes(personaUnique[h])){
+                resultsPersona.push(reviewArr[i]);
+            }
+        }
+        var hobbyLength = resultsHobby.filter(it => it.review.seriesName === reviewArr[i].review.seriesName).length;
+        var moodLength = resultsMood.filter(it => it.review.seriesName === reviewArr[i].review.seriesName).length;
+        var personaLength = resultsHobby.filter(it => it.review.seriesName === reviewArr[i].review.seriesName).length;
+
+        var hobbyMatch = (hobbyLength / (reviewArr[i].review.hobby).length) * 100;
+        var moodMatch = (moodLength / (reviewArr[i].review.mood).length) * 100;
+        var personaMatch = (personaLength / (reviewArr[i].review.persona).length) * 100;
+
+        resultsAll.push({
+            name: reviewArr[i].review.seriesName,
+            data: reviewArr[i],
+            hobbyMatch: hobbyMatch,
+            moodMatch: moodMatch,
+            personaMatch: personaMatch,
+            matchAll: (hobbyMatch + moodMatch + personaMatch) / 3
+        });
+        if (resultsAll[i].matchAll > 75){
+            resultsBest.push(resultsAll[i]);
+        }
     }
 
-    res.locals.results = resultsHobby;
+    res.locals.results = resultsBest;
     res.locals.hobby = hobbyUnique;
     res.locals.mood = moodUnique;
     res.locals.persona = personaUnique;

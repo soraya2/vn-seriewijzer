@@ -9,8 +9,10 @@
         confirmOverlay = document.getElementById('confirm-persona'),
         personalList = document.getElementById('personal-list'),
         count = 1,
+        checkedBoxes = [[], [], []],
         i,
         index;
+
 
     function config(){
         // Hiding submit button untill the last step;
@@ -56,9 +58,14 @@
         }
     }
 
-    function validateFieldset(num){
-        if(document.querySelectorAll('fieldset:nth-of-type')){
-            
+    //Function that doesn't let you check more than three checkboxes
+    function validateFieldset(e){
+        if (checkedBoxes[(count-1)].indexOf(e.target) != -1){
+            checkedBoxes[(count-1)].splice(checkedBoxes[(count-1)].indexOf(e.target), 1);
+        } else if(checkedBoxes[(count-1)].length > 2){
+            e.target.checked = false;
+        } else {
+            checkedBoxes[(count-1)].push(e.target);
         }
     }
 
@@ -72,7 +79,6 @@
                 };
             },
             createEl: function(label) {
-                console.log('create el');
                 var li = document.createElement('li');
                 var text = document.createTextNode(label);
 
@@ -170,12 +176,11 @@
             //END CHANEL
         }
 
-    form.addEventListener('change', validateFieldset(count));
+    form.addEventListener('change', validateFieldset);
     personaButton.addEventListener('click', step.next);
 
     for (var f = 0; f < backButtons.length; f++) {
         backButtons[f].addEventListener('click', function(e) {
-            console.log(count);
             step.previous(e);
         });
     }

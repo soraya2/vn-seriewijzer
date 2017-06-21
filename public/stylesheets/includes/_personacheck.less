@@ -174,8 +174,18 @@ button[disabled="true"], button[disabled="true"]:hover, button[disabled="true"]:
     color: #333;
 }
 
-.flexdiv .item:hover div {
-    filter: grayscale(30%);
+.flexdiv .item:hover {
+    background-color: #ddd;
+}
+
+@supports(filter: grayscale(30%)){
+    .flexdiv .item:hover {
+        background-color: white;
+    }
+    
+    .flexdiv .item:hover div {
+        filter: grayscale(30%);
+    }
 }
 
 .flexdiv .item:active div {
@@ -192,8 +202,6 @@ button[disabled="true"], button[disabled="true"]:hover, button[disabled="true"]:
 }
 
 #persona-button {
-    left: 50%;
-    left: initial;
     right: 0;
 }
 
@@ -614,7 +622,7 @@ input:checked + div {
 
     @supports(display:grid) {
         .form-for-check .flexdiv {
-            grid-column-gap: 1.3rem;
+            grid-column-gap: 1.1rem;
             grid-template-columns: auto auto auto auto;
 
         }

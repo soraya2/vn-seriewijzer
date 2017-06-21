@@ -90,7 +90,7 @@
                         toggleCheckboxes(0, true);
                         toggleCheckboxes(count, false);
 
-                        backButtons[0].removeAttribute('hidden');
+                        backButtons[0].removeAttribute('disabled');
 
                         break;
                     case 2:
@@ -132,7 +132,7 @@
 
                 switch (count) {
                     case 2:
-                        backButtons[0].setAttribute('hidden', '');
+                        backButtons[0].setAttribute('disabled', 'true');
 
                         toggleCheckboxes(1, true);
                         toggleCheckboxes(0, false);

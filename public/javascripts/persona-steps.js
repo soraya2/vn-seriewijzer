@@ -177,7 +177,17 @@
         }
 
     form.addEventListener('change', validateFieldset);
-    personaButton.addEventListener('click', step.next);
+    personaButton.addEventListener('click', function(e){
+        e.preventDefault();
+
+        var checked = document.querySelectorAll('fieldset:nth-of-type(' + count + ') input[type="checkbox"]:checked');
+
+        if(checked.length < 1){
+            console.log('Je moet minstens 1 item aanklikken');
+        } else {
+            step.next(e);
+        }
+    });
 
     for (var f = 0; f < backButtons.length; f++) {
         backButtons[f].addEventListener('click', function(e) {

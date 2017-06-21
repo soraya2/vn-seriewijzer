@@ -1,57 +1,57 @@
-var express = require('express');
+var express = require('express'),
+    router = express.Router(),
+    reviewsSchema = require('../models/reviewsschema'),
+    seriesName,
+    username;
 
-var router = express.Router();
 
-var request = require('request');
-
-var env = require('dotenv').config();
-
-var user = require('../models/user');
-
-var series = require('../models/series');
-
-/* GET users listing. */
 router.get('/:id', function(req, res) {
-    getData(receiveData, req.params.id);
 
+    seriesName = req.params.id;
+    //get serie based on serie name
+    username = req.session.user;
 
+    reviewsSchema.findOne({ "review.seriesName": seriesName }, function(error, doc) {
 
-    function receiveData(data) {
-        if (data) {
-            res.render('detail', { data: data, title: 'Home' });
-        }
-    }
+        res.render('detail', { data: doc, title: seriesName });
+
+    });
+
 });
 
-function getData(recieve, value) {
 
-    request.get('https://api.themoviedb.org/3/tv/' + value + '?api_key=' + env.parsed.MOVIEDBKEY + '&format=json' + value, function(error, response, body) {
-        if (error) {
-            console.log('error:', error); // Print the error if one occurred
+module.exports = function(io) {
+
+    io.on('connection', function(sockets) {
+
+        sockets.broadcast.on('save comment', function(comment) {
+
+            comment.username = username;
+            // console.log(req.session.persona);
+
+            commentsToDatabase(comment);
+
+            io.emit('comment', comment);
+        });
+
+    });
+
+    return router;
+};
+
+
+function commentsToDatabase(comment) {
+
+    //Save comments to the database based on series name
+    reviewsSchema.findOneAndUpdate({ "review.seriesName": seriesName }, {
+
+        "$addToSet": {
+            "comments": comment
         }
-        console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
+    }, { upsert: true }, function(err, document) {
 
-        var data = JSON.parse(body);
-
-        recieve(data);
+        if (err) {
+            return console.log(err);
+        }
     });
 }
-
-function saveData(data, recieve) {
-    // var query = 'data';
-    // // If the data field exist update it and only add new values to the array so there are no duplicates
-    // series.findOneAndUpdate(query, {
-    //     $addToSet: {
-    //         'series.data': { $each: data.results }
-    //     }
-    // }, { upsert: true }, function(err, document) {
-    //     if (err) {
-    //         return console.log(err);
-    //     }
-
-    //     recieve(document.series.data);
-    // });
-}
-
-
-module.exports = router;

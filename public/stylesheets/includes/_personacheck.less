@@ -1,7 +1,6 @@
 //BEGIN CHANEL
 //#F76655
 //#FF5300
-
 // GENERAL PERSONACHECK
 body {
     background-color: white;
@@ -29,7 +28,8 @@ fieldset legend {
     display: block;
 }
 
-button, input[type="submit"] {
+button,
+input[type="submit"] {
     -webkit-appearance: none;
     appearance: none;
 }
@@ -174,11 +174,12 @@ button, input[type="submit"] {
     color: #F76655;
 }
 
-.item input:focus + div + p > label::after, .submit-persona:focus {
+.item input:focus + div + p > label::after,
+.submit-persona:focus {
     outline: #333 dashed;
 }
 
-@supports(display:flex){
+@supports(display:flex) {
     .flexdiv {
         display: flex;
         flex-direction: row;
@@ -188,14 +189,14 @@ button, input[type="submit"] {
     }
 }
 
-@supports(clip:rect(0, 0, 0, 0)){
-    input[type="checkbox"]{
+@supports(clip:rect(0, 0, 0, 0)) {
+    input[type="checkbox"] {
         clip: rect(0, 0, 0, 0);
         position: absolute;
     }
 }
 
-@supports(display:grid){
+@supports(display:grid) {
     .form-for-check .flexdiv {
         display: grid;
         grid-column-gap: 0.5rem;
@@ -238,80 +239,80 @@ input:checked + div {
     filter: grayscale(0%) !important;
 }
 
-.flexdiv .persona:nth-of-type(1) div::before  {
+.flexdiv .persona:nth-of-type(1) div::before {
     background: url('/img/small-icons_jamie.png');
 }
 
-.flexdiv .persona:nth-of-type(2) div::before  {
+.flexdiv .persona:nth-of-type(2) div::before {
     background: url('/img/small-icons_vangogh.png');
 }
 
-.flexdiv .persona:nth-of-type(3) div::before  {
+.flexdiv .persona:nth-of-type(3) div::before {
     background: url('/img/small-icons_snooki.png');
 }
 
-.flexdiv .persona:nth-of-type(4) div::before  {
+.flexdiv .persona:nth-of-type(4) div::before {
     background: url('/img/small-icons_kevin.png');
 }
 
-.flexdiv .persona:nth-of-type(5) div::before  {
+.flexdiv .persona:nth-of-type(5) div::before {
     background: url('/img/small-icons_kim.png');
 }
 
-.flexdiv .persona:nth-of-type(6) div::before  {
+.flexdiv .persona:nth-of-type(6) div::before {
     background: url('/img/small-icons_therock.png');
 }
 
-.flexdiv .persona:nth-of-type(7) div::before  {
+.flexdiv .persona:nth-of-type(7) div::before {
     background: url('/img/small-icons_frodo.png');
 }
 
-.flexdiv .persona:nth-of-type(8) div::before  {
+.flexdiv .persona:nth-of-type(8) div::before {
     background: url('/img/small-icons_steve.png');
 }
 
-.flexdiv .persona:nth-of-type(9) div::before  {
+.flexdiv .persona:nth-of-type(9) div::before {
     background: url('/img/small-icons_caesar.png');
 }
 
-.flexdiv .persona:nth-of-type(10) div::before  {
+.flexdiv .persona:nth-of-type(10) div::before {
     background: url('/img/small-icons_obama.png');
 }
 
-.flexdiv .persona:nth-of-type(11) div::before  {
+.flexdiv .persona:nth-of-type(11) div::before {
     background: url('/img/small-icons_tomboy.png');
 }
 
-.flexdiv .persona:nth-of-type(12) div::before  {
+.flexdiv .persona:nth-of-type(12) div::before {
     background: url('/img/small-icons_wie.png');
 }
 
 // FREETIME
-.flexdiv .hobby:nth-of-type(1) div::before  {
+.flexdiv .hobby:nth-of-type(1) div::before {
     background: url('/img/small-icons_controller.png');
 }
 
-.flexdiv .hobby:nth-of-type(2) div::before  {
+.flexdiv .hobby:nth-of-type(2) div::before {
     background: url('/img/small-icons_football.png');
 }
 
-.flexdiv .hobby:nth-of-type(3) div::before  {
+.flexdiv .hobby:nth-of-type(3) div::before {
     background: url('/img/small-icons_beer.png');
 }
 
-.flexdiv .hobby:nth-of-type(4) div::before  {
+.flexdiv .hobby:nth-of-type(4) div::before {
     background: url('/img/small-icons_airplane.png');
 }
 
-.flexdiv .hobby:nth-of-type(5) div::before  {
+.flexdiv .hobby:nth-of-type(5) div::before {
     background: url('/img/small-icons_guitar.png');
 }
 
-.flexdiv .hobby:nth-of-type(6) div::before  {
+.flexdiv .hobby:nth-of-type(6) div::before {
     background: url('/img/small-icons_bag.png');
 }
 
-.flexdiv .hobby:nth-of-type(7) div::before  {
+.flexdiv .hobby:nth-of-type(7) div::before {
     background: url('/img/small-icons_pan.png');
 }
 
@@ -319,40 +320,40 @@ input:checked + div {
     background: url('/img/small-icons_book.png');
 }
 
-.flexdiv .hobby:nth-of-type(9) div::before  {
+.flexdiv .hobby:nth-of-type(9) div::before {
     background: url('/img/small-icons_pill.png');
 }
 
-.flexdiv .hobby:nth-of-type(10) div::before  {
+.flexdiv .hobby:nth-of-type(10) div::before {
     background: url('/img/small-icons_suitcase.png');
 }
 
-.flexdiv .hobby:nth-of-type(11) div::before  {
+.flexdiv .hobby:nth-of-type(11) div::before {
     background: url('/img/small-icons_soap.png');
 }
 
 // MOODS
-.flexdiv .mood:nth-of-type(1) div::before  {
+.flexdiv .mood:nth-of-type(1) div::before {
     background: url('/img/small-icons_will.png');
 }
 
-.flexdiv .mood:nth-of-type(2) div::before  {
+.flexdiv .mood:nth-of-type(2) div::before {
     background: url('/img/small-icons_darryl.png');
 }
 
-.flexdiv .mood:nth-of-type(3) div::before  {
+.flexdiv .mood:nth-of-type(3) div::before {
     background: url('/img/small-icons_chris.png');
 }
 
-.flexdiv .mood:nth-of-type(4) div::before  {
+.flexdiv .mood:nth-of-type(4) div::before {
     background: url('/img/small-icons_jack.png');
 }
 
-.flexdiv .mood:nth-of-type(5) div::before  {
+.flexdiv .mood:nth-of-type(5) div::before {
     background: url('/img/small-icons_kristen.png');
 }
 
-.flexdiv .mood:nth-of-type(6) div::before  {
+.flexdiv .mood:nth-of-type(6) div::before {
     background: url('/img/small-icons_bigbang.png');
 }
 
@@ -408,144 +409,112 @@ input:checked + div {
     background-color: #A0A0A0;
 }
 
-@media screen and (min-width: 23rem){
+@media screen and (min-width: 23rem) {
     .item p {
         font-size: 1rem;
     }
-
-    .flexdiv .persona:nth-of-type(1) div::before  {
+    .flexdiv .persona:nth-of-type(1) div::before {
         background: #F76655;
         background: url('/img/icons-jamie.png');
     }
-
-    .flexdiv .persona:nth-of-type(2) div::before  {
+    .flexdiv .persona:nth-of-type(2) div::before {
         background: url('/img/icons-vangogh.png');
     }
-
-    .flexdiv .persona:nth-of-type(3) div::before  {
+    .flexdiv .persona:nth-of-type(3) div::before {
         background: url('/img/icons-snooki.png');
     }
-
-    .flexdiv .persona:nth-of-type(4) div::before  {
+    .flexdiv .persona:nth-of-type(4) div::before {
         background: url('/img/icons-kevin.png');
     }
-
-    .flexdiv .persona:nth-of-type(5) div::before  {
+    .flexdiv .persona:nth-of-type(5) div::before {
         background: url('/img/icons-kim.png');
     }
-
-    .flexdiv .persona:nth-of-type(6) div::before  {
+    .flexdiv .persona:nth-of-type(6) div::before {
         background: url('/img/icons-therock.png');
     }
-
-    .flexdiv .persona:nth-of-type(7) div::before  {
+    .flexdiv .persona:nth-of-type(7) div::before {
         background: url('/img/icons-frodo.png');
     }
-
-    .flexdiv .persona:nth-of-type(8) div::before  {
+    .flexdiv .persona:nth-of-type(8) div::before {
         background: url('/img/icons-steve.png');
     }
-
-    .flexdiv .persona:nth-of-type(9) div::before  {
+    .flexdiv .persona:nth-of-type(9) div::before {
         background: url('/img/icons-caesar.png');
     }
-
-    .flexdiv .persona:nth-of-type(10) div::before  {
+    .flexdiv .persona:nth-of-type(10) div::before {
         background: url('/img/icons-obama.png');
     }
-
-    .flexdiv .persona:nth-of-type(11) div::before  {
+    .flexdiv .persona:nth-of-type(11) div::before {
         background: url('/img/icons-tomboy.png');
     }
-
-    .flexdiv .persona:nth-of-type(12) div::before  {
+    .flexdiv .persona:nth-of-type(12) div::before {
         background: url('/img/icons-wie.png');
     }
-
     // FREETIME
-    .flexdiv .hobby:nth-of-type(1) div::before  {
+    .flexdiv .hobby:nth-of-type(1) div::before {
         background: url('/img/icons-controller.png');
     }
-
-    .flexdiv .hobby:nth-of-type(2) div::before  {
+    .flexdiv .hobby:nth-of-type(2) div::before {
         background: url('/img/icons-football.png');
     }
-
-    .flexdiv .hobby:nth-of-type(3) div::before  {
+    .flexdiv .hobby:nth-of-type(3) div::before {
         background: url('/img/icons-beer.png');
     }
-
-    .flexdiv .hobby:nth-of-type(4) div::before  {
+    .flexdiv .hobby:nth-of-type(4) div::before {
         background: url('/img/icons-airplane.png');
     }
-
-    .flexdiv .hobby:nth-of-type(5) div::before  {
+    .flexdiv .hobby:nth-of-type(5) div::before {
         background: url('/img/icons-guitar.png');
     }
-
-    .flexdiv .hobby:nth-of-type(6) div::before  {
+    .flexdiv .hobby:nth-of-type(6) div::before {
         background: url('/img/icons-bag.png');
     }
-
-    .flexdiv .hobby:nth-of-type(7) div::before  {
+    .flexdiv .hobby:nth-of-type(7) div::before {
         background: url('/img/icons-pan.png');
     }
-
-    .flexdiv .hobby:nth-of-type(8) div::before  {
+    .flexdiv .hobby:nth-of-type(8) div::before {
         background: url('/img/icons-book.png');
     }
-
-    .flexdiv .hobby:nth-of-type(9) div::before  {
+    .flexdiv .hobby:nth-of-type(9) div::before {
         background: url('/img/icons-pill.png');
     }
-
-    .flexdiv .hobby:nth-of-type(10) div::before  {
+    .flexdiv .hobby:nth-of-type(10) div::before {
         background: url('/img/icons-suitcase.png');
     }
-
-    .flexdiv .hobby:nth-of-type(11) div::before  {
+    .flexdiv .hobby:nth-of-type(11) div::before {
         background: url('/img/icons-soap.png');
     }
-
     // MOODS
-    .flexdiv .mood:nth-of-type(1) div::before  {
+    .flexdiv .mood:nth-of-type(1) div::before {
         background: url('/img/icons-will.png');
     }
-
-    .flexdiv .mood:nth-of-type(2) div::before  {
+    .flexdiv .mood:nth-of-type(2) div::before {
         background: url('/img/icons-darryl.png');
     }
-
-    .flexdiv .mood:nth-of-type(3) div::before  {
+    .flexdiv .mood:nth-of-type(3) div::before {
         background: url('/img/icons-chris.png');
     }
-
-    .flexdiv .mood:nth-of-type(4) div::before  {
+    .flexdiv .mood:nth-of-type(4) div::before {
         background: url('/img/icons-jack.png');
     }
-
-    .flexdiv .mood:nth-of-type(5) div::before  {
+    .flexdiv .mood:nth-of-type(5) div::before {
         background: url('/img/icons-kristen.png');
     }
-
-    .flexdiv .mood:nth-of-type(6) div::before  {
+    .flexdiv .mood:nth-of-type(6) div::before {
         background: url('/img/icons-bigbang.png');
     }
-
     .submit-persona {
         font-size: 1.3rem;
     }
 }
 
-@media screen and (min-width: 38rem){
+@media screen and (min-width: 38rem) {
     body {
         background-color: #F6F6F6;
     }
-
     .item {
         width: 8rem;
     }
-
     .submit-persona {
         box-shadow: none;
         float: right;
@@ -554,19 +523,16 @@ input:checked + div {
         transform: translateY(-2.5rem);
         width: auto;
     }
-
     .header-personacheck {
         margin-bottom: 3rem;
         transform: rotate(-10deg);
-
     }
-
     .form-for-check {
         background-color: white;
         box-shadow: 5px 5px 0 0 #ddd;
     }
-
-    .header-personacheck, .form-for-check {
+    .header-personacheck,
+    .form-for-check {
         box-sizing: border-box;
         margin-left: auto;
         margin-right: auto;
@@ -581,58 +547,48 @@ input:checked + div {
     .header-personacheck h1 {
         font-size: 5rem;
     }
-
     .header-personacheck p {
         font-size: 1rem;
     }
-
     .form-for-check fieldset {
         margin-bottom: 4rem;
     }
-
     .form-for-check h2 {
         font-size: 2rem;
     }
-
     .item div {
         height: 8rem;
         width: 8rem;
     }
-
     .item p {
         font-size: 1.2rem;
         padding: 0.4rem 0;
     }
-
     .item {
         margin: 0 0.4rem;
     }
-
     #confirm-persona div {
         left: 50%;
         -ms-transform: translate(-50%, -50%);
         transform: translate(-50%, -50%);
         max-width: 37rem;
     }
-
     #confirm-persona .submit-persona {
         width: auto;
     }
-
-    @supports(justify-content: space-between){
+    @supports(justify-content: space-between) {
         .flexdiv {
             justify-content: space-between;
         }
-
         .item {
             margin: 0.5rem 0 0 0;
         }
     }
-
-    @supports(display:grid){
+    @supports(display:grid) {
         .form-for-check .flexdiv {
             grid-template-columns: auto auto auto auto;
         }
     }
 }
+
 //END CHANEL

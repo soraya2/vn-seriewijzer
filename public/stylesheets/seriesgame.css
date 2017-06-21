@@ -1,0 +1,192 @@
+.series-game-intro {
+    padding: 0;
+    margin: 0;
+    background: black;
+    color: white;
+    font-family: sans-serif;
+}
+
+.series-game-intro header, .series-game-intro section {
+    text-align: center;
+    padding: 1em;
+}
+
+.series-game-intro section p {
+    width: 15em;
+    display: block;
+    margin: 0 auto;
+}
+
+.series-game-intro header h1 {
+    margin: 0;
+}
+
+.series-game-intro header {
+    background-color: #0099FF;
+}
+
+.series-game-intro .block-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 auto;
+    width: 18em;
+}
+
+.series-game-intro .block {
+    margin: 1em;
+    height: 10em;
+    width: 7em;
+    background: grey;
+}
+
+.order-number {
+    position: absolute;
+    margin-top: 1em;
+    font-size: 450%;
+}
+
+.detail-img {
+    height: 5em;
+    margin: 2em 0;
+}
+
+.start-btn {
+    transition: 0.3s;
+    font-size: 150%;
+    text-transform: uppercase;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 1em;
+    color: black;
+    padding: 1em 2em;
+    background-color: #7DBC37;
+}
+
+.start-btn:hover {
+    transition: 0.3s;
+    background-color: #0090E3;
+}
+
+.series-detail-body {
+    background: black;
+    color: white;
+}
+
+.poster-image-container {
+    margin-top: 1em;
+    height: 50vh;
+    overflow: hidden;
+}
+
+.rating {
+    position: relative;
+    background: yellow;
+    border-radius: 100%;
+    padding: 0.6em 0.5em;
+    color: #333;
+    font-size: 200%;
+    font-weight: bold;
+    top: -1em;
+    float: right;
+}
+
+.detail-body {
+    padding: 1em;
+}
+.meta-container {
+    margin-bottom: 1em;
+}
+.meta-container h1 {
+    font-size: 200%;
+}
+.meta {
+    display: flex;
+    justify-content: space-between;
+}
+.plot {
+    margin-bottom: 2em;
+}
+.trailer {
+    width: 100%;
+}
+.backlink {
+    color: white;
+    font-size: 300%;
+    margin-bottom: 1em;
+}
+.backlink:hover {
+    text-decoration: none;
+    color: lightgrey;
+}
+
+
+@supports(animation: fadeIn) {
+    .series-game-intro main {
+        display: flex;
+        justify-content: center;
+    }
+    #intro-1, #intro-2, #intro-3 {
+        position: absolute;
+        display: flex;
+        margin-top: 2em;
+        flex-direction: column;
+        justify-content: space-around;
+        animation-duration: 10s;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: infinite;
+    }
+    #intro-3 {
+        margin-top: 10em;
+    }
+    #next {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+    #intro-1 {
+        animation-name: anim-1;
+    }
+    #intro-2 {
+        animation-name: anim-2;
+    }
+    #intro-3 {
+        animation-name: anim-3;
+    }
+    @keyframes anim-1 {
+        0%, 8.3% {
+            opacity: 0;
+        }
+        8.3%, 25% {
+            opacity: 1;
+        }
+        33.33%, 100% {
+            opacity: 0;
+        }
+    }
+    @keyframes anim-2 {
+        0%, 33.33% {
+            opacity: 0;
+        }
+        41.63%, 58.29% {
+            opacity: 1;
+        }
+        66.66%, 100% {
+            opacity: 0;
+        }
+    }
+    @keyframes anim-3 {
+        0%, 66.66% {
+            opacity: 0;
+        }
+        74.96%, 91.62% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+        }
+    }
+}

@@ -6,14 +6,15 @@ router.get('/', function(req, res) {
     res.render('persona');
 });
 
-
 router.post('/', function(req, res) {
-    // store form data in route
-    res.locals.persona = req.body;
-    res.locals.user = req.user.user.facebook.displayName;
-    // res.red
-    res.redirect(307, '/profile');
-    // res.send(req.body);
+
+    if (req.user) {
+        req.session.personaform = req.body;
+        req.session.user = req.user.user.facebook.displayName;
+    }
+
+    res.redirect('/profile');
+
 });
 
 

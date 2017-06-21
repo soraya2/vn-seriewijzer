@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="/stylesheets/seriesteps.css">
+        <title>Het Serie Spel</title>
+    </head>
+    <body id="serie-steps">
+        <header data-steps="<%- stepNum %>">
+            <ul>
+                <li><span>1</span></li>
+                <li><span>2</span></li>
+                <li><span>3</span></li>
+                <li><span>4</span></li>
+            </ul>
+        </header>
+        <section>
+            <div>
+                <img src="<%- stepData[0].data.review.imgURL%>" alt="<%- stepData[0].data.review.seriesName%>">
+            </div>
+            <a href="details/<%- stepData[0].data.review.seriesName%>"><h2><%- stepData[0].data.review.seriesName%></h2></a>
+        </section>
+        <section>
+            <div>
+                <img src="<%- stepData[1].data.review.imgURL%>" alt="<%- stepData[0].data.review.seriesName%>">
+            </div>
+            <a href="details/<%- stepData[1].data.review.seriesName%>"><h2><%- stepData[1].data.review.seriesName%></h2></a>
+        </section>
+        <section>
+            <div>
+                <img src="<%- stepData[2].data.review.imgURL%>" alt="<%- stepData[0].data.review.seriesName%>">
+            </div>
+            <a href="details/<%- stepData[2].data.review.seriesName%>"><h2><%- stepData[2].data.review.seriesName%></h2></a>
+        </section>
+        <section>
+            <div>
+                <img src="<%- stepData[3].data.review.imgURL%>" alt="<%- stepData[0].data.review.seriesName%>">
+            </div>
+            <a href="details/<%- stepData[3].data.review.seriesName%>"><h2><%- stepData[3].data.review.seriesName%></h2></a>
+        </section>
+        <footer>
+            <button id="next-btn"><a href="<%- stepNext%>">Volgende</a></button>
+        </footer>
+        <script src="/js/seriesgame.js"></script>
+    </body>
+</html>

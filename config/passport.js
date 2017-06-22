@@ -9,16 +9,16 @@ var userSchema = require('../models/user');
 module.exports = function(passport) {
 
     // used to serialize the user for the session
-    passport.serializeUser(function(user, done) {
-        done(null, user.id);
-    });
+    // passport.serializeUser(function(user, done) {
+    //     done(null, user.id);
+    // });
 
-    // used to deserialize the user
-    passport.deserializeUser(function(id, done) {
-        userSchema.findById(id, function(err, user) {
-            done(err, user);
-        });
-    });
+    // // used to deserialize the user
+    // passport.deserializeUser(function(id, done) {
+    //     userSchema.findById(id, function(err, user) {
+    //         done(err, user);
+    //     });
+    // });
 
     // code for login (use('local-login', new LocalStategy))
     // code for signup (use('local-signup', new LocalStategy))
@@ -56,6 +56,7 @@ module.exports = function(passport) {
                         return done(null, user); // user found, return that user
                     } else {
                         // if there is no user found with that facebook id, create them
+
                         var newUser = new userSchema();
 
                         // set all of the facebook information in our user model

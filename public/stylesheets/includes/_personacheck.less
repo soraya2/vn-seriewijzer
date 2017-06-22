@@ -27,6 +27,10 @@ h2 {
     font-family: "Lato", sans-serif;
 }
 
+p {
+    font-family: 'Alegreya', "Lucida Grande";
+}
+
 fieldset {
     border: 0 none;
 }
@@ -110,6 +114,22 @@ button[disabled="true"], button[disabled="true"]:hover, button[disabled="true"]:
     color: white !important;
 }
 
+.notify {
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.9);
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.notify h4 {
+    padding: 0.5rem;
+    position: absolute;
+    -ms-transform: translateY(50%);
+    transform: translateY(50%);
+}
+
 @supports(animation: feedback 5s ease){
     .feedback {
         background-color: initial;
@@ -126,12 +146,6 @@ button[disabled="true"], button[disabled="true"]:hover, button[disabled="true"]:
 .go-back:hover {
     background-color: #A0A0A0;
     color: black;
-}
-
-.text-label {
-    color: #A0A0A0;
-    font-size: .875rem;
-    font-weight: 700;
 }
 
 #condition {
@@ -178,7 +192,6 @@ button[disabled="true"], button[disabled="true"]:hover, button[disabled="true"]:
 
 .item p {
     color: #333;
-    font-family: 'Lato', "Lucida Grande";
     font-size: 0.9rem;
     font-weight: 400;
 }

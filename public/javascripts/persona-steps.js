@@ -5,7 +5,6 @@
     var personaSteps = document.getElementsByClassName('persona-check'),
         backButton = document.getElementById('back'),
         confirmBack = document.getElementById('confirm-back'),
-        feedbackEl = document.getElementById('condition'),
         form = document.getElementById('persona-form'),
         personaButton = document.getElementById('persona-button'),
         confirmOverlay = document.getElementById('confirm-persona'),
@@ -68,13 +67,16 @@
     }
 
     // BEGIN CHANEL
-    //When a user tries to add more than three checkboxes, add animation that gives feedback
-    function addAnimation(){
-        classes.add(feedbackEl, 'feedback');
+    //When a user tries to add more than three checkboxes, give feedback
+    function addFeedback(e){
+        var section = document.createElement('section');
+        var h4 = document.createElement('h4');
+        var text = document.createTextNode('Je mag maar drie eigenschappen kiezen!');
+        section.setAttribute('class', 'notify');
 
-        setTimeout(function(){
-            classes.remove(feedbackEl, 'feedback');
-        }, 5000);
+        h4.appendChild(text);
+        section.appendChild(h4);
+        e.target.parentNode.appendChild(section);
     }
 
     //Function that doesn't let you check more than three checkboxes
@@ -83,32 +85,24 @@
             checkedBoxes[count-1].splice(checkedBoxes[count-1].indexOf(e.target), 1);
         } else if(checkedBoxes[count-1].length > 2){
             e.target.checked = false;
-            addAnimation();
+            addFeedback(e);
         } else {
             checkedBoxes[count-1].push(e.target);
         }
     }
 
     //Functions to get all checked checkboxes and render them in a list in confirmation overlay
-    var checkedInputs = {
-            get: function() {
-                var allCheckboxes = document.querySelectorAll('input[type="checkbox"]:checked + div + p label');
+    function showChoices(){
+        var allCheckboxes = document.querySelectorAll('input[type="checkbox"]:checked + div + p label');
 
-                for (b = 0; b < allCheckboxes.length; b++) {
-                    this.createEl(allCheckboxes[b].innerHTML);
-                }
-            },
-            createEl: function(label) {
-                var li = document.createElement('li');
-                var text = document.createTextNode(label);
+        for (b = 0; b < allCheckboxes.length; b++) {
+            var li = document.createElement('li');
+            var text = document.createTextNode(allCheckboxes[b].innerHTML);
 
-                li.appendChild(text);
-                this.render(li);
-            },
-            render: function(el) {
-                personalList.appendChild(el);
-            }
-        };
+            li.appendChild(text);
+            personalList.appendChild(li);
+        }
+    }
         // END CHANEL
 
         var step = {
@@ -151,7 +145,7 @@
                         //Clearing personal list first
                         personalList.innerHTML = '';
 
-                        checkedInputs.get();
+                        showChoices();
                         confirmOverlay.removeAttribute('hidden');
 
                         break;
@@ -164,6 +158,7 @@
             previous: function(e){//Merge this one with the next step, logic is the same
                 //Function that handles the previous button
                 e.preventDefault();
+                console.log(count);
 
                 switch (count) {
                     case 2:
@@ -198,26 +193,38 @@
             //END CHANEL
         };
 
-    form.addEventListener('change', validateFieldset);
-    backButton.addEventListener('click', function(e) {
-        step.previous(e);
-    });
-    confirmBack.addEventListener('click', function(e) {
-        step.previous(e);
-    });
-    personaButton.addEventListener('click', function(e){
-        e.preventDefault();
+    form.addEventListener('change', function(e){
+        var notification = document.querySelector('.notify');
+        if(notification){
+            notification.parentNode.removeChild(notification);
+        }
 
         var checked = document.querySelectorAll('fieldset:nth-of-type(' + count + ') input[type="checkbox"]:checked');
-        //node.control.checked = true
-        //schrijf je code zo dat wanneer je html veranderd je script nog steeds werkt
 
         if(checked.length < 1){
-            addAnimation();
+            personaButton.setAttribute('disabled', 'true');
         } else {
-            step.next(e);
+            validateFieldset(e);
+            personaButton.removeAttribute('disabled');
+        }
+
+    });
+    backButton.addEventListener('click', function(e){
+        step.previous(e);
+
+        if(checkedBoxes[count-1] && checkedBoxes[count-1].length >= 1){
+            personaButton.removeAttribute('disabled');
         }
     });
+    confirmBack.addEventListener('click', step.previous);
+    personaButton.addEventListener('click', function(e){
+        step.next(e);
+
+        if(checkedBoxes[count-1] && checkedBoxes[count-1].length < 1){
+            personaButton.setAttribute('disabled', 'true');
+        }
+    });
+        //node.control.checked = true
 
     config();
     //    }

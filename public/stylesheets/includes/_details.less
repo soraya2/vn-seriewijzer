@@ -77,14 +77,31 @@
 }
 
 .review {
+    padding: 1em;
     @media (min-width: 40em) {
-        margin: 2em 0 2em 8.2%;
+        margin: 2em 0 2em 7.2%;
         width: 40%;
     }
 }
 
 .comments {
     padding: 0 1em;
+    width: 100%;
+    form {
+        display: flex;
+        flex-direction: column;
+        @media (min-width: 45em) {
+            width: 45%;
+        }
+        textarea {
+            height: 3em;
+            margin-bottom: 0.3em;
+        }
+        label {
+            display: inherit;
+            flex-direction: inherit;
+        }
+    }
 }
 
 input[type="submit"] {

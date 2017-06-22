@@ -11,14 +11,13 @@ router.get('/:id', function(req, res) {
     //get serie based on serie name
     username = req.session.user;
 
-    reviewsSchema.findOne({ "review.seriesName": seriesName }, function(error, doc) {
+    reviewsSchema.findOne({ 'review.seriesName': seriesName }, function(error, doc) {
 
-        res.render('detail', { data: doc, title: seriesName });
+        res.render('review', { data: doc, title: seriesName });
 
     });
 
 });
-
 
 module.exports = function(io) {
 
@@ -43,10 +42,10 @@ module.exports = function(io) {
 function commentsToDatabase(comment) {
 
     //Save comments to the database based on series name
-    reviewsSchema.findOneAndUpdate({ "review.seriesName": seriesName }, {
+    reviewsSchema.findOneAndUpdate({ 'review.seriesName': seriesName }, {
 
-        "$addToSet": {
-            "comments": comment
+        '$addToSet': {
+            'comments': comment
         }
     }, { upsert: true }, function(err, document) {
 

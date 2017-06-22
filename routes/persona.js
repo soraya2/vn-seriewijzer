@@ -13,7 +13,7 @@ router.post('/', function(req, res) {
         req.session.user = req.user.user.facebook.displayName;
     }
 
-    res.redirect('/profile');
+    res.redirect('/persona_results');
 
 });
 

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="nl">
+    <%- include partials/head.ejs %>
+    <title>Detail</title>
+</html>
+<body>
+    <%- include partials/header.ejs %>
+    <article>
+        <div class="movie-details">
+            <div class="img-container">
+                <img alt="<%= data.review.reviewTitle%> cover" src="<%=data.review.imgURL%>">
+                </img>
+            </div>
+            <div class="video-container">
+                <iframe class="video" frameborder="0" src="<%=data.review.trailerURL%>" type="text/html">
+                </iframe>
+            </div>
+            <section>
+                <h1><%=data.review.seriesName%></h1>
+
+                <p>
+                    <span>Seizoenen:</span>
+                    <%=data.review.seasons %>
+                </p>
+                <p>
+                    <span>Gemiddelde tijd per aflervering:</span>
+                    <%=data.review.duration %>
+                </p>
+                <p>
+                    <span>IMDB cijfer:</span>
+                    <%=data.review.imdbRating %>
+                </p>
+                <p class="text"><%= data.review.reviewPlot%></p>
+            </section>
+        </div>
+        <section class="review">
+            <h2><%= data.review.reviewTitle%></h2>
+            <p class="text"><%= data.review.reviewIntro %></p>
+        </section>
+    </article>
+    <section class="comments">
+        <h2>
+            Wat vind u van deze serie?
+        </h2>
+        <ul class="comment-list">
+            <% for(var i=0; i <data.comments.length; i++){%>
+                <li>
+                    <h4><%= data.comments[i].username%></h4>
+                    <p><%= data.comments[i].text%></p>
+                    <time><%= data.comments[i].time%></time>
+                </li>
+                <% } %>
+            </data.comments.length;>
+        </ul>
+        <form class="comments-form" action="/details" enctype="multipart/form-data" method="post">
+            <label>
+                <span>Reactie plaatsen</span>
+                <textarea placeholder="Describe yourself" type="text"> </textarea>
+            </label>
+            <input type="submit" value="Reactie Plaatsen">
+        </form>
+    </section>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/javascripts/comment.js"></script>
+</body>
+

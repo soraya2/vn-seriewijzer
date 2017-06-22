@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,900|Alegreya" rel="stylesheet">
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <title>Kies je persona</title>
 </head>
@@ -17,7 +17,6 @@
         </progress> -->
     <header class="header-personacheck">
         <h1>Wie ben jij?</h1>
-        <p class="text-label">Meerdere antwoorden mogelijk</p>
     </header>
     <main class="form-for-check">
         <p id="condition">
@@ -253,7 +252,7 @@
             </div>
         </fieldset>
         <button id="back" class="submit-persona go-back" disabled="true" hidden>Vorige</button>
-        <button id="persona-button" class="submit-persona" hidden>Volgende</button>
+        <button id="persona-button" class="submit-persona" title="Je moet minstens 1 eigenschap aanklikken" hidden disabled="true">Volgende</button>
         <button type="submit" class="submit-persona">Bekijk jouw aanbod</button>
 
         <section id="confirm-persona" hidden>

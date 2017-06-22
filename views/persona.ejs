@@ -20,8 +20,10 @@
         <p class="text-label">Meerdere antwoorden mogelijk</p>
     </header>
     <main class="form-for-check">
-
-        <form method="post" action="/persona">
+        <p id="condition">
+            Je mag minimaal één en maximaal drie eigenschappen kiezen.
+        </p>
+        <form method="post" action="/persona" id="persona-form">
 
         <fieldset class="persona-check">
             <legend><h2>Ik ben echt een...</h2></legend>
@@ -141,7 +143,7 @@
                     <div>
 
                     </div>
-                    <p><label for="uitgaan-borrelen">Borrelen</label></p>
+                    <p><label for="uitgaan-borrelen">Uitgaan of borrelen</label></p>
                 </section>
                 <section class="item hobby">
                     <input type="checkbox" id="reizen"  name="hobby"  value="travel" />
@@ -250,10 +252,9 @@
                 </section>
             </div>
         </fieldset>
-        <button class="submit-persona go-back" hidden>Vorige</button>
+        <button id="back" class="submit-persona go-back" disabled="true" hidden>Vorige</button>
         <button id="persona-button" class="submit-persona" hidden>Volgende</button>
-
-        <input id="persona-submit" type="submit" value="Volgende" class="submit-persona"/>
+        <button type="submit" class="submit-persona">Bekijk jouw aanbod</button>
 
         <section id="confirm-persona" hidden>
             <div>
@@ -262,7 +263,7 @@
                 <ul id="personal-list">
 
                 </ul>
-                <button class="submit-persona go-back">Ga terug</button>
+                <button class="submit-persona go-back" id="confirm-back">Ga terug</button>
                 <input id="persona-submit" type="submit" value="Bekijk jouw aanbod" class="submit-persona"/>
             </div>
         </section>

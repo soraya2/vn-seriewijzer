@@ -11,7 +11,6 @@
         personalList = document.getElementById('personal-list'),
         buttonSubmit = document.querySelector('button[type="submit"]'),
         count = 1,
-        checked,
         checkedBoxes = [[], [], []],
         checkboxes,
         b,
@@ -90,8 +89,6 @@
         } else {
             checkedBoxes[count-1].push(e.target);
         }
-
-        console.log(checkedBoxes);
     }
 
     //Functions to get all checked checkboxes and render them in a list in confirmation overlay
@@ -161,6 +158,7 @@
             previous: function(e){//Merge this one with the next step, logic is the same
                 //Function that handles the previous button
                 e.preventDefault();
+                console.log(count);
 
                 switch (count) {
                     case 2:
@@ -201,7 +199,7 @@
             notification.parentNode.removeChild(notification);
         }
 
-        checked = document.querySelectorAll('fieldset:nth-of-type(' + count + ') input[type="checkbox"]:checked');
+        var checked = document.querySelectorAll('fieldset:nth-of-type(' + count + ') input[type="checkbox"]:checked');
 
         if(checked.length < 1){
             personaButton.setAttribute('disabled', 'true');
@@ -211,14 +209,20 @@
         }
 
     });
-    backButton.addEventListener('click', step.previous);
+    backButton.addEventListener('click', function(e){
+        step.previous(e);
+
+        if(checkedBoxes[count-1] && checkedBoxes[count-1].length >= 1){
+            personaButton.removeAttribute('disabled');
+        }
+    });
     confirmBack.addEventListener('click', step.previous);
     personaButton.addEventListener('click', function(e){
-        if(checkedBoxes[count-1].length < 1){
+        step.next(e);
+
+        if(checkedBoxes[count-1] && checkedBoxes[count-1].length < 1){
             personaButton.setAttribute('disabled', 'true');
         }
-        
-        step.next(e);
     });
         //node.control.checked = true
 

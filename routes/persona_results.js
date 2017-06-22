@@ -44,7 +44,6 @@ router.get('/', function(req, res) {
 function setFilter(filterName, filterValue) {
 
     filters[filterName] = filterValue;
-
 }
 
 function arrayCheck(filterName, filterValue) {

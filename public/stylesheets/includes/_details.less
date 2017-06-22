@@ -86,6 +86,22 @@
 
 .comments {
     padding: 0 1em;
+    width: 100%;
+    form {
+        display: flex;
+        flex-direction: column;
+        @media (min-width: 45em) {
+            width: 45%;
+        }
+        textarea {
+            height: 3em;
+            margin-bottom: 0.3em;
+        }
+        label {
+            display: inherit;
+            flex-direction: inherit;
+        }
+    }
 }
 
 input[type="submit"] {

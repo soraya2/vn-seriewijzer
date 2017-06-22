@@ -88,7 +88,7 @@
         z-index: 1;
         cursor: pointer;
     }
-        #serie-steps label.active {
+        #serie-steps label#active {
             transform: scale(1.2);
             z-index: 2;
         }
@@ -109,30 +109,38 @@
             color: white;
             transition: .4s;
         }
-            #serie-steps label.active:before {
+            #serie-steps label#active:before {
                 top: -10px;
                 left: -10px;
             }
-            #serie-steps label#one:before {
+            #serie-steps label.one:before {
                 opacity: 1;
                 content: '1';
             }
-            #serie-steps label#two:before {
+            #serie-steps label.two:before {
                 opacity: 1;
                 content: '2';
             }
-            #serie-steps label#three:before {
+            #serie-steps label.three:before {
                 opacity: 1;
                 content: '3';
             }
-            #serie-steps label#four:before {
+            #serie-steps label.four:before {
                 opacity: 1;
                 content: '4';
             }
         #serie-steps label input[type="checkbox"]{
             clip: rect(0,0,0,0);
-            position: absolute;
+            position: relative;
         }
+            #serie-steps label input[type="checkbox"]:before {
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                border: 1px solid white;
+            }
         #serie-steps label img {
             width: 100%;
             height: 11em;

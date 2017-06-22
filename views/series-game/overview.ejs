@@ -10,13 +10,12 @@
     <body id="serie-overview">
         <h1>Jouw persoonlijke top 5</h1>
         <% for (var i = 0; i < results.length; i++) { %>
-            <a href="details/<%- results[i].name%>">
+            <a href="/review/<%- results[i].name%>">
                 <label>
                     <div>
                         <img src="<%- results[i].data.review.imgURL%>" alt="<%- results[i].name%>">
                     </div>
-                    <h2><%- results[i].name%><br/>
-                        <%- results[i].matchAll + '%'%></h2>
+                    <h2><span><%- results[i].name + ' ' + results[i].matchAll + '%'%></span></h2>
                 </label>
             </a>
         <% } %>

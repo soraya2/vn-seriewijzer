@@ -4,6 +4,7 @@ var router = express.Router();
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var Reviews = require('../models/reviewsschema');
+var User = require('../models/user');
 
 // Global variables config to make the game possible
 var reviewArr;
@@ -37,7 +38,10 @@ router.post('/1', function(req, res){
     hobby = reviewArr.find(o => o.review.seriesName === req.body.one).review.hobby;
     mood = reviewArr.find(o => o.review.seriesName === req.body.one).review.mood;
     persona = reviewArr.find(o => o.review.seriesName === req.body.one).review.persona;
-    console.log(req.body.one);
+
+    reviewArr = reviewArr.filter(function(el) {
+        return el.review.seriesName !== req.body.one;
+    });
     console.log(hobby);
     res.redirect('2');
 });
@@ -57,6 +61,9 @@ router.post('/2', function(req, res){
     mood = mood.concat(reviewArr.find(o => o.review.seriesName === req.body.one).review.mood);
     persona = persona.concat(reviewArr.find(o => o.review.seriesName === req.body.one).review.persona);
 
+    reviewArr = reviewArr.filter(function(el) {
+        return el.review.seriesName !== req.body.one;
+    });
     console.log(req.body.one);
     console.log(hobby);
     res.redirect('3');
@@ -77,6 +84,9 @@ router.post('/3', function(req, res){
     mood = mood.concat(reviewArr.find(o => o.review.seriesName === req.body.one).review.mood);
     persona = persona.concat(reviewArr.find(o => o.review.seriesName === req.body.one).review.persona);
 
+    reviewArr = reviewArr.filter(function(el) {
+        return el.review.seriesName !== req.body.one;
+    });
     console.log(req.body.one);
     console.log(hobby);
     res.redirect('4');
@@ -97,6 +107,9 @@ router.post('/4', function(req, res){
     mood = mood.concat(reviewArr.find(o => o.review.seriesName === req.body.one).review.mood);
     persona = persona.concat(reviewArr.find(o => o.review.seriesName === req.body.one).review.persona);
 
+    reviewArr = reviewArr.filter(function(el) {
+        return el.review.seriesName !== req.body.one;
+    });
     console.log(req.body.one);
     console.log(hobby);
     res.redirect('overview');
@@ -107,7 +120,9 @@ router.get('/overview', function (req, res) {
     var resultsPersona = [];
     var resultsAll = [];
     var resultsBest = [];
-    
+
+
+    // place in function
     var hobbyUnique = hobby.filter(function( el, pos, self){
         return self.indexOf(el) == pos;
     });
@@ -117,6 +132,9 @@ router.get('/overview', function (req, res) {
     var personaUnique = persona.filter(function( el, pos, self){
         return self.indexOf(el) == pos;
     });
+
+    // Make code dry
+    // Start function
 
     for (var i = 0; i < reviewArr.length; i++) {
         var hobbyArr = reviewArr[i].review.hobby;
@@ -133,7 +151,7 @@ router.get('/overview', function (req, res) {
             }
         }
         for (var h = 0; h < personaUnique.length; h++) {
-            if (hobbyArr.includes(personaUnique[h])){
+            if (personaArr.includes(personaUnique[h])){
                 resultsPersona.push(reviewArr[i]);
             }
         }
@@ -146,7 +164,6 @@ router.get('/overview', function (req, res) {
         var moodMatch = (moodLength / (reviewArr[i].review.mood).length) * 100;
         var personaMatch = (personaLength / (reviewArr[i].review.persona).length) * 100;
 
-        console.log(reviewArr[i].review.seriesName, personaLength, (reviewArr[i].review.persona).length, personaMatch);
         resultsAll.push({
             name: reviewArr[i].review.seriesName,
             data: reviewArr[i],
@@ -158,8 +175,9 @@ router.get('/overview', function (req, res) {
         if (resultsAll[i].matchAll > 50){
             resultsBest.push(resultsAll[i]);
         }
-        // console.log(resultsAll[i].name, resultsAll[i].hobbyMatch, resultsAll[i].moodMatch, resultsAll[i].personaMatch);
     }
+
+    // end function
     resultsBest.sort(function(a,b){
         if (a.matchAll > b.matchAll) {
             return -1;
@@ -171,6 +189,21 @@ router.get('/overview', function (req, res) {
         }
     })
     resultsBest = resultsBest.slice(0,5);
+    console.log(resultsBest);
+
+    // for (var i = 0; i < resultsBest.length; i++) {
+    //     User.findOneAndUpdate( {
+    //         'facebook.username' : req.session.username
+    //     }, {
+    //         '$addToSet' : {
+    //             'profile.matches' : resultsBest[i]
+    //         }
+    //     }, { upsert: true }, function(err, document) {
+    //        if (err) {
+    //             return console.log(err);
+    //         }
+    //     });
+    // }
 
     res.locals.results = resultsBest;
     res.locals.hobby = hobbyUnique;

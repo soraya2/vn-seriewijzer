@@ -20,7 +20,9 @@
         <p class="text-label">Meerdere antwoorden mogelijk</p>
     </header>
     <main class="form-for-check">
-
+        <p class="condition">
+            Je mag minimaal één en maximaal drie eigenschappen kiezen.
+        </p>
         <form method="post" action="/persona">
 
         <fieldset class="persona-check">
@@ -250,8 +252,9 @@
                 </section>
             </div>
         </fieldset>
-        <button class="submit-persona go-back" disabled="true">Vorige</button>
+        <button class="submit-persona go-back" disabled="true" hidden>Vorige</button>
         <button id="persona-button" class="submit-persona" hidden>Volgende</button>
+        <button type="submit" class="submit-persona">Bekijk jouw aanbod</button>
 
         <section id="confirm-persona" hidden>
             <div>

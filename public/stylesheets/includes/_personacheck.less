@@ -2,6 +2,12 @@
 //#F76655
 //#FF5300
 // GENERAL PERSONACHECK
+@keyframes feedback {
+    0%{background-color:#F76655; color: white}
+    80%{background-color:#F76655; color: white}
+    100%{background-color:white; color: #333}
+}
+
 body {
     background-color: white;
     margin: 0.5rem;
@@ -17,6 +23,7 @@ h1 {
 }
 
 h2 {
+    color: #F76655;
     font-family: "Lato", sans-serif;
 }
 
@@ -96,6 +103,17 @@ button[disabled="true"], button[disabled="true"]:hover, button[disabled="true"]:
 .go-back {
     background-color: #ddd;
     color: black;
+}
+
+.condition {
+    color: #333;
+    font-size: 1rem;
+    font-style: italic;
+    padding: 0.5rem;
+}
+
+.feedback {
+    animation: feedback 5s ease;
 }
 
 .submit-persona:hover {
@@ -182,7 +200,7 @@ button[disabled="true"], button[disabled="true"]:hover, button[disabled="true"]:
     .flexdiv .item:hover {
         background-color: white;
     }
-    
+
     .flexdiv .item:hover div {
         filter: grayscale(30%);
     }

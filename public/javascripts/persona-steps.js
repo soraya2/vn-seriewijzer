@@ -8,15 +8,21 @@
         personaSubmit = document.getElementById('persona-submit'),
         confirmOverlay = document.getElementById('confirm-persona'),
         personalList = document.getElementById('personal-list'),
+        buttonSubmit = document.querySelector('button[type="submit"]'),
         count = 1,
         checkedBoxes = [[], [], []],
         i,
         index;
 
-
+    //BEGIN CHANEL
     function config(){
-        // Hiding submit button untill the last step;
+        //When javascript is executed, these buttons are needed
         personaButton.removeAttribute('hidden');
+        backButtons[0].removeAttribute('hidden');
+
+        //This button isn't needed
+        buttonSubmit.setAttribute('hidden', '');
+        //END CHANEL
 
         //hide all sections except the first
         for (i = 1; i < personaSteps.length; i++) {
@@ -64,9 +70,21 @@
             checkedBoxes[(count-1)].splice(checkedBoxes[(count-1)].indexOf(e.target), 1);
         } else if(checkedBoxes[(count-1)].length > 2){
             e.target.checked = false;
+            addAnimation();
         } else {
             checkedBoxes[(count-1)].push(e.target);
         }
+    }
+
+    function addAnimation(){
+        var feedbackEl = document.getElementsByClassName('condition')[0];
+        console.log(feedbackEl);
+
+        classes.add(feedbackEl, 'feedback');
+
+        setTimeout(function(){
+            classes.remove(feedbackEl, 'feedback')
+        }, 5000);
     }
 
     //Functions to get all checked checkboxes and render them in a list in confirmation overlay
@@ -183,7 +201,7 @@
         var checked = document.querySelectorAll('fieldset:nth-of-type(' + count + ') input[type="checkbox"]:checked');
 
         if(checked.length < 1){
-            console.log('Je moet minstens 1 item aanklikken');
+            addAnimation();
         } else {
             step.next(e);
         }

@@ -8,17 +8,17 @@
         <title>Het Serie Spel</title>
     </head>
     <body id="serie-overview">
-        <p>Hobby: <br/><%- hobby %></p>
-        <p>Mood: <br/><%- mood %></p>
-        <p>Persona: <br/><%- persona %></p>
+        <h1>Jouw persoonlijke top 5</h1>
         <% for (var i = 0; i < results.length; i++) { %>
-            <label>
-                <div>
-                    <img src="<%- results[i].data.review.imgURL%>" alt="<%- results[i].name%>">
-                </div>
-                <a href="details/<%- results[i].name%>"><h2><%- results[i].name%><br/>
-                    <%- results[i].matchAll + '%'%></h2></a>
-            </label>
+            <a href="details/<%- results[i].name%>">
+                <label>
+                    <div>
+                        <img src="<%- results[i].data.review.imgURL%>" alt="<%- results[i].name%>">
+                    </div>
+                    <h2><%- results[i].name%><br/>
+                        <%- results[i].matchAll + '%'%></h2>
+                </label>
+            </a>
         <% } %>
     </body>
 </html>

@@ -101,18 +101,13 @@ router.post('/4', function(req, res){
     console.log(hobby);
     res.redirect('overview');
 });
-router.get('/details/:id', function (req, res) {
-    Reviews.findOne({ 'review.seriesName': req.params.id }, function(err, series) {
-        console.log('Found show: ' + series);
-        res.render('series-game/detail-view', { data: series });
-    });
-});
 router.get('/overview', function (req, res) {
     var resultsHobby = [];
     var resultsMood = [];
     var resultsPersona = [];
     var resultsAll = [];
     var resultsBest = [];
+    
     var hobbyUnique = hobby.filter(function( el, pos, self){
         return self.indexOf(el) == pos;
     });
@@ -123,9 +118,6 @@ router.get('/overview', function (req, res) {
         return self.indexOf(el) == pos;
     });
 
-    console.log(hobbyUnique);
-    console.log(moodUnique);
-    console.log(personaUnique);
     for (var i = 0; i < reviewArr.length; i++) {
         var hobbyArr = reviewArr[i].review.hobby;
         var moodArr = reviewArr[i].review.mood;
@@ -147,24 +139,38 @@ router.get('/overview', function (req, res) {
         }
         var hobbyLength = resultsHobby.filter(it => it.review.seriesName === reviewArr[i].review.seriesName).length;
         var moodLength = resultsMood.filter(it => it.review.seriesName === reviewArr[i].review.seriesName).length;
-        var personaLength = resultsHobby.filter(it => it.review.seriesName === reviewArr[i].review.seriesName).length;
+        var personaLength = resultsPersona.filter(it => it.review.seriesName === reviewArr[i].review.seriesName).length;
+
 
         var hobbyMatch = (hobbyLength / (reviewArr[i].review.hobby).length) * 100;
         var moodMatch = (moodLength / (reviewArr[i].review.mood).length) * 100;
         var personaMatch = (personaLength / (reviewArr[i].review.persona).length) * 100;
 
+        console.log(reviewArr[i].review.seriesName, personaLength, (reviewArr[i].review.persona).length, personaMatch);
         resultsAll.push({
             name: reviewArr[i].review.seriesName,
             data: reviewArr[i],
             hobbyMatch: hobbyMatch,
             moodMatch: moodMatch,
             personaMatch: personaMatch,
-            matchAll: (hobbyMatch + moodMatch + personaMatch) / 3
+            matchAll: Math.round((hobbyMatch + moodMatch + personaMatch) / 3)
         });
-        if (resultsAll[i].matchAll > 75){
+        if (resultsAll[i].matchAll > 50){
             resultsBest.push(resultsAll[i]);
         }
+        // console.log(resultsAll[i].name, resultsAll[i].hobbyMatch, resultsAll[i].moodMatch, resultsAll[i].personaMatch);
     }
+    resultsBest.sort(function(a,b){
+        if (a.matchAll > b.matchAll) {
+            return -1;
+        }
+        else if (a.matchAll < b.matchAll) {
+            return 1;
+        } else {
+            return 0;
+        }
+    })
+    resultsBest = resultsBest.slice(0,5);
 
     res.locals.results = resultsBest;
     res.locals.hobby = hobbyUnique;
@@ -172,5 +178,11 @@ router.get('/overview', function (req, res) {
     res.locals.persona = personaUnique;
     res.render('series-game/overview');
 })
+router.get('/details/:id', function (req, res) {
+    Reviews.findOne({ 'review.seriesName': req.params.id }, function(err, series) {
+        console.log('Found show: ' + series);
+        res.render('series-game/detail-view', {data: series});
+    });
+});
 
 module.exports = router;

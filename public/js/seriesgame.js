@@ -35,5 +35,3 @@
         })
     }
 }());
-
-// Volgende knop pas beschikbaar wanneer je alles hebt ingevuld

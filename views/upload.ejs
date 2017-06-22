@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="stylesheets/uploadform.css">
-  <link href="https://cdn.quilljs.com/1.2.6/quill.snow.css" rel="stylesheet">
   <title>Upload een recensie</title>
 </head>
 <body class="upload-form-body">
@@ -48,7 +47,7 @@
 
       <label>
         <p>Beginjaar:</p>
-        <p class="sub-line">Het jaartal waarin de serie begon met opnemen.</p>
+        <p class="sub-line">Het jaartal waarin de serie begon met uitzenden.</p>
         <input type="text" name="startingYear" placeholder="Bijv. 2011" required>
       </label>
 
@@ -60,13 +59,13 @@
 
       <div>
         <h3>Categorie:</h3>
-        <p class="sub-line">Hierin vul je de genres in waarbij deze serie hoort. Scheidt de verschillende genres met een komma en begin ieder genre met een hoofdletter. Als het een afkorting is mag het natuurlijk allemaal een hoofdletter zijn.</p>
+        <p class="sub-line">Vink de genres aan waarin deze serie hoort.</p>
         <label>
             <input type="checkbox" name="genre" value="action">
             <span>Actie</span>
         </label>
         <label>
-            <input type="checkbox" name="genre" value="avontuur">
+            <input type="checkbox" name="genre" value="adventure">
             <span>Avontuur</span>
         </label>
 
@@ -76,7 +75,7 @@
         </label>
 
         <label>
-            <input type="checkbox" name="genre" value="documentaire">
+            <input type="checkbox" name="genre" value="documentary">
             <span>Documentaire</span>
         </label>
 
@@ -86,7 +85,7 @@
         </label>
 
         <label>
-            <input type="checkbox" name="genre" value="episch">
+            <input type="checkbox" name="genre" value="epic">
             <span>Episch
         </label>
 
@@ -96,28 +95,38 @@
         </label>
 
         <label>
-            <input type="checkbox" name="genre" value="sci-fi">
+            <input type="checkbox" name="genre" value="scifi">
             <span>Sci-fi</span>
         </label>
 
         <label>
-            <input type="checkbox" name="genre" value="oorlog">
+            <input type="checkbox" name="genre" value="war">
             <span>Oorlog</span>
         </label>
 
         <label>
-            <input type="checkbox" name="genre" value="romantiek">
+            <input type="checkbox" name="genre" value="romance">
             <span>Romantiek</span>
         </label>
 
         <label>
-            <input type="checkbox" name="genre" value="muziek">
+            <input type="checkbox" name="genre" value="music">
             <span>Muziek</span>
         </label>
 
         <label>
             <input type="checkbox" name="genre" value="fantasy">
             <span>Fantasy</span>
+        </label>
+
+        <label>
+            <input type="checkbox" name="genre" value="thriller">
+            <span>Thriller</span>
+        </label>
+
+        <label>
+            <input type="checkbox" name="genre" value="crime">
+            <span>Misdaad</span>
         </label>
 
         <label>
@@ -146,28 +155,32 @@
           <input type="checkbox" name="platform" value="videoland">
           <span>Videoland</span>
         </label>
+        <label>
+          <input type="checkbox" name="platform" value="disc">
+          <span>DVD/Bluray</span>
+        </label>
       </div>
 
       <div>
         <h3>Tijdperk</h3>
-        <p class="sub-line">In welke tijd speelt het zich af?</p>
+        <p class="sub-line">In welke tijd speelt het verhaal zich af?</p>
         <label>
-          <input type="checkbox" name="period" value="prehistorie">
+          <input type="checkbox" name="period" value="prehistoric">
           <span>Prehistorie</span>
 
         </label>
         <label>
-          <input type="checkbox" name="period" value="romeinse-tijd">
+          <input type="checkbox" name="period" value="roman">
           <span>Romeinse Tijd</span>
 
         </label>
         <label>
-          <input type="checkbox" name="period" value="middeleeuwen">
+          <input type="checkbox" name="period" value="middleages">
           <span>Middeleeuwen</span>
 
         </label>
         <label>
-          <input type="checkbox" name="period" value="victoriaans">
+          <input type="checkbox" name="period" value="victorian">
           <span>Victoriaanse Tijd</span>
 
         </label>
@@ -187,12 +200,12 @@
 
         </label>
         <label>
-          <input type="checkbox" name="period" value="heden">
+          <input type="checkbox" name="period" value="present">
           <span>Heden</span>
 
         </label>
         <label>
-          <input type="checkbox" name="period" value="toekomst">
+          <input type="checkbox" name="period" value="future">
           <span>Toekomst</span>
 
         </label>
@@ -207,53 +220,53 @@
 
         </label>
         <label>
-          <input type="checkbox" name="persona" value="creatieveling">
+          <input type="checkbox" name="persona" value="creative">
           <span>Creatieveling</span>
 
         </label>
         <label>
-          <input type="checkbox" name="persona" value="sensatiezoeker">
+          <input type="checkbox" name="persona" value="sensationalist">
           <span>Sensatiezoeker</span>
 
         </label>
         <label>
-          <input type="checkbox" name="persona" value="soldaat">
-          <span>Soldaat</span>
-
-        </label>
-        <label>
           <input type="checkbox" name="persona" value="joker">
-          <span>Joker</span>
+          <span>Grappenmaker</span>
 
         </label>
         <label>
-          <input type="checkbox" name="persona" value="girly-girl">
+          <input type="checkbox" name="persona" value="girly">
           <span>Girly Girl</span>
 
         </label>
         <label>
-          <input type="checkbox" name="persona" value="waaghals">
+          <input type="checkbox" name="persona" value="tomboy">
+          <span>Tomboy</span>
+
+        </label>
+        <label>
+          <input type="checkbox" name="persona" value="daredevil">
           <span>Waaghals</span>
 
         </label>
         <label>
-          <input type="checkbox" name="persona" value="avonturier">
+          <input type="checkbox" name="persona" value="adventurer">
           <span>Avonturier</span>
 
         </label>
         <label>
-          <input type="checkbox" name="persona" value="geeky-nerd">
+          <input type="checkbox" name="persona" value="nerd">
           <span>Geeky Nerd</span>
 
         </label>
         <label>
-          <input type="checkbox" name="persona" value="animal-lover">
-          <span>Animal Lover</span>
+          <input type="checkbox" name="persona" value="animallover">
+          <span>Dierenliefhebber</span>
 
         </label>
         <label>
           <input type="checkbox" name="persona" value="intellectual">
-          <span>Intellectual</span>
+          <span>Intellectueel</span>
 
         </label>
       </div>
@@ -262,37 +275,42 @@
         <h3>Passende Hobby's</h3>
         <p class="sub-line">Welke hobby's passen het beste bij deze serie?</p>
         <label>
-          <input type="checkbox" name="hobby" value="gamen">
+          <input type="checkbox" name="hobby" value="gaming">
           <span>Gamen</span>
 
         </label>
         <label>
-          <input type="checkbox" name="hobby" value="uitgaan">
+          <input type="checkbox" name="hobby" value="party">
           <span>Uitgaan/borrelen</span>
 
         </label>
         <label>
-          <input type="checkbox" name="hobby" value="reizen">
+          <input type="checkbox" name="hobby" value="travel">
           <span>Reizen</span>
 
         </label>
         <label>
-          <input type="checkbox" name="hobby" value="muziek">
+          <input type="checkbox" name="hobby" value="music">
           <span>Muziek</span>
 
         </label>
         <label>
-          <input type="checkbox" name="hobby" value="shoppen">
+          <input type="checkbox" name="hobby" value="shopping">
           <span>Shoppen</span>
 
         </label>
         <label>
-          <input type="checkbox" name="hobby" value="koken">
+          <input type="checkbox" name="hobby" value="cooking">
           <span>Koken</span>
 
         </label>
         <label>
-          <input type="checkbox" name="hobby" value="lezen">
+          <input type="checkbox" name="hobby" value="sport">
+          <span>Sporten</span>
+
+        </label>
+        <label>
+          <input type="checkbox" name="hobby" value="reading">
           <span>Lezen</span>
 
         </label>
@@ -302,7 +320,7 @@
 
         </label>
         <label>
-          <input type="checkbox" name="hobby" value="werken">
+          <input type="checkbox" name="hobby" value="working">
           <span>Werken</span>
 
         </label>
@@ -312,28 +330,33 @@
         <h3>Passende Moods</h3>
         <p class="sub-line">Welke moods passen het beste bij deze serie?</p>
         <label>
-          <input type="checkbox" name="mood" value="bang-worden">
+          <input type="checkbox" name="mood" value="scared">
           <span>Ik wil bang gemaakt worden</span>
 
         </label>
         <label>
-          <input type="checkbox" name="mood" value="janken">
+          <input type="checkbox" name="mood" value="cry">
           <span>Ik wil lekker janken</span>
 
         </label>
         <label>
-          <input type="checkbox" name="mood" value="spanning">
+          <input type="checkbox" name="mood" value="thrill">
           <span>Ik wil van spanning stoppen met ademen</span>
 
         </label>
         <label>
-          <input type="checkbox" name="mood" value="lachen">
+          <input type="checkbox" name="mood" value="laugh">
           <span>Ik wil huilen van het lachen</span>
 
         </label>
         <label>
-          <input type="checkbox" name="mood" value="chillen">
+          <input type="checkbox" name="mood" value="chill">
           <span>Ik wil hersendood voor de TV zitten</span>
+
+        </label>
+        <label>
+          <input type="checkbox" name="mood" value="learn">
+          <span>Ik wil iets leren</span>
 
         </label>
       </div>
@@ -357,11 +380,11 @@
       <div>
         <h3>Afleveringen</h3>
         <label>
-          <span>Aantal:</span>
+          <span>Totaal Aantal:</span>
           <input type="text" name="episodes" placeholder="Bijv. 32" required>
         </label>
         <label>
-          <span>Duur:</span>
+          <span>Duur per aflevering:</span>
           <input type="text" name="duration" placeholder="Bijv. 55 minuten" required>
         </label>
       </div>
@@ -375,26 +398,10 @@
       </div>
 
       <div>
-        <h3>Producenten</h3>
+        <h3>Regie</h3>
         <label>
-          <span>Producenten (maximaal 6, scheiden met komma)</span>
+          <span>Regie (maximaal 2, scheiden met komma)</span>
           <input type="text" name="producers" placeholder="Bijv. Peter Jackson, Steven Spielberg" required>
-        </label>
-      </div>
-
-      <div>
-        <h3>Awards</h3>
-        <label>
-          <span>Hoeveel awards heeft de serie gewonnen?</span>
-          <input type="text" name="awards" placeholder="Bijv. 4" required>
-        </label>
-      </div>
-
-      <div>
-        <h3>Nominaties</h3>
-        <label>
-          <span>Hoevaak is de serie genomineerd?</span>
-          <input type="text" name="nominations" placeholder="Bijv. 12" required>
         </label>
       </div>
 
@@ -408,10 +415,10 @@
 
       <div>
         <h3>Trailer</h3>
-        <p class="sub-line">Plaats hier de URL naar de trailer op YouTube. Geen trailer? Laat het veld dan leeg.</p>
+        <p class="sub-line">Plaats hier de <em>Embed URL</em> (dus niet de reguliere link) naar de trailer op YouTube. Geen trailer? Laat het veld dan leeg.</p>
         <label>
           <span>Link naar de trailer</span>
-          <input type="text" name="trailerURL" placeholder="Bijv. https://youtube.com/trailer">
+          <input type="text" name="trailerURL" placeholder="Bijv. https://www.youtube.com/embed/v7MGUNV8MxU">
         </label>
       </div>
 
@@ -447,24 +454,12 @@
 
       <label>
         <h3>Recensie:</h3>
-        <div id="editor"></div>
-        <textarea hidden name="reviewBody" rows="8" cols="80"></textarea>
+        <textarea name="reviewBody" rows="8" cols="80" placeholder="Plaats de recensie hier"></textarea>
       </label>
 
       <label>
         Welk cijfer geef je aan deze serie? (1 t/m 10): <br>
-          <select name="reviewRating">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
-          </select>
+         <input type="text" name="reviewRating" required placeholder="Bijv. 8">
       </label>
     </section>
 

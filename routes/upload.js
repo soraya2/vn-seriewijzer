@@ -14,7 +14,7 @@ router.get('/', function(req, res) {
 router.post('/', function(req, res) {
     console.log('New form recieved');
     processUploadForm(req, res);
-    res.redirect('/upload_complete');
+    res.redirect('/review_overview');
 });
 
 function processUploadForm(req, res) {
@@ -42,9 +42,8 @@ function processUploadForm(req, res) {
             seasons:        fields.seasons,
             episodes:       fields.episodes,
             duration:       fields.duration,
+            actors:         fields.actors,
             producers:      fields.producers,
-            awards:         fields.awards,
-            nominations:    fields.nominations,
             imdbRating:     fields.imdbRating,
             trailerURL:     fields.trailerURL,
             imgURL:         fields.imgURL,

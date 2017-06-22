@@ -1,31 +1,36 @@
 var express = require('express'),
     router = express.Router(),
     reviewsSchema = require('../models/reviewsschema'),
-    seriesName;
+    seriesName,
+    username;
 
 
 router.get('/:id', function(req, res) {
 
     seriesName = req.params.id;
     //get serie based on serie name
-    reviewsSchema.findOne({ "review.seriesName": seriesName }, function(error, doc) {
+    username = req.session.user;
 
-        res.render('detail', { data: doc, title: seriesName });
+    reviewsSchema.findOne({ 'review.seriesName': seriesName }, function(error, doc) {
+
+        res.render('review', { data: doc, title: seriesName });
 
     });
 
 });
 
-
 module.exports = function(io) {
 
     io.on('connection', function(sockets) {
 
-        sockets.broadcast.on('comment', function(comm) {
-            commentsToDatabase();
+        sockets.broadcast.on('save comment', function(comment) {
 
-            //Todo: sending facebookname to client
-            // io.emit('comment', comm);
+            comment.username = username;
+            // console.log(req.session.persona);
+
+            commentsToDatabase(comment);
+
+            io.emit('comment', comment);
         });
 
     });
@@ -34,13 +39,13 @@ module.exports = function(io) {
 };
 
 
-function commentsToDatabase() {
+function commentsToDatabase(comment) {
 
     //Save comments to the database based on series name
-    reviewsSchema.findOneAndUpdate({ "review.seriesName": seriesName }, {
+    reviewsSchema.findOneAndUpdate({ 'review.seriesName': seriesName }, {
 
-        "$addToSet": {
-            "comments": comm
+        '$addToSet': {
+            'comments': comment
         }
     }, { upsert: true }, function(err, document) {
 

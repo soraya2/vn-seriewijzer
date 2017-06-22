@@ -61,3 +61,7 @@ typings/
 routes/backup.js
 
 data/data.json
+
+public/assets/.DS_Store
+
+public/.DS_Store

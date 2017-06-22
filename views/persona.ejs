@@ -5,103 +5,114 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,900" rel="stylesheet">
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <title>Kies je persona</title>
 </head>
 <body>
-        <progress max="3" value="1"></progress>
+        <!-- <progress max="3" value="1">
+            <div class="progress-fallback">
+                <span class="meter-fraction">Stap 1</span>
+            </div>
+        </progress> -->
     <header class="header-personacheck">
         <h1>Wie ben jij?</h1>
-        <p>Meerdere antwoorden mogelijk</p>
+        <p class="text-label">Meerdere antwoorden mogelijk</p>
     </header>
     <main class="form-for-check">
-        <form method="post" enctype="multipart/form-data" action="/persona">
+
+        <form method="post" action="/persona">
+
         <fieldset class="persona-check">
             <legend><h2>Ik ben echt een...</h2></legend>
             <div class="flexdiv">
                 <section class="item persona">
+                    <input type="checkbox" id="foodie" name="persona" value="foodie" />
                     <div>
 
                     </div>
-                    <input type="checkbox" id="foodie" name="tagspersoonlijkheid" value="foodie" />
-                    <h4><label for="foodie">Foodie</label></h4>
+                    <p><label for="foodie">Foodie</label></p>
                 </section>
                 <section class="item persona">
+                    <input type="checkbox" id="creatieveling" name="persona" value="creative" />
                     <div>
 
                     </div>
-                    <input type="checkbox" id="creatieveling" name="tagspersoonlijkheid" value="creatieveling" />
-                    <h4><label for="creatieveling">Creatieveling</label></h4>
+                    <p><label for="creatieveling">Creatieveling</label></p>
                 </section>
                 <section class="item persona">
+                    <input type="checkbox" id="sensatiezoeker" name="persona" value="sensationalist" />
                     <div>
 
                     </div>
-                    <input type="checkbox" id="sensatiezoeker" name="tagspersoonlijkheid" value="sensatiezoeker" />
-                    <h4><label for="sensatiezoeker">Sensatie zoeker</label></h4>
+                    <p><label for="sensatiezoeker">Sensatiezoeker</label></p>
                 </section>
                 <section class="item persona">
+                    <input type="checkbox" id="joker" name="persona" value="joker" />
                     <div>
 
                     </div>
-                    <input type="checkbox" id="soldaat" name="tagspersoonlijkheid" value="soldaat" />
-                    <h4><label for="soldaat">Soldaat</label></h4>
+                    <p><label for="joker">Grappenmaker</label></p>
                 </section>
                 <section class="item persona">
+                    <input type="checkbox" id="girlygirl" name="persona" value="girly" />
                     <div>
 
                     </div>
-                    <input type="checkbox" id="joker" name="tagspersoonlijkheid" value="joker" />
-                    <h4><label for="joker">Joker</label></h4>
+                    <p><label for="girlygirl">Girly Girl</label></p>
                 </section>
                 <section class="item persona">
+                    <input type="checkbox" id="waaghals" name="persona" value="daredevil" />
                     <div>
 
                     </div>
-                    <input type="checkbox" id="girlygirl" name="tagspersoonlijkheid" value="girlygirl" />
-                    <h4><label for="girlygirl">Girly Girl</label></h4>
+                    <p><label for="waaghals">Waaghals</label></p>
                 </section>
                 <section class="item persona">
+
+                    <input type="checkbox" id="avonturier" name="persona" value="adventurer" />
+
                     <div>
 
                     </div>
-                    <input type="checkbox" id="waaghals" name="tagspersoonlijkheid" value="waaghals" />
-                    <h4><label for="waaghals">Waaghals</label></h4>
+                    <p><label for="avonturier">Avonturier</label></p>
                 </section>
                 <section class="item persona">
+                    <input type="checkbox" id="geekynerd" name="persona" value="nerd" />
                     <div>
 
                     </div>
-                    <input type="checkbox" id="avonturier" name="tagspersoonlijkheid" value="avonturier" />
-                    <h4><label for="avonturier">Avonturier</label></h4>
+                    <p><label for="geekynerd">Geeky Nerd</label></p>
                 </section>
                 <section class="item persona">
+                    <input type="checkbox" id="animallover" name="persona" value="animallover" />
                     <div>
 
                     </div>
-                    <input type="checkbox" id="geekynerd" name="tagspersoonlijkheid" value="geekynerd" />
-                    <h4><label for="geekynerd">Geeky Nerd</label></h4>
+                    <p><label for="animallover">Animal lover</label></p>
                 </section>
                 <section class="item persona">
+                    <input type="checkbox" id="intellectueel" name="persona" value="intellectual" />
                     <div>
 
                     </div>
-                    <input type="checkbox" id="animallover" name="tagspersoonlijkheid" value="animallover" />
-                    <h4><label for="animallover">Animal lover</label></h4>
+                    <p><label for="intellectueel">Intellectueel</label></p>
                 </section>
                 <section class="item persona">
+                    <input type="checkbox" id="tomboy" name="persona" value="tomboy" />
                     <div>
 
                     </div>
-                    <input type="checkbox" id="intellectueel" name="tagspersoonlijkheid" value="intellectueel" />
-                    <h4><label for="intellectueel">Intellectueel</label></h4>
+                    <p><label for="tomboy">Tomboy</label></p>
                 </section>
                 <section class="item persona">
+
+                    <input type="checkbox" id="wie-ben-ik" name="persona" value="everything" />
+
                     <div>
 
                     </div>
-                    <input type="checkbox" id="wie-ben-ik" name="tagspersoonlijkheid" value="wie-ben-ik" />
-                    <h4><label for="wie-ben-ik">Wie ben ik?</label></h4>
+                    <p><label for="wie-ben-ik">Wie ben ik?</label></p>
                 </section>
             </div>
         </fieldset>
@@ -111,81 +122,83 @@
             <legend><h2>In mijn vrije tijd doe ik aan...</h2></legend>
             <div class="flexdiv">
                 <section class="item hobby">
+                    <input type="checkbox" id="gamen"  name="hobby"  value="gaming" />
                     <div>
 
                     </div>
-                    <input type="checkbox" id="gamen"  name="tagshobby"  value="gamen" />
-                    <h4><label for="gamen">Gamen</label></h4>
+                    <p><label for="gamen">Gamen</label></p>
                 </section>
                 <section class="item hobby">
+                    <input type="checkbox" id="sporten"  name="hobby"  value="sport" />
                     <div>
 
                     </div>
-                    <input type="checkbox" id="sporten"  name="tagshobby"  value="sporten" />
-                    <h4><label for="sporten">Sporten</label></h4>
+                    <p><label for="sporten">Sporten</label></p>
                 </section>
                 <section class="item hobby">
+                    <input type="checkbox" id="uitgaan-borrelen"  name="hobby"  value="party" />
+
                     <div>
 
                     </div>
-                    <input type="checkbox" id="uitgaan-borrelen"  name="tagshobby"  value="uitgaan-borrelen" />
-                    <h4><label for="uitgaan-borrelen">Uitgaan/borrelen</label></h4>
+                    <p><label for="uitgaan-borrelen">Borrelen</label></p>
                 </section>
                 <section class="item hobby">
+                    <input type="checkbox" id="reizen"  name="hobby"  value="travel" />
                     <div>
 
                     </div>
-                    <input type="checkbox" id="reizen"  name="tagshobby"  value="reizen" />
-                    <h4><label for="reizen">Reizen</label></h4>
+                    <p><label for="reizen">Reizen</label></p>
                 </section>
                 <section class="item hobby">
+                    <input type="checkbox" id="muziek"  name="hobby"  value="music" />
                     <div>
 
                     </div>
-                    <input type="checkbox" id="muziek"  name="tagshobby"  value="muziek" />
-                    <h4><label for="muziek">Muziek maken</label></h4>
+                    <p><label for="muziek">Muziek maken</label></p>
                 </section>
                 <section class="item hobby">
+                    <input type="checkbox" id="shoppen"  name="hobby"  value="shopping" />
                     <div>
 
                     </div>
-                    <input type="checkbox" id="shoppen"  name="tagshobby"  value="shoppen" />
-                    <h4><label for="shoppen">Shoppen</label></h4>
+                    <p><label for="shoppen">Shoppen</label></p>
                 </section>
                 <section class="item hobby">
+                    <input type="checkbox" id="koken"  name="hobby"  value="cooking" />
                     <div>
 
                     </div>
-                    <input type="checkbox" id="koken"  name="tagshobby"  value="koken" />
-                    <h4><label for="koken">Koken</label></h4>
+                    <p><label for="koken">Koken</label></p>
                 </section>
                 <section class="item hobby">
+                    <input type="checkbox" id="lezen"  name="hobby"  value="reading" />
                     <div>
 
                     </div>
-                    <input type="checkbox" id="lezen"  name="tagshobby"  value="lezen" />
-                    <h4><label for="lezen">Lezen</label></h4>
+                    <p><label for="lezen">Lezen</label></p>
                 </section>
                 <section class="item hobby">
+                    <input type="checkbox" id="drugs" name="hobby"  value="drugs" />
                     <div>
 
                     </div>
-                    <input type="checkbox" id="drugs" name="tagshobby"  value="drugs" />
-                    <h4><label for="drugs">Drugs</label></h4>
+                    <p><label for="drugs">Drugs</label></p>
                 </section>
                 <section class="item hobby">
+
+                    <input type="checkbox" id="werken" name="hobby"  value="work" />
                     <div>
 
                     </div>
-                    <input type="checkbox" id="werken" name="tagshobby"  value="werken" />
-                    <h4><label for="werken">Werken</label></h4>
+                    <p><label for="werken">Werken</label></p>
                 </section>
                 <section class="item hobby">
+                    <input type="checkbox" id="other" name="hobby"  value="other" />
                     <div>
 
                     </div>
-                    <input type="checkbox" id="other" name="tagshobby"  value="other" />
-                    <h4><label for="other">Andere rare hobby</label></h4>
+                    <p><label for="other">Andere rare hobby</label></p>
                 </section>
             </div>
         </fieldset>
@@ -194,45 +207,66 @@
             <legend><h2>Ik wil graag...</h2></legend>
             <div class="flexdiv">
                 <section class="item mood">
+                    <input type="checkbox" id="lachen" name="mood" value="laugh" />
                     <div>
 
                     </div>
-                    <input type="checkbox" id="lachen" name="tagsikwil" value="lachen" />
-                    <h4><label for="lachen">huilen van het lachen</label></h4>
+                    <p><label for="lachen">huilen van het lachen</label></p>
                 </section>
                 <section class="item mood">
+                    <input type="checkbox" id="janken" name="mood" value="cry" />
                     <div>
 
                     </div>
-                    <input type="checkbox" id="janken" name="tagsikwil" value="janken" />
-                    <h4><label for="janken">lekker janken</label></h4>
+                    <p><label for="janken">lekker janken</label></p>
                 </section>
                 <section class="item mood">
+                    <input type="checkbox" id="spanning" name="mood" value="thrill" />
                     <div>
 
                     </div>
-                    <input type="checkbox" id="spanning" name="tagsikwil" value="spanning" />
-                    <h4><label for="spanning">van spanning stoppen met ademen</label></h4>
+                    <p><label for="spanning">van spanning stoppen met ademen</label></p>
                 </section>
                 <section class="item mood">
+                    <input type="checkbox" id="bang" name="mood" value="scared" />
                     <div>
 
                     </div>
-                    <input type="checkbox" id="bang" name="tagsikwil" value="bang" />
-                    <h4><label for="bang">bang gemaakt worden</label></h4>
+                    <p><label for="bang">bang gemaakt worden</label></p>
                 </section>
                 <section class="item mood">
+                    <input type="checkbox" id="hersendood" name="mood" value="chill" />
                     <div>
 
                     </div>
-                    <input type="checkbox" id="hersendood" name="tagsikwil" value="hersendood" />
-                    <h4><label for="hersendood">Zonder te denken voor de tv zitten</label></h4>
+                    <p><label for="hersendood">zonder te denken voor de tv zitten</label></p>
+                </section>
+                <section class="item mood">
+                    <input type="checkbox" id="leren" name="mood" value="learn" />
+                    <div>
+
+                    </div>
+                    <p><label for="leren">iets leren</label></p>
                 </section>
             </div>
         </fieldset>
-<!--         <button id="persona-button-back" class="submit-persona">Volgende</button> -->
-        <button id="persona-button" class="submit-persona">Volgende</button>
+        <button class="submit-persona go-back" hidden>Vorige</button>
+        <button id="persona-button" class="submit-persona" hidden>Volgende</button>
+
         <input id="persona-submit" type="submit" value="Volgende" class="submit-persona"/>
+
+        <section id="confirm-persona" hidden>
+            <div>
+                <h2>Bevestig je keuzes</h2>
+                <h3>Dit is wat je hebt gekozen</h3>
+                <ul id="personal-list">
+
+                </ul>
+                <button class="submit-persona go-back">Ga terug</button>
+                <input id="persona-submit" type="submit" value="Bekijk jouw aanbod" class="submit-persona"/>
+            </div>
+        </section>
+
         </form>
     </main>
 

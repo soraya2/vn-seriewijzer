@@ -19,7 +19,6 @@ router.get('/:id', function(req, res) {
 
 });
 
-
 module.exports = function(io) {
 
     io.on('connection', function(sockets) {

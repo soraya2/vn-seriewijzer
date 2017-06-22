@@ -9,9 +9,7 @@ var lessMiddleware = require('less-middleware');
 var env = require('dotenv').config();
 var sessions = require('express-session');
 var mongoose = require('mongoose');
-
 var passport = require('passport');
-
 var app = express();
 var server = http.createServer(app);
 var io = require('socket.io').listen(server); // Use socket io in seperate files
@@ -29,7 +27,6 @@ var seriesGame = require('./routes/series-game');
 var fbLogin = require('./routes/facebook-login')(passport, io);
 var personaResults = require('./routes/persona_results');
 var reviewDetail = require('./routes/detail')(io);
-
 
 require('./config/passport')(passport);
 

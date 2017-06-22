@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<%- include partials/head.ejs %>
+  <title>
+    <%= title %>
+  </title>
+  </head>
+
+  <body>
+    <%- include partials/header.ejs %>
+      <p>Logged in as:
+        <%=name%>
+      </p>
+      <main class="overview-container">
+        <% for(var i=0; i<data.length; i++) {%>
+          <div class="movie">
+            <div>
+              <img src="<%=data[i].review.imgURL%>" alt="">
+            </div>
+            <a href="/detail/<%= data[i].review.seriesName %>">
+              <h3><%= data[i].review.seriesName %></h3>
+            </a>
+          </div>
+          <% } %>
+      </main>
+      <script src="/javascripts/filter.js"></script>
+  </body>
+
+</html>

@@ -105,15 +105,17 @@ button[disabled="true"], button[disabled="true"]:hover, button[disabled="true"]:
     color: black;
 }
 
-.condition {
-    color: #333;
-    font-size: 1rem;
-    font-style: italic;
-    padding: 0.5rem;
+.feedback {
+    background-color: #F76655;
+    color: white !important;
 }
 
-.feedback {
-    animation: feedback 5s ease;
+@supports(animation: feedback 5s ease){
+    .feedback {
+        background-color: initial;
+        color: initial;
+        animation: feedback 5s ease;
+    }
 }
 
 .submit-persona:hover {
@@ -130,6 +132,13 @@ button[disabled="true"], button[disabled="true"]:hover, button[disabled="true"]:
     color: #A0A0A0;
     font-size: .875rem;
     font-weight: 700;
+}
+
+#condition {
+    color: #333;
+    font-size: 1rem;
+    font-style: italic;
+    padding: 0.5rem;
 }
 
 .form-for-check > form {
@@ -222,6 +231,12 @@ button[disabled="true"], button[disabled="true"]:hover, button[disabled="true"]:
 #persona-button {
     left: 50%;
     right: 0;
+}
+
+@supports (left: initial) {
+    #persona-button {
+        left: initial;
+    }
 }
 
 @supports(display:flex) {
@@ -593,25 +608,35 @@ input:checked + div {
     .header-personacheck h1 {
         font-size: 5rem;
     }
+
     .header-personacheck p {
         font-size: 1rem;
     }
+
     .form-for-check fieldset {
         margin-bottom: 4rem;
     }
+
     .form-for-check h2 {
         font-size: 2rem;
     }
+
     .item div {
         height: 8rem;
         width: 8rem;
     }
+
     .item p {
         font-size: 1.2rem;
         padding: 0.4rem 0;
     }
+
     .item {
         margin: 0 0.4rem;
+    }
+
+    #persona-button {
+    left: 0%;
     }
 
     #confirm-persona h2 {

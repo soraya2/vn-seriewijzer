@@ -53,11 +53,6 @@ img {
     flex-direction: column;
 }
 
-.active {
-    background-color: #F76655;
-    color: #ffffff!important;
-}
-
 @supports (display:flex) {
     .overview-container {
         @media screen and (max-width: 30em) {
@@ -73,6 +68,7 @@ img {
         justify-content: space-between;
     }
     .match-overview-container {
+        margin-top: 5em;
         flex-wrap: wrap;
         h1 {
             width: 100%;
@@ -132,6 +128,9 @@ img {
                     font-family: 'Alegreya', serif;
                     color: grey;
                     font-size: 100%;
+                }
+                .intro-text {
+                    text-overflow: ellipsis;
                 }
                 a {
                     margin-bottom: 0.5em;

@@ -13,8 +13,8 @@
             </p> -->
             <main class="overview-container">
 
-                <h1>Speciaal Voor Jou</h1>
                 <section class="match-overview-container">
+                    <h1>Speciaal Voor Jou</h1>
                     <div class="best-match">
                         <img class="match-img" src="<%=data[3].review.imgURL%>" alt="">
                         <a href="/detail/<%= data[3].review.seriesName %>">
@@ -44,7 +44,7 @@
                             </div>
                             <div class="text-container">
                                 <span class="rating">Score: <%= data[i].review.reviewRating %></span>
-                                <a class="detail-link" href="/review/<%= data[i].review.seriesName %>">
+                                <a class="detail-link" href="/detail/<%= data[i].review.seriesName %>">
                                     <h3><%= data[i].review.seriesName %></h3>
                                 </a>
                                 <p class="post-date">Op: <%= data[i].user.postDate %></p>

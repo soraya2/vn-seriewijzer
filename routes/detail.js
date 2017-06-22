@@ -13,7 +13,7 @@ router.get('/:id', function(req, res) {
 
     reviewsSchema.findOne({ "review.seriesName": seriesName }, function(error, doc) {
 
-        res.render('review', { data: doc, title: seriesName });
+        res.render('detail', { data: doc, title: seriesName });
 
     });
 

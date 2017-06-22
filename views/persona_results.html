@@ -8,17 +8,16 @@
 
   <body>
     <%- include partials/header.ejs %>
-      <h1>Jouw resultaten</h1>
-      <h2>Logged in as:
+      <p>Logged in as:
         <%=name%>
-      </h2>
+      </p>
       <main class="overview-container">
         <% for(var i=0; i<data.length; i++) {%>
           <div class="movie">
             <div>
               <img src="<%=data[i].review.imgURL%>" alt="">
             </div>
-            <a href="/review/<%= data[i].review.seriesName %>">
+            <a href="/detail/<%= data[i].review.seriesName %>">
               <h3><%= data[i].review.seriesName %></h3>
             </a>
           </div>

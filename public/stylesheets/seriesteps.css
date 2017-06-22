@@ -15,16 +15,16 @@
         position: relative;
     }
         #serie-steps header[data-steps="1"]{
-            background-image: linear-gradient(left, #4d8de3, #4d8de3 15%, transparent 15%, transparent 100%);
-            background-image: -webkit-linear-gradient(left, #4d8de3, #4d8de3 15%, transparent 15%, transparent 100%)
+            background-image: linear-gradient(left, #4d8de3, #4d8de3 12%, transparent 12%, transparent 100%);
+            background-image: -webkit-linear-gradient(left, #4d8de3, #4d8de3 12%, transparent 12%, transparent 100%)
         }
         #serie-steps header[data-steps="2"]{
-            background-image: linear-gradient(left, #4d8de3, #4d8de3 35%, transparent 35%, transparent 100%);
-            background-image: -webkit-linear-gradient(left, #4d8de3, #4d8de3 35%, transparent 35%, transparent 100%)
+            background-image: linear-gradient(left, #4d8de3, #4d8de3 38%, transparent 38%, transparent 100%);
+            background-image: -webkit-linear-gradient(left, #4d8de3, #4d8de3 38%, transparent 38%, transparent 100%)
         }
         #serie-steps header[data-steps="3"]{
-            background-image: linear-gradient(left, #4d8de3, #4d8de3 60%, transparent 60%, transparent 100%);
-            background-image: -webkit-linear-gradient(left, #4d8de3, #4d8de3 60%, transparent 60%, transparent 100%)
+            background-image: linear-gradient(left, #4d8de3, #4d8de3 62%, transparent 62%, transparent 100%);
+            background-image: -webkit-linear-gradient(left, #4d8de3, #4d8de3 62%, transparent 62%, transparent 100%)
         }
         #serie-steps header[data-steps="4"]{
             background-color: #4d8de3;
@@ -131,16 +131,8 @@
             }
         #serie-steps label input[type="checkbox"]{
             clip: rect(0,0,0,0);
-            position: relative;
+            position: absolute;
         }
-            #serie-steps label input[type="checkbox"]:before {
-                position: absolute;
-                top: 0;
-                right: 0;
-                bottom: 0;
-                left: 0;
-                border: 1px solid white;
-            }
         #serie-steps label img {
             width: 100%;
             height: 11em;

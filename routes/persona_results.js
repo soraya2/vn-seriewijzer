@@ -3,9 +3,6 @@ var express = require('express'),
     env = require('dotenv').config(),
     reviewsSchema = require('../models/reviewsschema'),
     filters = {},
-    hobbyAray = [],
-    peronalityAray = [],
-    moodsArray = [],
     i,
     personaForm,
     key;
@@ -21,7 +18,6 @@ router.get('/', function(req, res) {
             if (req.session.personaform.hasOwnProperty(key)) {
 
                 arrayCheck(key, req.session.personaform[key]);
-
             }
         }
 
@@ -40,7 +36,7 @@ router.get('/', function(req, res) {
             });
         });
 
-        res.render('profile', { title: 'Home', data: filterdData, name: 'req.session.user' });
+        res.render('persona_results', { title: 'Home', data: filterdData, name: req.session.user });
 
     });
 });

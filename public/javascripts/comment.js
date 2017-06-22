@@ -5,7 +5,7 @@
 
     var commentList = document.querySelector('.comment-list');
     var textField = document.querySelector('[type="text"]');
-    var showTitle = document.querySelector('.movie-details h2').innerHTML;
+    // var showTitle = document.querySelector('.movie-details h2').innerHTML;
 
     document.querySelector('[type="submit"]').addEventListener('click', function(e) {
         e.preventDefault();

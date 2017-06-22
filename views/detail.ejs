@@ -7,37 +7,41 @@
 
 <body>
   <%- include partials/header.ejs %>
-   <article class="movie-details">
-       <div>
-           <img src="<%=data.review.imgURL%>" alt="">
-       </div>
+   <article >
+<div class="movie-details">
 
-       <h2><%=data.review.seriesName%></h2>
-       <h3><%= data.original_name %></h3>
-       <p><%= data.overview %></p>
-
-             <header>
-                  <h3><%= data.review.titleName %></h3>
-                  <p><%= data.review.reviewIntro %></p>
-             </header>
+             <div class="img-container">
+                 <img src="<%=data.review.imgURL%>" alt="<%= data.review.reviewTitle%> cover">
+             </div>
+                <div class="video-container">
+                      <iframe class="video"type="text/html"
+                          src="<%=data.review.trailerURL%>"
+                          frameborder="0">
+                      </iframe>
+                </div>
 
              <section>
-               <ul>
-                 <li>Seizoenen: <%=data.review.seasons %></li>
-                 <li>Gemiddelde tijd per aflervering: <%=data.review.duration %></li>
-                 <li>IMDB cijfer: <%=data.review.imdbRating %></li>
-               </ul>
-             </section>
 
-            <section>
-                  <p><%= data.review.reviewTitle%></p>
-                  <p><%= data.review.plot%></p>
+               <h1><%=data.review.seriesName%></h1>
+
+                <p><span>Seizoenen: </span><%=data.review.seasons %></p>
+                <p><span>Gemiddelde tijd per aflervering: </span> <%=data.review.duration %></p>
+                <p> <span>IMDB cijfer: </span><%=data.review.imdbRating %></p>
+                <p class="text"><%= data.review.reviewPlot%></p>
+
+             </section>
+</div>
+
+            <section class="review">
+                  <h2><%= data.review.reviewTitle%></h2>
+                  <p class="text"><%= data.review.reviewIntro %></p>
+
             </section>
 
-       </article>
 
    </article>
-   <section>
+   <section class="comments">
+   <h2>Wat vind u van deze serie?</h2>
     <ul class="comment-list">
       <% for(var i=0; i<data.comments.length; i++) {%>
             <li>

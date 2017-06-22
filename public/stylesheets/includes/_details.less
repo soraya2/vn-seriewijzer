@@ -1,6 +1,97 @@
-.movie-details {
-    width: 35em;
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+    @media (min-width: 40em) {
+        padding-bottom: 29.25%;
+        display: none;
+    }
+    .video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        @media (min-width: 40em) {
+            display: none;
+            width: 50%;
+        }
+    }
+}
+
+.img-container {
+    width: 65%;
+    display: none;
+    @media (min-width: 40em) {
+        width: 30%;
+        margin-top: 3.5em;
+        display: unset;
+    }
     img {
-        max-width: 30em;
-  }
+        width: 100%;
+    }
+}
+
+.movie-details {
+    padding: 1em;
+    @supports (display: flex) {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        flex-direction: column;
+        @media (min-width: 50em) {
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-around;
+        }
+    }
+    // @media (min-width: 40em) {
+    //     width: 30%;
+    // }
+    h1 {
+        font-size: 2.5em;
+        font-weight: 800;
+        margin: 0.5em 0;
+        @media (min-width: 40em) {
+            // position: absolute;
+            // left: 52.2%;
+            // top: 15%;
+        }
+    }
+    p {
+        line-height: 160%;
+        padding: 0.3em 0;
+        // margin-bottom: 1em;
+        span {
+            font-weight: 600;
+        }
+    }
+    section:nth-child(3) {
+        // display: flex;
+        // flex-wrap: wrap;
+        @media (min-width: 40em) {
+            width: 40%;
+        }
+    }
+}
+
+.review {
+    @media (min-width: 40em) {
+        margin: 2em 0 2em 8.2%;
+        width: 40%;
+    }
+}
+
+.comments {
+    padding: 0 1em;
+}
+
+input[type="submit"] {
+    height: 3em;
+    padding: 1em 3em;
+    background-color: #F76655;
+    border: none;
+    box-shadow: grey 1px 1px 5px;
+    color: white;
 }

@@ -124,6 +124,14 @@ button[disabled="true"], button[disabled="true"]:hover, button[disabled="true"]:
 .item:hover {
     background-color: #ddd;
 }
+.invalid-submit {
+    border: 2px solid #F76655;
+    border-radius: 3px;
+    background-color: rgba(247,102,85, 0.5);
+    color: black;
+    font-size: 1.2rem;
+    padding: 0.5rem;
+}
 .notify {
     bottom: 0;
     background-color: rgba(255, 255, 255, 0.9);
@@ -354,6 +362,10 @@ input:checked + picture {
         transform: translateX(1%);
         justify-content: flex-start;
     }
+    .item {
+        margin: 0 0.4rem;
+        width: 8rem;
+    }
     @supports(display:grid) {
         .flexdiv {
             grid-column-gap: 1.1rem;
@@ -363,10 +375,6 @@ input:checked + picture {
          .item {
              margin: 0.5rem 0 0 0;
          }
-    }
-    .item {
-        margin: 0 0.4rem;
-        width: 8rem;
     }
     .submit-persona {
         box-shadow: none;
@@ -408,7 +416,7 @@ input:checked + picture {
         font-size: 1.2rem;
         margin-bottom: 2rem;
     }
-    #back, #persona-button {
+    #back, #persona-button, #nojs-submit {
         -ms-transform: translateY(-2.5rem);
         transform: translateY(-2.5rem);
     }

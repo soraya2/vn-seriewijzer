@@ -19,6 +19,11 @@
         <h1>Wie ben jij?</h1>
     </header>
     <main class="form-for-check">
+        <% if(message != "undefined"){ %>
+            <p class="invalid-submit">
+                <%= message %>
+            </p>
+        <% } %>
         <p id="condition">
             Je mag minimaal één en maximaal drie eigenschap(pen) kiezen.
         </p>
@@ -309,7 +314,7 @@
         </fieldset>
         <button id="back" class="submit-persona go-back" disabled="true" hidden>Vorige</button>
         <button id="persona-button" class="submit-persona" title="Je moet minstens 1 eigenschap aanklikken" hidden disabled="true">Volgende</button>
-        <button type="submit" class="submit-persona">Bekijk jouw aanbod</button>
+        <button id="nojs-submit" type="submit" class="submit-persona">Bekijk jouw aanbod</button>
 
         <section id="confirm-persona" hidden>
             <div>

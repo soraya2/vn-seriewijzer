@@ -31,6 +31,10 @@ p {
     font-family: 'Alegreya', "Lucida Grande";
 }
 
+li {
+    font-family: 'Alegreya', "Lucida Grande";
+}
+
 fieldset {
     border: 0 none;
 }
@@ -109,10 +113,10 @@ button[disabled="true"], button[disabled="true"]:hover, button[disabled="true"]:
     color: black;
 }
 
-.feedback {
-    background-color: #F76655;
-    color: white !important;
-}
+// .feedback {
+//     background-color: #F76655;
+//     color: white !important;
+// }
 
 .notify {
     bottom: 0;
@@ -130,13 +134,13 @@ button[disabled="true"], button[disabled="true"]:hover, button[disabled="true"]:
     transform: translateY(50%);
 }
 
-@supports(animation: feedback 5s ease){
-    .feedback {
-        background-color: initial;
-        color: initial;
-        animation: feedback 5s ease;
-    }
-}
+// @supports(animation: feedback 5s ease){
+//     .feedback {
+//         background-color: initial;
+//         color: initial;
+//         animation: feedback 5s ease;
+//     }
+// }
 
 .submit-persona:hover {
     background-color: #FF5300;
@@ -150,9 +154,12 @@ button[disabled="true"], button[disabled="true"]:hover, button[disabled="true"]:
 
 #condition {
     color: #333;
-    font-size: 1rem;
-    font-style: italic;
-    padding: 0.5rem;
+    font-size: 1.2rem;
+    padding: 0.5rem 0;
+}
+
+#login-button {
+    width: 100%;
 }
 
 .form-for-check > form {
@@ -165,10 +172,6 @@ button[disabled="true"], button[disabled="true"]:hover, button[disabled="true"]:
 
 .persona-check legend {
     margin-bottom: 0.5rem;
-}
-
-.login h2 {
-    margin: 1rem 0;
 }
 
 .item div {
@@ -192,7 +195,7 @@ button[disabled="true"], button[disabled="true"]:hover, button[disabled="true"]:
 
 .item p {
     color: #333;
-    font-size: 0.9rem;
+    font-size: 1rem;
     font-weight: 400;
 }
 
@@ -280,22 +283,41 @@ button[disabled="true"], button[disabled="true"]:hover, button[disabled="true"]:
 }
 
 // LOGIN
+.login {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    width: 100vw;
+}
 .login header {
-    position: absolute;
-    top: 50%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    // position: absolute;
+    // top: 50%;
+    // -ms-transform: translateY(-50%);
+    // transform: translateY(-50%);
+    margin: auto;
 }
 
 .login h1 {
-    font-size: 2.7rem;
+    font-size: 3.5rem;
     margin: 0;
+    order: 2;
+}
+
+.login h2 {
+    color: #333;
+    font-size: 2rem;
+    margin: 1rem 0;
+    order: 1;
 }
 
 .login p {
     color: #F76655;
     display: inline;
     font-style: italic;
+    order: 3;
     padding: 0.3rem;
 }
 
@@ -592,8 +614,6 @@ input:checked + div {
         float: right;
         padding: 0.5rem 4rem;
         position: relative;
-        -ms-transform: translateY(-2.5rem);
-        transform: translateY(-2.5rem);
         width: auto;
     }
     .header-personacheck {
@@ -616,6 +636,18 @@ input:checked + div {
 
     .go-back {
         float: left;
+    }
+
+    .login header {
+        background-color: white;
+        left: 50%;
+        padding: 1rem;
+        width: 30rem;
+    }
+
+    .login p {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
     }
 
     .header-personacheck h1 {
@@ -646,6 +678,10 @@ input:checked + div {
 
     .item {
         margin: 0 0.4rem;
+    }
+
+    #login-button {
+        order: 4;
     }
 
     #persona-button {

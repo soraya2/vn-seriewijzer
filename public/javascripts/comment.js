@@ -2,7 +2,7 @@
     'use strict';
 
     var socket = io();
-
+    var socket2;
     var commentList = document.querySelector('.comment-list');
     var textField = document.querySelector('[type="text"]');
     var selectBoxVote = document.querySelector('#vote');
@@ -56,4 +56,5 @@
         comment.render(comm);
     });
 
+    // socket2 = io('/my-namespace');
 })();

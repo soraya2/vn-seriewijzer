@@ -21,9 +21,9 @@ router.get('/:id', function(req, res) {
 
 module.exports = function(io) {
 
-    io.on('connection', function(sockets) {
+    io.on('connection', function(socket) {
 
-        sockets.broadcast.on('save comment', function(comment) {
+        socket.on('save comment', function(comment) {
 
             comment.username = username;
             // console.log(req.session.persona);

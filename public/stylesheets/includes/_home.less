@@ -5,6 +5,11 @@
     box-sizing: border-box;
 }
 
+body {
+    width: 100vw;
+    overflow-x: hidden;
+}
+
 a {
     text-decoration: none;
     &:hover {
@@ -55,7 +60,7 @@ img {
 
 @supports (display:flex) {
     .overview-container {
-        @media screen and (max-width: 30em) {
+        @media screen and (max-width: 40em) {
             justify-content: center;
         }
     }
@@ -86,10 +91,31 @@ img {
                 background: #FFCC00;
                 padding: 0.5em;
             }
+            @media screen and (max-width: 40em) {
+                width: 100vw;
+            }
+            img {
+                @media screen and (max-width: 40em) {
+                    width: 100vw;
+                    height: auto;
+                }
+            }
+        }
+        .secondary-match {
+            img {
+
+            }
+            @media screen and (max-width: 40em) {
+                display: none;
+            }
         }
         img {
             height: 20em;
             width: 15em;
+        }
+        @media screen and (max-width: 40em) {
+            margin-top: 0;
+            width: 100vw;
         }
     }
     h3 {
@@ -98,6 +124,9 @@ img {
     }
     .review-overview-container {
         flex-wrap: wrap;
+        @media screen and (max-width: 40em) {
+            flex-direction: column;
+        }
         h2 {
             width: 100%;
             margin: 0 0 1em 0;
@@ -110,10 +139,20 @@ img {
             flex-direction: row;
             justify-content: space-between;
             position: relative;
+            @media screen and (max-width: 40em) {
+                width: 100%;
+                height: auto;
+                padding-bottom: 2em;
+                border-bottom: 1px solid #ECECEC;
+            }
             img {
                 height: 16em;
                 width: 11em;
                 margin-right: 1em;
+                @media screen and (max-width: 40em) {
+                    width: 7em;
+                    height: 10em;
+                }
             }
             .text-container {
                 overflow: hidden;
@@ -128,6 +167,10 @@ img {
                     font-family: 'Alegreya', serif;
                     color: grey;
                     font-size: 100%;
+                    @media screen and (max-width: 40em) {
+                        position: inherit;
+                        margin: 0;
+                    }
                 }
                 .intro-text {
                     text-overflow: ellipsis;

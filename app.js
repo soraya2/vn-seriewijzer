@@ -20,13 +20,14 @@ var index = require('./routes/index');
 var upload = require('./routes/upload');
 var uploadComplete = require('./routes/upload_complete');
 var reviewOverview = require('./routes/review_overview');
-var reviewDetail = require('./routes/review_detail');
+// var reviewDetail = require('./routes/review_detail');
 var login = require('./routes/login');
 var persona = require('./routes/persona');
 var seriesGame = require('./routes/series-game');
 var fbLogin = require('./routes/facebook-login')(passport, io);
 var personaResults = require('./routes/persona_results');
 var reviewDetail = require('./routes/detail')(io);
+var home = require('./routes/home');
 
 require('./config/passport')(passport);
 
@@ -60,13 +61,13 @@ app.use('/', index);
 app.use('/upload', upload);
 app.use('/upload_complete', uploadComplete);
 app.use('/review_overview', reviewOverview);
-app.use('/review', reviewDetail);
 app.use('/login', login);
 app.use('/persona', persona);
 app.use('/auth/facebook', fbLogin);
-// app.use('/review', review);
-app.use('/persona_results', personaResults);
+app.use('/home', home);
 app.use('/seriespel', seriesGame);
+app.use('/review', reviewDetail);
+app.use('/persona_results', personaResults);
 
 mongoose.connect(process.env.USERDB);
 // Console.log(mongoose.connection.readyState); //test database connection

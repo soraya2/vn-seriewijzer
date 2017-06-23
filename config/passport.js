@@ -9,16 +9,16 @@ var userSchema = require('../models/user');
 module.exports = function(passport) {
 
     // used to serialize the user for the session
-    // passport.serializeUser(function(user, done) {
-    //     done(null, user.id);
-    // });
+    passport.serializeUser(function(user, done) {
+        done(null, user.id);
+    });
 
-    // // used to deserialize the user
-    // passport.deserializeUser(function(id, done) {
-    //     userSchema.findById(id, function(err, user) {
-    //         done(err, user);
-    //     });
-    // });
+    // used to deserialize the user
+    passport.deserializeUser(function(id, done) {
+        userSchema.findById(id, function(err, user) {
+            done(err, user);
+        });
+    });
 
     // code for login (use('local-login', new LocalStategy))
     // code for signup (use('local-signup', new LocalStategy))
@@ -41,13 +41,12 @@ module.exports = function(passport) {
             // asynchronous
             process.nextTick(function() {
 
-                console.log(profile);
-
                 // find the user in the database based on their facebook id
-                userSchema.findOne({ 'facebook.id': profile.id }, function(err, user) {
+                userSchema.findOne({ 'user.facebook.id': profile.id }, function(err, user) {
 
                     // if there is an error, stop everything and return that
                     // ie an error connecting to the database
+
                     if (err)
                         return done(err);
 
@@ -55,6 +54,7 @@ module.exports = function(passport) {
                     if (user) {
                         return done(null, user); // user found, return that user
                     } else {
+
                         // if there is no user found with that facebook id, create them
 
                         var newUser = new userSchema();

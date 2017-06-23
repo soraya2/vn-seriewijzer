@@ -191,21 +191,17 @@ router.get('/overview', function (req, res) {
     resultsBest = resultsBest.slice(0,5);
     console.log(resultsBest);
 
-    // User.findOneAndUpdate( {
-    //     'user.facebook.username' : req.session.username
-    // }, {
-    //     '$push' : {
-    //         'user.profile.matches' : resultsBest
-    //     }
-    // }, { upsert: true }, function(err, document) {
-    //     if (err) {
-    //         return err;
-    //     }
-    // });
-    //
-    // User.findOne({'user.facebook.username': req.session.username}, function(err, docs ){
-    //     console.log(docs.user.profile);
-    // })
+    User.findOneAndUpdate( {
+        'user.facebook.username' : req.session.username
+    }, {
+        '$push' : {
+            'user.profile.matches' : resultsBest
+        }
+    }, { upsert: true }, function(err, document) {
+        if (err) {
+            return err;
+        }
+    });
 
     res.locals.results = resultsBest;
     res.locals.hobby = hobbyUnique;

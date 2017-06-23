@@ -119,8 +119,6 @@ router.get('/overview', function (req, res) {
     var resultsMood = [];
     var resultsPersona = [];
     var resultsAll = [];
-    var resultsBest = [];
-
 
     // place in function
     var hobbyUnique = hobby.filter(function( el, pos, self){
@@ -172,13 +170,10 @@ router.get('/overview', function (req, res) {
             personaMatch: personaMatch,
             matchAll: Math.round((hobbyMatch + moodMatch + personaMatch) / 3)
         });
-        if (resultsAll[i].matchAll > 50){
-            resultsBest.push(resultsAll[i]);
-        }
     }
 
     // end function
-    resultsBest.sort(function(a,b){
+    resultsAll.sort(function(a,b){
         if (a.matchAll > b.matchAll) {
             return -1;
         }
@@ -188,20 +183,35 @@ router.get('/overview', function (req, res) {
             return 0;
         }
     })
-    resultsBest = resultsBest.slice(0,5);
+    var resultsBest = resultsAll.slice(0,5);
     console.log(resultsBest);
 
     User.findOneAndUpdate( {
-        'user.facebook.username' : req.session.username
+        'user.facebook.displayName' : 'Shyanta Vleugel'
     }, {
-        '$push' : {
-            'user.profile.matches' : resultsBest
+        '$set' : {
+            'user.profile.matches' : []
         }
-    }, { upsert: true }, function(err, document) {
+    }, { upsert: false }, function(err, docs) {
         if (err) {
             return err;
         }
     });
+    User.findOneAndUpdate( {
+        'user.facebook.displayName' : 'Shyanta Vleugel'
+    }, {
+        '$push' : {
+            'user.profile.matches' : resultsBest
+        }
+    }, { upsert: false }, function(err, docs) {
+        if (err) {
+            return err;
+        }
+    });
+
+    User.findOne({'user.facebook.displayName': 'Shyanta Vleugel'}, function(err, docs ){
+        console.log('Matches', docs.user.profile.matches[0]);
+    })
 
     res.locals.results = resultsBest;
     res.locals.hobby = hobbyUnique;

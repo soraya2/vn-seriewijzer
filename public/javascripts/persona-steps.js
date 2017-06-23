@@ -93,7 +93,7 @@
 
     //Functions to get all checked checkboxes and render them in a list in confirmation overlay
     function showChoices(){
-        var allCheckboxes = document.querySelectorAll('input[type="checkbox"]:checked + div + p label');
+        var allCheckboxes = document.querySelectorAll('input[type="checkbox"]:checked + picture + p label');
 
         for (b = 0; b < allCheckboxes.length; b++) {
             var li = document.createElement('li');
@@ -202,6 +202,7 @@
         var checked = document.querySelectorAll('fieldset:nth-of-type(' + count + ') input[type="checkbox"]:checked');
 
         if(checked.length < 1){
+            validateFieldset(e);
             personaButton.setAttribute('disabled', 'true');
         } else {
             validateFieldset(e);

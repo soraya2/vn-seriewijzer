@@ -8,18 +8,13 @@
     100%{background-color:white; color: #333}
 }
 
-body {
-    background-color: white;
-    margin: 0.5rem;
-    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
-
 main {
     display: block;
 }
 
 h1 {
     font-family: "Lato", sans-serif;
+    font-size: 2rem;
 }
 
 h2 {
@@ -57,6 +52,12 @@ button[disabled="true"], button[disabled="true"]:hover, button[disabled="true"]:
     background-color: #eee;
     color: #ccc;
     cursor: not-allowed;
+}
+
+.check {
+    background-color: white;
+    margin: 0.5rem;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 .hide {
@@ -148,7 +149,7 @@ button[disabled="true"], button[disabled="true"]:hover, button[disabled="true"]:
 }
 
 .go-back:hover {
-    background-color: #A0A0A0;
+    background-color: #ccc;
     color: black;
 }
 
@@ -174,8 +175,14 @@ button[disabled="true"], button[disabled="true"]:hover, button[disabled="true"]:
     margin-bottom: 0.5rem;
 }
 
-.item div {
-    background: #F76655;
+.check source, img {
+    background-color: #F76655;
+    border-radius: 100%;
+    height: 30vw;
+    width: 30vw;
+}
+
+.item picture {
     border-radius: 100%;
     height: 30vw;
     position: relative;
@@ -226,7 +233,7 @@ button[disabled="true"], button[disabled="true"]:hover, button[disabled="true"]:
         background-color: white;
     }
 
-    .flexdiv .item:hover div {
+    .flexdiv .item:hover picture {
         filter: grayscale(30%);
     }
 }
@@ -235,11 +242,11 @@ button[disabled="true"], button[disabled="true"]:hover, button[disabled="true"]:
     filter: grayscale(70%);
 }
 
-.item input:checked + div + p > label {
+.item input:checked + picture + p > label {
     color: #F76655;
 }
 
-.item input:focus + div + p > label::after,
+.item input:focus + picture + p > label::after,
 .submit-persona:focus {
     outline: #333 dashed;
 }
@@ -326,131 +333,13 @@ button[disabled="true"], button[disabled="true"]:hover, button[disabled="true"]:
     background-color: #ddd;
 }
 
-.flexdiv .item div {
+.flexdiv .item picture {
     filter: grayscale(70%);
     transition: 0.2s filter;
 }
 
-input:checked + div {
+input:checked + picture {
     filter: grayscale(0%) !important;
-}
-
-.flexdiv .persona:nth-of-type(1) div::before {
-    background: url('/img/small-icons_jamie.png');
-}
-
-.flexdiv .persona:nth-of-type(2) div::before {
-    background: url('/img/small-icons_vangogh.png');
-}
-
-.flexdiv .persona:nth-of-type(3) div::before {
-    background: url('/img/small-icons_snooki.png');
-}
-
-.flexdiv .persona:nth-of-type(4) div::before {
-    background: url('/img/small-icons_kevin.png');
-}
-
-.flexdiv .persona:nth-of-type(5) div::before {
-    background: url('/img/small-icons_kim.png');
-}
-
-.flexdiv .persona:nth-of-type(6) div::before {
-    background: url('/img/small-icons_therock.png');
-}
-
-.flexdiv .persona:nth-of-type(7) div::before {
-    background: url('/img/small-icons_frodo.png');
-}
-
-.flexdiv .persona:nth-of-type(8) div::before {
-    background: url('/img/small-icons_steve.png');
-}
-
-.flexdiv .persona:nth-of-type(9) div::before {
-    background: url('/img/small-icons_caesar.png');
-}
-
-.flexdiv .persona:nth-of-type(10) div::before {
-    background: url('/img/small-icons_obama.png');
-}
-
-.flexdiv .persona:nth-of-type(11) div::before {
-    background: url('/img/small-icons_tomboy.png');
-}
-
-.flexdiv .persona:nth-of-type(12) div::before {
-    background: url('/img/small-icons_wie.png');
-}
-
-// FREETIME
-.flexdiv .hobby:nth-of-type(1) div::before {
-    background: url('/img/small-icons_controller.png');
-}
-
-.flexdiv .hobby:nth-of-type(2) div::before {
-    background: url('/img/small-icons_football.png');
-}
-
-.flexdiv .hobby:nth-of-type(3) div::before {
-    background: url('/img/small-icons_beer.png');
-}
-
-.flexdiv .hobby:nth-of-type(4) div::before {
-    background: url('/img/small-icons_airplane.png');
-}
-
-.flexdiv .hobby:nth-of-type(5) div::before {
-    background: url('/img/small-icons_guitar.png');
-}
-
-.flexdiv .hobby:nth-of-type(6) div::before {
-    background: url('/img/small-icons_bag.png');
-}
-
-.flexdiv .hobby:nth-of-type(7) div::before {
-    background: url('/img/small-icons_pan.png');
-}
-
-.flexdiv .hobby:nth-of-type(8) div::before {
-    background: url('/img/small-icons_book.png');
-}
-
-.flexdiv .hobby:nth-of-type(9) div::before {
-    background: url('/img/small-icons_pill.png');
-}
-
-.flexdiv .hobby:nth-of-type(10) div::before {
-    background: url('/img/small-icons_suitcase.png');
-}
-
-.flexdiv .hobby:nth-of-type(11) div::before {
-    background: url('/img/small-icons_soap.png');
-}
-
-// MOODS
-.flexdiv .mood:nth-of-type(1) div::before {
-    background: url('/img/small-icons_will.png');
-}
-
-.flexdiv .mood:nth-of-type(2) div::before {
-    background: url('/img/small-icons_darryl.png');
-}
-
-.flexdiv .mood:nth-of-type(3) div::before {
-    background: url('/img/small-icons_chris.png');
-}
-
-.flexdiv .mood:nth-of-type(4) div::before {
-    background: url('/img/small-icons_jack.png');
-}
-
-.flexdiv .mood:nth-of-type(5) div::before {
-    background: url('/img/small-icons_kristen.png');
-}
-
-.flexdiv .mood:nth-of-type(6) div::before {
-    background: url('/img/small-icons_bigbang.png');
 }
 
 //CONFIRMATION PAGE
@@ -507,103 +396,14 @@ input:checked + div {
     .item p {
         font-size: 1rem;
     }
-    .flexdiv .persona:nth-of-type(1) div::before {
-        background: #F76655;
-        background: url('/img/icons-jamie.png');
-    }
-    .flexdiv .persona:nth-of-type(2) div::before {
-        background: url('/img/icons-vangogh.png');
-    }
-    .flexdiv .persona:nth-of-type(3) div::before {
-        background: url('/img/icons-snooki.png');
-    }
-    .flexdiv .persona:nth-of-type(4) div::before {
-        background: url('/img/icons-kevin.png');
-    }
-    .flexdiv .persona:nth-of-type(5) div::before {
-        background: url('/img/icons-kim.png');
-    }
-    .flexdiv .persona:nth-of-type(6) div::before {
-        background: url('/img/icons-therock.png');
-    }
-    .flexdiv .persona:nth-of-type(7) div::before {
-        background: url('/img/icons-frodo.png');
-    }
-    .flexdiv .persona:nth-of-type(8) div::before {
-        background: url('/img/icons-steve.png');
-    }
-    .flexdiv .persona:nth-of-type(9) div::before {
-        background: url('/img/icons-caesar.png');
-    }
-    .flexdiv .persona:nth-of-type(10) div::before {
-        background: url('/img/icons-obama.png');
-    }
-    .flexdiv .persona:nth-of-type(11) div::before {
-        background: url('/img/icons-tomboy.png');
-    }
-    .flexdiv .persona:nth-of-type(12) div::before {
-        background: url('/img/icons-wie.png');
-    }
-    // FREETIME
-    .flexdiv .hobby:nth-of-type(1) div::before {
-        background: url('/img/icons-controller.png');
-    }
-    .flexdiv .hobby:nth-of-type(2) div::before {
-        background: url('/img/icons-football.png');
-    }
-    .flexdiv .hobby:nth-of-type(3) div::before {
-        background: url('/img/icons-beer.png');
-    }
-    .flexdiv .hobby:nth-of-type(4) div::before {
-        background: url('/img/icons-airplane.png');
-    }
-    .flexdiv .hobby:nth-of-type(5) div::before {
-        background: url('/img/icons-guitar.png');
-    }
-    .flexdiv .hobby:nth-of-type(6) div::before {
-        background: url('/img/icons-bag.png');
-    }
-    .flexdiv .hobby:nth-of-type(7) div::before {
-        background: url('/img/icons-pan.png');
-    }
-    .flexdiv .hobby:nth-of-type(8) div::before {
-        background: url('/img/icons-book.png');
-    }
-    .flexdiv .hobby:nth-of-type(9) div::before {
-        background: url('/img/icons-pill.png');
-    }
-    .flexdiv .hobby:nth-of-type(10) div::before {
-        background: url('/img/icons-suitcase.png');
-    }
-    .flexdiv .hobby:nth-of-type(11) div::before {
-        background: url('/img/icons-soap.png');
-    }
-    // MOODS
-    .flexdiv .mood:nth-of-type(1) div::before {
-        background: url('/img/icons-will.png');
-    }
-    .flexdiv .mood:nth-of-type(2) div::before {
-        background: url('/img/icons-darryl.png');
-    }
-    .flexdiv .mood:nth-of-type(3) div::before {
-        background: url('/img/icons-chris.png');
-    }
-    .flexdiv .mood:nth-of-type(4) div::before {
-        background: url('/img/icons-jack.png');
-    }
-    .flexdiv .mood:nth-of-type(5) div::before {
-        background: url('/img/icons-kristen.png');
-    }
-    .flexdiv .mood:nth-of-type(6) div::before {
-        background: url('/img/icons-bigbang.png');
-    }
+
     .submit-persona {
         font-size: 1.3rem;
     }
 }
 
 @media screen and (min-width: 38rem) {
-    body {
+    .check {
         background-color: #F6F6F6;
     }
     .item {
@@ -638,6 +438,11 @@ input:checked + div {
         float: left;
     }
 
+    .check source, img {
+        height: 8rem;
+        width: 8rem;
+    }
+
     .login header {
         background-color: white;
         left: 50%;
@@ -666,7 +471,7 @@ input:checked + div {
         font-size: 2rem;
     }
 
-    .item div {
+    .item picture {
         height: 8rem;
         width: 8rem;
     }
@@ -678,6 +483,11 @@ input:checked + div {
 
     .item {
         margin: 0 0.4rem;
+    }
+
+    #back, #persona-button {
+        -ms-transform: translateY(-2.5rem);
+        transform: translateY(-2.5rem);
     }
 
     #login-button {

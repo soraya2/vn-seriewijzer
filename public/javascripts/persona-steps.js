@@ -14,6 +14,7 @@
         checkedBoxes = [[], [], []],
         checkboxes,
         b,
+        c,
         i,
         index;
 
@@ -40,8 +41,8 @@
     function toggleCheckboxes(el, value) {
         checkboxes = document.querySelectorAll('.persona-check:nth-of-type(' + (el + 1) + ') input[type="checkbox"]');
 
-        for (b = 0; b < checkboxes.length; b++) {
-            checkboxes[b].disabled = value;
+        for (c = 0; c < checkboxes.length; c++) {
+            checkboxes[c].disabled = value;
         }
     }
 

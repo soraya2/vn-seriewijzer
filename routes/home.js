@@ -40,7 +40,7 @@ router.get('/', function(req, res) {
             });
         });
 
-        res.render('profile', { title: 'Home', data: filterdData, name: 'req.session.user' });
+        res.render('home', { title: 'Home', data: filterdData, name: 'req.session.user' });
 
     });
 });

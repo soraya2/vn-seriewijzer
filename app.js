@@ -27,9 +27,8 @@ var login = require('./routes/login');
 var persona = require('./routes/persona');
 var seriesGame = require('./routes/series-game');
 var fbLogin = require('./routes/facebook-login')(passport, io);
-var profile = require('./routes/profile');
 var detail = require('./routes/detail')(io);
-var profile = require('./routes/profile');
+var home = require('./routes/home');
 
 require('./config/passport')(passport);
 
@@ -68,7 +67,7 @@ app.use('/login', login);
 app.use('/persona', persona);
 app.use('/auth/facebook', fbLogin);
 app.use('/detail', detail);
-app.use('/profile', profile);
+app.use('/home', home);
 app.use('/seriespel', seriesGame);
 
 mongoose.connect(process.env.USERDB);

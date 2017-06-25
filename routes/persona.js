@@ -20,29 +20,45 @@ router.post('/', function(req, res) {
 
 //BEGIN CHANEL
 function validate(obj, res){
+    var data = {};
+
+    //If the user only picked one characteristic, the object will not contain an array but a string. This function converts every property to a string
+    function Arrify(input){
+        for(var prop in input){
+            console.log(typeof input[prop]);
+            if(typeof input[prop] == 'string'){
+                data[prop] = [input[prop]];
+            } else {
+                data[prop] = input[prop];
+            }
+        }
+    }
+
+    Arrify(obj);
+
     //Check if object is empty
-    function checkIfEmpty(ob){
+    function checkIfObjectEmpty(ob){
         for (var key in ob){
             if(ob.hasOwnProperty(key)){
                 return false;
-            } else {
-
             }
             return true;
         }
     }
+
     //Check if user has nothing filled out
-    if(checkIfEmpty(obj) == undefined){
+    if(checkIfObjectEmpty(data) == undefined){
         res.render('persona', {
             message: 'Je hebt niks ingevuld! Vul even alles in!'
         });
     //Check if one of the steps isn't filled out
-    } else if (!obj.persona || !obj.hobby || !obj.mood){
+    } else if (!data.persona || !data.hobby || !data.mood){
         res.render('persona', {
             message: 'Een van de onderdelen heb je niet ingevuld!'
         });
+    // } else if (){
     //Check if one of the steps has more than one checked checkboxes.
-    } else if (obj.persona.length > 3 || obj.hobby.length > 3 || obj.mood.length > 3){
+} else if (data.persona.length > 3 || data.hobby.length > 3 || data.mood.length > 3){
         res.render('persona', {
             message: 'Op een van de onderdelen heb je meer dan 3 eigenschappen aangeklikt. Je mag er maar drie!'
         });

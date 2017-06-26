@@ -1,0 +1,94 @@
+body {
+    margin: 0;
+}
+
+.hidden {
+    display: block;
+}
+
+.active {
+    background-color: #F76655;
+    color: #ffffff!important;
+    padding: 0.5em 1em;
+    transition: 0.2s;
+    @media screen and (max-width: 40em) {
+        padding: 0;
+    }
+}
+
+.active:hover {
+    text-decoration: none;
+    background-color: crimson;
+    transition: 0.2s;
+}
+
+@supports (display: flex) {
+    .header-nav {
+        z-index: 999;
+        position: fixed;
+        background-color: white;
+        width: 100%;
+        top: 0;
+        padding: 1.5em 0;
+        border-bottom: 1px solid #ECECEC;
+        .titel-link {
+            text-align: center;
+            color: black;
+            @media screen and (max-width: 40em) {
+                font-size: 70%;
+            }
+        }
+        a {
+            transition: 0.2s;
+            color: black;
+            font-weight: bold;
+        }
+        a:hover,
+        a:active,
+        a:focus {
+            transition: 0.2s;
+            text-decoration: none;
+            color: #F76655;
+        }
+        @media screen and (max-width: 40em) {
+            position: inherit;
+            width: 100vw;
+            align-items: center;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #333333;
+            .navigation-left,
+            .navigation-right {
+                width: 35%;
+                display: flex;
+                justify-content: space-around;
+            }
+            @media screen and (max-width: 40em) {
+                display: none;
+                flex-direction: column;
+                justify-content: flex-start;
+                width: 100vw;
+            }
+        }
+        #hamburger {
+            position: absolute;
+            top: 0.2em;
+            left: 0.2em;
+            width: 3.5rem;
+            height: 2.2rem;
+            div {
+                height: 6px;
+                width: 60%;
+                background: #d3531a;
+                border-radius: 9px;
+                margin: 5px;
+            }
+            @media screen and (min-width: 40em) {
+                display: none;
+            }
+        }
+    }
+}

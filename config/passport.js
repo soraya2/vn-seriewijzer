@@ -41,13 +41,12 @@ module.exports = function(passport) {
             // asynchronous
             process.nextTick(function() {
 
-                console.log(profile);
-
                 // find the user in the database based on their facebook id
-                userSchema.findOne({ 'facebook.id': profile.id }, function(err, user) {
+                userSchema.findOne({ 'user.facebook.id': profile.id }, function(err, user) {
 
                     // if there is an error, stop everything and return that
                     // ie an error connecting to the database
+
                     if (err)
                         return done(err);
 
@@ -55,7 +54,9 @@ module.exports = function(passport) {
                     if (user) {
                         return done(null, user); // user found, return that user
                     } else {
+
                         // if there is no user found with that facebook id, create them
+
                         var newUser = new userSchema();
 
                         // set all of the facebook information in our user model

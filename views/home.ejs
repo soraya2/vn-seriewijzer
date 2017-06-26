@@ -1,12 +1,72 @@
 <!DOCTYPE html>
 <html>
+
 <%- include partials/head.ejs %>
-<title>Details</title>
-</head>
+    <title>
+        <%= title %>
+    </title>
+    </head>
+    <body>
+        <%- include partials/header.ejs %>
+            <!-- <p>Logged in as:
+                <%=name%>
+            </p> -->
+            <main class="overview-container">
 
-<body>
-<div></div>
+                <section class="match-overview-container">
+                    <h1>Speciaal Voor Jou</h1>
+                    <div class="best-match">
+                        <img class="match-img" src="<%=data[3].review.imgURL%>" alt="">
+                        <a href="/detail/<%= data[3].review.seriesName %>">
+                            <h2 class="best-match-header">Jouw Beste Match</h2>
+                        </a>
+                    </div>
+                    <div class="secondary-match">
+                        <img src="<%=data[1].review.imgURL%>" alt="">
+                    </div>
+                    <div class="secondary-match">
+                        <img src="<%=data[2].review.imgURL%>" alt="">
+                    </div>
+                    <div class="secondary-match">
+                        <img src="<%=data[4].review.imgURL%>" alt="">
+                    </div>
+                    <div class="secondary-match">
+                        <img src="<%=data[5].review.imgURL%>" alt="">
+                    </div>
+                </section>
+                <hr>
+                <section class="review-overview-container">
+                    <h2>Laatste Recensies</h2>
+                    <% for(var i=0; i<6; i++) {%>
+                        <div class="review">
+                            <div>
+                                <img src="<%=data[i].review.imgURL%>" alt="">
+                            </div>
+                            <div class="text-container">
+                                <span class="rating">Score: <%= data[i].review.reviewRating %></span>
+                                <a class="detail-link" href="/detail/<%= data[i].review.seriesName %>">
+                                    <h3><%= data[i].review.seriesName %></h3>
+                                </a>
+                                <p class="post-date">Op: <%= data[i].user.postDate %></p>
+                                <h4><%= data[i].review.reviewTitle %></h4>
+                                <p class="post-user">Door <%= data[i].user.name %></p>
 
+                                <!-- Laatste spatie opzoeken uit de array (lastIndexOf) en dan het woord erna weghalen -->
+                                <!-- Gemanipuleerde data sturen naar de view, niet in de view doen -->
 
-</body>
+                                <p class="intro-text"><%= data[i].review.reviewPlot.substring(0, 210) %>
+                                    ...
+                                    <a class="bottom-link" href="/detail/<%= data[i].review.seriesName %>">
+                                        Lees meer
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                        <% } %>
+                </section>
+
+            </main>
+            <script src="/javascripts/filter.js"></script>
+            <script src="/javascripts/navigation.js"></script>
+    </body>
 </html>

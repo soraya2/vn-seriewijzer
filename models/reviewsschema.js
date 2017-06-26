@@ -8,7 +8,6 @@ var reviewsSchema = mongoose.Schema({
         postDate: String
     },
 
-
     review: {
         seriesName: String,
         region: String,

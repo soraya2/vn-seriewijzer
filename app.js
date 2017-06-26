@@ -9,7 +9,6 @@ var lessMiddleware = require('less-middleware');
 var env = require('dotenv').config();
 var sessions = require('express-session');
 var mongoose = require('mongoose');
-var passport = require('passport');
 
 var passport = require('passport');
 
@@ -28,9 +27,9 @@ var login = require('./routes/login');
 var persona = require('./routes/persona');
 var seriesGame = require('./routes/series-game');
 var fbLogin = require('./routes/facebook-login')(passport, io);
-var profile = require('./routes/profile');
 var detail = require('./routes/detail')(io);
-var profile = require('./routes/profile');
+var home = require('./routes/home');
+var allReviews = require('./routes/all_reviews');
 
 require('./config/passport')(passport);
 
@@ -42,11 +41,9 @@ app.set('io', io);
 // Uncomment after placing your favicon in /public
 // app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
-// app.use(bodyParser.json());
-
 
 app.use(bodyParser.urlencoded({ extended: true }));
-
+app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(sessions({
     secret: process.env.EXPRESS_SESSION_SECRET,
@@ -57,6 +54,7 @@ app.use(sessions({
     cookie: { secure: false, expires: false }
 
 }));
+
 app.use(passport.initialize());
 app.use(passport.session());
 mongoose.connect(process.env.USERDB);
@@ -70,15 +68,15 @@ app.use('/login', login);
 app.use('/persona', persona);
 app.use('/auth/facebook', fbLogin);
 app.use('/detail', detail);
-app.use('/profile', profile);
+app.use('/home', home);
+app.use('/recensies', allReviews);
 app.use('/seriespel', seriesGame);
 
-
+mongoose.connect(process.env.USERDB);
 // Console.log(mongoose.connection.readyState); //test database connection
 
 app.use(lessMiddleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
-
 
 // Catch 404 and forward to error handler
 app.use(function(req, res, next) {

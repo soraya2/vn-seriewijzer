@@ -1,18 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html lang="nl">
 <%- include partials/head.ejs %>
   <title>
     <%= title %>
   </title>
   </head>
 
-  <body>
+  <body class="personacheck-results">
     <%- include partials/header.ejs %>
-      <h1>Jouw resultaten</h1>
-      <h2>Logged in as:
-        <%=name%>
-      </h2>
-      <main class="overview-container">
+
+      <main >
+      <h1>Suggesties voor: <span>
+         Soraya Ibrahim<%=name%>
+      </span></h1>
+      <section class="overview-container">
+
         <% for(var i=0; i<data.length; i++) {%>
           <div class="movie">
             <div>
@@ -23,6 +25,7 @@
             </a>
           </div>
           <% } %>
+      </section>
       </main>
       <script src="/javascripts/filter.js"></script>
   </body>

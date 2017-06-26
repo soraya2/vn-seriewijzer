@@ -13,8 +13,8 @@
             </p> -->
             <main class="overview-container">
 
-                <h1>Speciaal Voor Jou</h1>
                 <section class="match-overview-container">
+                    <h1>Speciaal Voor Jou</h1>
                     <div class="best-match">
                         <img class="match-img" src="<%=data[3].review.imgURL%>" alt="">
                         <a href="/detail/<%= data[3].review.seriesName %>">
@@ -44,14 +44,17 @@
                             </div>
                             <div class="text-container">
                                 <span class="rating">Score: <%= data[i].review.reviewRating %></span>
-                                <a class="detail-link" href="/review/<%= data[i].review.seriesName %>">
+                                <a class="detail-link" href="/detail/<%= data[i].review.seriesName %>">
                                     <h3><%= data[i].review.seriesName %></h3>
                                 </a>
                                 <p class="post-date">Op: <%= data[i].user.postDate %></p>
                                 <h4><%= data[i].review.reviewTitle %></h4>
                                 <p class="post-user">Door <%= data[i].user.name %></p>
 
-                                <p><%= data[i].review.reviewPlot.substring(0, 210) %>
+                                <!-- Laatste spatie opzoeken uit de array (lastIndexOf) en dan het woord erna weghalen -->
+                                <!-- Gemanipuleerde data sturen naar de view, niet in de view doen -->
+
+                                <p class="intro-text"><%= data[i].review.reviewPlot.substring(0, 210) %>
                                     ...
                                     <a class="bottom-link" href="/detail/<%= data[i].review.seriesName %>">
                                         Lees meer
@@ -64,5 +67,6 @@
 
             </main>
             <script src="/javascripts/filter.js"></script>
+            <script src="/javascripts/navigation.js"></script>
     </body>
 </html>

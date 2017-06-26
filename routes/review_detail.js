@@ -4,9 +4,6 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var reviewsSchema = require('../models/reviewsschema.js');
 
-// Connect to main database
-mongoose.connect(process.env.MAINDB);
-
 router.get('/:id', function (req, res) {
     console.log(`[Server] Search database for ${req.params.id}`);
     reviewsSchema.findOne({'_id': req.params.id}, function (error, review) {
@@ -28,8 +25,7 @@ function processUploadForm(req, res) {
     var update = {
         user: {
             name:           fields.name,
-            email:          fields.email,
-            postDate:       fields.post_date,
+            email:          fields.email
         },
         review: {
             seriesName:     fields.seriesName,

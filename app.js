@@ -29,6 +29,7 @@ var seriesGame = require('./routes/series-game');
 var fbLogin = require('./routes/facebook-login')(passport, io);
 var detail = require('./routes/detail')(io);
 var home = require('./routes/home');
+var allReviews = require('./routes/all_reviews');
 
 require('./config/passport')(passport);
 
@@ -68,6 +69,7 @@ app.use('/persona', persona);
 app.use('/auth/facebook', fbLogin);
 app.use('/detail', detail);
 app.use('/home', home);
+app.use('/recensies', allReviews);
 app.use('/seriespel', seriesGame);
 
 mongoose.connect(process.env.USERDB);

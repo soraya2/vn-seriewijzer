@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <%- include ../partials/head.ejs %>
         <link rel="stylesheet" href="/stylesheets/seriesoverview.css">
         <title>Het Serie Spel</title>
     </head>
     <body id="serie-overview">
+        <%- include ../partials/header.ejs %>
         <h1>Jouw persoonlijke top 5</h1>
         <% for (var i = 0; i < results.length; i++) { %>
             <a href="/review/<%- results[i].name%>">

@@ -2,6 +2,12 @@
 //#F76655
 //#FF5300
 // GENERAL PERSONACHECK
+@keyframes feedback {
+    0%{background-color:#F76655; color: white}
+    80%{background-color:#F76655; color: white}
+    100%{background-color:white; color: #333}
+}
+
 body {
     background-color: white;
     margin: 0.5rem;
@@ -17,7 +23,12 @@ h1 {
 }
 
 h2 {
+    color: #F76655;
     font-family: "Lato", sans-serif;
+}
+
+p {
+    font-family: 'Alegreya', "Lucida Grande";
 }
 
 fieldset {
@@ -36,6 +47,12 @@ input[type="submit"] {
 
 [hidden] {
     display: none;
+}
+
+button[disabled="true"], button[disabled="true"]:hover, button[disabled="true"]:active {
+    background-color: #eee;
+    color: #ccc;
+    cursor: not-allowed;
 }
 
 .hide {
@@ -73,8 +90,8 @@ input[type="submit"] {
 .submit-persona {
     background-color: #F76655;
     border: none;
+    border-radius: 0;
     bottom: 0;
-    box-shadow: 0 -1px 10px #333;
     color: white;
     font-size: 1.3em;
     font-weight: bold;
@@ -84,11 +101,41 @@ input[type="submit"] {
     text-align: center;
     text-transform: lowercase;
     transition: background-color 0.2s;
-    width: 100%;
+    width: 50%;
 }
 
-.submit-persona:focus {
+.go-back {
+    background-color: #ddd;
+    color: black;
+}
+
+.feedback {
     background-color: #F76655;
+    color: white !important;
+}
+
+.notify {
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.9);
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.notify h4 {
+    padding: 0.5rem;
+    position: absolute;
+    -ms-transform: translateY(50%);
+    transform: translateY(50%);
+}
+
+@supports(animation: feedback 5s ease){
+    .feedback {
+        background-color: initial;
+        color: initial;
+        animation: feedback 5s ease;
+    }
 }
 
 .submit-persona:hover {
@@ -96,10 +143,16 @@ input[type="submit"] {
     cursor: pointer;
 }
 
-.text-label {
-    color: #A0A0A0;
-    font-size: .875rem;
-    font-weight: 700;
+.go-back:hover {
+    background-color: #A0A0A0;
+    color: black;
+}
+
+#condition {
+    color: #333;
+    font-size: 1rem;
+    font-style: italic;
+    padding: 0.5rem;
 }
 
 .form-for-check > form {
@@ -139,7 +192,6 @@ input[type="submit"] {
 
 .item p {
     color: #333;
-    font-family: 'Lato', "Lucida Grande";
     font-size: 0.9rem;
     font-weight: 400;
 }
@@ -162,8 +214,18 @@ input[type="submit"] {
     color: #333;
 }
 
-.flexdiv .item:hover div {
-    filter: grayscale(0%);
+.flexdiv .item:hover {
+    background-color: #ddd;
+}
+
+@supports(filter: grayscale(30%)){
+    .flexdiv .item:hover {
+        background-color: white;
+    }
+
+    .flexdiv .item:hover div {
+        filter: grayscale(30%);
+    }
 }
 
 .flexdiv .item:active div {
@@ -177,6 +239,17 @@ input[type="submit"] {
 .item input:focus + div + p > label::after,
 .submit-persona:focus {
     outline: #333 dashed;
+}
+
+#persona-button {
+    left: 50%;
+    right: 0;
+}
+
+@supports (left: initial) {
+    #persona-button {
+        left: initial;
+    }
 }
 
 @supports(display:flex) {
@@ -210,6 +283,7 @@ input[type="submit"] {
 .login header {
     position: absolute;
     top: 50%;
+    -ms-transform: translateY(-50%);
     transform: translateY(-50%);
 }
 
@@ -359,7 +433,7 @@ input:checked + div {
 
 //CONFIRMATION PAGE
 #confirm-persona {
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(0, 0, 0, 0.9);
     bottom: 0;
     left: 0;
     position: fixed;
@@ -368,9 +442,11 @@ input:checked + div {
 }
 
 #confirm-persona div {
+    background-color: white;
     position: absolute;
     padding: 0.5rem;
     top: 50%;
+    -ms-transform: translateY(-50%);
     transform: translateY(-50%);
     width: 100vw;
 }
@@ -380,9 +456,10 @@ input:checked + div {
 }
 
 #confirm-persona ul {
+    list-style-type: disc;
     list-style-type: initial;
     margin: 1rem 0;
-    padding-left: 1rem;
+    padding-left: 1.5rem;
 }
 
 #confirm-persona li {
@@ -394,19 +471,14 @@ input:checked + div {
     box-shadow: none;
     font-size: 1rem;
     position: static;
+    -ms-transform: none;
     transform: none;
     width: 60%;
 }
 
 #confirm-persona button.submit-persona {
-    background-color: #ddd;
-    color: black;
     float: left;
     width: 40%;
-}
-
-#confirm-persona button.submit-persona:hover {
-    background-color: #A0A0A0;
 }
 
 @media screen and (min-width: 23rem) {
@@ -520,11 +592,13 @@ input:checked + div {
         float: right;
         padding: 0.5rem 4rem;
         position: relative;
+        -ms-transform: translateY(-2.5rem);
         transform: translateY(-2.5rem);
         width: auto;
     }
     .header-personacheck {
         margin-bottom: 3rem;
+        -ms-transform: rotate(-10deg);
         transform: rotate(-10deg);
     }
     .form-for-check {
@@ -539,53 +613,80 @@ input:checked + div {
         padding: 0.5rem;
         width: 37rem;
     }
+
     .go-back {
         float: left;
     }
+
     .header-personacheck h1 {
         font-size: 5rem;
     }
+
     .header-personacheck p {
         font-size: 1rem;
     }
+
     .form-for-check fieldset {
         margin-bottom: 4rem;
     }
+
     .form-for-check h2 {
         font-size: 2rem;
     }
+
     .item div {
         height: 8rem;
         width: 8rem;
     }
+
     .item p {
         font-size: 1.2rem;
         padding: 0.4rem 0;
     }
+
     .item {
         margin: 0 0.4rem;
     }
+
+    #persona-button {
+    left: 0%;
+    }
+
+    #confirm-persona h2 {
+        font-size: 2.8rem;
+    }
+
+    #confirm-persona h3 {
+        font-size: 1.8rem;
+    }
+
     #confirm-persona div {
+        box-shadow: 5px 5px 0 0 #ddd;
         left: 50%;
         -ms-transform: translate(-50%, -50%);
         transform: translate(-50%, -50%);
         max-width: 37rem;
     }
     #confirm-persona .submit-persona {
+        font-size: 1.3rem;
         width: auto;
     }
-    @supports(justify-content: space-between) {
-        .flexdiv {
-            justify-content: space-between;
-        }
-        .item {
-            margin: 0.5rem 0 0 0;
-        }
+
+    .flexdiv {
+        transform: translateX(1%);
+        justify-content: flex-start;
     }
+
     @supports(display:grid) {
         .form-for-check .flexdiv {
+            grid-column-gap: 1.1rem;
             grid-template-columns: auto auto auto auto;
+
         }
+
+         .item {
+             margin: 0.5rem 0 0 0;
+         }
     }
 }
 

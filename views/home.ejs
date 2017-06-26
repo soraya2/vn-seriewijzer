@@ -14,33 +14,22 @@
                 <section class="match-overview-container">
                     <h1>Speciaal Voor Jou</h1>
                     <div class="best-match">
+                        <a href="/detail/<%=userData.user.profile.matches[0][0].data.review.seriesName %>">
                         <picture>
                             <img class="match-img" src="<%=userData.user.profile.matches[0][0].data.review.imgURL%>" alt="<%=userData.user.profile.matches[0][0].data.review.seriesName%>">
                         </picture>
-                        <a href="/detail/<%=userData.user.profile.matches[0][0].data.review.seriesName %>">
-                            <h2 class="best-match-header">Jouw Beste Match</h2>
+                        <h2 class="best-match-header">Jouw Beste Match</h2>
                         </a>
                     </div>
-                    <div class="secondary-match">
-                        <picture>
-                            <img src="<%=userData.user.profile.matches[0][1].data.review.imgURL%>" alt="<%=userData.user.profile.matches[0][1].data.review.seriesName%>">
-                        </picture>
-                    </div>
-                    <div class="secondary-match">
-                        <picture>
-                            <img src="<%=userData.user.profile.matches[0][2].data.review.imgURL%>" alt="<%=userData.user.profile.matches[0][2].data.review.seriesName%>">
-                        </picture>
-                    </div>
-                    <div class="secondary-match">
-                        <picture>
-                            <img src="<%=userData.user.profile.matches[0][3].data.review.imgURL%>" alt="<%=userData.user.profile.matches[0][3].data.review.seriesName%>">
-                        </picture>
-                    </div>
-                    <div class="secondary-match">
-                        <picture>
-                            <img src="<%=userData.user.profile.matches[0][4].data.review.imgURL%>" alt="<%=userData.user.profile.matches[0][4].data.review.seriesName%>">
-                        </picture>
-                    </div>
+                    <% for(var i=1; i<userData.user.profile.matches[0].length; i++) {%>
+                        <div class="secondary-match">
+                            <a class="hidden-link" href="/detail/<%=userData.user.profile.matches[0][i].data.review.seriesName %>">
+                                <picture>
+                                    <img src="<%=userData.user.profile.matches[0][i].data.review.imgURL%>" alt="<%=userData.user.profile.matches[0][i].data.review.seriesName%>">
+                                </picture>
+                            </a>
+                        </div>
+                    <% } %>
                 </section>
 
                 <hr>

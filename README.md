@@ -15,7 +15,10 @@ Each serie contains a review and rating that is written by Vrij Nederland. Also 
 
 Also the website will contain a diffent way to get to the best suited series for people, which will be a tournament. The user will see 4 series and has to rank these series from 1 to 4. He will do this 4 times, after that, he will see all the first choices he made. Those choices have to be ranked from 1 to 4 again. Based on these results, a top 5 will be created, based on these series.
 
-# Features
+## Demo
+[insert herokuapp here]()
+
+## Features
 #### Facebook Login
 The user is asked to log in with their Facebook account to access specific features like the Persona Check, the Series Game and commenting on series.
 
@@ -25,17 +28,18 @@ Users can view a series page and leave comments for others to see. By allowing t
 #### Persona Check
 The Persona Check is an integral part of the application. Users log in with their Facebook account and answer a set of questions. The results of this questionnaire attaches several 'tags' to the user's profile that correspond with certain persona's. Some example personas would be:
 
-* Culture lover
+* Animal lover
 * Daredevil
-* Romantic
+* Girly Girl
 * Sports fanatic
 * Intellectual
-* Bookworm
+* Geeky Nerd
 
 The user will be provided a list of suggested series, fitting the user's persona.
 
 #### The Series Game
 The Series Game is a fun way to discover new series.
+
 ##### How it works:
 - A list of 4 series is shown to the user.
 - By clicking on the image, the details page of that show will be shown, allowing the user to read the show description, see trailers, check screenshots and see ratings (from IMDB).
@@ -43,6 +47,11 @@ The Series Game is a fun way to discover new series.
 
 This process repeats for 4 times and finally end up on the overview screen that displays the user's top 4 shows, and a list of shows that might be of interest to the user, based on the highest rated shows in the game.
 
+## Wishlist
+- [ ] Recommendations based on which tv shows your Facebook friends watch.
+- [ ] User profile.
+- [ ] Feature to add tv shows to your list, to mark tv shows as 'seen' or 'watching now'.
+- [ ] Sending tv shows to Facebook friends.
 
 ## Code conventions
 - Templating engine: EJS (keep most of the logic outside of the html).
@@ -61,10 +70,9 @@ This process repeats for 4 times and finally end up on the overview screen that 
 - Work modulair
 - Seperate classes with dashes (-)
 
-## Code Soraya
-
-### Css to the rescue
-
+## Coders
+### Soraya
+#### Css to the rescue
 I made use of the latest features by making use of css grid.
 
 ```
@@ -89,8 +97,7 @@ I made use of the latest features by making use of css grid.
 
 ```
 
-### Web app from scratch
-
+#### Web app from scratch
 I made sure that the functions are doing 1 thing and put the code . In the example function i store comments in the database in the review object.
 
 See more at: https://github.com/soraya2/vn-seriewijzer/blob/master/routes/detail.js
@@ -151,27 +158,79 @@ See more at: https://github.com/soraya2/vn-seriewijzer/blob/feature-persona-chec
  }());
 ```
 
+### Chanel
+#### Webapp from Scratch
+
+#### CSS to the rescue
+
+#### Browser Technologies
+
+#### Real Time Web
+
+### Shyanta
+#### Webapp from Scratch
+
+#### CSS to the rescue
+
+#### Browser Technologies
+
+#### Performance Matters
+
+### Tristan
+#### Webapp from Scratch
+
+#### CSS to the rescue
+
+#### Browser Technologies
+
+#### Performance Matters
 
 ## Install guide
+### Packages
+- [Path](https://www.npmjs.com/package/path)
+- [Express](https://www.npmjs.com/package/express)
+- [Morgan](https://www.npmjs.com/package/morgan)
+- [Cookie Parser](https://www.npmjs.com/package/cookie-parser)
+- [Body Parser](https://www.npmjs.com/package/body-parser)
+- [Less Middleware](https://www.npmjs.com/package/less-middleware)
+- [Dotenv](https://www.npmjs.com/package/dotenv)
+- [Express Session](https://www.npmjs.com/package/express-session)
+- [Mongoose](https://www.npmjs.com/package/mongoose)
+- [Passport](https://www.npmjs.com/package/passport)
+- [Socket.io](https://www.npmjs.com/package/socket.io)
 
 ### Clone the repository
+**The env file isn't added to the repo. If you want this repo to work you need to add an env file with the following information:
+- The port number
+- MongoDB user
+- Facebook key
+- Facebook secret
+- Facebook callback
+- MongoDB database link**
 
-
-### To install the project run:
-
+To clone this repo, run this code in the terminal:
 ```
- npm install
-
-```
-
-### To run ngrok:
-```
- npm run expose
-
+$ git clone https://github.com/soraya2/vn-seriewijzer.git
 ```
 
-### To run XO:
+To install all the packages run:
+```
+$ npm install
 
 ```
-npm test
+To temporarily make the website public, run:
 ```
+$ npm run expose
+
+```
+To run XO:
+```
+$ npm test
+```
+
+### How to Build
+
+## Known Bugs
+
+## License
+MIT/X11.

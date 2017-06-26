@@ -31,7 +31,9 @@ module.exports = function(io) {
             commentsToDatabase(comment);
 
             io.emit('comment', comment);
+            // io.of('myNamespace').emit('message', 'gg');
         });
+
 
     });
 

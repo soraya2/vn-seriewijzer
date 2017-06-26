@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Alegreya');
+// @import url('https://fonts.googleapis.com/css?family=Alegreya');//home
 * {
     margin: 0;
     padding: 0;
@@ -54,13 +54,20 @@ img {
 
 .message-area {
     margin: 0 0.5em;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
 }
 
 @supports (display:flex) {
     .overview-container {
         @media screen and (max-width: 40em) {
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
             justify-content: center;
         }
     }
@@ -68,12 +75,20 @@ img {
     .review-overview-container {
         max-width: 80em;
         margin: 2em auto;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
         flex-direction: row;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
         justify-content: space-between;
     }
     .match-overview-container {
         margin-top: 5em;
+        -ms-flex-wrap: wrap;
         flex-wrap: wrap;
         h1 {
             width: 100%;
@@ -102,9 +117,7 @@ img {
             }
         }
         .secondary-match {
-            img {
-
-            }
+            img {}
             @media screen and (max-width: 40em) {
                 display: none;
             }
@@ -123,8 +136,12 @@ img {
         white-space: nowrap;
     }
     .review-overview-container {
+        -ms-flex-wrap: wrap;
         flex-wrap: wrap;
         @media screen and (max-width: 40em) {
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
             flex-direction: column;
         }
         h2 {
@@ -133,10 +150,17 @@ img {
         }
         .review {
             width: 45%;
-            height: 16em;
+            height: 19em;
             margin: 2em 0;
+            display: -webkit-box;
+            display: -ms-flexbox;
             display: flex;
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: row;
             flex-direction: row;
+            -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
             justify-content: space-between;
             position: relative;
             @media screen and (max-width: 40em) {

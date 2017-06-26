@@ -2,7 +2,7 @@
 <html lang="nl">
     <%- include partials/head.ejs %>
     <title>Detail</title>
-</html>
+</head>
 <body class="review-page">
     <%- include partials/header.ejs %>
 <main>
@@ -25,11 +25,18 @@
                  <%= data.review.reviewPlot%>
                 </p>
             </div>
-            <div class="video-container">
-                <iframe  frameborder="0" class="video" src="<%=data.review.trailerURL%>?controls=0&showinfo=0" type="text/html">
-                </iframe>
-            </div>
+<!-- <capture class="video-container">
+                <object  frameborder="0" class="iframe" data="<%=data.review.trailerURL%>?controls=0&showinfo=0&hd=1" type="text/html">
+                </object>
 
+</capture> -->
+
+
+<div class="youtubevideowrap">
+<aside class="video-container">
+<iframe src="<%=data.review.trailerURL%>?controls=0&showinfo=0&hd=1?rel=0" allowfullscreen="" width="640" height="352" frameborder="0"></iframe>
+</aside>
+</div>
         </section>
         <section class="review">
         <div>
@@ -100,3 +107,4 @@
     <script src="/javascripts/comment.js"></script>
 </body>
 
+</html>

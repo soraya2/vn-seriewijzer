@@ -3,71 +3,55 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-    background-color: #000;
+    background-color: #f6f6f6;
     font-family: sans-serif;
 }
-    #serie-steps header {
-        flex-basis: 100%;
-        width: 100%;
-        height: 2px;
-        margin: 30px 0;
-        background-color: #4a4a4a;
-        position: relative;
+    #serie-steps h1 {
+        flex-basis: 50%;
+        width: 50%;
+        line-height: 40px;
+        margin: 0;
     }
-        #serie-steps header[data-steps="1"]{
-            background-image: linear-gradient(left, #4d8de3, #4d8de3 12%, transparent 12%, transparent 100%);
-            background-image: -webkit-linear-gradient(left, #4d8de3, #4d8de3 12%, transparent 12%, transparent 100%)
-        }
-        #serie-steps header[data-steps="2"]{
-            background-image: linear-gradient(left, #4d8de3, #4d8de3 38%, transparent 38%, transparent 100%);
-            background-image: -webkit-linear-gradient(left, #4d8de3, #4d8de3 38%, transparent 38%, transparent 100%)
-        }
-        #serie-steps header[data-steps="3"]{
-            background-image: linear-gradient(left, #4d8de3, #4d8de3 62%, transparent 62%, transparent 100%);
-            background-image: -webkit-linear-gradient(left, #4d8de3, #4d8de3 62%, transparent 62%, transparent 100%)
-        }
-        #serie-steps header[data-steps="4"]{
-            background-color: #4d8de3;
-        }
-        #serie-steps header ul {
+        #serie-steps ul {
+            flex-basis: 50%;
+            width: 50%;
             padding: 0;
-            width: 100%;
             list-style: none;
             display: flex;
             flex-wrap: nowrap;
-            position: absolute;
-            top: -20px;
             margin: 0;
         }
-            #serie-steps header ul li {
+            #serie-steps ul li {
                 flex-basis: 25%;
                 width: 25%;
-                text-align: right;
+                text-align: center;
             }
-                #serie-steps header ul li span {
+                #serie-steps ul li span {
                     width: 40px;
                     height: 40px;
+                    font-size: 1.2em;
                     display: block;
                     margin: 0 auto;
-                    padding-right: 5px;
                     box-sizing: border-box;
-                    font-size: 2.8em;
                     font-weight: bold;
-                    line-height: 50px;
+                    line-height: 42px;
                     border-radius: 50%;
-                    background-color: #4a4a4a;
+                    background-color: #fff;
+                    box-shadow: 0px 5px 5px #ddd;
                 }
-                    #serie-steps header[data-steps="1"] ul li:nth-of-type(1) span,
-                    #serie-steps header[data-steps="2"] ul li:nth-of-type(1) span,
-                    #serie-steps header[data-steps="2"] ul li:nth-of-type(2) span,
-                    #serie-steps header[data-steps="3"] ul li:nth-of-type(1) span,
-                    #serie-steps header[data-steps="3"] ul li:nth-of-type(2) span,
-                    #serie-steps header[data-steps="3"] ul li:nth-of-type(3) span,
-                    #serie-steps header[data-steps="4"] ul li:nth-of-type(1) span,
-                    #serie-steps header[data-steps="4"] ul li:nth-of-type(2) span,
-                    #serie-steps header[data-steps="4"] ul li:nth-of-type(3) span,
-                    #serie-steps header[data-steps="4"] ul li:nth-of-type(4) span{
-                        background-color: #4d8de3;
+                    #serie-steps ul[data-steps="1"] li:nth-of-type(1) span,
+                    #serie-steps ul[data-steps="2"] li:nth-of-type(1) span,
+                    #serie-steps ul[data-steps="2"] li:nth-of-type(2) span,
+                    #serie-steps ul[data-steps="3"] li:nth-of-type(1) span,
+                    #serie-steps ul[data-steps="3"] li:nth-of-type(2) span,
+                    #serie-steps ul[data-steps="3"] li:nth-of-type(3) span,
+                    #serie-steps ul[data-steps="4"] li:nth-of-type(1) span,
+                    #serie-steps ul[data-steps="4"] li:nth-of-type(2) span,
+                    #serie-steps ul[data-steps="4"] li:nth-of-type(3) span,
+                    #serie-steps ul[data-steps="4"] li:nth-of-type(4) span{
+                        background-color: #F66556;
+                        color: #f6f6f6;
+                        box-shadow: none;
                     }
     #serie-steps form {
         flex-basis: 100%;
@@ -87,6 +71,7 @@
         transition: .4s;
         z-index: 1;
         cursor: pointer;
+        box-shadow: 2px 3px 2px #ddd;
     }
         #serie-steps label#active {
             transform: scale(1.2);
@@ -101,7 +86,7 @@
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            background-color: #f01c35;
+            background-color: #F66556;
             text-align: center;
             line-height: 50px;
             font-size: 1.5em;
@@ -132,6 +117,13 @@
         #serie-steps label input[type="checkbox"]{
             clip: rect(0,0,0,0);
             position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+        }
+        #serie-steps label div {
+            margin-bottom: -5px;
         }
         #serie-steps label img {
             width: 100%;
@@ -139,9 +131,10 @@
         }
         #serie-steps label a {
             box-sizing: border-box;
-            text-align: center;
             text-decoration: none;
             background-color: #fff;
+            color: #000;
+            padding-left: 10px;
             height: 3em;
             line-height: 3em;
         }

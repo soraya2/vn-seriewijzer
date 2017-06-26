@@ -10,23 +10,6 @@
 main {
     display: block;
 }
-.login h1 {
-    font-family: "Lato", sans-serif;
-    font-size: 2rem;
-}
-.login h2, .check h2 {
-    color: #F76655;
-    font-family: "Lato", sans-serif;
-}
-.check p, .login li, .check h3 {
-    font-family: 'Alegreya', 'Lucida Grande';
-}
-.check fieldset {
-    border: 0 none;
-}
-.check fieldset legend {
-    display: block;
-}
 button,
 input[type="submit"] {
     -webkit-appearance: none;
@@ -114,10 +97,6 @@ button[disabled], button[disabled]:hover, button[disabled]:active {
     background-color: #ccc;
     color: black;
 }
-// .feedback {
-//     background-color: #F76655;
-//     color: white !important;
-// }
 .item:hover {
     background-color: #ddd;
 }
@@ -137,23 +116,25 @@ button[disabled], button[disabled]:hover, button[disabled]:active {
     right: 0;
     top: 0;
 }
-.notify h4 {
-    position: absolute;
-    -ms-transform: translateY(50%);
-    transform: translateY(50%);
+.login h2, .check h2 {
+    color: #F76655;
+    font-family: "Lato", sans-serif;
 }
-// @supports(animation: feedback 5s ease){
-//     .feedback {
-//         background-color: initial;
-//         color: initial;
-//         animation: feedback 5s ease;
-//     }
-// }
-.persona-check legend {
-    margin-bottom: 0.5rem;
+.check p, .login li, .check h3 {
+    font-family: 'Alegreya', 'Lucida Grande';
+}
+.login h1 {
+    font-family: "Lato", sans-serif;
+    font-size: 2rem;
 }
 .form-for-check fieldset {
     margin-bottom: 3.5rem;
+}
+.check fieldset {
+    border: 0 none;
+}
+.persona-check legend {
+    margin-bottom: 0.5rem;
 }
 .check picture {
     border-radius: 100%;
@@ -166,6 +147,11 @@ button[disabled], button[disabled]:hover, button[disabled]:active {
     border-radius: 100%;
     height: 30vw;
     width: 30vw;
+}
+.notify h4 {
+    position: absolute;
+    -ms-transform: translateY(50%);
+    transform: translateY(50%);
 }
 .item p {
     color: #333;
@@ -205,6 +191,9 @@ button[disabled], button[disabled]:hover, button[disabled]:active {
         clip: rect(0, 0, 0, 0);
         position: absolute;
     }
+}
+.check fieldset legend {
+    display: block;
 }
 .form-for-check > form {
     position: relative;

@@ -159,11 +159,10 @@
             previous: function(e){//Merge this one with the next step, logic is the same
                 //Function that handles the previous button
                 e.preventDefault();
-                console.log(count);
 
                 switch (count) {
                     case 2:
-                        backButton.setAttribute('disabled', 'true');
+                        backButton.setAttribute('disabled', '');
 
                         toggleCheckboxes(1, true);
                         toggleCheckboxes(0, false);//Everthing false except one
@@ -204,7 +203,7 @@
 
         if(checked.length < 1){
             validateFieldset(e);
-            personaButton.setAttribute('disabled', 'true');
+            personaButton.setAttribute('disabled', '');
         } else {
             validateFieldset(e);
             personaButton.removeAttribute('disabled');
@@ -223,7 +222,7 @@
         step.next(e);
 
         if(checkedBoxes[count-1] && checkedBoxes[count-1].length < 1){
-            personaButton.setAttribute('disabled', 'true');
+            personaButton.setAttribute('disabled', '');
         }
     });
         //node.control.checked = true

@@ -347,7 +347,7 @@
            font-size: 1.2em;
        }
        li {
-           text-align: center;
+           // text-align: center;
            >p {
                // display: inline;
                // display: block;
@@ -444,6 +444,9 @@
        }
        @media (min-width: 70em) {
            margin-left: 4%;
+       }
+       @supports (display: flex) {
+           margin-left: 0;
        }
    }
    

@@ -28,6 +28,7 @@ var fbLogin = require('./routes/facebook-login')(passport, io);
 var personaResults = require('./routes/persona_results');
 var reviewDetail = require('./routes/detail')(io);
 var home = require('./routes/home');
+var allReviews = require('./routes/all_reviews');
 
 require('./config/passport')(passport);
 
@@ -65,6 +66,7 @@ app.use('/login', login);
 app.use('/persona', persona);
 app.use('/auth/facebook', fbLogin);
 app.use('/home', home);
+app.use('/recensies', allReviews);
 app.use('/seriespel', seriesGame);
 app.use('/review', reviewDetail);
 app.use('/persona_results', personaResults);

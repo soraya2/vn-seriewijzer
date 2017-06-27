@@ -5,21 +5,26 @@
         <div></div>
     </div>
 
-    <a class="titel-link" href="/">
-        <h2 class="titel">Vrij Nederland seriewijzer</h2>
-    </a>
+    <!--[if IE]>
+    <div class="browser-warning">
+        <h1>Your browser is outdated!</h1>
+        <p>Please upgrade for the maximum user experience.</p>
+    </div>
+    <![endif]-->
 
     <nav role="main-navigation">
         <ul class="navigation-left">
             <li><a class="active" href="/">Home</a></li>
             <li><a href="/seriespel">Speel het Seriespel</a></li>
             <li><a href="/persona">Doe de Persona Check</a></li>
-            <li> <a href="/auth/facebook">Facebook</a></li>
+
         </ul>
+        <a class="titel-link" href="/home">
+            <span class="titel">Vrij Nederland Seriewijzer</span>
+        </a>
         <ul class="navigation-right">
-            <li><a href="/recensies">Alle Recensies</a></li>
-            <li><a href="/upload">UPLOAD RECENSIE</a></li>
-            <li><a href="/review_overview">RECENSIE CMS</a></li>
+            <li><a href="/recensies">Recensies</a></li>
+            <li><a class="login-btn" href="/auth/facebook">Log In</a></li>
         </ul>
     </nav>
 </header>

@@ -29,11 +29,12 @@
             height: 11em;
             width: 8em;
             display: block;
-            position: relative;
         }
             #serie-overview main section a {
                 position: relative;
                 display: block;
+                width: 9em;
+                height: 13em;
             }
             #serie-overview main section h2 {
                 position: absolute;
@@ -44,7 +45,7 @@
                 width: 40px;
                 height: 40px;
                 color: #fff;
-                font-size: 1.2em;
+                font-size: 1em;
                 line-height: 40px;
             }
             #serie-overview main section img {
@@ -58,3 +59,33 @@
                 height: 18em;
                 width: 11em;
             }
+    @media screen and (min-width: 30em) {
+        #serie-overview main{
+            flex-direction: row;
+        }
+            #serie-overview main section {
+                height: 13em;
+                flex-basis: 33%;
+            }
+                #serie-overview main section a {
+                    width: 9em;
+                    height: 13em;
+                    margin: 0 auto;
+                }
+                #serie-overview main section img {
+                    height: 13em;
+                    width: 9em;
+                }
+                #serie-overview main section[data-num="1"] a,
+                #serie-overview main section[data-num="2"] a,
+                #serie-overview main section[data-num="1"] img,
+                #serie-overview main section[data-num="2"] img {
+                    height: 20em;
+                    width: 13em;
+                }
+                #serie-overview main section[data-num="1"],
+                #serie-overview main section[data-num="2"] {
+                    flex-basis: 50%;
+                    height: 20em;
+                }
+    }

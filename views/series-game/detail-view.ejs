@@ -1,73 +1,30 @@
-<!-- {
-    _id: 593e749c19e2bb1b546cade0,
-      __v: 0,
-      comments: [],
-      plot: 'Dit is een tekstje over Game Of Thrones YAAASS',
-      review:
-       { seriesName: 'Game of Thrones',
-         region: 'USA',
-         startYear: '2011',
-         endYear: 'heden',
-         platform: 'hbo',
-         ageRestriction: '12',
-         seasons: '6',
-         episodes: '60',
-         duration: '55',
-         producers: 'Steven Spielberg',
-         awards: '8',
-         nominations: '17',
-         imdbRating: '9.5',
-         trailerURL: 'https://www.youtube.com/watch?v=iGp_N3Ir7Do',
-         imgURL: 'https://upload.wikimedia.org/wikipedia/en/thumb/d/d1/Game_of_Thrones_Season_6.jpeg/220px-Game_of_Thrones_Season_6.jpeg',
-         reviewTitle: 'Game of Thrones RULES',
-         reviewIntro: 'Game of Thrones rules the world for life',
-         reviewBody: '',
-         reviewRating: '9',
-         plot: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec.',
-         mood: [ 'spanning' ],
-         hobby: [ 'gamen', 'lezen' ],
-         persona: [ 'creatieveling', 'sensatiezoeker', 'soldaat', 'avonturier' ],
-         period: [ 'middeleeuwen' ],
-         genre: [ 'action', 'drama', 'episch', 'fantasy' ] },
-      user:
-       {
-        name: 'Shyanta Vleugel',
-        email: 'shyantavleugel@gmail.com',
-        postDate: '2017-06-12'
-        }
-     } -->
-
 <% include ../partials/head %>
     <link rel="stylesheet" href="/stylesheets/seriesgame.css">
     <title><%= data.review.seriesName %></title>
 </head>
 
-<body class="series-detail-body">
+<body id="series-detail">
      <main>
         <% if (data) { %>
             <a class="backlink" href="javascript:history.back()">✕</a>
-            <section class="poster-image-container">
-                <img class='poster-image' src="<%= data.review.imgURL %>">
+            <h1><%= data.review.seriesName %></h1>
+            <section class="poster">
+                <img src="<%= data.review.imgURL %>">
+                <span class="rating"><%= data.review.imdbRating %></span>
             </section>
-            <span class="rating"><%= data.review.imdbRating %></span>
-            <div class="detail-body">
-                <section class="meta-container">
-                    <h1><%= data.review.seriesName %></h1>
-                    <div class="meta">
-                        <h3 class="authors"><%= data.review.producers %></h3>
-                        <span class="date-info">
-                            <%= data.review.startYear %> - <%= data.review.endYear %>
-                        </span>
-                    </div>
-                </section>
-                <section class="plot">
-                    <p><%= data.review.plot %></p>
-                </section>
-
+            <section>
+                <div class="meta">
+                    <h3><%= data.review.producers %></h3>
+                    <p class="date-info">
+                        <%= data.review.startYear %> - <%= data.review.endYear %>
+                    </p>
+                </div>
+                <p><%- data.review.reviewPlot %></p>
+            </section>
+            <section class="video">
                 <h3>Bekijk de trailer</h3>
-                <iframe src="<%- data.review.trailerURL %>" width="" height=""></iframe>
-
-            </div>
+                <iframe src="<%- data.review.trailerURL %>"></iframe>
+            </section>
         <% } else { %>
             <h2>Uh oh.. serie niet gevonden.</h2>
         <% }%>

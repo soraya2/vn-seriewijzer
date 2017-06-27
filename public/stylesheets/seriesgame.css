@@ -1,128 +1,63 @@
-.series-game-intro {
-    padding: 0;
-    margin: 0;
-    background: black;
-    color: white;
-    font-family: sans-serif;
-}
-
-.series-game-intro header, .series-game-intro section {
-    text-align: center;
-    padding: 1em;
-}
-
-.series-game-intro section p {
-    width: 15em;
-    display: block;
-    margin: 0 auto;
-}
-
-.series-game-intro header h1 {
-    margin: 0;
-}
-
-.series-game-intro header {
-    background-color: #0099FF;
-}
-
-.series-game-intro .block-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 0 auto;
-    width: 18em;
-}
-
-.series-game-intro .block {
-    margin: 1em;
-    height: 10em;
-    width: 7em;
-    background: grey;
-}
-
-.order-number {
-    position: absolute;
-    margin-top: 1em;
-    font-size: 450%;
-}
-
-.detail-img {
-    height: 5em;
-    margin: 2em 0;
-}
-
-.start-btn {
-    transition: 0.3s;
-    font-size: 150%;
-    text-transform: uppercase;
-    display: block;
-    text-align: center;
-    text-decoration: none;
-    cursor: pointer;
-    border-radius: 1em;
-    color: black;
-    padding: 1em 2em;
-    background-color: #7DBC37;
-}
-
-.start-btn:hover {
-    transition: 0.3s;
-    background-color: #0090E3;
-}
-
-.series-detail-body {
-    background: black;
-    color: white;
-}
-
-.poster-image-container {
-    margin-top: 1em;
-    height: 50vh;
-    overflow: hidden;
-}
-
-.rating {
+#series-detail {
+    background-color: #f6f6f6;
+    color: #000;
     position: relative;
-    background: yellow;
-    border-radius: 100%;
-    padding: 0.6em 0.5em;
-    color: #333;
-    font-size: 200%;
-    font-weight: bold;
-    top: -1em;
-    float: right;
 }
+    #series-detail h1,
+    #series-detail h3,
+    #series-detail p {
+        padding: 0 1em;
+    }
+    #series-detail h1 {
+        font-size: 2em;
+        line-height: 2;
+        width: 100%;
+        text-align: center;
+    }
+    #series-detail h3 {
+        margin: 1em 0;
+        font-size: 1.3em;
+    }
+    #series-detail p.date-info {
+        font-weight: bold;
+        font-size: 1.2em;
+    }
+    #series-detail .backlink {
+        color: #000;
+        font-size: 3em;
+        position: absolute;
+        left: 10px;
+        top: 0px;
+        line-height: 1.5;
+    }
+        #series-detail section.poster {
+            max-height: 30em;
+            overflow: hidden;
+        }
+            #series-detail section.poster span {
+                position: absolute;
+                right: 0;
+                top: 15.6em;
+                width: 70px;
+                height: 70px;
+                background-color: #f66556;
+                color: #fff;
+                border-radius: 50%;
+                text-align: center;
+                font-size: 2em;
+                line-height: 70px;
+                z-index: 3;
+            }
+        #series-detail section.video {
+            text-align: center;
+        }
+            #series-detail section.video iframe {
+                border: none;
+                width: 350px;
+                height: 250px;
+            }
 
-.detail-body {
-    padding: 1em;
-}
-.meta-container {
-    margin-bottom: 1em;
-}
-.meta-container h1 {
-    font-size: 200%;
-}
-.meta {
-    display: flex;
-    justify-content: space-between;
-}
-.plot {
-    margin-bottom: 2em;
-}
-.trailer {
-    width: 100%;
-}
-.backlink {
-    color: white;
-    font-size: 300%;
-    margin-bottom: 1em;
-}
-.backlink:hover {
-    text-decoration: none;
-    color: lightgrey;
-}
-
-
+/*Intro Animation CSS*/
 @supports(animation: fadeIn) {
     .series-game-intro main {
         display: flex;

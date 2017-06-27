@@ -159,7 +159,7 @@ router.get('/overview', function (req, res) {
     console.log(bestResults);
 
     User.findOneAndUpdate( {
-        'user.facebook.displayName' : 'Shyanta Vleugel'
+        'user.facebook.email' : 'shyantavleugel@gmail.com'
     }, {
         '$set' : {
             'user.profile.matches' : []
@@ -170,7 +170,7 @@ router.get('/overview', function (req, res) {
         }
     });
     User.findOneAndUpdate( {
-        'user.facebook.displayName' : 'Shyanta Vleugel'
+        'user.facebook.email' : 'shyantavleugel@gmail.com'
     }, {
         '$push' : {
             'user.profile.matches' : bestResults

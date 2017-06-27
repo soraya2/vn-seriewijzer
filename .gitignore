@@ -57,6 +57,9 @@ typings/
 # dotenv environment variables file
 .env
 
+# thumbs.db
+thumbs.db
+
 
 routes/backup.js
 

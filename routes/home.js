@@ -6,7 +6,9 @@ var express = require('express'),
 
 router.get('/', function(req, res) {
 
-    user.findOne({'user.facebook.displayName': 'Shyanta Vleugel'}, function(err, user) {
+// Change 'Shyanta Vleugel' to req.session.email
+
+    user.findOne({'user.facebook.email': 'shyantavleugel@gmail.com' }, function(err, user) {
         reviewsSchema.find({}).sort({ postDate: -1 }).exec(function (err, reviews) {
             console.log(reviews);
             res.render('home', {

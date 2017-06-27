@@ -1,5 +1,8 @@
 body {
     margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+
 }
 
 .titel {
@@ -53,37 +56,7 @@ body {
         color: #F76655;
     }
     nav {
-
         color: #333333;
-        .navigation-left {
-            float: left;
-        }
-        .navigation-right {
-            float: right;
-        }
-        .navigation-left,
-        .navigation-right {
-            display: inline-block;
-            li {
-                display: inline-block;
-                margin-right: 1em;
-            }
-            .login-btn {
-                background-color: deepskyblue;
-                padding: 1em 2em;
-                border-radius: 1em;
-                color: white;
-                -webkit-transition: 0.3s;
-                transition: 0.3s;
-                text-transform: uppercase;
-            }
-            .login-btn:hover {
-                background-color: skyblue;
-                -webkit-transition: 0.3s;
-                transition: 0.3s;
-            }
-
-        }
         @media screen and (max-width: 40em) {
             display: none;
             width: 100vw;
@@ -123,7 +96,7 @@ body {
                         -ms-grid-row-align: center;
                     align-items: center;
         }
-        nav {
+        .main-navigation {
             display: -webkit-box;
             display: -ms-flexbox;
             display: flex;
@@ -133,15 +106,9 @@ body {
             -webkit-box-align: center;
                 -ms-flex-align: center;
                     align-items: center;
-            .navigation-left,
-            .navigation-right {
-                width: 35%;
-                display: -webkit-box;
-                display: -ms-flexbox;
-                display: flex;
-                -ms-flex-pack: distribute;
-                    justify-content: space-around;
-            }
+            width: 80em;
+            margin: 0 auto;
+
             @media screen and (max-width: 40em) {
                 display: none;
                 -webkit-box-orient: vertical;
@@ -152,6 +119,13 @@ body {
                     -ms-flex-pack: start;
                         justify-content: flex-start;
                 width: 100vw;
+            }
+            .nav-list {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                width: 60%;
+
             }
         }
 

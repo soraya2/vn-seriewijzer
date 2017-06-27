@@ -6,8 +6,8 @@ var cacheFiles = [
     '/persona',
     '/persona_results',
     '../stylesheets/style.css',
-    // '../../public/javascripts/persona-steps',
-    // '../../public/javascripts/bundle.js'
+    '../javascripts/persona-steps.js',
+    '../public/javascripts/bundle.js'
 
 ];
 
@@ -64,7 +64,7 @@ self.addEventListener('fetch', function(event) {
                 })
                 .catch(function(err) {
                     console.log('[serviceWorker] error fetching and cashing new request', err);
-                })
+                });
             return fetch(event.request);
-        }))
-})
+        }));
+});

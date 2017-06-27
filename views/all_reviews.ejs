@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<%- include partials/head.ejs %>
+    <title>
+        <%= title %>
+    </title>
+    </head>
+    <body>
+        <%- include partials/header.ejs %>
+        <%- include partials/filter.ejs %>
+        <main class="overview-container">
+
+            <section class="review-overview-container">
+                <h2>Laatste Recensies</h2>
+                <% for(var i=0; i<reviewData.length; i++) {%>
+                    <div class="review">
+                        <div>
+                            <img src="<%=reviewData[i].review.imgURL%>" alt="">
+                        </div>
+                        <div class="text-container">
+                            <span class="rating">Score: <%= reviewData[i].review.reviewRating %></span>
+                            <a class="detail-link" href="/detail/<%= reviewData[i].review.seriesName %>">
+                                <h3><%= reviewData[i].review.seriesName %></h3>
+                            </a>
+                            <p class="post-date">Op: <%= reviewData[i].user.postDate %></p>
+                            <h4><%= reviewData[i].review.reviewTitle %></h4>
+                            <p class="post-user">Door <%= reviewData[i].user.name %></p>
+
+
+                            <!-- Laatste spatie opzoeken uit de array (lastIndexOf) en dan het woord erna weghalen -->
+                            <!-- Gemanipuleerde reviewData sturen naar de view, niet in de view doen -->
+
+                            <p class="intro-text"><%= reviewData[i].review.reviewPlot.substring(0, 210) %>
+                                ...
+                                <a class="bottom-link" href="/detail/<%= reviewData[i].review.seriesName %>">
+                                    Lees meer
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                    <% } %>
+            </section>
+        </main>
+            <script src="/javascripts/filter.js"></script>
+            <script src="/javascripts/navigation.js"></script>
+    </body>
+</html>

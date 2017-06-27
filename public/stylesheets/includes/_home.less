@@ -67,13 +67,14 @@ img {
     display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
 }
 
 .overview-container {
     text-align: center;
 }
+
 .match-overview-container,
 .review-overview-container {
     display: inline-block;
@@ -81,6 +82,7 @@ img {
     max-width: 80em;
     margin: 4em auto;
 }
+
 .match-overview-container {
     h1 {
         width: 100%;
@@ -102,9 +104,7 @@ img {
     }
     .secondary-match {
         display: inline-block;
-        @media screen and (max-width: 40em) {
-
-        }
+        @media screen and (max-width: 40em) {}
     }
     img {
         height: 23em;
@@ -115,10 +115,12 @@ img {
         width: 100vw;
     }
 }
+
 h3 {
     max-width: 11em;
     white-space: nowrap;
 }
+
 .review-overview-container {
     h2 {
         width: 100%;
@@ -201,8 +203,8 @@ h3 {
     .overview-container {
         @media screen and (max-width: 40em) {
             -webkit-box-pack: center;
-                -ms-flex-pack: center;
-                    justify-content: center;
+            -ms-flex-pack: center;
+            justify-content: center;
         }
     }
     .match-overview-container,
@@ -212,17 +214,16 @@ h3 {
     }
     .match-overview-container {
         -ms-flex-wrap: wrap;
-            flex-wrap: wrap;
+        flex-wrap: wrap;
     }
-
     .review-overview-container {
         -ms-flex-wrap: wrap;
-            flex-wrap: wrap;
+        flex-wrap: wrap;
         @media screen and (max-width: 40em) {
             -webkit-box-orient: vertical;
             -webkit-box-direction: normal;
-                -ms-flex-direction: column;
-                    flex-direction: column;
+            -ms-flex-direction: column;
+            flex-direction: column;
         }
         .review {
             display: -webkit-box;
@@ -230,12 +231,11 @@ h3 {
             display: flex;
             -webkit-box-orient: horizontal;
             -webkit-box-direction: normal;
-                -ms-flex-direction: row;
-                    flex-direction: row;
+            -ms-flex-direction: row;
+            flex-direction: row;
             -webkit-box-pack: justify;
-                -ms-flex-pack: justify;
-                    justify-content: space-between;
-
-            }
+            -ms-flex-pack: justify;
+            justify-content: space-between;
         }
+    }
 }

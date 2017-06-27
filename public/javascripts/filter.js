@@ -10,8 +10,8 @@
 
     var filters = {};
 
-    filters.test = 'test1';
-    filters.test2 = 'test2';
+    // filters.test = 'test1';
+    // filters.test2 = 'test2';
     var overviewContainer = document.getElementsByClassName('review-overview-container');
 
 
@@ -19,19 +19,6 @@
     // console.log(filterCheckbox);
 
 
-    for (var i = 0; i < filterCheckbox.length; i++) {
-        // filterCheckbox[i];
-
-        filterCheckbox[i].addEventListener('change', function(argument) {
-            // console.log(this.checked);
-            if (this.checked) {
-                // this.value
-                arrayCheck(this.name, this.value);
-
-            }
-
-        });
-    }
 
     function httpGetAsync(theUrl, callback) {
         var xmlHttp = new XMLHttpRequest();
@@ -43,12 +30,27 @@
         xmlHttp.send(null);
     };
 
+
     httpGetAsync('https://220cf296.ngrok.io/search', callback);
 
 
     function callback(data) {
-        console.log(reviews, '');
         var reviews = JSON.parse(data);
+        for (var i = 0; i < filterCheckbox.length; i++) {
+            // filterCheckbox[i];
+
+            filterCheckbox[i].addEventListener('change', function(argument) {
+                // console.log(this.checked);
+                if (this.checked) {
+                    // this.value
+                    arrayCheck(this.name, this.value);
+
+                    filter(reviews);
+                    console.log(filters);
+                }
+
+            });
+        }
         overviewContainer[0].innerHTML = reviews
             .reduce(function(html, object, i) {
 
@@ -85,36 +87,30 @@
         var filterdData = reviewData.filter(function(serie) {
 
             return Object.keys(filters).every(function(key) { // For each key in filter return filter key value
+                // console.log(filters[key]);
+                // return filters[key].some(function(filterOptions) { // Compare filter options with serie tags
 
-                return filters[key].some(function(filterOptions) { // Compare filter options with serie tags
+                //     return serie.review[key].some(function(seriesTags) {
 
-                    return serie.review[key].some(function(seriesTags) {
+                //         console.log(filterOptions === seriesTags);
 
-                        console.log(filterOptions === seriesTags);
+                //         return filterOptions === seriesTags;
+                //     });
 
-                        return filterOptions === seriesTags;
-                    });
-
-                });
+                // });
             });
         });
+
+        // console.log(filterdData);
     }
 
 
     function setFilter(filterName, filterValue) {
 
-        if (filters.hasOwnProperty(filters[filterName])) {
-            console.log(filters);
-            // console.log('unique');
-            // filters[filterName] = filterValue;
-            // arrayCheck(key, req.session.personaform[key]);
-        } else {
-            // console.log('same');
+        filters[filterName] = filterValue;
 
-            // console.log(filterValue, filterName);
-            // console.log(filters[filterName]);
-            // filters[filterName].push(filterValue);
-        }
+        // console.log(filters);
+
     }
 
 
@@ -134,11 +130,19 @@
 
         if (Array.isArray(filterValue) === false) {
             // console.log(filterName, filterValue);
+            // filters[filterName].push(filterValue);
+            if (!(filterName in filters)) {
 
-            setFilter(filterName, new Array(filterValue));
-        } else {
+                setFilter(filterName, new Array(filterValue));
 
-            setFilter(filterName, filterValue);
+                console.log(Array.isArray(filterValue));
+            }
+
+        }
+        if (Array.isArray(filterValue)) {
+
+            // setFilter(filterName, filterValue);
+            filters[filterName].push(filterValue);
         }
     }
 })();

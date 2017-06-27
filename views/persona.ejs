@@ -10,23 +10,19 @@
     <title>Kies je persona</title>
 </head>
 <body class="check">
-        <!-- <progress max="3" value="1">
-            <div class="progress-fallback">
-                <span class="meter-fraction">Stap 1</span>
-            </div>
-        </progress> -->
     <header class="header-personacheck">
         <h1>Wie ben jij?</h1>
     </header>
     <main class="form-for-check">
+        <h2>Hoe werkt het?</h2>
+        <p>
+            Vertel ons in drie stappen wie je bent! <span id="condition">Je mag minimaal één en maximaal drie eigenschap(pen) kiezen.</span> Daarna krijg je een gepersonaliseerd aanbod aan de hand van wat je hebt ingevuld.
+        </p>
         <% if(message != "undefined"){ %>
             <p class="invalid-submit">
                 <%= message %>
             </p>
         <% } %>
-        <p id="condition">
-            Je mag minimaal één en maximaal drie eigenschap(pen) kiezen.
-        </p>
         <form method="post" action="/persona" id="persona-form">
 
         <fieldset class="persona-check">

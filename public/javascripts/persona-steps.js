@@ -94,17 +94,26 @@
 
     //Functions to get all checked checkboxes and render them in a list in confirmation overlay
     function showChoices(){
-        var allCheckboxes = document.querySelectorAll('input[type="checkbox"]:checked + picture + p label');
+        var allCheckboxes = document.querySelectorAll('input[type="checkbox"]:checked + picture + h3 label');
+        var allPictures = document.querySelectorAll('input[type="checkbox"]:checked + picture > img');
+        console.log(allPictures);
 
         for (b = 0; b < allCheckboxes.length; b++) {
             var li = document.createElement('li');
+            var label = document.createElement('label');
+            var img = document.createElement('img')
             var text = document.createTextNode(allCheckboxes[b].innerHTML);
 
-            li.appendChild(text);
+            img.setAttribute('src', allPictures[b].attributes[0].nodeValue);
+            img.setAttribute('alt', allPictures[b].alt);
+
+            label.appendChild(text);
+            li.appendChild(img);
+            li.appendChild(label);
             personalList.appendChild(li);
         }
     }
-        // END CHANEL
+    // END CHANEL
 
         var step = {
             next: function(e){

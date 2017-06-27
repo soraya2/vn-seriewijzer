@@ -14,7 +14,7 @@
                 <section class="match-overview-container">
                     <h1>Speciaal Voor Jou</h1>
                     <div class="best-match">
-                        <a href="/detail/<%=userData.user.profile.matches[0][0].data.review.seriesName %>">
+                        <a href="/review/<%=userData.user.profile.matches[0][0].data.review.seriesName %>">
                         <picture>
                             <img class="match-img" src="<%=userData.user.profile.matches[0][0].data.review.imgURL%>" alt="<%=userData.user.profile.matches[0][0].data.review.seriesName%>">
                         </picture>
@@ -23,7 +23,7 @@
                     </div>
                     <% for(var i=1; i<userData.user.profile.matches[0].length; i++) {%>
                         <div class="secondary-match">
-                            <a class="hidden-link" href="/detail/<%=userData.user.profile.matches[0][i].data.review.seriesName %>">
+                            <a class="hidden-link" href="/review/<%=userData.user.profile.matches[0][i].data.review.seriesName %>">
                                 <picture>
                                     <img src="<%=userData.user.profile.matches[0][i].data.review.imgURL%>" alt="<%=userData.user.profile.matches[0][i].data.review.seriesName%>">
                                 </picture>

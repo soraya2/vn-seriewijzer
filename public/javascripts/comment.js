@@ -6,6 +6,7 @@
     var commentList = document.querySelector('.comment-list');
     var textField = document.querySelector('[type="text"]');
     var selectBoxVote = document.querySelector('#vote');
+    var showTitle = document.querySelector('h1');
     console.log(selectBoxVote.value);
 
     document.querySelector('[type="submit"]').addEventListener('click', function(e) {

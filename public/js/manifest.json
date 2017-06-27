@@ -7,7 +7,7 @@
     "theme_color": "#ffffff ",
     "background_color": "#FFFFFF ",
     "icons": [{
-        "src": "../images/icons-airplane.png",
+        "src": "../img/VrijNederland.jpg",
         "sizes": "151×142",
         "type": "image/png"
     }]

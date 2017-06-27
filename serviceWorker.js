@@ -3,12 +3,12 @@ var cacheName = 'v1';
 var cacheFiles = [
     '/',
     '/home',
-    '/review',
-    '/persona_results',
     '/persona',
-    '../../public/stylecheets/style.css',
-    '../../public/javascripts/persona-steps',
-    '../../public/javascripts/bundle.js'
+    '/persona_results',
+    '../stylesheets/style.css',
+    // '../../public/javascripts/persona-steps',
+    // '../../public/javascripts/bundle.js'
+
 ];
 
 
@@ -31,6 +31,7 @@ self.addEventListener('activate', function(event) {
         caches.keys().then(function(cacheNames) {
             return Promise.all(cacheNames.map(function(thisCacheName) {
                 if (thisCacheName !== cacheName) {
+                    // console.log("remove cashName files from", cacheName);
                     return caches.delete(thisCacheName);
                 }
             }));
@@ -40,7 +41,6 @@ self.addEventListener('activate', function(event) {
 
 
 self.addEventListener('fetch', function(event) {
-    console.log('[serviceWorker] fetching', event.request.url);
     event.respondWith(
 
         caches.match(event.request).then(function(response) {
@@ -64,7 +64,7 @@ self.addEventListener('fetch', function(event) {
                 })
                 .catch(function(err) {
                     console.log('[serviceWorker] error fetching and cashing new request', err);
-                });
+                })
             return fetch(event.request);
-        }));
-});
+        }))
+})

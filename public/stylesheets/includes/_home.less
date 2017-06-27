@@ -11,11 +11,9 @@
     display: block;
     margin: 0 auto 2em;
     padding: 1em;
-}
-
-body {
-    width: 100vw;
-    overflow-x: hidden;
+    .browser-img {
+        width: 10em;
+    }
 }
 
 a {
@@ -60,33 +58,126 @@ img {
     display: none!important;
 }
 
-.message-area {
-    margin: 0 0.5em;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
+footer {
+    padding: 2em 0;
+    text-align: center;
+    color: white;
+    background-color: RGBA(247, 102, 85, 1.00);
 }
+
+// .message-area {
+//     margin: 0 0.5em;
+//     display: -webkit-box;
+//     display: -ms-flexbox;
+//     display: flex;
+//     -webkit-box-orient: vertical;
+//     -webkit-box-direction: normal;
+//     -ms-flex-direction: column;
+//     flex-direction: column;
+// }
 
 .overview-container {
     text-align: center;
+    .welcome-banner {
+        background: url('/img/placeholders/welcome-banner.jpg') no-repeat;
+    }
+    .review-banner {
+        background: url('/img/placeholders/review-banner.jpg') no-repeat;
+    }
+    .welcome-banner,
+    .review-banner {
+        position: relative;
+        background-size: cover;
+        background-color: rgba(255, 255, 255, 0.5);
+        width: 100%;
+        color: white;
+        padding: 10em 0;
+        .welcome-message,
+        .review-message {
+            z-index: 100;
+            position: inherit;
+            font-size: 230%;
+            h1 {
+                color: RGBA(247, 102, 85, 1.00);
+            }
+            h2 {
+                color: RGBA(247, 102, 85, 1.00);
+            }
+            p {
+                display: block;
+                margin: 0 auto;
+                font-family: inherit;
+                color: white;
+                font-size: 60%;
+                max-width: 40em;
+            }
+        }
+    }
+    .overlay {
+        position: absolute;
+        background: black;
+        opacity: 0.5;
+        top:0;
+        bottom:0;
+        left:0;
+        right:0;
+    }
 }
 
 .match-overview-container,
 .review-overview-container {
+    background-color: white;
     display: inline-block;
     text-align: left;
     max-width: 80em;
-    margin: 4em auto;
+    margin: 1em auto 2em;
 }
 
 .match-overview-container {
-    h1 {
+    width: 100%;
+    position: relative;
+    h2 {
         width: 100%;
         margin: 1em 0;
+        font-size: 200%;
+    }
+    .match-percentage {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-weight: bold;
+        position: absolute;
+        color: white;
+        background-color: #F76655;
+        padding: 1em 0.5em;
+        border-radius: 2em;
+        transform: translate(-1em, -1em);
+    }
+    .placeholder-message {
+        z-index: 200;
+        text-align: center;
+        color: white;
+        position: absolute;
+        display: block;
+        margin: 0 auto;
+        width: 100%;
+        top: 8em;
+        h2 {
+            font-size: 200%;
+            margin-bottom: 1em;
+            color: white;
+        }
+        a {
+            font-size: 150%;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+            background-color: #F76655;
+            padding: 0.5em 1em;
+            transition: 0.2s;
+        }
+        a:hover {
+            background-color: crimson;
+            transition: 0.2s;
+        }
     }
     .best-match {
         display: inline-block;
@@ -96,10 +187,12 @@ img {
         }
         .best-match-header {
             position: absolute;
-            bottom: 0;
+            bottom: -1em;
             width: 100%;
             background: #FFCC00;
             padding: 0.5em;
+            font-size: initial;
+            text-align: center;
         }
     }
     .secondary-match {
@@ -126,6 +219,7 @@ h3 {
         width: 100%;
         margin: 0 0 1em 0;
         display: inline-block;
+        font-size: 200%;
     }
     .review {
         display: inline-block;
@@ -159,7 +253,7 @@ h3 {
             .post-date {
                 position: absolute;
                 right: 0;
-                top: 0;
+                top: -1em;
                 font-family: 'Alegreya', serif;
                 color: grey;
                 font-size: 100%;
@@ -200,6 +294,10 @@ h3 {
 }
 
 @supports (display:flex) {
+    main {
+        height: auto!important;
+    }
+
     .overview-container {
         @media screen and (max-width: 40em) {
             -webkit-box-pack: center;

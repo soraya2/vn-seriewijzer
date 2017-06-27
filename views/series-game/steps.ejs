@@ -7,46 +7,49 @@
     <body id="serie-steps">
             <%- include ../partials/header.ejs %>
             <!-- hidden title for accessebility  -->
+        <main>
             <h1>Seriespel</h1>
+            <h2>Stap <%- stepNum %></h2>
             <ul data-steps="<%- stepNum %>">
                 <li><span>1</span></li>
                 <li><span>2</span></li>
                 <li><span>3</span></li>
                 <li><span>4</span></li>
             </ul>
-        <form action="/seriespel/step/<%- stepNum %>" method="post">
-            <label for="first">
-                <input type="checkbox" name="" id="first" value="<%- stepData[0].data.review.seriesName%>">
-                <div>
-                    <img src="<%- stepData[0].data.review.imgURL%>" alt="<%- stepData[0].data.review.seriesName%>">
-                </div>
-                <a href="/seriespel/details/<%- stepData[0].data.review.seriesName%>"><h2><%- stepData[0].data.review.seriesName%></h2></a>
-            </label>
-            <label for="second">
-                <input type="checkbox" name="" id="second" value="<%- stepData[1].data.review.seriesName%>">
-                <div>
-                    <img src="<%- stepData[1].data.review.imgURL%>" alt="<%- stepData[1].data.review.seriesName%>">
-                </div>
-                <a href="/seriespel/details/<%- stepData[1].data.review.seriesName%>"><h2><%- stepData[1].data.review.seriesName%></h2></a>
-            </label>
-            <label for="third">
-                <input type="checkbox" name="" id="third" value="<%- stepData[2].data.review.seriesName%>">
-                <div>
-                    <img src="<%- stepData[2].data.review.imgURL%>" alt="<%- stepData[2].data.review.seriesName%>">
-                </div>
-                <a href="/seriespel/details/<%- stepData[2].data.review.seriesName%>"><h2><%- stepData[2].data.review.seriesName%></h2></a>
-            </label>
-            <label for="fourth">
-                <input type="checkbox" name="" id="fourth" value="<%- stepData[3].data.review.seriesName%>">
-                <div>
-                    <img src="<%- stepData[3].data.review.imgURL%>" alt="<%- stepData[3].data.review.seriesName%>">
-                </div>
-                <a href="/seriespel/details/<%- stepData[3].data.review.seriesName%>"><h2><%- stepData[3].data.review.seriesName%></h2></a>
-            </label>
-            <footer>
-                <input type="submit" id="next-btn" value="Volgende">
-            </footer>
-        </form>
+            <form action="/seriespel/step/<%- stepNum %>" method="post">
+                <label for="first">
+                    <input type="checkbox" name="" id="first" value="<%- stepData[0].data.review.seriesName%>">
+                    <div>
+                        <img src="<%- stepData[0].data.review.imgURL%>" alt="<%- stepData[0].data.review.seriesName%>">
+                    </div>
+                    <a href="/seriespel/details/<%- stepData[0].data.review.seriesName%>"><h2><%- stepData[0].data.review.seriesName%></h2></a>
+                </label>
+                <label for="second">
+                    <input type="checkbox" name="" id="second" value="<%- stepData[1].data.review.seriesName%>">
+                    <div>
+                        <img src="<%- stepData[1].data.review.imgURL%>" alt="<%- stepData[1].data.review.seriesName%>">
+                    </div>
+                    <a href="/seriespel/details/<%- stepData[1].data.review.seriesName%>"><h2><%- stepData[1].data.review.seriesName%></h2></a>
+                </label>
+                <label for="third">
+                    <input type="checkbox" name="" id="third" value="<%- stepData[2].data.review.seriesName%>">
+                    <div>
+                        <img src="<%- stepData[2].data.review.imgURL%>" alt="<%- stepData[2].data.review.seriesName%>">
+                    </div>
+                    <a href="/seriespel/details/<%- stepData[2].data.review.seriesName%>"><h2><%- stepData[2].data.review.seriesName%></h2></a>
+                </label>
+                <label for="fourth">
+                    <input type="checkbox" name="" id="fourth" value="<%- stepData[3].data.review.seriesName%>">
+                    <div>
+                        <img src="<%- stepData[3].data.review.imgURL%>" alt="<%- stepData[3].data.review.seriesName%>">
+                    </div>
+                    <a href="/seriespel/details/<%- stepData[3].data.review.seriesName%>"><h2><%- stepData[3].data.review.seriesName%></h2></a>
+                </label>
+                <footer>
+                    <input type="submit" id="next-btn" value="Volgende">
+                </footer>
+            </form>
+        </main>
         <script src="/js/seriesgame.js"></script>
     </body>
 </html>

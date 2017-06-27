@@ -1,25 +1,29 @@
-#serie-steps {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
+#serie-steps main {
     background-color: #f6f6f6;
     font-family: sans-serif;
 }
+    #serie-steps main > h2 {
+        visibility: hidden;
+        position: absolute;
+    }
     #serie-steps h1 {
-        flex-basis: 50%;
+        float: left;
         width: 50%;
         line-height: 40px;
         margin: 0;
+        padding-left: 20px;
+        box-sizing: border-box;
     }
         #serie-steps ul {
-            flex-basis: 50%;
+            float: left;
+            padding: 0 20px 0 0;
+            box-sizing: border-box;
             width: 50%;
-            padding: 0;
+            height: 40px;
             list-style: none;
             display: flex;
             flex-wrap: nowrap;
-            margin: 0;
+            margin: 5px 0 0 0;
             justify-content: flex-end;
         }
             #serie-steps ul li {

@@ -1,6 +1,6 @@
 #serie-overview {
-    background-color: #000;
-    color: #fff;
+    background-color: #f6f6f6;
+    color: #000;
     font-family: sans-serif;
     display: flex;
     flex-direction: row;
@@ -8,38 +8,130 @@
     justify-content: space-around;
 }
     #serie-overview h1 {
+        flex-basis: 100%;
         width: 100%;
+        margin-bottom: 1em;
     }
-    #serie-overview a label {
-        width: 9em;
-        margin: 10px 20px;
+    #serie-overview main {
+        flex-basis: 100%;
+        width: 100%;
         box-sizing: border-box;
         display: flex;
         flex-direction: column;
-        position: relative;
-        transition: .4s;
-        z-index: 1;
-        cursor: pointer;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        text-align: center;
+        align-items: center;
+        height: calc(100% - 8em)!important;
     }
-        #serie-overview a label img {
-            width: 100%;
-            height: 12em;
+        #serie-overview main section {
+            flex-grow: 1;
+            height: 11em;
+            width: 8em;
+            display: block;
         }
-        #serie-overview a {
-            box-sizing: border-box;
-            text-align: center;
-            text-decoration: none;
-            color: #000;
-        }
-            #serie-overview a label h2 {
-                background-color: #fff;
-                height: 3em;
-                line-height: 3em;
-                margin: 0;
-                font-size: 14px;
+            #serie-overview main section a {
+                position: relative;
+                display: block;
+                width: 9em;
+                height: 13em;
             }
-                #serie-overview a label h2 span {
-                    display: inline-block;
-                    vertical-align: middle;
-                    line-height: normal;
+            #serie-overview main section h2 {
+                position: absolute;
+                top: -20px;
+                left: -20px;
+                background-color: #F66556;
+                border-radius: 50%;
+                width: 40px;
+                height: 40px;
+                color: #fff;
+                font-size: 1em;
+                line-height: 40px;
+            }
+            #serie-overview main section img {
+                height: 11.5em;
+                width: 8em;
+            }
+            #serie-overview main section[data-num="1"],
+            #serie-overview main section[data-num="2"],
+            #serie-overview main section[data-num="1"] img,
+            #serie-overview main section[data-num="2"] img{
+                height: 18em;
+                width: 11em;
+            }
+    @media screen and (min-width: 30em) {
+        #serie-overview main{
+            flex-direction: row;
+        }
+            #serie-overview main section {
+                height: 13em;
+                flex-basis: 33%;
+            }
+                #serie-overview main section a {
+                    width: 9em;
+                    height: 13em;
+                    margin: 0 auto;
                 }
+                #serie-overview main section img {
+                    height: 13em;
+                    width: 9em;
+                }
+                #serie-overview main section[data-num="1"] a,
+                #serie-overview main section[data-num="2"] a,
+                #serie-overview main section[data-num="1"] img,
+                #serie-overview main section[data-num="2"] img {
+                    height: 20em;
+                    width: 13em;
+                }
+                #serie-overview main section[data-num="1"],
+                #serie-overview main section[data-num="2"] {
+                    flex-basis: 50%;
+                    height: 20em;
+                }
+                #serie-overview main section[data-num="1"] h2,
+                #serie-overview main section[data-num="2"] h2 {
+                    width: 60px;
+                    height: 60px;
+                    top: -30px;
+                    left: -30px;
+                    line-height: 60px;
+                    font-size: 1.5em;
+                }
+    }
+    @media screen and (min-width: 45em) {
+        #serie-overview main {
+            max-width: 70%;
+            margin: 0 auto;
+        }
+            #serie-overview main section {
+                height: 18em;
+                flex-basis: 33%;
+            }
+                #serie-overview main section a {
+                    height: 18em;
+                    width: 12em;
+                    margin: 0 auto;
+                }
+                #serie-overview main section img {
+                    height: 18em;
+                    width: 12em;
+                }
+                #serie-overview main section[data-num="1"] a,
+                #serie-overview main section[data-num="2"] a,
+                #serie-overview main section[data-num="1"] img,
+                #serie-overview main section[data-num="2"] img {
+                    height: 24em;
+                    width: 17em;
+                }
+                #serie-overview main section[data-num="1"],
+                #serie-overview main section[data-num="2"] {
+                    flex-basis: 50%;
+                    height: 24em;
+                }
+    }
+    @media screen and (min-width: 60em) {
+        #serie-overview main {
+            max-width: 55%;
+            margin: 0 auto;
+        }
+    }

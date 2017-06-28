@@ -1,4 +1,4 @@
-// @import url('https://fonts.googleapis.com/css?family=Alegreya');
+@import url('https://fonts.googleapis.com/css?family=Alegreya');
 * {
     margin: 0;
     padding: 0;
@@ -54,11 +54,7 @@ img {
     width: 100%;
 }
 
-.hide {
-    display: none!important;
-}
-
-footer {
+.default-footer {
     padding: 2em 0;
     text-align: center;
     color: white;
@@ -75,9 +71,12 @@ footer {
 //     -ms-flex-direction: column;
 //     flex-direction: column;
 // }
-
 .overview-container {
     text-align: center;
+    margin-top: 4em;
+    @media screen and (max-width: 40em) {
+        margin-top: 0;
+    }
     .welcome-banner {
         background: url('/img/placeholders/welcome-banner.jpg') no-repeat;
     }
@@ -94,6 +93,7 @@ footer {
         padding: 10em 0;
         .welcome-message,
         .review-message {
+            font-family: 'Alegreya', serif;
             z-index: 100;
             position: inherit;
             font-size: 230%;
@@ -111,16 +111,21 @@ footer {
                 font-size: 60%;
                 max-width: 40em;
             }
+            @media screen and (max-width: 40em) {
+                font-size: 160%;
+                width: 12em;
+                margin: 0 auto;
+            }
         }
     }
     .overlay {
         position: absolute;
         background: black;
         opacity: 0.5;
-        top:0;
-        bottom:0;
-        left:0;
-        right:0;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
     }
 }
 
@@ -134,12 +139,23 @@ footer {
 }
 
 .match-overview-container {
-    width: 100%;
+    .match-img {
+        height: 20em;
+        width: 14em;
+        @media screen and (max-width: 40em) {
+            width: 100%;
+            height: 100%;
+        }
+    }
+    max-width: 95%;
     position: relative;
     h2 {
         width: 100%;
         margin: 1em 0;
         font-size: 200%;
+        @media screen and (max-width: 40em) {
+            text-align: center;
+        }
     }
     .match-percentage {
         font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -147,9 +163,17 @@ footer {
         position: absolute;
         color: white;
         background-color: #F76655;
-        padding: 1em 0.5em;
+        width: 3em;
+        height: 3em;
+        text-align: center;
+        line-height: 2.9em;
         border-radius: 2em;
         transform: translate(-1em, -1em);
+    }
+    .match-percentage {
+        @media screen and (max-width: 40em) {
+            transform: translate(0, -1em);
+        }
     }
     .placeholder-message {
         z-index: 200;
@@ -182,6 +206,7 @@ footer {
     .best-match {
         display: inline-block;
         position: relative;
+        transition: 0.2s;
         a {
             color: #333;
         }
@@ -194,14 +219,31 @@ footer {
             font-size: initial;
             text-align: center;
         }
+        .match-img {
+            @media screen and (max-width: 40em) {
+                width: 100%;
+                height: 100%;
+            }
+        }
     }
     .secondary-match {
+        transition: 0.2s;
         display: inline-block;
-        @media screen and (max-width: 40em) {}
+        @media screen and (max-width: 40em) {
+            width: 40%;
+            margin-top: 1.5em;
+        }
     }
-    img {
-        height: 23em;
-        width: 15em;
+    .best-match:hover,
+    .secondary-match:hover {
+        transition: 0.2s;
+        transform: scale(1.05);
+        -webkit-box-shadow: 0px 4px 32px 2px rgba(0, 0, 0, 0.52);
+        -moz-box-shadow: 0px 4px 32px 2px rgba(0, 0, 0, 0.52);
+        box-shadow: 0px 4px 32px 2px rgba(0, 0, 0, 0.52);
+        @media screen and (max-width: 40em) {
+            transform: scale(1.0);
+        }
     }
     @media screen and (max-width: 40em) {
         margin-top: 0;
@@ -297,7 +339,6 @@ h3 {
     main {
         height: auto!important;
     }
-
     .overview-container {
         @media screen and (max-width: 40em) {
             -webkit-box-pack: center;
@@ -313,6 +354,9 @@ h3 {
     .match-overview-container {
         -ms-flex-wrap: wrap;
         flex-wrap: wrap;
+        @media screen and (max-width: 40em) {
+            justify-content: space-around;
+        }
     }
     .review-overview-container {
         -ms-flex-wrap: wrap;
@@ -334,6 +378,13 @@ h3 {
             -webkit-box-pack: justify;
             -ms-flex-pack: justify;
             justify-content: space-between;
+            @media screen and (max-width: 40em) {
+                width: 80%;
+                -webkit-box-orient: vertical;
+                -webkit-box-direction: normal;
+                -ms-flex-direction: column;
+                flex-direction: column;
+            }
         }
     }
 }

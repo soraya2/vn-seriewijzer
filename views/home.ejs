@@ -26,25 +26,24 @@
                         <div class="best-match">
                             <span class="match-percentage"><%=userData.user.profile.matches[0][0].matchAll %>%</span>
                             <a href="/review/<%=userData.user.profile.matches[0][0].data.review.seriesName %>">
-                            <picture>
-                                <img class="match-img" src="<%=userData.user.profile.matches[0][0].data.review.imgURL%>" alt="<%=userData.user.profile.matches[0][0].data.review.seriesName%>">
-                            </picture>
-                            <h2 class="best-match-header">Jouw Beste Match</h2>
+                                <picture>
+                                    <img class="match-img" src="<%=userData.user.profile.matches[0][0].data.review.imgURL%>" alt="<%=userData.user.profile.matches[0][0].data.review.seriesName%>">
+                                </picture>
+                                <h2 class="best-match-header">Jouw Beste Match</h2>
                             </a>
                         </div>
                         <% for(var i=1; i<userData.user.profile.matches[0].length; i++) {%>
                             <div class="secondary-match">
                                 <span class="match-percentage"><%=userData.user.profile.matches[0][i].matchAll %>%</span>
-                                <a class="hidden-link" href="/review/<%=userData.user.profile.matches[0][i].data.review.seriesName %>">
+                                <a href="/review/<%=userData.user.profile.matches[0][i].data.review.seriesName %>">
                                     <picture>
-                                        <img src="<%=userData.user.profile.matches[0][i].data.review.imgURL%>" alt="<%=userData.user.profile.matches[0][i].data.review.seriesName%>">
+                                        <img class="match-img" src="<%=userData.user.profile.matches[0][i].data.review.imgURL%>" alt="<%=userData.user.profile.matches[0][i].data.review.seriesName%>">
                                     </picture>
                                 </a>
                             </div>
                         <% } %>
                     </section>
                 <% } else { %>
-
                     <section class="match-overview-container">
                         <div class="placeholder-message">
                             <h2>Hier komen jouw Top 5 matches</h2>
@@ -78,7 +77,6 @@
                             </picture>
                         </div>
                     </section>
-
                 <% } %>
                 <section class="review-banner">
                     <div class="review-message">
@@ -92,9 +90,11 @@
                         <% for(var i=0; i<6; i++) {%>
                             <div class="review">
                                 <div>
+                                <a class="detail-link" href="/review/<%= reviewData[i].review.seriesName %>">
                                     <picture>
                                         <img src="<%=reviewData[i].review.imgURL%>" alt="<%=reviewData[i].review.seriesName%>">
                                     </picture>
+                                </a>
                                 </div>
                                 <div class="text-container">
                                     <span class="rating">Score: <%= reviewData[i].review.reviewRating %></span>
@@ -104,11 +104,8 @@
                                     <p class="post-date">Op: <%= reviewData[i].user.postDate %></p>
                                     <h4><%= reviewData[i].review.reviewTitle %></h4>
                                     <p class="post-user">Door <%= reviewData[i].user.name %></p>
-
-
                                     <!-- Laatste spatie opzoeken uit de array (lastIndexOf) en dan het woord erna weghalen -->
                                     <!-- Gemanipuleerde reviewData sturen naar de view, niet in de view doen -->
-
                                     <p class="intro-text"><%= reviewData[i].review.reviewPlot.substring(0, 210) %>
                                         ...
                                         <a class="bottom-link" href="/detail/<%= reviewData[i].review.seriesName %>">

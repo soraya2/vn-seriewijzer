@@ -1,14 +1,15 @@
+/*Intro Animation CSS*/
 .series-game-intro {
     padding: 0;
     margin: 0;
-    background: black;
-    color: white;
+    background: #f6f6f6;
+    color: #000;
     font-family: sans-serif;
 }
 
 .series-game-intro header, .series-game-intro section {
     text-align: center;
-    padding: 1em;
+    padding-top: 1em;
 }
 
 .series-game-intro section p {
@@ -19,148 +20,131 @@
 
 .series-game-intro header h1 {
     margin: 0;
+    font-size: 1.5em;
+    padding: .5em 0;
 }
 
 .series-game-intro header {
-    background-color: #0099FF;
+    background-color: #fff;
+    box-shadow: 0 3px 3px #ddd;
 }
 
 .series-game-intro .block-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    text-align: center;
     margin: 0 auto;
     width: 18em;
 }
 
 .series-game-intro .block {
+    float: left;
     margin: 1em;
     height: 10em;
     width: 7em;
     background: grey;
+    color: #fff;
+    position: relative;
+}
+.series-game-intro .block.active {
+    transform: scale(1.2);
+}
+.series-game-intro .block img {
+    width: 100%;
+    height: 100%;
 }
 
-.order-number {
+.series-game-intro .block .order-number {
     position: absolute;
-    margin-top: 1em;
-    font-size: 450%;
+    top: -20px;
+    left: -20px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 1em;
+    background-color: #f66556;
+    border-radius: 50%;
 }
 
 .detail-img {
+    max-width: 18em;
     height: 5em;
-    margin: 2em 0;
+    margin: 2em auto;
 }
 
-.start-btn {
+.series-game-intro .start-btn {
     transition: 0.3s;
-    font-size: 150%;
+    font-size: 1em;
+    line-height: 3;
+    height: 3em;
     text-transform: uppercase;
     display: block;
     text-align: center;
     text-decoration: none;
     cursor: pointer;
-    border-radius: 1em;
-    color: black;
-    padding: 1em 2em;
-    background-color: #7DBC37;
+    color: #fff;
+    background-color: #f66556;
 }
 
-.start-btn:hover {
+.series-game-intro .start-btn:hover,
+.series-game-intro .start-btn:focus {
     transition: 0.3s;
-    background-color: #0090E3;
+    background-color: #d85244;
 }
 
-.series-detail-body {
-    background: black;
-    color: white;
+@media screen and (min-width: 50em){
+    .series-game-intro .start-btn {
+        width: 25%;
+        margin: 0px auto;
+        font-size: 1.5em;
+        line-height: 3em;
+        height: 3em;
+    }
 }
-
-.poster-image-container {
-    margin-top: 1em;
-    height: 50vh;
-    overflow: hidden;
-}
-
-.rating {
-    position: relative;
-    background: yellow;
-    border-radius: 100%;
-    padding: 0.6em 0.5em;
-    color: #333;
-    font-size: 200%;
-    font-weight: bold;
-    top: -1em;
-    float: right;
-}
-
-.detail-body {
-    padding: 1em;
-}
-.meta-container {
-    margin-bottom: 1em;
-}
-.meta-container h1 {
-    font-size: 200%;
-}
-.meta {
-    display: flex;
-    justify-content: space-between;
-}
-.plot {
-    margin-bottom: 2em;
-}
-.trailer {
-    width: 100%;
-}
-.backlink {
-    color: white;
-    font-size: 300%;
-    margin-bottom: 1em;
-}
-.backlink:hover {
-    text-decoration: none;
-    color: lightgrey;
-}
-
 
 @supports(animation: fadeIn) {
     .series-game-intro main {
+        text-align: center;
         display: flex;
         justify-content: center;
+        width: 100%;
+        clear: both;
+        position: relative;
     }
-    #intro-1, #intro-2, #intro-3 {
+    .series-game-intro #intro-1, .series-game-intro #intro-2, .series-game-intro #intro-3 {
         position: absolute;
+        top: 1em;
+        left: 0;
+        right: 0;
         display: flex;
-        margin-top: 2em;
         flex-direction: column;
         justify-content: space-around;
-        animation-duration: 10s;
+        animation-duration: 20s;
         animation-timing-function: ease-in-out;
         animation-iteration-count: infinite;
     }
-    #intro-3 {
+    .series-game-intro #intro-3 {
         margin-top: 10em;
     }
-    #next {
-        position: absolute;
-        right: 0;
+    .series-game-intro #next {
+        position: fixed;
         bottom: 0;
         left: 0;
+        right: 0;
     }
-    #intro-1 {
+    .series-game-intro #intro-1 {
         animation-name: anim-1;
     }
-    #intro-2 {
+    .series-game-intro #intro-2 {
         animation-name: anim-2;
     }
-    #intro-3 {
+    .series-game-intro #intro-3 {
         animation-name: anim-3;
     }
     @keyframes anim-1 {
-        0%, 8.3% {
+        0%, 4% {
             opacity: 0;
         }
-        8.3%, 25% {
+        4%, 29.33% {
             opacity: 1;
         }
         33.33%, 100% {
@@ -171,7 +155,7 @@
         0%, 33.33% {
             opacity: 0;
         }
-        41.63%, 58.29% {
+        37.33%, 62.66% {
             opacity: 1;
         }
         66.66%, 100% {
@@ -182,7 +166,7 @@
         0%, 66.66% {
             opacity: 0;
         }
-        74.96%, 91.62% {
+        71.66%, 96% {
             opacity: 1;
         }
         100% {
@@ -190,3 +174,133 @@
         }
     }
 }
+
+
+/*SERIES DETAIL PAGE STYLING*/
+#series-detail {
+    background-color: #f6f6f6;
+    color: #000;
+}
+    #series-detail h1,
+    #series-detail h3,
+    #series-detail p {
+        padding: 0 1em;
+    }
+    #series-detail h1 {
+        font-size: 2em;
+        line-height: 2;
+        width: 100%;
+        text-align: center;
+        background-color: #fff;
+        box-shadow: 0px 3px 3px #ddd;
+    }
+    #series-detail p.year {
+        font-weight: bold;
+        font-size: 1.2em;
+    }
+    #series-detail .backlink {
+        color: #000;
+        font-size: 3em;
+        position: absolute;
+        left: 10px;
+        top: 0px;
+        line-height: 1.5;
+    }
+        #series-detail section.poster {
+            display: block;
+            position: relative;
+        }
+            #series-detail section.poster .poster-container{
+                max-height: 30em;
+                overflow: hidden;
+            }
+            #series-detail section.poster span {
+                position: absolute;
+                right: 0;
+                bottom: -35px;
+                width: 70px;
+                height: 70px;
+                background-color: #f66556;
+                color: #fff;
+                border-radius: 50%;
+                text-align: center;
+                font-size: 2em;
+                line-height: 70px;
+                z-index: 3;
+            }
+        #series-detail section.video {
+            text-align: center;
+        }
+            #series-detail section.video h3 {
+                margin: 1em 0;
+                font-size: 1.3em;
+            }
+            #series-detail section.video iframe {
+                border: none;
+                width: 350px;
+                height: 250px;
+            }
+    @media screen and (min-width: 40em){
+        #series-detail section.poster {
+            width: 50%;
+            float: left;
+        }
+            #series-detail section.poster .poster-container {
+                max-height: calc(100% - 4em);
+                overflow: hidden;
+            }
+            #series-detail section.poster span {
+                position: absolute;
+                right: -35px;
+                bottom: 0;
+            }
+        #series-detail section.meta {
+            width: 50%;
+            float: right;
+            padding: 1em;
+        }
+        #series-detail section.video {
+            width: 100%;
+            float: left;
+        }
+            #series-detail section.video iframe {
+                width: 100%;
+                height: 500px;
+            }
+    }
+    @media screen and (min-width: 60em){
+        #series-detail section.poster {
+            width: 50%;
+            float: left;
+        }
+        #series-detail section.meta {
+            width: 50%;
+            float: right;
+            padding: 1em;
+        }
+        #series-detail section.video {
+            width: 50%;
+            float: right;
+        }
+            #series-detail section.video iframe {
+                width: 70%;
+                height: 250px;
+            }
+    }
+    @media screen and (min-width: 70em){
+        #series-detail {
+            position: relative;
+        }
+            #series-detail section.meta {
+                vertical-align: center;
+            }
+            #series-detail section.video {
+                position: fixed;
+                bottom: 0;
+                right: 0;
+            }
+                #series-detail section.video iframe {
+                    width: 100%;
+                    height: 400px;
+                }
+    }

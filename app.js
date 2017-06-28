@@ -28,6 +28,7 @@ var personaResults = require('./routes/persona_results');
 var reviewDetail = require('./routes/detail')(io);
 var home = require('./routes/home');
 var allReviews = require('./routes/all_reviews');
+var errorPage = require('./routes/error');
 
 require('./config/passport')(passport);
 
@@ -70,6 +71,7 @@ app.use('/recensies', allReviews);
 app.use('/seriespel', seriesGame);
 app.use('/review', reviewDetail);
 app.use('/persona_results', personaResults);
+// app.use('/*', errorPage);
 
 mongoose.connect(process.env.USERDB);
 // Console.log(mongoose.connection.readyState); //test database connection

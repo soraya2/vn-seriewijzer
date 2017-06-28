@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="nl">
+<%- include partials/head.ejs %>
+  <title>
+    <%= title %>
+  </title>
+  </head>
+
+  <body class="personacheck-results">
+    <%- include partials/header.ejs %>
+
+      <main >
+      <h1>Suggesties voor: <span>
+         Soraya Ibrahim<%=name%>
+      </span></h1>
+      <section class="overview-container">
+
+        <% for(var i=0; i<data.length; i++) {%>
+          <div class="movie">
+            <div>
+              <img src="<%=data[i].review.imgURL%>" alt="">
+            </div>
+            <a href="/review/<%= data[i].review.seriesName %>">
+              <h3><%= data[i].review.seriesName %></h3>
+            </a>
+          </div>
+          <% } %>
+      </section>
+      </main>
+      <script src="/javascripts/filter.js"></script>
+  </body>
+
+</html>

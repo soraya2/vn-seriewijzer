@@ -8,14 +8,13 @@ var reviewsSchema = mongoose.Schema({
         postDate: String
     },
 
-
     review: {
         seriesName: String,
         region: String,
         startYear: String,
         endYear: String,
         genre: Array,
-        platform: String,
+        platform: Array,
         period: Array,
         persona: Array,
         hobby: Array,
@@ -29,12 +28,11 @@ var reviewsSchema = mongoose.Schema({
         reviewRating: String,
         reviewIntro: String,
         producers: String,
-        awards: String,
-        nominations: String,
+        actors: String,
         imdbRating: String,
         trailerURL: String,
         imgURL: String,
-        plot: String
+        reviewPlot: String
     },
 
     comments: Array

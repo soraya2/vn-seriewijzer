@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+        <%- include ../partials/head.ejs %>
+        <link rel="stylesheet" href="/stylesheets/seriesoverview.css">
+        <title>Het Serie Spel</title>
+    </head>
+    <body id="serie-overview">
+        <%- include ../partials/header.ejs %>
+        <h1>Jouw persoonlijke top 5</h1>
+        <main>
+            <% for (var i = 0; i < results.length; i++) { %>
+                <section data-num="<%- i + 1 %>">
+                    <a href="/review/<%- results[i].name%>">
+                        <div>
+                            <img src="<%- results[i].data.review.imgURL%>" alt="<%- results[i].name%>">
+                        </div>
+                        <h2><%- results[i].matchAll + '%'%></h2>
+                    </a>
+                </section>
+            <% } %>
+        </main>
+    </body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="nl">
+    <%- include partials/head.ejs %>
+    <title>Detail</title>
+</head>
+<body class="review-page">
+    <%- include partials/header.ejs %>
+<main>
+
+    <article class="movie-details">
+    <!-- <a href="javascript:history.back()">Terug</a> -->
+
+        <section>
+
+            <div>
+                <h1><%=data.review.seriesName%></h1>
+
+                <ul class="meta">
+                    <li><span>Seizoenen:</span><%=data.review.seasons %></li>
+                    <li><span>IMDB cijfer:</span><%=data.review.imdbRating %></li>
+                    <li><span>Gemiddelde tijd per aflervering:</span><%=data.review.duration %></li>
+                </ul>
+                <p>
+
+                 <%= data.review.reviewPlot%>
+                </p>
+            </div>
+<!-- <capture class="video-container">
+                <object  frameborder="0" class="iframe" data="<%=data.review.trailerURL%>?controls=0&showinfo=0&hd=1" type="text/html">
+                </object>
+
+</capture> -->
+
+
+<div class="youtubevideowrap">
+<aside class="video-container">
+<iframe src="<%=data.review.trailerURL%>?controls=0&showinfo=0&hd=1?rel=0" allowfullscreen="" width="640" height="352" frameborder="0"></iframe>
+</aside>
+</div>
+        </section>
+        <section class="review">
+        <div>
+
+            <h2><%= data.review.reviewTitle%></h2>
+            <p class="text"><%= data.review.reviewIntro %></p>
+        </div>
+            <div class="img-container">
+                <img alt="<%= data.review.reviewTitle%> cover" src="<%=data.review.imgURL%>">
+                </img>
+            </div>
+        </section>
+
+
+
+        <section class="comments">
+            <% if(user == undefined){ %>
+                <p class="remark">
+                    <a href="/auth/facebook">Log in</a> om te kunnen reageren!
+                </p>
+            <% } else {%>
+            <form class="comments-form" action="/details" enctype="multipart/form-data" method="post">
+                <fieldset>
+                    <legend>Reactie plaatsen</legend>
+                    <label >
+                        <select name="" id="vote">
+                            <option value="0">Geef een cijfer</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                    </label>
+                    <label>
+                        <textarea placeholder="Describe yourself" type="text"> </textarea>
+                    </label>
+                </fieldset>
+                <input type="submit" value="Reactie Plaatsen">
+            </form>
+            <% } %>
+
+            <h2>Wat vind u van deze serie?</h2>
+
+            <ul class="comment-list">
+                <% for(var i = data.comments.length - 1; i > 0; i--){%>
+                    <hr>
+                    <li>
+                        <!--// <h4><%= data.comments[i].username%> </h4>-->
+                        <p> <span><%=data.comments[i].rating%></span>Cijfer</p>
+                        <div>
+                            <div>
+                                <h4>Soraya Ibrahim </h4>
+                                <time><%= data.comments[i].time%></time>
+                            </div>
+                            <p><%= data.comments[i].text%></p>
+
+                        </div>
+
+                    </li>
+                    <% } %>
+            </ul>
+        </section>
+    </article>
+</main>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/javascripts/comment.js"></script>
+</body>
+
+</html>

@@ -1,46 +1,39 @@
-//BEGIN CHANEL
-//#F76655
-//#FF5300
 // GENERAL PERSONACHECK
-body {
-    background-color: white;
-    margin: 0.5rem;
-    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+@keyframes feedback {
+    0%{background-color:#F76655; color: white}
+    80%{background-color:#F76655; color: white}
+    100%{background-color:white; color: #333}
 }
-
-h1 {
-    font-family: "Lato", sans-serif;
-}
-
-h2 {
-    font-family: "Lato", sans-serif;
-}
-
-fieldset {
-    border: 0 none;
-}
-
-fieldset legend {
+main {
     display: block;
 }
-
 button,
 input[type="submit"] {
     -webkit-appearance: none;
     appearance: none;
 }
-
+[hidden] {
+    display: none;
+}
+button[disabled], button[disabled]:hover, button[disabled]:active {
+    background-color: #eee;
+    color: #ccc;
+    cursor: not-allowed;
+}
+.check {
+    background-color: white;
+    margin: 0.5rem;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
 .hide {
     display: none;
 }
-
 .fade-in {
     opacity: 1;
     position: static;
     transition: opacity 0.5s;
     transition-delay: 0.2s;
 }
-
 .fade-out {
     opacity: 0;
     position: absolute;
@@ -49,87 +42,152 @@ input[type="submit"] {
     width: 100%;
     z-index: -1;
 }
-
-.login {
-    margin: 0.5rem;
+@supports(display:flex) {
+    .flexdiv, #personal-list {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: 100%;
+    }
 }
-
-.item {
+@supports(display:grid) {
+    .flexdiv, #personal-list {
+        display: grid;
+        grid-column-gap: 0.5rem;
+        grid-row-gap: 0.5rem;
+        grid-template-columns: auto auto auto;
+        grid-template-rows: auto auto auto;
+    }
+}
+.item, #personal-list li {
     display: inline-block;
-    width: 30vw;
     margin-top: 0.5rem;
     position: relative;
     text-align: center;
+    width: 30vw;
 }
-
 .submit-persona {
     background-color: #F76655;
     border: none;
+    border-radius: 0;
     bottom: 0;
-    box-shadow: 0 -1px 10px #333;
     color: white;
-    font-size: 1.3em;
+    font-size: 1.3rem;
     font-weight: bold;
     left: 0;
     padding: 0.7rem;
     position: fixed;
     text-align: center;
     text-transform: lowercase;
-    width: 100%;
+    transition: background-color 0.2s;
+    width: 50%;
 }
-
-.submit-persona:focus {
-    background-color: #F76655;
+.submit-persona:hover {
+    background-color: #FF5300;
+    cursor: pointer;
 }
-
-.text-label {
-    color: #A0A0A0;
-    font-size: .875rem;
-    font-weight: 700;
+.go-back {
+    background-color: #ddd;
+    color: black;
 }
-
-.form-for-check > form {
-    position: relative;
+.go-back:hover {
+    background-color: #ccc;
+    color: black;
 }
-
-.form-for-check fieldset {
-    margin-bottom: 3.5rem;
+.item:hover {
+    background-color: #ddd;
 }
-
-.persona-check legend {
-    margin-bottom: 0.5rem;
+.invalid-submit {
+    border: 2px solid #F76655;
+    border-radius: 3px;
+    background-color: rgba(247,102,85, 0.5);
+    color: black;
+    font-size: 1.2rem;
+    padding: 0.5rem;
 }
-
-.login h2 {
-    margin: 1rem 0;
-}
-
-.item div {
-    background: #F76655;
-    border-radius: 100%;
-    height: 30vw;
-    position: relative;
-    width: 30vw;
-}
-
-.flexdiv div:before {
-    background-size: 100% !important;
-    border-radius: 100%;
+.notify {
     bottom: 0;
-    content: '';
+    background-color: rgba(255, 255, 255, 0.9);
     left: 0;
     position: absolute;
     right: 0;
     top: 0;
 }
-
+.login h2, .check h2 {
+    color: #F76655;
+    font-family: "Lato", sans-serif;
+}
+.check p, .login li, .check label {
+    font-family: 'Alegreya', 'Lucida Grande';
+}
+.form-for-check fieldset {
+    margin-bottom: 3.5rem;
+}
+.form-for-check p {
+    margin: 0.5rem 0;
+}
+.check fieldset {
+    border: 0 none;
+}
+.check h1 {
+    font-family: 'Helvetica';
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+.check h3 {
+    font-weight: normal;
+    max-width: none;
+    white-space: normal;
+}
+.check p {
+    font-size: 1rem;
+}
+.persona-check legend {
+    margin-bottom: 0.5rem;
+}
+.check picture {
+    border-radius: 100%;
+    height: 30vw;
+    position: relative;
+    width: 30vw;
+}
+.check source, .check img, #personal-list img {
+    background-color: #F76655;
+    border-radius: 100%;
+    height: 30vw;
+    width: 30vw;
+}
+.notify h4 {
+    position: absolute;
+    -ms-transform: translateY(50%);
+    transform: translateY(50%);
+}
 .item p {
     color: #333;
-    font-family: 'Lato', "Lucida Grande";
-    font-size: 0.9rem;
+    font-size: 1rem;
     font-weight: 400;
 }
-
+.item img, .item picture {
+    filter: gray;
+    transition: 0.2s filter;
+}
+@supports (filter: grayscale(70%)){
+    .item picture {
+        -webkit-filter: grayscale(70%);
+        filter: grayscale(70%);
+    }
+    .item img {
+        filter: none;
+    }
+}
+.item label:hover {
+    color: #F76655;
+    cursor: pointer;
+}
+.item label:active {
+    color: #333;
+}
 .item label::after {
     bottom: 0;
     content: '';
@@ -138,310 +196,154 @@ input[type="submit"] {
     right: 0;
     top: 0;
 }
-
-.item input:checked + div + p > label {
-    color: #F76655;
-}
-
-.item input:focus + div + p > label::after,
-.submit-persona:focus {
-    outline: #333 dashed;
-}
-
-@supports(display:flex) {
-    .flexdiv {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        width: 100%;
+@supports(filter: grayscale(30%)){
+    .item:hover {
+        background-color: white;
+    }
+    .item:hover picture {
+        -webkit-filter: grayscale(30%);
+        filter: grayscale(30%);
+    }
+    .item:active img, .item:active source {
+        -webkit-filter: grayscale(70%);
+        filter: grayscale(70%);
     }
 }
-
 @supports(clip:rect(0, 0, 0, 0)) {
-    input[type="checkbox"] {
+    .item input[type="checkbox"] {
         clip: rect(0, 0, 0, 0);
         position: absolute;
     }
 }
-
-@supports(display:grid) {
-    .form-for-check .flexdiv {
-        display: grid;
-        grid-column-gap: 0.5rem;
-        grid-row-gap: 0.5rem;
-        grid-template-columns: auto auto auto;
-        grid-template-rows: auto auto auto;
+.check fieldset legend {
+    display: block;
+}
+.form-for-check > form {
+    position: relative;
+}
+.item input:checked + picture {
+    filter: grayscale(0%);
+}
+.item input:checked + picture > img {
+    filter: none;
+}
+.item input:checked + picture + h3 > label {
+    color: #F76655;
+}
+.item input:focus + picture + h3 > label::after,
+.submit-persona:focus {
+    outline: #333 dashed;
+}
+#condition {
+    color: #F76655;
+    padding: 0.5rem 0;
+}
+#nojs-submit {
+    width: 100%;
+}
+#persona-button {
+    left: 50%;
+    right: 0;
+}
+@supports (left: initial) {
+    #persona-button {
+        left: initial;
     }
 }
 
 // LOGIN
+.login {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    width: 100vw;
+}
 .login header {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    margin-left: 2rem;
 }
-
 .login h1 {
-    font-size: 2.7rem;
+    font-family: "Lato", sans-serif;
+    font-size: 3.5rem;
     margin: 0;
+    order: 2;
 }
-
+.login h2 {
+    color: #333;
+    font-size: 2rem;
+    margin: 1rem 0;
+    order: 1;
+}
 .login p {
     color: #F76655;
     display: inline;
     font-style: italic;
+    order: 3;
     padding: 0.3rem;
 }
-
-// PERSONA
-.select-color {
-    background-color: #ddd;
+#login-button {
+    text-decoration: none;
+    width: 100%;
 }
 
-.flexdiv .item div {
-    filter: grayscale(70%);
-    transition: 0.2s filter;
+//CONFIRMATION PAGE
+#confirm-persona {
+    background-color: rgba(0, 0, 0, 0.9);
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
 }
-
-input:checked + div {
-    filter: grayscale(0%) !important;
+#confirm-persona div {
+    background-color: white;
+    height: auto;
+    position: fixed;
+    padding: 0.5rem;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    width: 100vw;
 }
-
-.flexdiv .persona:nth-of-type(1) div::before {
-    background: url('/img/small-icons_jamie.png');
+#confirm-persona h2 {
+    font-size: 1.8rem;
 }
-
-.flexdiv .persona:nth-of-type(2) div::before {
-    background: url('/img/small-icons_vangogh.png');
+#confirm-persona h3 {
+    font-family: 'Helvetica';
+    font-weight: bold;
 }
-
-.flexdiv .persona:nth-of-type(3) div::before {
-    background: url('/img/small-icons_snooki.png');
+#confirm-persona ul {
+    list-style-type: initial;
+    margin: 0.5rem 0;
+    padding-left: 0;
 }
-
-.flexdiv .persona:nth-of-type(4) div::before {
-    background: url('/img/small-icons_kevin.png');
+#confirm-persona li {
+    font-size: 1rem;
+    padding-bottom: 0.3rem;
 }
-
-.flexdiv .persona:nth-of-type(5) div::before {
-    background: url('/img/small-icons_kim.png');
+#confirm-persona .submit-persona {
+    box-shadow: none;
+    font-size: 1rem;
+    position: static;
+    -ms-transform: none;
+    transform: none;
+    width: 60%;
 }
-
-.flexdiv .persona:nth-of-type(6) div::before {
-    background: url('/img/small-icons_therock.png');
-}
-
-.flexdiv .persona:nth-of-type(7) div::before {
-    background: url('/img/small-icons_frodo.png');
-}
-
-.flexdiv .persona:nth-of-type(8) div::before {
-    background: url('/img/small-icons_steve.png');
-}
-
-.flexdiv .persona:nth-of-type(9) div::before {
-    background: url('/img/small-icons_caesar.png');
-}
-
-.flexdiv .persona:nth-of-type(10) div::before {
-    background: url('/img/small-icons_obama.png');
-}
-
-.flexdiv .persona:nth-of-type(11) div::before {
-    background: url('/img/small-icons_tomboy.png');
-}
-
-.flexdiv .persona:nth-of-type(12) div::before {
-    background: url('/img/small-icons_wie.png');
-}
-
-// FREETIME
-.flexdiv .hobby:nth-of-type(1) div::before {
-    background: url('/img/small-icons_controller.png');
-}
-
-.flexdiv .hobby:nth-of-type(2) div::before {
-    background: url('/img/small-icons_football.png');
-}
-
-.flexdiv .hobby:nth-of-type(3) div::before {
-    background: url('/img/small-icons_beer.png');
-}
-
-.flexdiv .hobby:nth-of-type(4) div::before {
-    background: url('/img/small-icons_airplane.png');
-}
-
-.flexdiv .hobby:nth-of-type(5) div::before {
-    background: url('/img/small-icons_guitar.png');
-}
-
-.flexdiv .hobby:nth-of-type(6) div::before {
-    background: url('/img/small-icons_bag.png');
-}
-
-.flexdiv .hobby:nth-of-type(7) div::before {
-    background: url('/img/small-icons_pan.png');
-}
-
-.flexdiv .hobby:nth-of-type(8) div::before {
-    background: url('/img/small-icons_book.png');
-}
-
-.flexdiv .hobby:nth-of-type(9) div::before {
-    background: url('/img/small-icons_pill.png');
-}
-
-.flexdiv .hobby:nth-of-type(10) div::before {
-    background: url('/img/small-icons_suitcase.png');
-}
-
-.flexdiv .hobby:nth-of-type(11) div::before {
-    background: url('/img/small-icons_soap.png');
-}
-
-// MOODS
-.flexdiv .mood:nth-of-type(1) div::before {
-    background: url('/img/small-icons_will.png');
-}
-
-.flexdiv .mood:nth-of-type(2) div::before {
-    background: url('/img/small-icons_darryl.png');
-}
-
-.flexdiv .mood:nth-of-type(3) div::before {
-    background: url('/img/small-icons_chris.png');
-}
-
-.flexdiv .mood:nth-of-type(4) div::before {
-    background: url('/img/small-icons_jack.png');
-}
-
-.flexdiv .mood:nth-of-type(5) div::before {
-    background: url('/img/small-icons_kristen.png');
-}
-
-.flexdiv .mood:nth-of-type(6) div::before {
-    background: url('/img/small-icons_bigbang.png');
-}
-
-@media screen and (min-width: 23rem) {
-    .item p {
-        font-size: 1.1rem;
-    }
-    .flexdiv .persona:nth-of-type(1) div::before {
-        background: #F76655;
-        background: url('/img/icons-jamie.png');
-    }
-    .flexdiv .persona:nth-of-type(2) div::before {
-        background: url('/img/icons-vangogh.png');
-    }
-    .flexdiv .persona:nth-of-type(3) div::before {
-        background: url('/img/icons-snooki.png');
-    }
-    .flexdiv .persona:nth-of-type(4) div::before {
-        background: url('/img/icons-kevin.png');
-    }
-    .flexdiv .persona:nth-of-type(5) div::before {
-        background: url('/img/icons-kim.png');
-    }
-    .flexdiv .persona:nth-of-type(6) div::before {
-        background: url('/img/icons-therock.png');
-    }
-    .flexdiv .persona:nth-of-type(7) div::before {
-        background: url('/img/icons-frodo.png');
-    }
-    .flexdiv .persona:nth-of-type(8) div::before {
-        background: url('/img/icons-steve.png');
-    }
-    .flexdiv .persona:nth-of-type(9) div::before {
-        background: url('/img/icons-caesar.png');
-    }
-    .flexdiv .persona:nth-of-type(10) div::before {
-        background: url('/img/icons-obama.png');
-    }
-    .flexdiv .persona:nth-of-type(11) div::before {
-        background: url('/img/icons-tomboy.png');
-    }
-    .flexdiv .persona:nth-of-type(12) div::before {
-        background: url('/img/icons-wie.png');
-    }
-    // FREETIME
-    .flexdiv .hobby:nth-of-type(1) div::before {
-        background: url('/img/icons-controller.png');
-    }
-    .flexdiv .hobby:nth-of-type(2) div::before {
-        background: url('/img/icons-football.png');
-    }
-    .flexdiv .hobby:nth-of-type(3) div::before {
-        background: url('/img/icons-beer.png');
-    }
-    .flexdiv .hobby:nth-of-type(4) div::before {
-        background: url('/img/icons-airplane.png');
-    }
-    .flexdiv .hobby:nth-of-type(5) div::before {
-        background: url('/img/icons-guitar.png');
-    }
-    .flexdiv .hobby:nth-of-type(6) div::before {
-        background: url('/img/icons-bag.png');
-    }
-    .flexdiv .hobby:nth-of-type(7) div::before {
-        background: url('/img/icons-pan.png');
-    }
-    .flexdiv .hobby:nth-of-type(8) div::before {
-        background: url('/img/icons-book.png');
-    }
-    .flexdiv .hobby:nth-of-type(9) div::before {
-        background: url('/img/icons-pill.png');
-    }
-    .flexdiv .hobby:nth-of-type(10) div::before {
-        background: url('/img/icons-suitcase.png');
-    }
-    .flexdiv .hobby:nth-of-type(11) div::before {
-        background: url('/img/icons-soap.png');
-    }
-    // MOODS
-    .flexdiv .mood:nth-of-type(1) div::before {
-        background: url('/img/icons-will.png');
-    }
-    .flexdiv .mood:nth-of-type(2) div::before {
-        background: url('/img/icons-darryl.png');
-    }
-    .flexdiv .mood:nth-of-type(3) div::before {
-        background: url('/img/icons-chris.png');
-    }
-    .flexdiv .mood:nth-of-type(4) div::before {
-        background: url('/img/icons-jack.png');
-    }
-    .flexdiv .mood:nth-of-type(5) div::before {
-        background: url('/img/icons-kristen.png');
-    }
-    .flexdiv .mood:nth-of-type(6) div::before {
-        background: url('/img/icons-bigbang.png');
-    }
-    .submit-persona {
-        font-size: 1.3rem;
-    }
+#confirm-persona button.submit-persona {
+    float: left;
+    width: 40%;
 }
 
 @media screen and (min-width: 38rem) {
-    body {
+    .check {
         background-color: #F6F6F6;
-    }
-    .item {
-        width: 8rem;
-    }
-    .submit-persona {
-        box-shadow: none;
-        float: right;
-        padding: 0.5rem 4rem;
-        position: relative;
-        transform: translateY(-2.5rem);
-        width: auto;
     }
     .header-personacheck {
         margin-bottom: 3rem;
+        -ms-transform: rotate(-10deg);
         transform: rotate(-10deg);
     }
     .form-for-check {
@@ -456,6 +358,44 @@ input:checked + div {
         padding: 0.5rem;
         width: 37rem;
     }
+    .flexdiv {
+        transform: translateX(1%);
+        justify-content: flex-start;
+    }
+    .item, #personal-list li {
+        margin: 0 0.4rem;
+        width: 8rem;
+    }
+    @supports(display:grid) {
+        .flexdiv, #personal-list {
+            grid-column-gap: 1.1rem;
+            grid-template-columns: auto auto auto auto;
+
+        }
+         .item, #personal-list li {
+             margin: 0.5rem 0 0 0;
+         }
+    }
+    .submit-persona {
+        box-shadow: none;
+        float: right;
+        padding: 0.5rem 4rem;
+        position: relative;
+        width: auto;
+    }
+    .go-back {
+        float: left;
+    }
+    .login header {
+        background-color: white;
+        left: 50%;
+        margin-left: auto;
+        padding: 1rem;
+        width: 30rem;
+    }
+    .login p {
+        margin-bottom: 2rem;
+    }
     .header-personacheck h1 {
         font-size: 5rem;
     }
@@ -468,7 +408,10 @@ input:checked + div {
     .form-for-check h2 {
         font-size: 2rem;
     }
-    .item div {
+    .login p, .check h3 label, .check p {
+        font-size: 1.2rem;
+    }
+    .item picture, .item source, .item img, #personal-list img {
         height: 8rem;
         width: 8rem;
     }
@@ -476,11 +419,37 @@ input:checked + div {
         font-size: 1.2rem;
         padding: 0.4rem 0;
     }
-    @supports(display:grid) {
-        .form-for-check .flexdiv {
-            grid-template-columns: auto auto auto auto;
-        }
+    #nojs-submit {
+        width: auto;
+    }
+    #back, #persona-button, #nojs-submit {
+        -ms-transform: translateY(-2.5rem);
+        transform: translateY(-2.5rem);
+    }
+    #login-button {
+        order: 4;
+    }
+    #persona-button {
+        left: 0%;
+    }
+    #confirm-persona h2 {
+        font-size: 2.8rem;
+    }
+    #confirm-persona h3 {
+        font-size: 1.8rem;
+    }
+    #confirm-persona li {
+        font-size: 1.2rem;
+    }
+    #confirm-persona div {
+        box-shadow: 5px 5px 0 0 #ddd;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        max-width: 37rem;
+    }
+    #confirm-persona .submit-persona {
+        font-size: 1.3rem;
+        width: auto;
     }
 }
-
-//END CHANEL

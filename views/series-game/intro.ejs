@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="/stylesheets/seriesgame.css">
+  <title>Vrij Nederland Serie Spel</title>
+</head>
+<body class="series-game-intro">
+  <header>
+    <h1>Hoe werkt het Serie Spel?</h1>
+  </header>
+  <main>
+    <section id="intro-1">
+      <p>Je krijgt telkens 4 series te zien waar je uit kunt kiezen.</p>
+      <div class="block-container">
+        <div class="block">
+        <img src="<%- introData[0].data.review.imgURL%>" alt="<%- introData[0].data.review.seriesName%>"></div>
+        <div class="block">
+        <img src="<%- introData[1].data.review.imgURL%>" alt="<%- introData[1].data.review.seriesName%>"></div>
+        <div class="block">
+        <img src="<%- introData[2].data.review.imgURL%>" alt="<%- introData[2].data.review.seriesName%>"></div>
+        <div class="block">
+        <img src="<%- introData[3].data.review.imgURL%>" alt="<%- introData[3].data.review.seriesName%>"></div>
+      </div>
+    </section>
+
+    <section id="intro-2">
+      <p>Rangschik de series van 1 t/m 4 door ze in volgorde naar keuze te selecteren.</p>
+      <div class="block-container">
+        <div class="block">
+            <img src="<%- introData[0].data.review.imgURL%>" alt="<%- introData[0].data.review.seriesName%>">
+          <span class="order-number">1</span>
+        </div>
+        <div class="block">
+            <img src="<%- introData[1].data.review.imgURL%>" alt="<%- introData[1].data.review.seriesName%>">
+          <span class="order-number">3</span>
+        </div>
+        <div class="block active">
+            <img src="<%- introData[2].data.review.imgURL%>" alt="<%- introData[2].data.review.seriesName%>">
+          <span class="order-number">4</span>
+        </div>
+        <div class="block">
+            <img src="<%- introData[3].data.review.imgURL%>" alt="<%- introData[3].data.review.seriesName%>">
+          <span class="order-number">2</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="intro-3">
+      <p>Tik op een serie om details te bekijken.</p>
+      <img class="detail-img" src="/assets/img/detail.png">
+    </section>
+
+    <section id="next">
+        <a class="start-btn" href="/seriespel/step/1">Aan de slag</a>
+    </section>
+
+  </main>
+
+</body>
+</html>

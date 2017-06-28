@@ -10,27 +10,26 @@ var env = require('dotenv').config();
 var sessions = require('express-session');
 var mongoose = require('mongoose');
 var passport = require('passport');
-var flash = require('connect-flash');
-
-var passport = require('passport');
-
 var app = express();
 var server = http.createServer(app);
 var io = require('socket.io').listen(server); // Use socket io in seperate files
 var port = process.env.PORT || 3006;
 
 //routes
-var index = require('./routes/index');
 var upload = require('./routes/upload');
 var uploadComplete = require('./routes/upload_complete');
+var reviewOverview = require('./routes/review_overview')(io);
+var reviewEditDetail = require('./routes/review_detail');
 var login = require('./routes/login');
 var persona = require('./routes/persona');
-var detail = require('./routes/detail')(io);
+var seriesGame = require('./routes/series-game');
 var fbLogin = require('./routes/facebook-login')(passport, io);
-var profile = require('./routes/profile');
+var personaResults = require('./routes/persona_results');
+var reviewDetail = require('./routes/detail')(io);
+var home = require('./routes/home');
+var allReviews = require('./routes/all_reviews');
 
 require('./config/passport')(passport);
-
 
 // View engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -40,11 +39,9 @@ app.set('io', io);
 // Uncomment after placing your favicon in /public
 // app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
-// app.use(bodyParser.json());
-
 
 app.use(bodyParser.urlencoded({ extended: true }));
-
+app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(sessions({
     secret: process.env.EXPRESS_SESSION_SECRET,
@@ -55,32 +52,30 @@ app.use(sessions({
     cookie: { secure: false, expires: false }
 
 }));
+
 app.use(passport.initialize());
 app.use(passport.session());
 mongoose.connect(process.env.USERDB);
 
-app.use('/', index);
+app.use('/', home);
+app.use('/home', home);
 app.use('/upload', upload);
 app.use('/upload_complete', uploadComplete);
+app.use('/review_edit', reviewEditDetail);
+app.use('/review_overview', reviewOverview);
 app.use('/login', login);
 app.use('/persona', persona);
 app.use('/auth/facebook', fbLogin);
-app.use('/detail', detail);
-app.use('/profile', profile);
+app.use('/recensies', allReviews);
+app.use('/seriespel', seriesGame);
+app.use('/review', reviewDetail);
+app.use('/persona_results', personaResults);
 
-
-
-
-
+mongoose.connect(process.env.USERDB);
 // Console.log(mongoose.connection.readyState); //test database connection
 
 app.use(lessMiddleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
-
-
-app.use('/', index);
-app.use('/auth/facebook', fbLogin);
-app.use('/detail', detail);
 
 // Catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -101,7 +96,6 @@ app.use(function(err, req, res) {
 });
 
 io.on('connection', function(socket) {
-
     socket.broadcast.on('comment', function(comm) {
         io.emit('comment', comm);
     });

@@ -4,13 +4,45 @@
 
 .upload-form-body {
   padding: 3em 0 0 0;
-  background: #0099FF;
+  background-color: #F6F6F6;
+}
+
+.back-btn {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    background: white;
+    color: #333;
+}
+
+.back-btn:hover {
+    background-color: deepskyblue;
+    color: white;
+}
+
+.hidden {
+    opacity: 0;
+}
+
+.success {
+    transition: 0.3s;
+    background-color: RGBA(43, 196, 160, 1.00);
+    color: white;
+    padding: 1em;
 }
 
 #review-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   max-width: 40em;
   padding: 2em;
   margin: 0 auto;
@@ -23,16 +55,23 @@
 }
 
 #review-form section {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   border-bottom: 2px solid lightgrey;
   padding-bottom: 2em;
 }
 
 #review-form input[type="text"],
 #review-form input[type="email"],
-#review-form input[type="date"] {
+#review-form input[type="date"],
+#review-form textarea {
   display: inherit;
   padding: 0.7em 1.5em;
   margin: 1em 0;
@@ -40,13 +79,16 @@
 }
 
 #review-form input[type="submit"] {
-  max-width: 8em;
+  max-width: 9em;
+  margin-top: 1em;
+  -webkit-appearance: none;
   background-color: #F76655;
   color: white;
   text-transform: uppercase;
   padding: 1em 2em;
   border: none;
   cursor: pointer;
+  -webkit-transition: 0.2s;
   transition: 0.2s;
 }
 
@@ -54,6 +96,7 @@
 #review-form input[type="submit"]:active,
 #review-form input[type="submit"]:focus {
   background: crimson;
+  -webkit-transition: 0.2s;
   transition: 0.2s;
 }
 

@@ -61,7 +61,7 @@ mongoose.connect(process.env.USERDB);
 app.use('/', index);
 app.use('/upload', upload);
 app.use('/upload_complete', uploadComplete);
-app.use('/review', reviewEditDetail);
+app.use('/review_edit', reviewEditDetail);
 app.use('/review_overview', reviewOverview);
 app.use('/login', login);
 app.use('/persona', persona);

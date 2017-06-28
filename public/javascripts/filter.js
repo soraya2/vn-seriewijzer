@@ -1,26 +1,15 @@
 (function() {
     'use strict';
-
-    // for (key in req.session.personaform) {
-    //     if (req.session.personaform.hasOwnProperty(key)) {
-
-    //         // arrayCheck(key, req.session.personaform[key]);
-    //     }
-    // }
-
-    var filters = {};
-
-    // filters.test = 'test1';
-    // filters.test2 = 'test2';
     var overviewContainer = document.getElementsByClassName('review-overview-container');
-
-
     var filterCheckbox = document.getElementsByClassName('filter-checkbox');
-    // console.log(filterCheckbox);
+    var filters = {};
+    var checkboxValue;
 
+    function init() {
+        getReviewData('https://220cf296.ngrok.io/search', callback);
+    }
 
-
-    function httpGetAsync(theUrl, callback) {
+    function getReviewData(theUrl, callback) {
         var xmlHttp = new XMLHttpRequest();
         xmlHttp.onreadystatechange = function() {
             if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
@@ -28,121 +17,151 @@
         };
         xmlHttp.open("GET", theUrl, true); // true for asynchronous
         xmlHttp.send(null);
-    };
-
-
-    httpGetAsync('https://220cf296.ngrok.io/search', callback);
-
+    }
 
     function callback(data) {
         var reviews = JSON.parse(data);
         for (var i = 0; i < filterCheckbox.length; i++) {
-            // filterCheckbox[i];
 
             filterCheckbox[i].addEventListener('change', function(argument) {
-                // console.log(this.checked);
                 if (this.checked) {
-                    // this.value
-                    arrayCheck(this.name, this.value);
+                    checkboxValue = this.value;
 
+                    arrayCheck(this.name, checkboxValue, true);
                     filter(reviews);
-                    console.log(filters);
+                    renderview(filter(reviews));
+                    console.log(filter(reviews));
+
+                } else if (!this.checked) {
+
+                    checkboxValue = this.value;
+
+                    arrayCheck(this.name, checkboxValue, false);
+                    filter(reviews);
+                    renderview(filter(reviews));
+
                 }
 
+                function renderview(reviewData) {
+
+                    overviewContainer[0].innerHTML = filter(reviewData)
+                        .reduce(function(html, object, i) {
+
+                            return html + `
+                                     <div class="review">
+                                         <div>
+                                             <img src="${object.review.imgURL}" alt="">
+                                         </div>
+                                         <div class="text-container">
+                                             <span class="rating">Score: ${ object.review.reviewRating }</span>
+                                             <a class="detail-link" href="/detail/${ object.review.seriesName }">
+                                                 <h3>${ object.review.seriesName }</h3>
+                                             </a>
+                                             <p class="post-date">Op: ${object.user.postDate }</p>
+                                             <h4>${ object.review.reviewTitle }</h4>
+                                             <p class="post-user">Door ${ object.user.name }</p>
+
+
+                                             <p class="intro-text">${ object.review.reviewPlot.substring(0, 210) }
+                                                   <a class="bottom-link" href="/detail/${ object.review.seriesName }">
+                                                     Lees meer
+                                                 </a>
+                                             </p>
+                                         </div>
+                                     </div>
+                                `;
+                        }, '');
+                }
             });
         }
-        overviewContainer[0].innerHTML = reviews
-            .reduce(function(html, object, i) {
-
-                return html + `
-            <div class="review">
-                <div>
-                    <img src="${object.review.imgURL}" alt="">
-                </div>
-                <div class="text-container">
-                    <span class="rating">Score: ${ object.review.reviewRating }</span>
-                    <a class="detail-link" href="/detail/${ object.review.seriesName }">
-                        <h3>${ object.review.seriesName }</h3>
-                    </a>
-                    <p class="post-date">Op: ${object.user.postDate }</p>
-                    <h4>${ object.review.reviewTitle }</h4>
-                    <p class="post-user">Door ${ object.user.name }</p>
-
-
-                    <p class="intro-text">${ object.review.reviewPlot.substring(0, 210) }
-                          <a class="bottom-link" href="/detail/${ object.review.seriesName }">
-                            Lees meer
-                        </a>
-                    </p>
-                </div>
-            </div>
-        `;
-            }, '');
-
     }
-
 
     function filter(reviewData) {
 
-        var filterdData = reviewData.filter(function(serie) {
+        return reviewData.filter(function(serie) {
 
-            return Object.keys(filters).every(function(key) { // For each key in filter return filter key value
-                // console.log(filters[key]);
-                // return filters[key].some(function(filterOptions) { // Compare filter options with serie tags
+            if (Object.keys(filters).length === 0) {
+                return Object.keys(filters).every(function(key) {
 
-                //     return serie.review[key].some(function(seriesTags) {
+                    return filterSet(key); // For each key in filter return filter key value
+                });
 
-                //         console.log(filterOptions === seriesTags);
+            } else {
+                return Object.keys(filters).some(function(key) {
 
-                //         return filterOptions === seriesTags;
-                //     });
+                    return filterSet(key); // For each key in filter return filter key value
 
-                // });
-            });
+                });
+            }
+
+            function filterSet(keyNaam) {
+                return filters[keyNaam].some(function(filterOptions) { // Compare filter options with serie tags
+
+                    return serie.review[keyNaam].some(function(seriesTags) {
+
+                        return filterOptions === seriesTags;
+                    });
+
+                });
+            }
         });
-
-        // console.log(filterdData);
     }
-
 
     function setFilter(filterName, filterValue) {
 
         filters[filterName] = filterValue;
-
-        // console.log(filters);
-
     }
 
+    function removeFilter(filterName, filterValue) {
+        console.log(filters[filterName], filterValue);
 
-    // function setFilter(filterName) {
+        var index = filters[filterName].indexOf(filterValue);
 
-    //     delete filters[filterName];
+        if (index === 0) {
 
-    //     var index = filters[filterName].indexOf(filterName);
+            delete filters[filterName];
 
-    //     if (index > -1) {
-    //         array.splice(index, 1);
-    //     }
-    // }
+        } else if (index > -1) {
 
+            filters[filterName].splice(index, 1);
 
-    function arrayCheck(filterName, filterValue) {
+        }
+    }
 
+    function arrayCheck(filterName, filterValue, checked) {
+        //check if the value is not an array
         if (Array.isArray(filterValue) === false) {
-            // console.log(filterName, filterValue);
-            // filters[filterName].push(filterValue);
+
             if (!(filterName in filters)) {
 
-                setFilter(filterName, new Array(filterValue));
+                if (checked === true) {
 
-                console.log(Array.isArray(filterValue));
+                    setFilter(filterName, new Array(filterValue));
+
+                } else {
+
+                    removeFilter(filterName, new Array(filterValue));
+                }
+            }
+        }
+
+        // check the value is an array
+        if (Array.isArray(filters[filterName])) {
+
+            if (filters[filterName].indexOf(filterValue) == -1) {
+
+                if (checked === true) {
+
+                    filters[filterName].push(filterValue);
+
+                }
             }
 
-        }
-        if (Array.isArray(filterValue)) {
+            if (checked === false) {
 
-            // setFilter(filterName, filterValue);
-            filters[filterName].push(filterValue);
+                removeFilter(filterName, filterValue);
+            }
         }
     }
+    init();
 })();

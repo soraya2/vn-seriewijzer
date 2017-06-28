@@ -13,13 +13,14 @@
     left: 0;
     padding: 0.5em 1em;
     text-decoration: none;
-    background: white;
-    color: #333;
+    background: RGBA(247, 102, 85, 1.00);
+    color: white;
+    transition: 0.3s;
 }
 
 .back-btn:hover {
-    background-color: deepskyblue;
-    color: white;
+    transition: 0.3s;
+    background-color: crimson;
 }
 
 .hidden {

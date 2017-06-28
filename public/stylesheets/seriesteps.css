@@ -220,7 +220,7 @@
                 background-color: #F66556;
                 border: 0;
                 transition: 0.3s;
-                border-radius: none;
+                border-radius: 0px;
                 box-shadow: none;
                 position: fixed;
                 bottom: 0;

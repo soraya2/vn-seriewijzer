@@ -64,7 +64,7 @@ function validate(obj, res){
         });
     //If it doesn't match any of the above conditions then the form was filled out correctly
     } else {
-        res.redirect('/profile');
+        res.redirect('/');
     }
 }
 //END CHANEL

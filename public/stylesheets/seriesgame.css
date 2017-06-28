@@ -9,7 +9,7 @@
 
 .series-game-intro header, .series-game-intro section {
     text-align: center;
-    /*padding: 1em;*/
+    padding-top: 1em;
 }
 
 .series-game-intro section p {
@@ -30,14 +30,13 @@
 }
 
 .series-game-intro .block-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    text-align: center;
     margin: 0 auto;
     width: 18em;
 }
 
 .series-game-intro .block {
+    float: left;
     margin: 1em;
     height: 10em;
     width: 7em;

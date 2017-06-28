@@ -15,4 +15,16 @@ router.get('/', function (req, res) {
     })
 });
 
-module.exports = router;
+module.exports = function(io) {
+    io.on('connection', function(socket) {
+        socket.emit('connection');
+        console.log('[Server] Connected to client');
+
+        socket.on('new update', function () {
+            console.log('Notification received');
+            io.sockets.emit('update');
+            // io.broadcast.emit('notify');
+        })
+    });
+    return router;
+};

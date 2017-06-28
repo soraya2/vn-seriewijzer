@@ -18,6 +18,14 @@ router.post('/:id', function(req, res) {
     res.redirect('/review_overview');
 });
 
+module.exports = function(io) {
+    io.on('connection', function(socket) {
+        socket.emit('connection');
+        console.log('[Server] Connected to client');
+    });
+    return router;
+};
+
 function processUploadForm(req, res) {
     var fields = req.body;
     var query = { '_id': req.params.id};
@@ -61,7 +69,6 @@ function processUploadForm(req, res) {
             } else {
                 console.log('[Server] Form updated in database');
             }
-        });
-};
+    });
 
-module.exports = router;
+};

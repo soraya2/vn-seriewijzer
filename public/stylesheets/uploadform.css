@@ -22,6 +22,16 @@
     color: white;
 }
 
+.hidden {
+    display: none;
+}
+
+.success {
+    background-color: RGBA(43, 196, 160, 1.00);
+    color: white;
+    padding: 1em;
+}
+
 #review-form {
   display: -webkit-box;
   display: -ms-flexbox;

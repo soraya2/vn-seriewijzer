@@ -11,6 +11,9 @@
 
 <body class="review-overview-body">
     <main>
+        <div id="notification" class="hidden">
+            <h3>Er is een recensie geupdate!</h3>
+        </div>
         <h1>Alle Recensies</h1>
         <a href="/upload" class="upload-btn">Recensie Uploaden &#x25B2;</a>
         <section class="reviews-container">
@@ -31,5 +34,7 @@
         </section>
     </main>
 
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/javascripts/cms.js"></script>
 </body>
 </html>

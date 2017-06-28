@@ -3,13 +3,14 @@
 (function() {
     'use strict';
 
-    var socket = io();
-    var commentList = document.querySelector('.comment-list');
-    var textField = document.querySelector('[type="text"]');
-    var selectBoxVote = document.querySelector('#vote');
-    var showTitle = document.querySelector('h1').innerHTML;
+    var socket = io(),
+        commentList = document.querySelector('.comment-list'),
+        textField = document.querySelector('[type="text"]'),
+        selectBoxVote = document.querySelector('#vote'),
+        showTitle = document.querySelector('h1').innerHTML;
 
     var comment = {
+        //Get comment, execute comment.emit and clear inputfield
         getValue: function() {
             var text = textField.value;
             var rating = selectBoxVote.value;
@@ -44,7 +45,7 @@
             listItem.appendChild(textEl);
             listItem.appendChild(timeEl);
 
-            commentList.appendChild(listItem);
+            commentList.insertBefore(listItem, commentList.childNodes[0]);
         }
     };
 
@@ -54,9 +55,11 @@
         }
     });
 
-    document.querySelector('[type="submit"]').addEventListener('click', function(e) {
-        e.preventDefault();
+    if(document.querySelector('[type="submit"]')){
+        document.querySelector('[type="submit"]').addEventListener('click', function(e) {
+            e.preventDefault();
 
-        comment.getValue();
-    });
+            comment.getValue();
+        });
+    };
 })();

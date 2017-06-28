@@ -53,7 +53,11 @@
 
 
         <section class="comments">
-
+            <% if(user == undefined){ %>
+                <p class="remark">
+                    <a href="/auth/facebook">Log in</a> om te kunnen reageren!
+                </p>
+            <% } else {%>
             <form class="comments-form" action="/details" enctype="multipart/form-data" method="post">
                 <fieldset>
                     <legend>Reactie plaatsen</legend>
@@ -78,6 +82,7 @@
                 </fieldset>
                 <input type="submit" value="Reactie Plaatsen">
             </form>
+            <% } %>
 
             <h2>Wat vind u van deze serie?</h2>
 

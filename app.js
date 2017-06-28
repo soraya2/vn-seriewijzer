@@ -58,6 +58,7 @@ app.use(passport.session());
 mongoose.connect(process.env.USERDB);
 
 app.use('/', home);
+app.use('/home', home);
 app.use('/upload', upload);
 app.use('/upload_complete', uploadComplete);
 app.use('/review_edit', reviewEditDetail);

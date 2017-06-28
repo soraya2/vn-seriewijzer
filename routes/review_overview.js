@@ -10,7 +10,7 @@ router.get('/', function (req, res) {
           console.log(err);
         } else {
             console.log(`[Server] Retrieved ${reviews.length} reviews from database`);
-            res.render('review_overview', { data: reviews, user });
+            res.render('review_overview', { data: reviews});
         }
     })
 });

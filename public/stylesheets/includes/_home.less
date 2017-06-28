@@ -17,6 +17,7 @@
 }
 
 a {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     text-decoration: none;
     &:hover {
         text-decoration: underline;
@@ -84,8 +85,12 @@ img {
     .review-banner {
         background: url('/img/placeholders/review-banner.jpg') no-repeat;
     }
+    .persona-banner {
+        background: url('/img/placeholders/review-banner.jpg') no-repeat;
+    }
     .welcome-banner,
-    .review-banner {
+    .review-banner,
+    .persona-banner {
         position: relative;
         background-size: cover;
         background-color: rgba(255, 255, 255, 0.5);
@@ -93,7 +98,8 @@ img {
         color: white;
         padding: 10em 0;
         .welcome-message,
-        .review-message {
+        .review-message,
+        .persona-message {
             font-family: 'Alegreya', serif;
             z-index: 100;
             position: inherit;
@@ -141,7 +147,8 @@ img {
 
 }
 
-.match-overview-container {
+.match-overview-container,
+.persona-overview-container {
     .match-img {
         height: 20em;
         width: 14em;
@@ -150,7 +157,8 @@ img {
             height: 100%;
         }
     }
-    max-width: 95%;
+    max-width: 100%;
+    margin: 2em auto;
     position: relative;
     h2 {
         width: 100%;
@@ -186,7 +194,7 @@ img {
         display: block;
         margin: 0 auto;
         width: 100%;
-        top: 8em;
+        top: 5em;
         h2 {
             font-size: 200%;
             margin-bottom: 1em;
@@ -230,7 +238,7 @@ img {
         }
     }
     .secondary-match {
-        transition: 0.2s;
+        max-width: 25%;
         display: inline-block;
         @media screen and (max-width: 40em) {
                 width: 40%;
@@ -238,9 +246,10 @@ img {
         }
     }
 
-
-    .best-match:hover,
-    .secondary-match:hover {
+    .animated {
+        transition: 0.2s;
+    }
+    .animated:hover {
         transition: 0.2s;
         transform: scale(1.05);
         -webkit-box-shadow: 0px 4px 32px 2px rgba(0,0,0,0.52);
@@ -259,6 +268,15 @@ img {
 h3 {
     max-width: 11em;
     white-space: nowrap;
+}
+
+.persona-overview-container {
+    .secondary-match {
+        @media screen and (max-width: 40em) {
+                max-width: 32%;
+                margin-top: 1.5em;
+        }
+    }
 }
 
 .review-overview-container {
@@ -353,11 +371,14 @@ h3 {
         }
     }
     .match-overview-container,
-    .review-overview-container {
+    .review-overview-container,
+    .persona-overview-container {
         display: flex;
         justify-content: space-between;
     }
-    .match-overview-container {
+    .match-overview-container,
+    .persona-overview-container,
+     {
         -ms-flex-wrap: wrap;
         flex-wrap: wrap;
         @media screen and (max-width: 40em) {

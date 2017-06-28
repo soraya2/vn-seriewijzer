@@ -21,9 +21,10 @@
                 </section>
 
                 <% if (userData) { %>
+                    <% if (userData.user.profile.matches.length > 0) { %>
                     <section class="match-overview-container">
-                        <h2>Speciaal Voor Jou</h2>
-                        <div class="best-match">
+                        <h2>Speciaal voor jou, uit het Seriespel</h2>
+                        <div class="best-match animated">
                             <span class="match-percentage"><%=userData.user.profile.matches[0][0].matchAll %>%</span>
                             <a href="/review/<%=userData.user.profile.matches[0][0].data.review.seriesName %>">
                                 <picture>
@@ -33,7 +34,7 @@
                             </a>
                         </div>
                         <% for(var i=1; i<userData.user.profile.matches[0].length; i++) {%>
-                            <div class="secondary-match">
+                            <div class="secondary-match animated">
                                 <span class="match-percentage"><%=userData.user.profile.matches[0][i].matchAll %>%</span>
                                 <a href="/review/<%=userData.user.profile.matches[0][i].data.review.seriesName %>">
                                     <picture>
@@ -43,42 +44,63 @@
                             </div>
                         <% } %>
                     </section>
-                <% } else { %>
-
-                    <section class="match-overview-container">
-                        <div class="placeholder-message">
-                            <h2>Hier komen jouw Top 5 matches</h2>
-                            <a href="/seriespel">Speel het Seriespel!</a>
+                    <% } else { %>
+                        <section class="match-overview-container">
+                            <div class="placeholder-message">
+                                <h2>Hier komen jouw Top 5 matches</h2>
+                                <a href="/seriespel">Speel het Seriespel!</a>
+                            </div>
+                            <div class="best-match">
+                                <picture>
+                                    <img class="match-img" src="/img/placeholders/placeholder1.png" alt="Jouw serie hier">
+                                </picture>
+                                </a>
+                            </div>
+                            <div class="secondary-match">
+                                <picture>
+                                    <img class="match-img" src="/img/placeholders/placeholder2.png" alt="Jouw serie hier">
+                                </picture>
+                            </div>
+                            <div class="secondary-match">
+                                <picture>
+                                    <img class="match-img" src="/img/placeholders/placeholder3.png" alt="Jouw serie hier">
+                                </picture>
+                            </div>
+                            <div class="secondary-match">
+                                <picture>
+                                    <img class="match-img" src="/img/placeholders/placeholder4.png" alt="Jouw serie hier">
+                                </picture>
+                            </div>
+                            <div class="secondary-match">
+                                <picture>
+                                    <img class="match-img" src="/img/placeholders/placeholder5.png" alt="Jouw serie hier">
+                                </picture>
+                            </div>
+                        </section>
+                    <% } %>
+                    <% if (userData.user.profile.personacheck.length > 0) { %>
+                    <section class="persona-banner">
+                        <div class="persona-message">
+                            <h2>Jouw Persona Check Resultaten</h2>
+                            <p>Volgens onze persona check passen deze series goed bij jou!</p>
                         </div>
-                        <div class="best-match">
-                            <picture>
-                                <img class="match-img" src="/img/placeholders/placeholder1.png" alt="Jouw serie hier">
-                            </picture>
-                            <h2 class="best-match-header">Jouw Beste Match</h2>
-                            </a>
-                        </div>
-                        <div class="secondary-match">
-                            <picture>
-                                <img class="match-img" src="/img/placeholders/placeholder2.png" alt="Jouw serie hier">
-                            </picture>
-                        </div>
-                        <div class="secondary-match">
-                            <picture>
-                                <img class="match-img" src="/img/placeholders/placeholder3.png" alt="Jouw serie hier">
-                            </picture>
-                        </div>
-                        <div class="secondary-match">
-                            <picture>
-                                <img class="match-img" src="/img/placeholders/placeholder4.png" alt="Jouw serie hier">
-                            </picture>
-                        </div>
-                        <div class="secondary-match">
-                            <picture>
-                                <img class="match-img" src="/img/placeholders/placeholder5.png" alt="Jouw serie hier">
-                            </picture>
-                        </div>
+                        <div class="overlay"></div>
                     </section>
-
+                    <section id="personacheck_results" class="persona-overview-container">
+                        <h2>Persona Check Resultaten</h2>
+                        <% for(var i=0; i<12; i++) {%>
+                            <div class="secondary-match animated">
+                                <a href="/review/<%=userData.user.profile.personacheck[i].review.seriesName %>">
+                                    <picture>
+                                        <img class="match-img" src="<%=userData.user.profile.personacheck[i].review.imgURL%>" alt="<%=userData.user.profile.personacheck[i].review.seriesName%>">
+                                    </picture>
+                                </a>
+                            </div>
+                        <% } %>
+                    </section>
+                    <% } else { %>
+                        <p>Persona check resultaten placeholder hier</p>
+                    <% } %>
                 <% } %>
                 <section class="review-banner">
                     <div class="review-message">

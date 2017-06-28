@@ -1,20 +1,16 @@
+/*jslint browser: true, devel: true, eqeq: true, plusplus: true, sloppy: true, vars: true, white: true*/
+
 (function() {
     'use strict';
 
-    var socket = io();
-    var socket2;
-    var commentList = document.querySelector('.comment-list');
-    var textField = document.querySelector('[type="text"]');
-    var selectBoxVote = document.querySelector('#vote');
-    console.log(selectBoxVote.value);
-
-    document.querySelector('[type="submit"]').addEventListener('click', function(e) {
-        e.preventDefault();
-
-        comment.getValue();
-    });
+    var socket = io(),
+        commentList = document.querySelector('.comment-list'),
+        textField = document.querySelector('[type="text"]'),
+        selectBoxVote = document.querySelector('#vote'),
+        showTitle = document.querySelector('h1').innerHTML;
 
     var comment = {
+        //Get comment, execute comment.emit and clear inputfield
         getValue: function() {
             var text = textField.value;
             var rating = selectBoxVote.value;
@@ -23,13 +19,16 @@
 
             textField.value = '';
         },
+        //Send comment to the server.
         emit: function(comm, rating) {
             socket.emit('save comment', {
+                title: showTitle,
                 rating: rating,
                 text: comm,
                 time: new Date().toLocaleString()
             });
         },
+        //Render new comments by creating elements and adding them
         render: function(newComment) {
             var listItem = document.createElement('li'),
                 textEl = document.createElement('p'),
@@ -48,13 +47,24 @@
             listItem.appendChild(textEl);
             listItem.appendChild(timeEl);
 
-            commentList.appendChild(listItem);
+            commentList.insertBefore(listItem, commentList.childNodes[0]);
         }
     };
 
+    //When the server sends a new comment
     socket.on('comment', function(comm) {
-        comment.render(comm);
+        //If the tv show title of the comment matches the one on this page, render the comment
+        if(comm.title == showTitle){
+            comment.render(comm);
+        }
     });
 
-    // socket2 = io('/my-namespace');
+    //if your logged on, commenting is enabled so add an addEventListener
+    if(document.querySelector('[type="submit"]')){
+        document.querySelector('[type="submit"]').addEventListener('click', function(e) {
+            e.preventDefault();
+
+            comment.getValue();
+        });
+    };
 })();

@@ -18,7 +18,7 @@ var port = process.env.PORT || 3006;
 //routes
 var upload = require('./routes/upload');
 var uploadComplete = require('./routes/upload_complete');
-var reviewOverview = require('./routes/review_overview');
+var reviewOverview = require('./routes/review_overview')(io);
 var reviewEditDetail = require('./routes/review_detail');
 var login = require('./routes/login');
 var persona = require('./routes/persona');
@@ -96,7 +96,6 @@ app.use(function(err, req, res) {
 });
 
 io.on('connection', function(socket) {
-
     socket.broadcast.on('comment', function(comm) {
         io.emit('comment', comm);
     });

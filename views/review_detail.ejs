@@ -11,7 +11,7 @@
     <body class="upload-form-body">
         <a class="back-btn" href='/review_overview'>Terug naar overzicht</a>
        <main>
-        <form id="review-form" action="/review/<%=data._id%>" method="post" autocomplete="on">
+        <form id="review-form" action="/review_edit/<%=data._id%>" method="post" autocomplete="on">
         <h1><%= data.review.reviewTitle %></h1>
           <section>
             <h2>Over de recensent</h2>
@@ -610,7 +610,7 @@
                 <input type="text" name="episodes" value="<%= data.review.episodes %>" required>
               </label>
               <label>
-                <span>Duur Per Aflevering:</span>
+                <span>Duur per aflevering: (Alleen een cijfer invullen)</span>
                 <input type="text" name="duration" value="<%= data.review.duration %>" required>
               </label>
             </div>
@@ -689,9 +689,13 @@
             </label>
           </section>
 
-          <input class="upload-btn" type="submit" value="Bijwerken">
+          <input id="upload" class="upload-btn" type="submit" value="Bijwerken">
+          <div class="hidden success" id="success">
+              <strong>Bijwerken...</strong>
+          </div>
         </form>
     </main>
-
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/javascripts/cms.js"></script>
 </body>
 </html>

@@ -14,18 +14,21 @@ router.get('/:id', function (req, res) {
 });
 
 router.post('/:id', function(req, res) {
+    console.log('post received');
     processUploadForm(req, res);
     res.redirect('/review_overview');
 });
 
+
+
 function processUploadForm(req, res) {
     var fields = req.body;
     var query = { '_id': req.params.id};
-    var options = { new: true };
     var update = {
         user: {
             name:           fields.name,
-            email:          fields.email
+            email:          fields.email,
+            postDate:       fields.postDate
         },
         review: {
             seriesName:     fields.seriesName,
@@ -54,14 +57,15 @@ function processUploadForm(req, res) {
             reviewRating:   fields.reviewRating
         }
     };
-    reviewsSchema.findOneAndUpdate(query, update, options, function(err, review) { // Error handling
+    reviewsSchema.findOneAndUpdate(query, update, function(err, review) { // Error handling
             if (err) {
                 console.log('[Server] ERROR: Cannot update form information to database');
                 console.log(err);
             } else {
                 console.log('[Server] Form updated in database');
             }
-        });
+    });
+
 };
 
 module.exports = router;

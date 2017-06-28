@@ -5,7 +5,7 @@ var mongoose = require('mongoose');
 var reviewsSchema = require('../models/reviewsschema.js');
 
 router.get('/', function (req, res) {
- reviewsSchema.find({}, 'review').sort({ postDate: -1 }).exec(function (err, reviews) {
+ reviewsSchema.find({}).sort({ postDate: -1 }).exec(function (err, reviews) {
         if (err) {
           console.log(err);
         } else {
@@ -15,4 +15,16 @@ router.get('/', function (req, res) {
     })
 });
 
-module.exports = router;
+module.exports = function(io) {
+    io.on('connection', function(socket) {
+        socket.emit('connection');
+        console.log('[Server] Connected to client');
+
+        socket.on('new update', function () {
+            console.log('Notification received');
+            io.sockets.emit('update');
+            // io.broadcast.emit('notify');
+        })
+    });
+    return router;
+};

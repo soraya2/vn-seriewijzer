@@ -21,7 +21,14 @@ Reviews.find("review", function(err, docs) {
 });
 
 router.get('/', function (req, res) {
-  res.render('series-game/intro');
+    var one = [
+        {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'fawlty towers')},
+        {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'teen wolf')},
+        {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'friends')},
+        {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'game of thrones')}
+    ];
+    res.locals.introData = one;
+    res.render('series-game/intro');
 });
 router.get('/step/:step', function (req, res) {
     var one = [

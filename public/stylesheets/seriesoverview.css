@@ -22,7 +22,7 @@
         justify-content: space-between;
         text-align: center;
         align-items: center;
-        height: calc(100% - 8em);
+        height: calc(100% - 8em)!important;
     }
         #serie-overview main section {
             flex-grow: 1;

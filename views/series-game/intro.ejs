@@ -15,10 +15,14 @@
     <section id="intro-1">
       <p>Je krijgt telkens 4 series te zien waar je uit kunt kiezen.</p>
       <div class="block-container">
-        <div class="block"></div>
-        <div class="block"></div>
-        <div class="block"></div>
-        <div class="block"></div>
+        <div class="block">
+        <img src="<%- introData[0].data.review.imgURL%>" alt="<%- introData[0].data.review.seriesName%>"></div>
+        <div class="block">
+        <img src="<%- introData[1].data.review.imgURL%>" alt="<%- introData[1].data.review.seriesName%>"></div>
+        <div class="block">
+        <img src="<%- introData[2].data.review.imgURL%>" alt="<%- introData[2].data.review.seriesName%>"></div>
+        <div class="block">
+        <img src="<%- introData[3].data.review.imgURL%>" alt="<%- introData[3].data.review.seriesName%>"></div>
       </div>
     </section>
 
@@ -26,15 +30,19 @@
       <p>Rangschik de series van 1 t/m 4 door ze in volgorde naar keuze te selecteren.</p>
       <div class="block-container">
         <div class="block">
+            <img src="<%- introData[0].data.review.imgURL%>" alt="<%- introData[0].data.review.seriesName%>">
           <span class="order-number">1</span>
         </div>
         <div class="block">
+            <img src="<%- introData[1].data.review.imgURL%>" alt="<%- introData[1].data.review.seriesName%>">
           <span class="order-number">3</span>
         </div>
-        <div class="block">
+        <div class="block active">
+            <img src="<%- introData[2].data.review.imgURL%>" alt="<%- introData[2].data.review.seriesName%>">
           <span class="order-number">4</span>
         </div>
         <div class="block">
+            <img src="<%- introData[3].data.review.imgURL%>" alt="<%- introData[3].data.review.seriesName%>">
           <span class="order-number">2</span>
         </div>
       </div>

@@ -9,21 +9,19 @@
             <a class="backlink" href="javascript:history.back()">✕</a>
             <h1><%= data.review.seriesName %></h1>
             <section class="poster">
-                <img src="<%= data.review.imgURL %>">
+                <div class="poster-container">
+                    <img src="<%= data.review.imgURL %>">
+                </div>
                 <span class="rating"><%= data.review.imdbRating %></span>
             </section>
-            <section>
-                <div class="meta">
-                    <h3><%= data.review.producers %></h3>
-                    <p class="date-info">
-                        <%= data.review.startYear %> - <%= data.review.endYear %>
-                    </p>
-                </div>
+            <section class="meta">
+                <h3><%= data.review.producers %></h3>
+                <p class="year"><%= data.review.startYear %> - <%= data.review.endYear %></p>
                 <p><%- data.review.reviewPlot %></p>
             </section>
             <section class="video">
                 <h3>Bekijk de trailer</h3>
-                <iframe src="<%- data.review.trailerURL %>"></iframe>
+                <iframe src="<%= data.review.trailerURL %>?controls=0&showinfo=0&hd=1?rel=0" allowfullscreen=""></iframe>
             </section>
         <% } else { %>
             <h2>Uh oh.. serie niet gevonden.</h2>

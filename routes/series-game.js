@@ -21,88 +21,64 @@ Reviews.find("review", function(err, docs) {
 });
 
 router.get('/', function (req, res) {
-  res.render('series-game/intro');
-});
-router.get('/1', function (req, res) {
-    var step1 = [
+    var one = [
         {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'fawlty towers')},
         {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'teen wolf')},
         {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'friends')},
         {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'game of thrones')}
-    ]
-    res.locals.stepNum = 1;
-    res.locals.stepData = step1;
-    res.render('series-game/steps');
+    ];
+    res.locals.introData = one;
+    res.render('series-game/intro');
 });
-router.post('/1', function(req, res){
-    hobby = reviewArr.find(o => o.review.seriesName === req.body.one).review.hobby;
-    mood = reviewArr.find(o => o.review.seriesName === req.body.one).review.mood;
-    persona = reviewArr.find(o => o.review.seriesName === req.body.one).review.persona;
-
-    reviewArr = reviewArr.filter(function(el) {
-        return el.review.seriesName !== req.body.one;
-    });
-    console.log(hobby);
-    res.redirect('2');
-});
-router.get('/2', function (req, res) {
-    var step2 = [
+router.get('/step/:step', function (req, res) {
+    var one = [
+        {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'fawlty towers')},
+        {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'teen wolf')},
+        {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'friends')},
+        {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'game of thrones')}
+    ];
+    var two = [
         {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'doctor who')},
         {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'breaking bad')},
         {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'sons of anarchy')},
         {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'the bridge')}
-    ]
-    res.locals.stepNum = 2;
-    res.locals.stepData = step2;
-    res.render('series-game/steps');
-});
-router.post('/2', function(req, res){
-    hobby = hobby.concat(reviewArr.find(o => o.review.seriesName === req.body.one).review.hobby);
-    mood = mood.concat(reviewArr.find(o => o.review.seriesName === req.body.one).review.mood);
-    persona = persona.concat(reviewArr.find(o => o.review.seriesName === req.body.one).review.persona);
-
-    reviewArr = reviewArr.filter(function(el) {
-        return el.review.seriesName !== req.body.one;
-    });
-    console.log(req.body.one);
-    console.log(hobby);
-    res.redirect('3');
-});
-router.get('/3', function (req, res) {
-    var step3 = [
+    ];
+    var three = [
         {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'the sopranos')},
         {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'planet earth')},
         {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'the vampire diaries')},
         {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'pretty little liars')}
-    ]
-    res.locals.stepNum = 3;
-    res.locals.stepData = step3;
-    res.render('series-game/steps');
-});
-router.post('/3', function(req, res){
-    hobby = hobby.concat(reviewArr.find(o => o.review.seriesName === req.body.one).review.hobby);
-    mood = mood.concat(reviewArr.find(o => o.review.seriesName === req.body.one).review.mood);
-    persona = persona.concat(reviewArr.find(o => o.review.seriesName === req.body.one).review.persona);
-
-    reviewArr = reviewArr.filter(function(el) {
-        return el.review.seriesName !== req.body.one;
-    });
-    console.log(req.body.one);
-    console.log(hobby);
-    res.redirect('4');
-});
-router.get('/4', function (req, res) {
-    var step4 = [
+    ];
+    var four = [
         {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'sherlock')},
         {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'the walking dead')},
         {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'chicago fire')},
         {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'suits')}
-    ]
-    res.locals.stepNum = 4;
-    res.locals.stepData = step4;
-    res.render('series-game/steps');
-});
-router.post('/4', function(req, res){
+    ];
+    switch (req.params.step) {
+        case '1':
+            res.locals.stepNum = 1;
+            res.locals.stepData = one;
+            res.render('series-game/steps');
+            break;
+        case '2':
+            res.locals.stepNum = 2;
+            res.locals.stepData = two;
+            res.render('series-game/steps');
+            break;
+        case '3':
+            res.locals.stepNum = 3;
+            res.locals.stepData = three;
+            res.render('series-game/steps');
+            break;
+        case '4':
+            res.locals.stepNum = 4;
+            res.locals.stepData = four;
+            res.render('series-game/steps');
+            break;
+    }
+})
+router.post('/step/:step', function (req, res){
     hobby = hobby.concat(reviewArr.find(o => o.review.seriesName === req.body.one).review.hobby);
     mood = mood.concat(reviewArr.find(o => o.review.seriesName === req.body.one).review.mood);
     persona = persona.concat(reviewArr.find(o => o.review.seriesName === req.body.one).review.persona);
@@ -110,19 +86,25 @@ router.post('/4', function(req, res){
     reviewArr = reviewArr.filter(function(el) {
         return el.review.seriesName !== req.body.one;
     });
-    console.log(req.body.one);
-    console.log(hobby);
-    res.redirect('overview');
-});
+
+    switch (req.params.step) {
+        case '1':
+            res.redirect('/seriespel/step/2');
+            break;
+        case '2':
+            res.redirect('/seriespel/step/3');
+            break;
+        case '3':
+            res.redirect('/seriespel/step/4');
+            break;
+        case '4':
+            res.redirect('/seriespel/overview');
+            break;
+    }
+})
 router.get('/overview', function (req, res) {
-    var resultsHobby = [];
-    var resultsMood = [];
-    var resultsPersona = [];
-    var resultsAll = [];
-    var resultsBest = [];
+    var hobbyResults = [], moodResults = [], personaResults = [], allResults = [];
 
-
-    // place in function
     var hobbyUnique = hobby.filter(function( el, pos, self){
         return self.indexOf(el) == pos;
     });
@@ -133,38 +115,35 @@ router.get('/overview', function (req, res) {
         return self.indexOf(el) == pos;
     });
 
-    // Make code dry
-    // Start function
-
     for (var i = 0; i < reviewArr.length; i++) {
         var hobbyArr = reviewArr[i].review.hobby;
         var moodArr = reviewArr[i].review.mood;
         var personaArr = reviewArr[i].review.persona;
         for (var j = 0; j < hobbyUnique.length; j++) {
             if (hobbyArr.includes(hobbyUnique[j])){
-                resultsHobby.push(reviewArr[i]);
+                hobbyResults.push(reviewArr[i]);
             }
         }
         for (var k = 0; k < moodUnique.length; k++) {
             if (moodArr.includes(moodUnique[k])){
-                resultsMood.push(reviewArr[i]);
+                moodResults.push(reviewArr[i]);
             }
         }
         for (var h = 0; h < personaUnique.length; h++) {
             if (personaArr.includes(personaUnique[h])){
-                resultsPersona.push(reviewArr[i]);
+                personaResults.push(reviewArr[i]);
             }
         }
-        var hobbyLength = resultsHobby.filter(it => it.review.seriesName === reviewArr[i].review.seriesName).length;
-        var moodLength = resultsMood.filter(it => it.review.seriesName === reviewArr[i].review.seriesName).length;
-        var personaLength = resultsPersona.filter(it => it.review.seriesName === reviewArr[i].review.seriesName).length;
+        var hobbyLength = hobbyResults.filter(it => it.review.seriesName === reviewArr[i].review.seriesName).length;
+        var moodLength = moodResults.filter(it => it.review.seriesName === reviewArr[i].review.seriesName).length;
+        var personaLength = personaResults.filter(it => it.review.seriesName === reviewArr[i].review.seriesName).length;
 
 
         var hobbyMatch = (hobbyLength / (reviewArr[i].review.hobby).length) * 100;
         var moodMatch = (moodLength / (reviewArr[i].review.mood).length) * 100;
         var personaMatch = (personaLength / (reviewArr[i].review.persona).length) * 100;
 
-        resultsAll.push({
+        allResults.push({
             name: reviewArr[i].review.seriesName,
             data: reviewArr[i],
             hobbyMatch: hobbyMatch,
@@ -172,13 +151,8 @@ router.get('/overview', function (req, res) {
             personaMatch: personaMatch,
             matchAll: Math.round((hobbyMatch + moodMatch + personaMatch) / 3)
         });
-        if (resultsAll[i].matchAll > 50){
-            resultsBest.push(resultsAll[i]);
-        }
     }
-
-    // end function
-    resultsBest.sort(function(a,b){
+    allResults.sort(function(a,b){
         if (a.matchAll > b.matchAll) {
             return -1;
         }
@@ -188,26 +162,33 @@ router.get('/overview', function (req, res) {
             return 0;
         }
     })
-    resultsBest = resultsBest.slice(0,5);
-    console.log(resultsBest);
+    var bestResults = allResults.slice(0,5);
+    console.log(bestResults);
 
-    // User.findOneAndUpdate( {
-    //     'user.facebook.username' : req.session.username
-    // }, {
-    //     '$push' : {
-    //         'user.profile.matches' : resultsBest
-    //     }
-    // }, { upsert: true }, function(err, document) {
-    //     if (err) {
-    //         return err;
-    //     }
-    // });
-    //
-    // User.findOne({'user.facebook.username': req.session.username}, function(err, docs ){
-    //     console.log(docs.user.profile);
-    // })
+    User.findOneAndUpdate( {
+        'user.facebook.email' : 'shyantavleugel@gmail.com'
+    }, {
+        '$set' : {
+            'user.profile.matches' : []
+        }
+    }, { upsert: false }, function(err, docs) {
+        if (err) {
+            return err;
+        }
+    });
+    User.findOneAndUpdate( {
+        'user.facebook.email' : 'shyantavleugel@gmail.com'
+    }, {
+        '$push' : {
+            'user.profile.matches' : bestResults
+        }
+    }, { upsert: false }, function(err, docs) {
+        if (err) {
+            return err;
+        }
+    });
 
-    res.locals.results = resultsBest;
+    res.locals.results = bestResults;
     res.locals.hobby = hobbyUnique;
     res.locals.mood = moodUnique;
     res.locals.persona = personaUnique;

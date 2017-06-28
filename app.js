@@ -16,11 +16,10 @@ var io = require('socket.io').listen(server); // Use socket io in seperate files
 var port = process.env.PORT || 3006;
 
 //routes
-var index = require('./routes/index');
 var upload = require('./routes/upload');
 var uploadComplete = require('./routes/upload_complete');
 var reviewOverview = require('./routes/review_overview');
-// var reviewDetail = require('./routes/review_detail');
+var reviewEditDetail = require('./routes/review_detail');
 var login = require('./routes/login');
 var persona = require('./routes/persona');
 var seriesGame = require('./routes/series-game');
@@ -58,14 +57,14 @@ app.use(passport.initialize());
 app.use(passport.session());
 mongoose.connect(process.env.USERDB);
 
-app.use('/', index);
+app.use('/', home);
 app.use('/upload', upload);
 app.use('/upload_complete', uploadComplete);
+app.use('/review_edit', reviewEditDetail);
 app.use('/review_overview', reviewOverview);
 app.use('/login', login);
 app.use('/persona', persona);
 app.use('/auth/facebook', fbLogin);
-app.use('/home', home);
 app.use('/recensies', allReviews);
 app.use('/seriespel', seriesGame);
 app.use('/review', reviewDetail);

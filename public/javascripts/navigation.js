@@ -5,7 +5,7 @@
     var menu        = document.querySelector('nav');
 
     hamburger.addEventListener('click', function () {
-        menu.classList.toggle('active');
+        menu.classList.toggle('unhide');
         console.log('toggled');
     })
 }());

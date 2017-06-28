@@ -14,6 +14,7 @@
         checkedBoxes = [[], [], []],
         checkboxes,
         b,
+        c,
         i,
         index;
 
@@ -40,8 +41,8 @@
     function toggleCheckboxes(el, value) {
         checkboxes = document.querySelectorAll('.persona-check:nth-of-type(' + (el + 1) + ') input[type="checkbox"]');
 
-        for (b = 0; b < checkboxes.length; b++) {
-            checkboxes[b].disabled = value;
+        for (c = 0; c < checkboxes.length; c++) {
+            checkboxes[c].disabled = value;
         }
     }
 
@@ -93,17 +94,26 @@
 
     //Functions to get all checked checkboxes and render them in a list in confirmation overlay
     function showChoices(){
-        var allCheckboxes = document.querySelectorAll('input[type="checkbox"]:checked + div + p label');
+        var allCheckboxes = document.querySelectorAll('input[type="checkbox"]:checked + picture + h3 label');
+        var allPictures = document.querySelectorAll('input[type="checkbox"]:checked + picture > img');
+        console.log(allPictures);
 
         for (b = 0; b < allCheckboxes.length; b++) {
             var li = document.createElement('li');
+            var label = document.createElement('label');
+            var img = document.createElement('img')
             var text = document.createTextNode(allCheckboxes[b].innerHTML);
 
-            li.appendChild(text);
+            img.setAttribute('src', allPictures[b].attributes[0].nodeValue);
+            img.setAttribute('alt', allPictures[b].alt);
+
+            label.appendChild(text);
+            li.appendChild(img);
+            li.appendChild(label);
             personalList.appendChild(li);
         }
     }
-        // END CHANEL
+    // END CHANEL
 
         var step = {
             next: function(e){
@@ -158,11 +168,10 @@
             previous: function(e){//Merge this one with the next step, logic is the same
                 //Function that handles the previous button
                 e.preventDefault();
-                console.log(count);
 
                 switch (count) {
                     case 2:
-                        backButton.setAttribute('disabled', 'true');
+                        backButton.setAttribute('disabled', '');
 
                         toggleCheckboxes(1, true);
                         toggleCheckboxes(0, false);//Everthing false except one
@@ -202,7 +211,8 @@
         var checked = document.querySelectorAll('fieldset:nth-of-type(' + count + ') input[type="checkbox"]:checked');
 
         if(checked.length < 1){
-            personaButton.setAttribute('disabled', 'true');
+            validateFieldset(e);
+            personaButton.setAttribute('disabled', '');
         } else {
             validateFieldset(e);
             personaButton.removeAttribute('disabled');
@@ -221,7 +231,7 @@
         step.next(e);
 
         if(checkedBoxes[count-1] && checkedBoxes[count-1].length < 1){
-            personaButton.setAttribute('disabled', 'true');
+            personaButton.setAttribute('disabled', '');
         }
     });
         //node.control.checked = true

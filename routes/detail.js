@@ -1,3 +1,4 @@
+//BEGIN SORAYA
 var express = require('express'),
     router = express.Router(),
     reviewsSchema = require('../models/reviewsschema'),
@@ -12,7 +13,12 @@ router.get('/:id', function(req, res) {
     console.log(username);
 
     reviewsSchema.findOne({ 'review.seriesName': seriesName }, function(error, doc) {
-        res.render('review', { data: doc, title: seriesName, user: username });
+        res.render('review', {
+            data: doc,
+            title: seriesName,
+            //BEGIN CHANEL
+            user: username });
+            //END CHANEL
     });
 });
 
@@ -20,10 +26,12 @@ module.exports = function(io) {
     io.on('connection', function(socket) {
         socket.on('save comment', function(comment) {
             commentsToDatabase({
+                //BEGIN CHANEL
                 rating: comment.rating,
                 text: comment.text,
                 time: comment.time,
                 user: username
+                //END CHANEL
             });
 
             io.emit('comment', comment);
@@ -45,3 +53,4 @@ function commentsToDatabase(comment) {
         }
     });
 }
+//END SORAYA

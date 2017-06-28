@@ -10,8 +10,8 @@ body {
     font-size: 140%;
 }
 
-.hidden {
-    display: block;
+.unhide {
+    display: block!important;
 }
 
 .active {
@@ -63,6 +63,13 @@ body {
             width: 100vw;
         }
     }
+    .titel-link {
+        @media screen and (max-width: 40em) {
+            display: block;
+            text-align: center;
+            margin-top: 2em;
+        }
+    }
     #hamburger {
         position: absolute;
         top: 0.2em;
@@ -88,15 +95,6 @@ body {
 
 @supports (display: flex) {
     .header-nav {
-
-        @media screen and (max-width: 40em) {
-            position: inherit;
-            width: 100vw;
-            -webkit-box-align: center;
-                -ms-flex-align: center;
-                        -ms-grid-row-align: center;
-                    align-items: center;
-        }
         .main-navigation {
             display: -webkit-box;
             display: -ms-flexbox;
@@ -126,7 +124,16 @@ body {
                 flex-direction: row;
                 justify-content: space-between;
                 width: 60%;
-
+                @media screen and (max-width: 40em) {
+                    flex-direction: column;
+                    text-align: center;
+                    width: 100%;
+                }
+                li {
+                    @media screen and (max-width: 40em) {
+                        margin: 0.5em 0;
+                    }
+                }
             }
         }
 

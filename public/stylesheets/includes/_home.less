@@ -58,7 +58,7 @@ img {
     display: none!important;
 }
 
-footer {
+.default-footer {
     padding: 2em 0;
     text-align: center;
     color: white;
@@ -94,6 +94,7 @@ footer {
         padding: 10em 0;
         .welcome-message,
         .review-message {
+            font-family: 'Alegreya', serif;
             z-index: 100;
             position: inherit;
             font-size: 230%;
@@ -182,6 +183,7 @@ footer {
     .best-match {
         display: inline-block;
         position: relative;
+        transition: 0.2s;
         a {
             color: #333;
         }
@@ -196,8 +198,18 @@ footer {
         }
     }
     .secondary-match {
+        transition: 0.2s;
         display: inline-block;
         @media screen and (max-width: 40em) {}
+    }
+
+    .best-match:hover,
+    .secondary-match:hover {
+        transition: 0.2s;
+        transform: scale(1.05);
+        -webkit-box-shadow: 0px 4px 32px 2px rgba(0,0,0,0.52);
+        -moz-box-shadow: 0px 4px 32px 2px rgba(0,0,0,0.52);
+        box-shadow: 0px 4px 32px 2px rgba(0,0,0,0.52);
     }
     img {
         height: 23em;

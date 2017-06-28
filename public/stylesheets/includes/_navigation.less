@@ -56,29 +56,25 @@ body {
         text-decoration: none;
         color: #F76655;
     }
-    nav {
+    .main-navigation {
         color: #333333;
-        @media screen and (max-width: 40em) {
+        @media screen and (max-width: 55em) {
             display: none;
-            width: 100vw;
         }
     }
     .titel-link {
-        @media screen and (max-width: 40em) {
+        @media screen and (max-width: 55em) {
             display: block;
             text-align: center;
             margin-top: 2em;
         }
     }
     #hamburger {
+        cursor: pointer;
         position: absolute;
         top: 0.2em;
         left: 0.2em;
-        width: 56px;
-        width: 56px;
         width: 3.5rem;
-        height: 35.2px;
-        height: 35.2px;
         height: 2.2rem;
         div {
             height: 6px;
@@ -87,7 +83,7 @@ body {
             border-radius: 9px;
             margin: 5px;
         }
-        @media screen and (min-width: 40em) {
+        @media screen and (min-width: 55em) {
             display: none;
         }
     }
@@ -105,10 +101,10 @@ body {
             -webkit-box-align: center;
                 -ms-flex-align: center;
                     align-items: center;
-            width: 80em;
+            padding: 0 2em;
             margin: 0 auto;
 
-            @media screen and (max-width: 40em) {
+            @media screen and (max-width: 55em) {
                 display: none;
                 -webkit-box-orient: vertical;
                 -webkit-box-direction: normal;
@@ -124,13 +120,13 @@ body {
                 flex-direction: row;
                 justify-content: space-between;
                 width: 60%;
-                @media screen and (max-width: 40em) {
+                @media screen and (max-width: 55em) {
                     flex-direction: column;
                     text-align: center;
                     width: 100%;
                 }
                 li {
-                    @media screen and (max-width: 40em) {
+                    @media screen and (max-width: 55em) {
                         margin: 0.5em 0;
                     }
                 }

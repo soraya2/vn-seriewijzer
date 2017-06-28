@@ -99,17 +99,58 @@
                         <% } %>
                     </section>
                     <% } else { %>
-                        <p>Persona check resultaten placeholder hier</p>
+                        <section class="persona-banner">
+                            <div class="persona-message">
+                                <h2>Hier komen jouw Persona Check resultaten</h2>
+                                <p>Doe de Persona Check om er achter te komen welke series er goed bij je passen!</p>
+                                <a href="/persona">Doe de check</a>
+                            </div>
+                            <div class="overlay"></div>
+                        </section>
                     <% } %>
+                <% } else { %>
+                    <section class="match-overview-container">
+                        <div class="placeholder-message">
+                            <h2>Hier komen jouw Top 5 matches</h2>
+                            <a href="/seriespel">Speel het Seriespel!</a>
+                        </div>
+                        <div class="best-match">
+                            <picture>
+                                <img class="match-img" src="/img/placeholders/placeholder1.png" alt="Jouw serie hier">
+                            </picture>
+                            </a>
+                        </div>
+                        <div class="secondary-match">
+                            <picture>
+                                <img class="match-img" src="/img/placeholders/placeholder2.png" alt="Jouw serie hier">
+                            </picture>
+                        </div>
+                        <div class="secondary-match">
+                            <picture>
+                                <img class="match-img" src="/img/placeholders/placeholder3.png" alt="Jouw serie hier">
+                            </picture>
+                        </div>
+                        <div class="secondary-match">
+                            <picture>
+                                <img class="match-img" src="/img/placeholders/placeholder4.png" alt="Jouw serie hier">
+                            </picture>
+                        </div>
+                        <div class="secondary-match">
+                            <picture>
+                                <img class="match-img" src="/img/placeholders/placeholder5.png" alt="Jouw serie hier">
+                            </picture>
+                        </div>
+                    </section>
                 <% } %>
                 <section class="review-banner">
                     <div class="review-message">
                         <h2>Lees de laatste recensies.</h2>
                         <p>We hebben een hoop series bekeken. Hier kun je lezen wat wij er van vonden.</p>
+                        <a href="/recensies">Of bekijk alle recensies ➔</a>
                     </div>
                     <div class="overlay"></div>
                 </section>
-                <% if (reviewData) {%>
+                <% if (reviewData) { %>
                     <section class="review-overview-container">
                         <% for(var i=0; i<6; i++) {%>
                             <div class="review">

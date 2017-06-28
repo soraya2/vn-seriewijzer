@@ -6,9 +6,9 @@ var express = require('express'),
 
 router.get('/', function(req, res) {
 
-// Change 'Shyanta Vleugel' to req.session.email
-
-    user.findOne({'user.facebook.email': 'soraya.02.11@hotmail.com' }, function(err, user) {
+if (req.session.user) {
+    user.findOne({'user.facebook.email': 'req.session.email' }, function(err, user) {
+        console.log(user);
         reviewsSchema.find({}).sort({ postDate: -1 }).exec(function (err, reviews) {
             res.render('home', {
                 title: 'Vrij Nederland Seriewijzer',
@@ -17,6 +17,17 @@ router.get('/', function(req, res) {
             });
         });
     });
+} else {
+    reviewsSchema.find({}).sort({ postDate: -1 }).exec(function (err, reviews) {
+        res.render('home', {
+            title: 'Vrij Nederland Seriewijzer',
+            userData: '',
+            reviewData: reviews
+        });
+    });
+}
+
+
 
 });
 

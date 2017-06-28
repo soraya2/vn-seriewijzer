@@ -23,10 +23,11 @@
 }
 
 .hidden {
-    display: none;
+    opacity: 0;
 }
 
 .success {
+    transition: 0.3s;
     background-color: RGBA(43, 196, 160, 1.00);
     color: white;
     padding: 1em;

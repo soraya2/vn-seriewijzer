@@ -1,10 +1,10 @@
 (function() {
     'use strict';
-    var socket = io();
-    var form = document.getElementById('review-form');
-    var uploadButton = document.getElementById('upload');
-    var successMessage = document.getElementById('success');
-    var notification = document.getElementById('notification');
+    var socket              = io();
+    var form                = document.getElementById('review-form');
+    var uploadButton        = document.getElementById('upload');
+    var successMessage      = document.getElementById('success');
+    var notification        = document.getElementById('notification');
 
     socket.on('connection', function () {
         console.log('Connected to server!');
@@ -14,10 +14,13 @@
                 socket.emit('new update');
                 console.log('Form submitted');
                 showSuccessMessage();
+                setTimeout(function(){
+                    form.submit();
+                }, 1500)
             });
         };
         socket.on('update', function() {
-            console.log('JEEEJ! Update van een recensie is binnen!');
+            console.log('Review updated');
             showNotification();
         })
     });
@@ -27,7 +30,7 @@
             setTimeout(function(){
                 uploadButton.classList.add('hidden');
                 successMessage.classList.remove('hidden');
-            }, 1500);
+            }, 500);
         }
     };
 

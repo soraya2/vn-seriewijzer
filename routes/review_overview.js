@@ -5,7 +5,7 @@ var mongoose = require('mongoose');
 var reviewsSchema = require('../models/reviewsschema.js');
 
 router.get('/', function (req, res) {
- reviewsSchema.find({}, 'review').sort({ postDate: -1 }).exec(function (err, reviews) {
+ reviewsSchema.find({}).sort({ postDate: -1 }).exec(function (err, reviews) {
         if (err) {
           console.log(err);
         } else {

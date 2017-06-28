@@ -19,6 +19,7 @@
 
             textField.value = '';
         },
+        //Send comment to the server.
         emit: function(comm, rating) {
             socket.emit('save comment', {
                 title: showTitle,
@@ -27,6 +28,7 @@
                 time: new Date().toLocaleString()
             });
         },
+        //Render new comments by creating elements and adding them
         render: function(newComment) {
             var listItem = document.createElement('li'),
                 textEl = document.createElement('p'),
@@ -49,12 +51,15 @@
         }
     };
 
+    //When the server sends a new comment
     socket.on('comment', function(comm) {
+        //If the tv show title of the comment matches the one on this page, render the comment
         if(comm.title == showTitle){
             comment.render(comm);
         }
     });
 
+    //if your logged on, commenting is enabled so add an addEventListener
     if(document.querySelector('[type="submit"]')){
         document.querySelector('[type="submit"]').addEventListener('click', function(e) {
             e.preventDefault();

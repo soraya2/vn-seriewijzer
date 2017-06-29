@@ -2,12 +2,13 @@ var express = require('express'),
     router = express.Router(),
     env = require('dotenv').config(),
     reviewsSchema = require('../models/reviewsschema'),
+    user = require('../models/user'),
     filters = {},
     i,
     personaForm,
     key;
 
-router.get('/', function(req, res) {
+router.post('/', function(req, res) {
 
     reviewsSchema.find("review", function(err, docs) {
         if (err) {
@@ -16,14 +17,13 @@ router.get('/', function(req, res) {
 
         for (key in req.session.personaform) {
             if (req.session.personaform.hasOwnProperty(key)) {
-
                 arrayCheck(key, req.session.personaform[key]);
             }
         }
 
         var filterdData = docs.filter(function(serie) {
 
-            return Object.keys(filters).every(function(key) { // For each key in filter return filter key value
+            return Object.keys(filters).some(function(key) { // For each key in filter return filter key value
 
                 return filters[key].some(function(filterOptions) { // Compare filter options with serie tags
 
@@ -36,8 +36,9 @@ router.get('/', function(req, res) {
             });
         });
 
-        res.render('persona_results', { title: 'Home', data: filterdData, name: req.session.user });
+        resultsToDatabase(filterdData);
 
+        res.redirect('/');
     });
 });
 
@@ -48,6 +49,7 @@ function setFilter(filterName, filterValue) {
 
 function arrayCheck(filterName, filterValue) {
 
+
     if (Array.isArray(filterValue) === false) {
 
         setFilter(filterName, new Array(filterValue));
@@ -57,4 +59,49 @@ function arrayCheck(filterName, filterValue) {
     }
 }
 
+function filterLenghtCheck(filterData) {
+
+    if (filterdData.length >= 0) {
+
+        return filterdData;
+    } else {
+        var message = "no results";
+
+        return message;
+    }
+}
+
+
+function resultsToDatabase(filterData) {
+
+    // clean the persona check
+    user.findOneAndUpdate({ 'user.facebook.email': 'soraya.02.11@hotmail.com' }, {
+
+        '$set': {
+            'user.profile.personacheck': []
+        }
+    }, { upsert: true }, function(err, document) {
+
+        if (err) {
+            return console.log(err);
+        }
+    });
+    // update the persona check with new values
+    user.findOneAndUpdate({ 'user.facebook.email': 'soraya.02.11@hotmail.com' }, {
+
+        '$addToSet': {
+            'user.profile.personacheck': {
+                $each: filterData
+            }
+        }
+    }, { upsert: true }, function(err, document) {
+
+        if (err) {
+            return console.log(err);
+        }
+    });
+
+
+
+}
 module.exports = router;

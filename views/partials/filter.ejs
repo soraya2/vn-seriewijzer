@@ -1,23 +1,188 @@
-<form action="/profile" class="form-filter" method="post">
+<section class="form-filter">
 
-    <label><input type="radio" name="radio" value="value">Text</label>
-    <label for="">
-        <input type="checkbox" name="country" enctype="multipart/form-data" value="GB">
-        <span>Engels</span>
-    </label>
+    <!-- <h1>Filters</h1> -->
 
-     <label for="">
-          <input type="checkbox" name="country" enctype="multipart/form-data" value="USA">
-          <span>usa</span>
-     </label>
+<h2 id="filter-button"><button>Filter</button></h2>
+    <form action="/search" method="post">
+        <fieldset>
+            <legend>Genre</legend>
+            <hr>
+            <div class="filter-section">
+                <label>
+                    <input class="filter-checkbox" type="checkbox" name="genre" value="action">
+                    <span>Actie</span>
+                </label>
+                <label>
+                    <input class="filter-checkbox" type="checkbox" name="genre" value="adventure">
+                    <span>Avontuur</span>
+                </label>
 
-     <select name="selected_period">
-       <option></option>
-       <option value="middleages" name="period" enctype="multipart/form-data">Middeleeuwen</option>
-       <option value="victorian" name="period" enctype="multipart/form-data">Victoriaans</option>
-       <option value="romeins" name="period" enctype="multipart/form-data">Romeins</option>
-       <option value="hedendaags" name="period" enctype="multipart/form-data">Hedendaags</option>
-     </select>
+                <label>
+                    <input class="filter-checkbox" type="checkbox" name="genre" value="comedy">
+                    <span>Comedy</span>
+                </label>
 
-    <input type="submit">
-</form>
+                <label>
+                    <input class="filter-checkbox" type="checkbox" name="genre" value="documentary">
+                    <span>Documentaire</span>
+                </label>
+
+                <label>
+                    <input class="filter-checkbox" type="checkbox" name="genre" value="drama">
+                    <span>Drama</span>
+                </label>
+
+                <label>
+                    <input class="filter-checkbox" type="checkbox" name="genre" value="epic">
+                    <span>Episch</span>
+                </label>
+
+                <label>
+                    <input class="filter-checkbox" type="checkbox" name="genre" value="horror">
+                    <span>Horror</span>
+                </label>
+
+                <label>
+                    <input class="filter-checkbox" type="checkbox" name="genre" value="scifi">
+                    <span>Sci-fi</span>
+                </label>
+
+                <label>
+                    <input class="filter-checkbox" type="checkbox" name="genre" value="war">
+                    <span>Oorlog</span>
+                </label>
+
+                <label>
+                    <input class="filter-checkbox" type="checkbox" name="genre" value="romance">
+                    <span>Romantiek</span>
+                </label>
+
+                <label>
+                    <input class="filter-checkbox" type="checkbox" name="genre" value="music">
+                    <span>Muziek</span>
+                </label>
+
+                <label>
+                    <input class="filter-checkbox" type="checkbox" name="genre" value="fantasy">
+                    <span>Fantasy</span>
+                </label>
+
+                <label>
+                    <input class="filter-checkbox" type="checkbox" name="genre" value="thriller">
+                    <span>Thriller</span>
+                </label>
+
+                <label>
+                    <input class="filter-checkbox" type="checkbox" name="genre" value="crime">
+                    <span>Misdaad</span>
+                </label>
+
+                <label>
+                    <input class="filter-checkbox" type="checkbox" name="genre" value="sport">
+                    <span>Sport</span>
+                </label>
+
+                <label>
+                    <input class="filter-checkbox" type="checkbox" name="genre" value="mystery">
+                    <span>Mystery</span>
+                </label>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Persoonlijkheid</legend>
+            <hr>
+            <label>
+                <input type="checkbox" class="filter-checkbox" name="persona" value="foodie">
+                <span>Foodie</span>
+
+            </label>
+            <label>
+                <input type="checkbox" class="filter-checkbox" name="persona" value="creative">
+                <span>Creatieveling</span>
+
+            </label>
+            <label>
+                <input type="checkbox" class="filter-checkbox" name="persona" value="sensationalist">
+                <span>Sensatiezoeker</span>
+
+            </label>
+            <label>
+                <input type="checkbox" class="filter-checkbox" name="persona" value="joker">
+                <span>Grappenmaker</span>
+
+            </label>
+            <label>
+                <input type="checkbox" class="filter-checkbox" name="persona" value="girly">
+                <span>Girly Girl</span>
+
+            </label>
+            <label>
+                <input type="checkbox" class="filter-checkbox" name="persona" value="tomboy">
+                <span>Tomboy</span>
+
+            </label>
+            <label>
+                <input type="checkbox" class="filter-checkbox" name="persona" value="daredevil">
+                <span>Waaghals</span>
+
+            </label>
+            <label>
+                <input type="checkbox" class="filter-checkbox" name="persona" value="adventurer">
+                <span>Avonturier</span>
+
+            </label>
+            <label>
+                <input type="checkbox" class="filter-checkbox" name="persona" value="nerd">
+                <span>Geeky Nerd</span>
+
+            </label>
+            <label>
+                <input type="checkbox" class="filter-checkbox" name="persona" value="animallover">
+                <span>Dierenliefhebber</span>
+
+            </label>
+            <label>
+                <input type="checkbox" class="filter-checkbox" name="persona" value="intellectual">
+                <span>Intellectueel</span>
+            </label>
+        </fieldset>
+
+        <fieldset>
+            <legend>Humeur</legend>
+            <hr>
+            <label>
+                <input type="checkbox" class="filter-checkbox" name="mood" value="scared">
+                <span>Ik wil bang gemaakt worden</span>
+            </label>
+            <label>
+                <input type="checkbox" class="filter-checkbox" name="mood" value="cry">
+                <span>Ik wil lekker janken</span>
+
+            </label>
+            <label>
+                <input type="checkbox" class="filter-checkbox" name="mood" value="thrill">
+                <span>Ik wil van spanning stoppen met ademen</span>
+
+            </label>
+            <label>
+                <input type="checkbox" class="filter-checkbox" name="mood" value="laugh">
+                <span>Ik wil huilen van het lachen</span>
+
+            </label>
+            <label>
+                <input type="checkbox" class="filter-checkbox" name="mood" value="chill">
+                <span>Ik wil hersendood voor de TV zitten</span>
+
+            </label>
+            <label>
+                <input type="checkbox" class="filter-checkbox" name="mood" value="learn">
+                <span>Ik wil iets leren</span>
+
+            </label>
+
+        </fieldset>
+
+        <input type="submit">
+    </form>
+</section>

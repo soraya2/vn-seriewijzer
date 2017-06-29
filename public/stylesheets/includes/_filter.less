@@ -1,6 +1,112 @@
 .form-filter {
-    display: flex;
-    margin-top: .5em;
-    flex-direction: column;
-    width: 10em;
+    // position: absolute;
+    left: -10px;
+    z-index: 10;
+    position: fixed;
+    color: #fff;
+    display: inline-block;
+    // width: 120px;
+    top: 3em;
+    height: 100%;
+    overflow: auto;
+    form {
+        width: 19em;
+        display: flex;
+        flex-direction: column;
+        -webkit-transition: width 0.2s;
+        z-index: 1;
+        /* Stay on top */
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 10em;
+        background-color: #ffffff;
+        z-index: 10;
+        margin-top: 4em;
+        margin-bottom: 4em;
+        color: #333333;
+        display: inline-block;
+        height: 100%;
+        overflow: auto;
+        padding: 4em 0 4em 1em;
+        input[class="filter-checkbox"] {
+            clip: rect(0, 0, 0, 0);
+            position: unset!important;
+        }
+        input[type="submit"] {
+            background-color: #F76655;
+            border: none;
+            padding: 0.4em 3em;
+            width: 95%;
+            color: #ffffff;
+            font-size: 1.2em;
+        }
+        label {
+            display: block;
+            margin: 1em 0;
+        }
+        fieldset {
+            border: none;
+        }
+        legend {
+            font-size: 1.2em;
+            font-family: sans-serif;
+            font-weight: 600;
+            color: #F76655;
+        }
+        hr {
+            margin: 0.4em 0 0 0;
+            width: 16em;
+        }
+        /* Safari */
+    }
+    h2 {
+        font-size: 1em;
+        text-align: center;
+        button {
+            border: none;
+            position: inherit;
+            -ms-appearance: none;
+            -webkit-appearance: none;
+            height: 3em;
+            width: 5em;
+            -webkit-transition: left 0.2s;
+            left: -10px;
+            background-color: #F76655;
+            top: 9em;
+            color: inherit;
+            font-weight: 600;
+            cursor: pointer;
+        }
+    }
+    .hide-filter {
+        width: 0;
+        padding: 0;
+        label,
+        legend {
+            opacity: 0;
+        }
+        input[class="filter-checkbox"] {
+            opacity: 0;
+        }
+        @supports (transition: width) {
+            -webkit-transition: width 0.2s;
+            -moz-transition: width 0.2s;
+            -ms-transition: width 0.2s;
+            -o-transition: width 0.2s;
+            transition: width 0.2s;
+        }
+    }
+    .move-button {
+        left: 19em;
+        -webkit-transition: left 0.2s;
+    }
+    .hide-submit {
+        display: none;
+    }
 }
+
+//remove generic styles!!!
+//     body {
+//     margin-top: 8em!important;
+// }

@@ -71,7 +71,7 @@ app.use('/recensies', allReviews);
 app.use('/seriespel', seriesGame);
 app.use('/review', reviewDetail);
 app.use('/persona_results', personaResults);
-app.use('/*', errorPage);
+//app.use('/*', errorPage);
 
 mongoose.connect(process.env.USERDB);
 // Console.log(mongoose.connection.readyState); //test database connection
@@ -81,9 +81,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Catch 404 and forward to error handler
 app.use(function(req, res, next) {
-    var err = new Error('Not Found');
-    err.status = 404;
-    next(err);
+    res.render('pagenotfound');
 });
 
 // Error handler

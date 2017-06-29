@@ -145,7 +145,7 @@
             flex-wrap: wrap;
             justify-content: space-around;
             text-align: center;
-            align-items: center;
+            /*align-items: center;*/
             float: none;
         }
             #serie-overview main section {
@@ -157,16 +157,16 @@
                 }
                 #serie-overview main section,
                 #serie-overview main section img {
-                    width: 6.5em;
-                    height: 10em;
+                    width: 5em;
+                    height: 8em;
                     margin: 5px;
                 }
                     #serie-overview main section[data-num="1"],
                     #serie-overview main section[data-num="2"],
                     #serie-overview main section[data-num="1"] img,
                     #serie-overview main section[data-num="2"] img  {
-                        width: 11em;
-                        height: 16em;
+                        width: 8em;
+                        height: 12em;
                     }
     @media screen and (min-width: 39em) {
         #serie-overview main{

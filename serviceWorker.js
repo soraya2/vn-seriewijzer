@@ -5,6 +5,7 @@ var cacheFiles = [
     '/home',
     '/persona',
     '/persona_results',
+    '/recensies',
     '../stylesheets/style.css',
     '../javascripts/persona-steps.js',
     '../public/javascripts/bundle.js'

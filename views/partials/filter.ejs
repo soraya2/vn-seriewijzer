@@ -1,199 +1,188 @@
-<form action="/search" class="form-filter" method="post">
+<section class="form-filter">
 
     <h1>Filters</h1>
-    <fieldset>
-      <legend>Persoonlijkheid</legend>
-      <div class="filter-section">
-          <label>
-              <input class="filter-checkbox" type="checkbox" name="genre" value="action">
-              <span>Actie</span>
-          </label>
-          <label>
-              <input class="filter-checkbox" type="checkbox" name="genre" value="adventure">
-              <span>Avontuur</span>
-          </label>
+    <button id="filter-button">Filter</button>
 
-          <label>
-              <input class="filter-checkbox" type="checkbox" name="genre" value="comedy">
-              <span>Comedy</span>
-          </label>
+    <form action="/search" method="post">
+        <fieldset>
+            <legend>Genre</legend>
+            <hr>
+            <div class="filter-section">
+                <label>
+                    <input class="filter-checkbox" type="checkbox" name="genre" value="action">
+                    <span>Actie</span>
+                </label>
+                <label>
+                    <input class="filter-checkbox" type="checkbox" name="genre" value="adventure">
+                    <span>Avontuur</span>
+                </label>
 
-          <label>
-              <input class="filter-checkbox" type="checkbox" name="genre" value="documentary">
-              <span>Documentaire</span>
-          </label>
+                <label>
+                    <input class="filter-checkbox" type="checkbox" name="genre" value="comedy">
+                    <span>Comedy</span>
+                </label>
 
-          <label>
-              <input class="filter-checkbox" type="checkbox" name="genre" value="drama">
-              <span>Drama</span>
-          </label>
+                <label>
+                    <input class="filter-checkbox" type="checkbox" name="genre" value="documentary">
+                    <span>Documentaire</span>
+                </label>
 
-          <label>
-              <input class="filter-checkbox" type="checkbox" name="genre" value="epic">
-              <span>Episch</span>
-          </label>
+                <label>
+                    <input class="filter-checkbox" type="checkbox" name="genre" value="drama">
+                    <span>Drama</span>
+                </label>
 
-          <label>
-              <input class="filter-checkbox" type="checkbox" name="genre" value="horror">
-              <span>Horror</span>
-          </label>
+                <label>
+                    <input class="filter-checkbox" type="checkbox" name="genre" value="epic">
+                    <span>Episch</span>
+                </label>
 
-          <label>
-              <input class="filter-checkbox" type="checkbox" name="genre" value="scifi">
-              <span>Sci-fi</span>
-          </label>
+                <label>
+                    <input class="filter-checkbox" type="checkbox" name="genre" value="horror">
+                    <span>Horror</span>
+                </label>
 
-          <label>
-              <input class="filter-checkbox" type="checkbox" name="genre" value="war">
-              <span>Oorlog</span>
-          </label>
+                <label>
+                    <input class="filter-checkbox" type="checkbox" name="genre" value="scifi">
+                    <span>Sci-fi</span>
+                </label>
 
-          <label>
-              <input class="filter-checkbox" type="checkbox" name="genre" value="romance">
-              <span>Romantiek</span>
-          </label>
+                <label>
+                    <input class="filter-checkbox" type="checkbox" name="genre" value="war">
+                    <span>Oorlog</span>
+                </label>
 
-          <label>
-              <input class="filter-checkbox" type="checkbox" name="genre" value="music">
-              <span>Muziek</span>
-          </label>
+                <label>
+                    <input class="filter-checkbox" type="checkbox" name="genre" value="romance">
+                    <span>Romantiek</span>
+                </label>
 
-          <label>
-              <input class="filter-checkbox" type="checkbox" name="genre" value="fantasy">
-              <span>Fantasy</span>
-          </label>
+                <label>
+                    <input class="filter-checkbox" type="checkbox" name="genre" value="music">
+                    <span>Muziek</span>
+                </label>
 
-          <label>
-              <input class="filter-checkbox" type="checkbox" name="genre" value="thriller">
-              <span>Thriller</span>
-          </label>
+                <label>
+                    <input class="filter-checkbox" type="checkbox" name="genre" value="fantasy">
+                    <span>Fantasy</span>
+                </label>
 
-          <label>
-              <input class="filter-checkbox" type="checkbox" name="genre" value="crime">
-              <span>Misdaad</span>
-          </label>
+                <label>
+                    <input class="filter-checkbox" type="checkbox" name="genre" value="thriller">
+                    <span>Thriller</span>
+                </label>
 
-          <label>
-              <input class="filter-checkbox" type="checkbox" name="genre" value="sport">
-              <span>Sport</span>
-          </label>
+                <label>
+                    <input class="filter-checkbox" type="checkbox" name="genre" value="crime">
+                    <span>Misdaad</span>
+                </label>
 
-          <label>
-              <input class="filter-checkbox" type="checkbox" name="genre" value="mystery">
-              <span>Mystery</span>
-          </label>
-        </div>
-     </fieldset>
+                <label>
+                    <input class="filter-checkbox" type="checkbox" name="genre" value="sport">
+                    <span>Sport</span>
+                </label>
 
+                <label>
+                    <input class="filter-checkbox" type="checkbox" name="genre" value="mystery">
+                    <span>Mystery</span>
+                </label>
+            </div>
+        </fieldset>
 
-     <fieldset>
-       <legend>Persoonlijkheid</legend>
-       <label>
-          <input type="checkbox" class="filter-checkbox" name="persona" value="foodie">
-          <span>Foodie</span>
+        <fieldset>
+            <legend>Persoonlijkheid</legend>
+            <hr>
+            <label>
+                <input type="checkbox" class="filter-checkbox" name="persona" value="foodie">
+                <span>Foodie</span>
 
-        </label>
-        <label>
-          <input type="checkbox" class="filter-checkbox" name="persona" value="creative">
-          <span>Creatieveling</span>
+            </label>
+            <label>
+                <input type="checkbox" class="filter-checkbox" name="persona" value="creative">
+                <span>Creatieveling</span>
 
-        </label>
-        <label>
-          <input type="checkbox" class="filter-checkbox" name="persona" value="sensationalist">
-          <span>Sensatiezoeker</span>
+            </label>
+            <label>
+                <input type="checkbox" class="filter-checkbox" name="persona" value="sensationalist">
+                <span>Sensatiezoeker</span>
 
-        </label>
-        <label>
-          <input type="checkbox" class="filter-checkbox" name="persona" value="joker">
-          <span>Grappenmaker</span>
+            </label>
+            <label>
+                <input type="checkbox" class="filter-checkbox" name="persona" value="joker">
+                <span>Grappenmaker</span>
 
-        </label>
-        <label>
-          <input type="checkbox" class="filter-checkbox" name="persona" value="girly">
-          <span>Girly Girl</span>
+            </label>
+            <label>
+                <input type="checkbox" class="filter-checkbox" name="persona" value="girly">
+                <span>Girly Girl</span>
 
-        </label>
-        <label>
-          <input type="checkbox" class="filter-checkbox" name="persona" value="tomboy">
-          <span>Tomboy</span>
+            </label>
+            <label>
+                <input type="checkbox" class="filter-checkbox" name="persona" value="tomboy">
+                <span>Tomboy</span>
 
-        </label>
-        <label>
-          <input type="checkbox" class="filter-checkbox" name="persona" value="daredevil">
-          <span>Waaghals</span>
+            </label>
+            <label>
+                <input type="checkbox" class="filter-checkbox" name="persona" value="daredevil">
+                <span>Waaghals</span>
 
-        </label>
-        <label>
-          <input type="checkbox" class="filter-checkbox" name="persona" value="adventurer">
-          <span>Avonturier</span>
+            </label>
+            <label>
+                <input type="checkbox" class="filter-checkbox" name="persona" value="adventurer">
+                <span>Avonturier</span>
 
-        </label>
-        <label>
-          <input type="checkbox" class="filter-checkbox" name="persona" value="nerd">
-          <span>Geeky Nerd</span>
+            </label>
+            <label>
+                <input type="checkbox" class="filter-checkbox" name="persona" value="nerd">
+                <span>Geeky Nerd</span>
 
-        </label>
-        <label>
-          <input type="checkbox" class="filter-checkbox" name="persona" value="animallover">
-          <span>Dierenliefhebber</span>
+            </label>
+            <label>
+                <input type="checkbox" class="filter-checkbox" name="persona" value="animallover">
+                <span>Dierenliefhebber</span>
 
-        </label>
-        <label>
-          <input type="checkbox" class="filter-checkbox" name="persona" value="intellectual">
-          <span>Intellectueel</span>
-        </label>
-     </fieldset>
-      <fieldset>
+            </label>
+            <label>
+                <input type="checkbox" class="filter-checkbox" name="persona" value="intellectual">
+                <span>Intellectueel</span>
+            </label>
+        </fieldset>
+
+        <fieldset>
             <legend>Humeur</legend>
-
+            <hr>
             <label>
                 <input type="checkbox" class="filter-checkbox" name="mood" value="scared">
                 <span>Ik wil bang gemaakt worden</span>
-        </label>
-        <label>
-          <input type="checkbox" class="filter-checkbox" name="mood" value="cry">
-          <span>Ik wil lekker janken</span>
+            </label>
+            <label>
+                <input type="checkbox" class="filter-checkbox" name="mood" value="cry">
+                <span>Ik wil lekker janken</span>
 
-        </label>
-        <label>
-          <input type="checkbox" class="filter-checkbox" name="mood" value="thrill">
-          <span>Ik wil van spanning stoppen met ademen</span>
+            </label>
+            <label>
+                <input type="checkbox" class="filter-checkbox" name="mood" value="thrill">
+                <span>Ik wil van spanning stoppen met ademen</span>
 
-        </label>
-        <label>
-          <input type="checkbox" class="filter-checkbox" name="mood" value="laugh">
-          <span>Ik wil huilen van het lachen</span>
+            </label>
+            <label>
+                <input type="checkbox" class="filter-checkbox" name="mood" value="laugh">
+                <span>Ik wil huilen van het lachen</span>
 
-        </label>
-        <label>
-          <input type="checkbox" class="filter-checkbox" name="mood" value="chill">
-          <span>Ik wil hersendood voor de TV zitten</span>
+            </label>
+            <label>
+                <input type="checkbox" class="filter-checkbox" name="mood" value="chill">
+                <span>Ik wil hersendood voor de TV zitten</span>
 
-        </label>
-        <label>
-          <input type="checkbox" class="filter-checkbox" name="mood" value="learn">
-          <span>Ik wil iets leren</span>
+            </label>
+            <label>
+                <input type="checkbox" class="filter-checkbox" name="mood" value="learn">
+                <span>Ik wil iets leren</span>
 
-        </label>
+            </label>
 
+        </fieldset>
 
-      </fieldset>
-      <fieldset>
-        <select name="" id="vote" multiple>
-
-            <option value="0">Geef een cijfer</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
-        </select>
-      </fieldset>
-
-    <input type="submit">
-</form>
+        <input type="submit">
+    </form>
+</section>

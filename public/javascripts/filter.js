@@ -4,10 +4,36 @@
     var filterCheckbox = document.getElementsByClassName('filter-checkbox');
     var filters = {};
     var checkboxValue;
-
+    var filterButton = document.querySelector('#filter-button');
+    var filterForm = document.querySelector('.form-filter > form');
+    // console.log(document.querySelector('.form-filter > form'));
     function init() {
+        filterForm.className = 'hide-filter';
         getReviewData('https://220cf296.ngrok.io/search', callback);
     }
+
+
+    // filterButton.addEventListener('click', function() {
+
+    //     // filterForm.className = "hide-filter";
+
+    //     if (filterForm.className) {
+    //         console.log('test');
+
+    //         filterButton.className = 'move-button';
+    //         filterForm.className = '';
+    //         // filterForm.style.width = '300px';
+
+
+    //     } else {
+    //         filterForm.className = 'hide-filter';
+    //         filterButton.className = '';
+    //         // filterForm.style.width = '0';
+
+    //     }
+
+    // });
+
 
     function getReviewData(theUrl, callback) {
         var xmlHttp = new XMLHttpRequest();
@@ -23,7 +49,7 @@
         var reviews = JSON.parse(data);
         for (var i = 0; i < filterCheckbox.length; i++) {
 
-            filterCheckbox[i].addEventListener('change', function(argument) {
+            filterCheckbox[i].addEventListener('change', function() {
                 if (this.checked) {
                     checkboxValue = this.value;
 
@@ -35,11 +61,9 @@
                 } else if (!this.checked) {
 
                     checkboxValue = this.value;
-
                     arrayCheck(this.name, checkboxValue, false);
                     filter(reviews);
                     renderview(filter(reviews));
-
                 }
 
                 function renderview(reviewData) {
@@ -90,7 +114,6 @@
                 return Object.keys(filters).some(function(key) {
 
                     return filterSet(key); // For each key in filter return filter key value
-
                 });
             }
 
@@ -101,7 +124,6 @@
 
                         return filterOptions === seriesTags;
                     });
-
                 });
             }
         });
@@ -113,7 +135,6 @@
     }
 
     function removeFilter(filterName, filterValue) {
-        console.log(filters[filterName], filterValue);
 
         var index = filters[filterName].indexOf(filterValue);
 
@@ -153,7 +174,6 @@
                 if (checked === true) {
 
                     filters[filterName].push(filterValue);
-
                 }
             }
 

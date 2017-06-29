@@ -187,7 +187,8 @@ router.get('/overview', function(req, res) {
 
     // Clear the matches array in the database at the logged in user
     User.findOneAndUpdate({
-        'user.facebook.email': req.session.email
+        'user.facebook.email': 'shyantavleugel@gmail.com'
+
     }, {
         '$set': {
             'user.profile.matches': []
@@ -199,7 +200,7 @@ router.get('/overview', function(req, res) {
     });
     // Push the best results in the matches array in the database at the logged in user
     User.findOneAndUpdate({
-        'user.facebook.email': req.session.email
+        'user.facebook.email': 'shyantavleugel@gmail.com'
     }, {
         '$push': {
             'user.profile.matches': bestResults

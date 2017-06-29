@@ -8,7 +8,7 @@ router.get('/', function(req, res) {
 
     // Change 'Shyanta Vleugel' to req.session.email
 
-    user.findOne({ 'user.facebook.email': req.session.email }, function(err, user) {
+    user.findOne({ 'user.facebook.email': 'shyantavleugel@gmail.com' }, function(err, user) {
         reviewsSchema.find({}).sort({ postDate: -1 }).exec(function(err, reviews) {
             console.log(reviews);
             res.render('home', {

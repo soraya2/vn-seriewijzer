@@ -75,19 +75,19 @@ function filterLenghtCheck(filterData) {
 function resultsToDatabase(filterData) {
 
     // clean the persona check
-    user.findOneAndUpdate({ 'user.facebook.email': 'soraya.02.11@hotmail.com' }, {
+    // user.findOneAndUpdate({ 'user.facebook.email': 'shyantavleugel@gmail.com' }, {
 
-        '$set': {
-            'user.profile.personacheck': []
-        }
-    }, { upsert: true }, function(err, document) {
+    //     '$set': {
+    //         'user.profile.personacheck': []
+    //     }
+    // }, { upsert: true }, function(err, document) {
 
-        if (err) {
-            return console.log(err);
-        }
-    });
+    //     if (err) {
+    //         return console.log(err);
+    //     }
+    // });
     // update the persona check with new values
-    user.findOneAndUpdate({ 'user.facebook.email': 'soraya.02.11@hotmail.com' }, {
+    user.findOneAndUpdate({ 'user.facebook.email': 'shyantavleugel@gmail.com' }, {
 
         '$addToSet': {
             'user.profile.personacheck': {

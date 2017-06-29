@@ -20,41 +20,41 @@ Reviews.find("review", function(err, docs) {
     }
 });
 
-router.get('/', function (req, res) {
+router.get('/', function(req, res) {
     var one = [
-        {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'fawlty towers')},
-        {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'teen wolf')},
-        {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'friends')},
-        {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'game of thrones')}
+        { data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'fawlty towers') },
+        { data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'teen wolf') },
+        { data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'friends') },
+        { data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'game of thrones') }
     ];
     res.locals.introData = one;
     res.render('series-game/intro');
 });
-router.get('/step/:step', function (req, res) {
+router.get('/step/:step', function(req, res) {
     // Save the tvshows by filtering them from the database
     var one = [
-        {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'fawlty towers')},
-        {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'teen wolf')},
-        {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'friends')},
-        {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'game of thrones')}
+        { data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'fawlty towers') },
+        { data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'teen wolf') },
+        { data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'friends') },
+        { data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'game of thrones') }
     ];
     var two = [
-        {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'doctor who')},
-        {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'breaking bad')},
-        {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'sons of anarchy')},
-        {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'the bridge')}
+        { data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'doctor who') },
+        { data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'breaking bad') },
+        { data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'sons of anarchy') },
+        { data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'the bridge') }
     ];
     var three = [
-        {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'the sopranos')},
-        {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'planet earth')},
-        {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'the vampire diaries')},
-        {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'pretty little liars')}
+        { data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'the sopranos') },
+        { data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'planet earth') },
+        { data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'the vampire diaries') },
+        { data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'pretty little liars') }
     ];
     var four = [
-        {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'sherlock')},
-        {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'the walking dead')},
-        {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'chicago fire')},
-        {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'suits')}
+        { data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'sherlock') },
+        { data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'the walking dead') },
+        { data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'chicago fire') },
+        { data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'suits') }
     ];
     // Tell the route which data to send to the view, based on what page you are
     switch (req.params.step) {
@@ -80,7 +80,7 @@ router.get('/step/:step', function (req, res) {
             break;
     }
 })
-router.post('/step/:step', function (req, res){
+router.post('/step/:step', function(req, res) {
     // Fetch all the tags from the objects that are ranked first
     hobby = hobby.concat(reviewArr.find(o => o.review.seriesName === req.body.one).review.hobby);
     mood = mood.concat(reviewArr.find(o => o.review.seriesName === req.body.one).review.mood);
@@ -107,18 +107,21 @@ router.post('/step/:step', function (req, res){
             break;
     }
 })
-router.get('/overview', function (req, res) {
+router.get('/overview', function(req, res) {
     // Set the empty arrays to fill them later on
-    var hobbyResults = [], moodResults = [], personaResults = [], allResults = [];
+    var hobbyResults = [],
+        moodResults = [],
+        personaResults = [],
+        allResults = [];
 
     // Remove all the duplicates from the array
-    var hobbyUnique = hobby.filter(function( el, pos, self){
+    var hobbyUnique = hobby.filter(function(el, pos, self) {
         return self.indexOf(el) == pos;
     });
-    var moodUnique = mood.filter(function( el, pos, self){
+    var moodUnique = mood.filter(function(el, pos, self) {
         return self.indexOf(el) == pos;
     });
-    var personaUnique = persona.filter(function( el, pos, self){
+    var personaUnique = persona.filter(function(el, pos, self) {
         return self.indexOf(el) == pos;
     });
 
@@ -130,19 +133,19 @@ router.get('/overview', function (req, res) {
         var personaArr = reviewArr[i].review.persona;
         // Check for each label, how many tags are similar, so are a match
         for (var j = 0; j < hobbyUnique.length; j++) {
-            if (hobbyArr.includes(hobbyUnique[j])){
+            if (hobbyArr.includes(hobbyUnique[j])) {
                 // Every time a tv show includes a tag, push it in an array
                 hobbyResults.push(reviewArr[i]);
             }
         }
         for (var k = 0; k < moodUnique.length; k++) {
-            if (moodArr.includes(moodUnique[k])){
+            if (moodArr.includes(moodUnique[k])) {
                 // Every time a tv show includes a tag, push it in an array
                 moodResults.push(reviewArr[i]);
             }
         }
         for (var h = 0; h < personaUnique.length; h++) {
-            if (personaArr.includes(personaUnique[h])){
+            if (personaArr.includes(personaUnique[h])) {
                 // Every time a tv show includes a tag, push it in an array
                 personaResults.push(reviewArr[i]);
             }
@@ -169,26 +172,25 @@ router.get('/overview', function (req, res) {
         });
     }
     // Sort the array from highest to lowest percentage
-    allResults.sort(function(a,b){
-        if (a.matchAll > b.matchAll) {
-            return -1;
-        }
-        else if (a.matchAll < b.matchAll) {
-            return 1;
-        } else {
-            return 0;
-        }
-    })
-    // Push the best 5 results in a new array
-    var bestResults = allResults.slice(0,5);
+    allResults.sort(function(a, b) {
+            if (a.matchAll > b.matchAll) {
+                return -1;
+            } else if (a.matchAll < b.matchAll) {
+                return 1;
+            } else {
+                return 0;
+            }
+        })
+        // Push the best 5 results in a new array
+    var bestResults = allResults.slice(0, 5);
     console.log(bestResults);
 
     // Clear the matches array in the database at the logged in user
-    User.findOneAndUpdate( {
-        'user.facebook.email' : 'shyantavleugel@gmail.com'
+    User.findOneAndUpdate({
+        'user.facebook.email': req.session.email
     }, {
-        '$set' : {
-            'user.profile.matches' : []
+        '$set': {
+            'user.profile.matches': []
         }
     }, { upsert: false }, function(err, docs) {
         if (err) {
@@ -196,11 +198,11 @@ router.get('/overview', function (req, res) {
         }
     });
     // Push the best results in the matches array in the database at the logged in user
-    User.findOneAndUpdate( {
-        'user.facebook.email' : 'shyantavleugel@gmail.com'
+    User.findOneAndUpdate({
+        'user.facebook.email': req.session.email
     }, {
-        '$push' : {
-            'user.profile.matches' : bestResults
+        '$push': {
+            'user.profile.matches': bestResults
         }
     }, { upsert: false }, function(err, docs) {
         if (err) {
@@ -212,10 +214,10 @@ router.get('/overview', function (req, res) {
     res.locals.results = bestResults;
     res.render('series-game/overview');
 })
-router.get('/details/:id', function (req, res) {
+router.get('/details/:id', function(req, res) {
     Reviews.findOne({ 'review.seriesName': req.params.id }, function(err, series) {
         console.log('Found show: ' + series);
-        res.render('series-game/detail-view', {data: series});
+        res.render('series-game/detail-view', { data: series });
     });
 });
 

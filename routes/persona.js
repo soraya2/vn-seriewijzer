@@ -10,8 +10,8 @@ router.get('/', function(req, res) {
 });
 
 router.post('/', function(req, res) {
+    req.session.personaform = req.body;
     if (req.user) {
-        req.session.personaform = req.body;
         req.session.user = req.user.user.facebook.displayName;
         req.session.email = req.user.user.facebook.email;
     }

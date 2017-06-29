@@ -3,7 +3,6 @@ var cacheName = 'v1';
 var cacheFiles = [
     '/',
     '/persona',
-    '/persona_results',
     '/recensies',
     '/seriespel',
     '../stylesheets/style.css',

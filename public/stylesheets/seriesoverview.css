@@ -5,7 +5,7 @@
 }
     #serie-overview h1 {
         width: 100%;
-        margin-top: 2em;
+        margin-top: 0em;
         margin-bottom: .5em;
         text-align: center;
     }
@@ -14,7 +14,7 @@
         box-sizing: border-box;
         text-align: center;
         align-items: center;
-        height: calc(100% - 8em)!important;
+        height: calc(100% - 7em)!important;
     }
         #serie-overview main section {
             height: 12em;
@@ -122,7 +122,6 @@
     @media screen and (min-width: 55em) {
         #serie-overview h1 {
             width: 100%;
-            margin-top: 3em;
         }
     }
 
@@ -132,7 +131,6 @@
         color: #000;
         font-family: sans-serif;
         float: none;
-        overflow-y: hidden;
     }
         #serie-overview h1 {
             flex-basis: 100%;
@@ -159,16 +157,16 @@
                 }
                 #serie-overview main section,
                 #serie-overview main section img {
-                    width: 8em;
-                    height: 12em;
+                    width: 7em;
+                    height: 11em;
                     margin: 5px;
                 }
                     #serie-overview main section[data-num="1"],
                     #serie-overview main section[data-num="2"],
                     #serie-overview main section[data-num="1"] img,
                     #serie-overview main section[data-num="2"] img  {
-                        width: 12em;
-                        height: 17em;
+                        width: 11em;
+                        height: 16em;
                     }
     @media screen and (min-width: 39em) {
         #serie-overview main{

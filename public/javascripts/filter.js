@@ -8,32 +8,9 @@
     var filterForm = document.querySelector('.form-filter > form');
     // console.log(document.querySelector('.form-filter > form'));
     function init() {
-        filterForm.className = 'hide-filter';
-        getReviewData('https://220cf296.ngrok.io/search', callback);
+        // filterForm.className = 'hide-filter';
+        getReviewData('https://220cf296.ngrok.io/search', reviewCallback);
     }
-
-
-    // filterButton.addEventListener('click', function() {
-
-    //     // filterForm.className = "hide-filter";
-
-    //     if (filterForm.className) {
-    //         console.log('test');
-
-    //         filterButton.className = 'move-button';
-    //         filterForm.className = '';
-    //         // filterForm.style.width = '300px';
-
-
-    //     } else {
-    //         filterForm.className = 'hide-filter';
-    //         filterButton.className = '';
-    //         // filterForm.style.width = '0';
-
-    //     }
-
-    // });
-
 
     function getReviewData(theUrl, callback) {
         var xmlHttp = new XMLHttpRequest();
@@ -45,7 +22,7 @@
         xmlHttp.send(null);
     }
 
-    function callback(data) {
+    function reviewCallback(data) {
         var reviews = JSON.parse(data);
         for (var i = 0; i < filterCheckbox.length; i++) {
 

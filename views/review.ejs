@@ -53,7 +53,7 @@
                 <fieldset>
                     <legend>Reactie plaatsen</legend>
                     <label >
-                        <select name="" id="vote">
+                        <select id="vote" required>
                             <option value="0">Geef een cijfer</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -81,11 +81,11 @@
                 <% for(var i = data.comments.length - 1; i > 0; i--){%>
                     <hr>
                     <li>
-                        <!--// <h4><%= data.comments[i].username%> </h4>-->
+
                         <p> <span><%=data.comments[i].rating%></span>Cijfer</p>
                         <div>
                             <div>
-                                <h4>Soraya Ibrahim </h4>
+                                <h4><%= data.comments[i].username%> </h4>
                                 <time><%= data.comments[i].time%></time>
                             </div>
                             <p><%= data.comments[i].text%></p>

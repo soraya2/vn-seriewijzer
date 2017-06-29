@@ -9,7 +9,7 @@
         // getReviewData('https://220cf296.ngrok.io/search', callback);
     }
 
-
+    console.log(filterButton);
     filterButton.addEventListener('click', function() {
 
         // filterForm.className = "hide-filter";

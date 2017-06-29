@@ -1,8 +1,21 @@
+.hidden {
+    opacity: 0;
+    transition: 0.5s;
+}
+
 .review-overview-body {
     font-family: sans-serif;
     background-color: #F6F6F6;
     h1 {
         text-align: center;
+    }
+    #notification {
+        transition: 0.5s;
+        background: RGBA(43, 196, 160, 1.00);
+        color: white;
+        padding: 0.5em 2em;
+        position: absolute;
+        box-shadow: 5px 5px 30px -12px rgba(0,0,0,0.72);
     }
 }
 
@@ -57,12 +70,12 @@
     padding: 0.5em 1em;
     width: 5em;
     text-align: center;
-    background: skyblue;
+    background: RGBA(247, 102, 85, 1.00);
     color: white;
     text-decoration: none;
     cursor: pointer;
 }
 
 .edit-btn:hover {
-    background: deepskyblue;
+    background: crimson;
 }

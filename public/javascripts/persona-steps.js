@@ -190,7 +190,6 @@
 
                 return personaSteps[count--];
             }
-            //END CHANEL
         };
 
     form.addEventListener('change', function(e){
@@ -224,6 +223,7 @@
             personaButton.setAttribute('disabled', 'true');
         }
     });
+    //END CHANEL
         //node.control.checked = true
 
     config();

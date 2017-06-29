@@ -24,7 +24,8 @@ function processUploadForm(req, res) {
     reviewsSchema.create({
         user: {
             name:           fields.name,
-            email:          fields.email
+            email:          fields.email,
+            postDate:       fields.postDate
         },
         review: {
             seriesName:     fields.seriesName,

@@ -32,55 +32,66 @@ router.get('/', function (req, res) {
 });
 router.get('/step/:step', function (req, res) {
     // Save the tvshows by filtering them from the database
-    var one = [
-        {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'fawlty towers')},
-        {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'teen wolf')},
-        {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'friends')},
-        {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'game of thrones')}
-    ];
-    var two = [
-        {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'doctor who')},
-        {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'breaking bad')},
-        {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'sons of anarchy')},
-        {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'the bridge')}
-    ];
-    var three = [
-        {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'the sopranos')},
-        {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'planet earth')},
-        {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'the vampire diaries')},
-        {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'pretty little liars')}
-    ];
-    var four = [
-        {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'sherlock')},
-        {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'the walking dead')},
-        {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'chicago fire')},
-        {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'suits')}
-    ];
-    // Tell the route which data to send to the view, based on what page you are
-    switch (req.params.step) {
-        case '1':
-            res.locals.stepNum = 1;
-            res.locals.stepData = one;
-            res.render('series-game/steps');
-            break;
-        case '2':
-            res.locals.stepNum = 2;
-            res.locals.stepData = two;
-            res.render('series-game/steps');
-            break;
-        case '3':
-            res.locals.stepNum = 3;
-            res.locals.stepData = three;
-            res.render('series-game/steps');
-            break;
-        case '4':
-            res.locals.stepNum = 4;
-            res.locals.stepData = four;
-            res.render('series-game/steps');
-            break;
+    if (reviewArr !== undefined){
+        var one = [
+            {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'fawlty towers')},
+            {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'teen wolf')},
+            {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'friends')},
+            {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'game of thrones')}
+        ];
+        var two = [
+            {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'doctor who')},
+            {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'breaking bad')},
+            {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'sons of anarchy')},
+            {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'the bridge')}
+        ];
+        var three = [
+            {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'the sopranos')},
+            {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'planet earth')},
+            {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'the vampire diaries')},
+            {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'pretty little liars')}
+        ];
+        var four = [
+            {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'sherlock')},
+            {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'the walking dead')},
+            {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'chicago fire')},
+            {   data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'suits')}
+        ];
+        // Tell the route which data to send to the view, based on what page you are
+        switch (req.params.step) {
+            case '1':
+                res.locals.stepNum = 1;
+                res.locals.stepData = one;
+                res.render('series-game/steps');
+                break;
+            case '2':
+                res.locals.stepNum = 2;
+                res.locals.stepData = two;
+                res.render('series-game/steps');
+                break;
+            case '3':
+                res.locals.stepNum = 3;
+                res.locals.stepData = three;
+                res.render('series-game/steps');
+                break;
+            case '4':
+                res.locals.stepNum = 4;
+                res.locals.stepData = four;
+                res.render('series-game/steps');
+                break;
+        }
+    } else {
+        res.send("doesn't work");
     }
 })
 router.post('/step/:step', function (req, res){
+    Reviews.find("review", function(err, docs) {
+        if (err) {
+            return err;
+        } else {
+            reviewArr = docs;
+        }
+    });
     // Fetch all the tags from the objects that are ranked first
     hobby = hobby.concat(reviewArr.find(o => o.review.seriesName === req.body.one).review.hobby);
     mood = mood.concat(reviewArr.find(o => o.review.seriesName === req.body.one).review.mood);

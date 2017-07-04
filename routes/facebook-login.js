@@ -13,8 +13,9 @@ module.exports = function(passport) {
     // handle the callback after facebook has authenticated the user
     router.get('/callback',
         passport.authenticate('facebook', {
-            successRedirect: '/persona',
-            failureRedirect: '/'
+            successRedirect: 'back',
+            failureRedirect: '/',
+            failureFlash: true
         }));
 
     return router;

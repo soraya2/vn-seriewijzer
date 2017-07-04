@@ -50,8 +50,8 @@ app.use(sessions({
     secret: process.env.EXPRESS_SESSION_SECRET,
     // Name: cookie_name,
     proxy: true,
-    resave: true,
-    saveUninitialized: true,
+    resave: false,
+    saveUninitialized: false,
     cookie: { secure: false, expires: false }
 
 }));

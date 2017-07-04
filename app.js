@@ -22,14 +22,15 @@ var uploadComplete = require('./routes/upload_complete');
 var reviewOverview = require('./routes/review_overview')(io);
 var reviewEditDetail = require('./routes/review_detail');
 var login = require('./routes/login');
+var logout = require('./routes/logout');
 var persona = require('./routes/persona');
 var seriesGame = require('./routes/series-game');
 var fbLogin = require('./routes/facebook-login')(passport, io);
 var personaResults = require('./routes/persona_results');
 var reviewDetail = require('./routes/detail')(io);
 var home = require('./routes/home');
-var allReviews = require('./routes/all_reviews');
-var search = require('./routes/search');
+var allReviews = require('./routes/all_reviews')(io);
+var search = require('./routes/search')(io);
 
 require('./config/passport')(passport);
 
@@ -66,6 +67,7 @@ app.use('/upload_complete', uploadComplete);
 app.use('/review_edit', reviewEditDetail);
 app.use('/review_overview', reviewOverview);
 app.use('/login', login);
+app.use('/logout', logout);
 app.use('/persona', persona);
 app.use('/auth/facebook', fbLogin);
 app.use('/recensies', allReviews);

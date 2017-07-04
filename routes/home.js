@@ -6,19 +6,33 @@ var express = require('express'),
 
 router.get('/', function(req, res) {
 
-    // Change 'Shyanta Vleugel' to req.session.email
+    if (req.user) {
+        req.session.user = req.user.user.facebook.displayName;
+        req.session.email = req.user.user.facebook.email;
 
-    user.findOne({ 'user.facebook.email': 'shyantavleugel@gmail.com' }, function(err, user) {
-        reviewsSchema.find({}).sort({ postDate: -1 }).exec(function(err, reviews) {
-            console.log(reviews);
-            res.render('home', {
-                title: 'Vrij Nederland Seriewijzer',
-                userData: user,
-                reviewData: reviews
-            });
+        user.findOne({ 'user.facebook.email': req.session.email }, function(err, user) {
+
+            userStatusCheck(res, 'Uitloggen', '/logout', user);
+        });
+    } else {
+
+        userStatusCheck(res, 'Log In', '/auth/facebook', '');
+
+    }
+});
+
+function userStatusCheck(res, status, statusPath, userData) {
+
+    reviewsSchema.find({}).sort({ postDate: -1 }).exec(function(err, reviews) {
+        res.render('home', {
+            title: 'Vrij Nederland Seriewijzer',
+            userData: userData,
+            reviewData: reviews,
+            userStatus: status,
+            userStatusPath: statusPath
+
         });
     });
-
-});
+}
 
 module.exports = router;

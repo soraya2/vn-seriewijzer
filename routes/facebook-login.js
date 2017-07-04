@@ -10,11 +10,11 @@ module.exports = function(passport) {
 
     router.get('/', passport.authenticate('facebook', { scope: 'email' }));
 
-    // handle the callback after facebook has authenticated the user
     router.get('/callback',
         passport.authenticate('facebook', {
-            successRedirect: '/persona',
-            failureRedirect: '/'
+            successRedirect: 'back',
+            failureRedirect: 'back',
+            failureFlash: true
         }));
 
     return router;

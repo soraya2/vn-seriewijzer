@@ -49,7 +49,7 @@
                     <a href="/auth/facebook">Log in</a> om te kunnen reageren!
                 </p>
             <% } else {%>
-            <form class="comments-form" action="/details" enctype="multipart/form-data" method="post">
+            <form class="comments-form" action="/details" method="post">
                 <fieldset>
                     <legend>Reactie plaatsen</legend>
                     <label >
@@ -78,19 +78,15 @@
             <h2>Wat vind u van deze serie?</h2>
 
             <ul class="comment-list">
-                <% for(var i = data.comments.length - 1; i > 0; i--){%>
-                    <hr>
+                <% for(var i =0; i < data.comments.length;  i++){%>
+
                     <li>
 
-                        <p> <span><%=data.comments[i].rating%></span>Cijfer</p>
-                        <div>
-                            <div>
-                                <h4><%= data.comments[i].username%> </h4>
-                                <time><%= data.comments[i].time%></time>
-                            </div>
-                            <p><%= data.comments[i].text%></p>
+                        <p class="rating"><span><%=data.comments[i].rating%></span>Cijfer</p>
+                        <p class="text"><%=data.comments[i].text%></p>
 
-                        </div>
+                        <h4><%= data.comments[i].username%> </h4>
+                        <time><%= data.comments[i].time%></time>
 
                     </li>
                     <% } %>

@@ -12,7 +12,7 @@ module.exports = function(passport) {
 
     router.get('/callback',
         passport.authenticate('facebook', {
-            successRedirect: 'back',
+            successRedirect: '/',
             failureRedirect: 'back',
             failureFlash: true
         }));

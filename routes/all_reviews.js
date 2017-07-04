@@ -17,18 +17,28 @@ module.exports = function(io) {
             userStatusCheck(res, 'Log In', '/auth/facebook');
         }
 
+
+
+
         io.on('connection', function(socket) {
+            console.log('test');
 
             socket.emit('get reviews', {
                 dataURL: process.env.SEARCHURL
+
+
+
+
+                // process.env.SEARCHURL;
             });
         });
     });
 
+
+
     function userStatusCheck(res, status, statusPath) {
 
         reviewsSchema.find({}, null, { sort: '-date' }, function(err, reviews) {
-
             res.render('all_reviews', {
                 title: 'Alle Recensies',
                 reviewData: reviews,

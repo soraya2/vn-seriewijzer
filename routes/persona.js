@@ -8,7 +8,6 @@ router.get('/', function(req, res) {
         res.render('persona', {
             message: 'undefined'
         });
-
         console.log(req.session.email, "personajs");
 
     } else {

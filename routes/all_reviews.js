@@ -5,6 +5,13 @@ var env = require('dotenv').config();
 var reviewsSchema = require('../models/reviewsschema');
 
 module.exports = function(io) {
+    io.on('connection', function(socket) {
+
+        socket.emit('get reviews', {
+            dataURL: process.env.SEARCHURL
+
+        });
+    });
 
     router.get('/', function(req, res) {
 
@@ -17,24 +24,7 @@ module.exports = function(io) {
             userStatusCheck(res, 'Log In', '/auth/facebook');
         }
 
-
-
-
-        io.on('connection', function(socket) {
-            console.log('test');
-
-            socket.emit('get reviews', {
-                dataURL: process.env.SEARCHURL
-
-
-
-
-                // process.env.SEARCHURL;
-            });
-        });
     });
-
-
 
     function userStatusCheck(res, status, statusPath) {
 

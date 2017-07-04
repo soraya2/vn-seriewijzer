@@ -24,6 +24,7 @@ router.get('/', function(req, res) {
 function userStatusCheck(res, status, statusPath, userData) {
 
     reviewsSchema.find({}).sort({ postDate: -1 }).exec(function(err, reviews) {
+
         res.render('home', {
             title: 'Vrij Nederland Seriewijzer',
             userData: userData,

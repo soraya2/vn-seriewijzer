@@ -30,7 +30,7 @@ var personaResults = require('./routes/persona_results');
 var reviewDetail = require('./routes/detail')(io);
 var home = require('./routes/home');
 var allReviews = require('./routes/all_reviews')(io);
-var search = require('./routes/search')(io);
+var search = require('./routes/search');
 
 require('./config/passport')(passport);
 

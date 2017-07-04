@@ -1,6 +1,6 @@
 (function() {
     'use strict';
-    var socket = io();
+    var socket = io.connect();
     var overviewContainer = document.getElementsByClassName('review-overview-container');
     var filterCheckbox = document.getElementsByClassName('filter-checkbox');
     var filters = {};
@@ -10,15 +10,14 @@
 
     function init() {
 
-        socket.on('get reviews', function(url) {
-
-            getReviewData(url.dataURL, reviewCallback);
-
-        });
 
     }
 
+    socket.on('get reviews', function(url) {
+        console.log(url.dataURL);
+        getReviewData(url.dataURL, reviewCallback);
 
+    });
 
     function getReviewData(theUrl, callback) {
         var xmlHttp = new XMLHttpRequest();

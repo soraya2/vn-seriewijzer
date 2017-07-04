@@ -52,10 +52,10 @@
             ratingEl.className = "rating";
             textEl.className = "text";
 
-            listItem.appendChild(textEl);
-            listItem.appendChild(ratingEl);
             ratingEl.appendChild(ratingNumberEl);
+            listItem.appendChild(ratingEl);
             listItem.appendChild(userEl);
+            listItem.appendChild(textEl);
             listItem.appendChild(timeEl);
 
 

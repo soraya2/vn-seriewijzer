@@ -20,7 +20,7 @@
                         </div>
                         <div class="text-container">
                             <span class="rating">Score: <%= reviewData[i].review.reviewRating %></span>
-                            <a class="detail-link" href="/detail/<%= reviewData[i].review.seriesName %>">
+                            <a class="detail-link" href="/review/<%= reviewData[i].review.seriesName %>">
                                 <h3><%= reviewData[i].review.seriesName %></h3>
                             </a>
                             <p class="post-date">Op: <%= reviewData[i].user.postDate %></p>
@@ -33,7 +33,7 @@
 
                             <p class="intro-text"><%= reviewData[i].review.reviewPlot.substring(0, 210) %>
                                 ...
-                                <a class="bottom-link" href="/detail/<%= reviewData[i].review.seriesName %>">
+                                <a class="bottom-link" href="/review/<%= reviewData[i].review.seriesName %>">
                                     Lees meer
                                 </a>
                             </p>

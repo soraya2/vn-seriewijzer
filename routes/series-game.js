@@ -230,7 +230,11 @@ router.get('/overview', function(req, res) {
 
     // set the data in res.locals to render in the view
     res.locals.results = bestResults;
-    res.render('series-game/overview');
+    if (req.user) {
+        userStatusCheckResults(res, 'Uitloggen', '/logout');
+    } else {
+        userStatusCheckResults(res, 'Log In', '/auth/facebook');
+    }
 })
 router.get('/details/:id', function(req, res) {
     Reviews.findOne({ 'review.seriesName': req.params.id }, function(err, series) {
@@ -242,6 +246,13 @@ router.get('/details/:id', function(req, res) {
 // Function that renders step page with the login status' included
 function userStatusCheck(res, status, statusPath) {
     res.render('series-game/steps', {
+        userStatus: status,
+        userStatusPath: statusPath,
+    });
+}
+// Function that renders overview page with the login status' included
+function userStatusCheckResults(res, status, statusPath) {
+    res.render('series-game/overview', {
         userStatus: status,
         userStatusPath: statusPath,
     });

@@ -13,36 +13,57 @@
     left: 0;
     padding: 0.5em 1em;
     text-decoration: none;
-    background: white;
-    color: #333;
+    background: RGBA(247, 102, 85, 1.00);
+    color: white;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
 }
 
 .back-btn:hover {
-    background-color: deepskyblue;
-    color: white;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+    background-color: crimson;
 }
 
 .hidden {
     opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
 }
 
 .success {
+    -webkit-transition: 0.3s;
     transition: 0.3s;
     background-color: RGBA(43, 196, 160, 1.00);
     color: white;
     padding: 1em;
 }
 
+@supports (display: flex) {
+    #review-form {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+    }
+
+    #review-form section {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+    }
+}
 #review-form {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
   max-width: 40em;
   padding: 2em;
   margin: 0 auto;
@@ -50,23 +71,16 @@
   box-shadow: 1px 2px 10px 0 rgba(0,0,0,.05);
 }
 
+#review-form section {
+  border-bottom: 2px solid lightgrey;
+  padding-bottom: 2em;
+}
+
 #review-form .form-title {
   text-align: center;
 }
 
-#review-form section {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  border-bottom: 2px solid lightgrey;
-  padding-bottom: 2em;
-}
+
 
 #review-form input[type="text"],
 #review-form input[type="email"],

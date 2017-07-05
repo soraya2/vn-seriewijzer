@@ -2,7 +2,6 @@ body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
-
 }
 
 .titel {
@@ -35,13 +34,11 @@ body {
 .header-nav {
     font-family: 'Helvetica Neue', Helvetica, sans-serif;
     z-index: 999;
-    position: fixed;
     background-color: white;
     width: 100%;
     top: 0;
     padding: 1.5em 0;
     border-bottom: 1px solid #ECECEC;
-
     a {
         -webkit-transition: 0.2s;
         transition: 0.2s;
@@ -57,6 +54,7 @@ body {
         color: #F76655;
     }
     .main-navigation {
+        max-width: 80em;
         color: #333333;
         @media screen and (max-width: 55em) {
             display: none;
@@ -96,23 +94,22 @@ body {
             display: -ms-flexbox;
             display: flex;
             -webkit-box-pack: justify;
-                -ms-flex-pack: justify;
-                    justify-content: space-between;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
             -webkit-box-align: center;
-                -ms-flex-align: center;
-                    align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
             padding: 0 2em;
             margin: 0 auto;
-
             @media screen and (max-width: 55em) {
                 display: none;
                 -webkit-box-orient: vertical;
                 -webkit-box-direction: normal;
-                    -ms-flex-direction: column;
-                        flex-direction: column;
+                -ms-flex-direction: column;
+                flex-direction: column;
                 -webkit-box-pack: start;
-                    -ms-flex-pack: start;
-                        justify-content: flex-start;
+                -ms-flex-pack: start;
+                justify-content: flex-start;
                 width: 100vw;
             }
             .nav-list {
@@ -132,8 +129,5 @@ body {
                 }
             }
         }
-
     }
-
-
 }

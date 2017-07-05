@@ -20,7 +20,7 @@
                         </div>
                         <div class="text-container">
                             <span class="rating">Score: <%= reviewData[i].review.reviewRating %></span>
-                            <a class="detail-link" href="/detail/<%= reviewData[i].review.seriesName %>">
+                            <a class="detail-link" href="/review/<%= reviewData[i].review.seriesName %>">
                                 <h3><%= reviewData[i].review.seriesName %></h3>
                             </a>
                             <p class="post-date">Op: <%= reviewData[i].user.postDate %></p>
@@ -42,7 +42,9 @@
                     <% } %>
             </section>
         </main>
-            <script src="/javascripts/filter.js"></script>
+            <script src="/socket.io/socket.io.js"></script>
+            <script src="/javascripts/filter_interaction.js"></script>
             <script src="/javascripts/navigation.js"></script>
+            <script src="/javascripts/filter.js"></script>
     </body>
 </html>

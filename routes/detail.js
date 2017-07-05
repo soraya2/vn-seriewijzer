@@ -2,18 +2,18 @@
 var express = require('express'),
     router = express.Router(),
     reviewsSchema = require('../models/reviewsschema'),
-    seriesName,
-    username;
+    seriesName;
+// username;
 
 router.get('/:id', function(req, res) {
     seriesName = req.params.id;
     //get serie based on serie name
-    username = req.session.user;
+    // username = req.session.user;
     // console.log(username);
     if (req.user) {
-        userStatusCheck(res, 'Uitloggen', '/logout');
+        userStatusCheck(res, req, 'Uitloggen', '/logout');
     } else {
-        userStatusCheck(res, 'Log In', '/auth/facebook');
+        userStatusCheck(res, req.session.user, 'Log In', '/auth/facebook');
     }
 });
 
@@ -30,7 +30,7 @@ function commentsToDatabase(comment) {
     });
 }
 
-function userStatusCheck(res, status, statusPath) {
+function userStatusCheck(res, username, status, statusPath) {
 
     reviewsSchema.findOne({ 'review.seriesName': seriesName }, function(error, doc) {
 

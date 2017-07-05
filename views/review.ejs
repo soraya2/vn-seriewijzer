@@ -20,23 +20,16 @@
                     <li><span>IMDB cijfer:</span><%=data.review.imdbRating %></li>
                     <li><span>Gemiddelde tijd per aflervering:</span><%=data.review.duration %></li>
                 </ul>
+                <hr>
                 <p>
-
                  <%= data.review.reviewPlot%>
                 </p>
             </div>
-<!-- <capture class="video-container">
-                <object  frameborder="0" class="iframe" data="<%=data.review.trailerURL%>?controls=0&showinfo=0&hd=1" type="text/html">
-                </object>
-
-</capture> -->
-
-
-<div class="youtubevideowrap">
-<aside class="video-container">
-<iframe src="<%=data.review.trailerURL%>?controls=0&showinfo=0&hd=1?rel=0" allowfullscreen="" width="640" height="352" frameborder="0"></iframe>
-</aside>
-</div>
+            <div class="youtubevideowrap">
+                <aside class="video-container">
+                    <iframe src="<%=data.review.trailerURL%>?controls=0&showinfo=0&hd=1?rel=0" allowfullscreen="" width="640" height="352" frameborder="0"></iframe>
+                </aside>
+            </div>
         </section>
         <section class="review">
         <div>
@@ -50,19 +43,17 @@
             </div>
         </section>
 
-
-
         <section class="comments">
             <% if(user == undefined){ %>
                 <p class="remark">
                     <a href="/auth/facebook">Log in</a> om te kunnen reageren!
                 </p>
             <% } else {%>
-            <form class="comments-form" action="/details" enctype="multipart/form-data" method="post">
+            <form class="comments-form" action="/details" method="post">
                 <fieldset>
                     <legend>Reactie plaatsen</legend>
                     <label >
-                        <select name="" id="vote">
+                        <select id="vote" required>
                             <option value="0">Geef een cijfer</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -87,19 +78,15 @@
             <h2>Wat vind u van deze serie?</h2>
 
             <ul class="comment-list">
-                <% for(var i = data.comments.length - 1; i > 0; i--){%>
-                    <hr>
-                    <li>
-                        <!--// <h4><%= data.comments[i].username%> </h4>-->
-                        <p> <span><%=data.comments[i].rating%></span>Cijfer</p>
-                        <div>
-                            <div>
-                                <h4>Soraya Ibrahim </h4>
-                                <time><%= data.comments[i].time%></time>
-                            </div>
-                            <p><%= data.comments[i].text%></p>
+                <% for(var i =0; i < data.comments.length;  i++){%>
 
-                        </div>
+                    <li>
+
+                        <p class="rating"><span><%=data.comments[i].rating%></span>Cijfer</p>
+                        <p class="text"><%=data.comments[i].text%></p>
+
+                        <h4><%= data.comments[i].username%> </h4>
+                        <time><%= data.comments[i].time%></time>
 
                     </li>
                     <% } %>

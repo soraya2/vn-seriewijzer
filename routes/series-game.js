@@ -56,27 +56,45 @@ router.get('/step/:step', function(req, res) {
         { data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'chicago fire') },
         { data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'suits') }
     ];
+
     // Tell the route which data to send to the view, based on what page you are
+    // Check in each case if the user is logged in to make sure the paths work out right
     switch (req.params.step) {
         case '1':
             res.locals.stepNum = 1;
             res.locals.stepData = one;
-            res.render('series-game/steps');
+            if (req.user) {
+                userStatusCheck(res, 'Uitloggen', '/logout');
+            } else {
+                userStatusCheck(res, 'Log In', '/auth/facebook');
+            }
             break;
         case '2':
             res.locals.stepNum = 2;
             res.locals.stepData = two;
-            res.render('series-game/steps');
+            if (req.user) {
+                userStatusCheck(res, 'Uitloggen', '/logout');
+            } else {
+                userStatusCheck(res, 'Log In', '/auth/facebook');
+            }
             break;
         case '3':
             res.locals.stepNum = 3;
             res.locals.stepData = three;
-            res.render('series-game/steps');
+            if (req.user) {
+                userStatusCheck(res, 'Uitloggen', '/logout');
+            } else {
+                userStatusCheck(res, 'Log In', '/auth/facebook');
+            }
             break;
         case '4':
             res.locals.stepNum = 4;
             res.locals.stepData = four;
-            res.render('series-game/steps');
+            if (req.user) {
+                userStatusCheck(res, 'Uitloggen', '/logout');
+            } else {
+                userStatusCheck(res, 'Log In', '/auth/facebook');
+            }
             break;
     }
 })
@@ -220,5 +238,13 @@ router.get('/details/:id', function(req, res) {
         res.render('series-game/detail-view', { data: series });
     });
 });
+
+// Function that renders step page with the login status' included
+function userStatusCheck(res, status, statusPath) {
+    res.render('series-game/steps', {
+        userStatus: status,
+        userStatusPath: statusPath,
+    });
+}
 
 module.exports = router;

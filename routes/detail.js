@@ -8,12 +8,16 @@ var express = require('express'),
 router.get('/:id', function(req, res) {
     seriesName = req.params.id;
     //get serie based on serie name
-    // username = req.session.user;
+    username = req.session.user;
     // console.log(username);
     if (req.user) {
-        userStatusCheck(res, req, 'Uitloggen', '/logout');
+
+        userStatusCheck(res, 'Uitloggen', '/logout');
+
     } else {
-        userStatusCheck(res, req.session.user, 'Log In', '/auth/facebook');
+
+        userStatusCheck(res, 'Log In', '/auth/facebook');
+
     }
 });
 
@@ -30,7 +34,7 @@ function commentsToDatabase(comment) {
     });
 }
 
-function userStatusCheck(res, username, status, statusPath) {
+function userStatusCheck(res, status, statusPath) {
 
     reviewsSchema.findOne({ 'review.seriesName': seriesName }, function(error, doc) {
 

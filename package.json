@@ -8,7 +8,7 @@
         "expose": "ngrok http 3006"
     },
     "engines": {
-        "node": "v7.0.0",
+        "node": "v6.9.5",
         "npm": "3.6.0"
     },
     "dependencies": {

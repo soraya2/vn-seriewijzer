@@ -5,16 +5,15 @@ var express = require('express'),
     seriesName,
     username;
 
-
 router.get('/:id', function(req, res) {
     seriesName = req.params.id;
     //get serie based on serie name
     username = req.session.user;
     // console.log(username);
     if (req.user) {
-        userStatusCheck(res, 'Log In', '/auth/facebook');
-    } else {
         userStatusCheck(res, 'Uitloggen', '/logout');
+    } else {
+        userStatusCheck(res, 'Log In', '/auth/facebook');
     }
 });
 
@@ -30,7 +29,6 @@ function commentsToDatabase(comment) {
         }
     });
 }
-
 
 function userStatusCheck(res, status, statusPath) {
 
@@ -63,7 +61,6 @@ module.exports = function(io) {
                 username: username
                     //END CHANEL
             });
-
 
             io.emit('comment', comment);
         });

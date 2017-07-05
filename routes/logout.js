@@ -6,7 +6,7 @@ router.get('/', function(req, res) {
 
     req.session.user = undefined;
     req.session.email = undefined;
-
+    req.user = undefined;
     req.logout();
     res.redirect('/');
 });

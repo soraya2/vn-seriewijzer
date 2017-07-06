@@ -4,31 +4,32 @@
     var filterButton = document.querySelector('#filter-button');
     var filterForm = document.querySelector('.form-filter > form');
     // console.log(document.querySelector('.form-filter > form'));
+
+
     function init() {
-        filterForm.className = 'hide-filter';
-        // getReviewData('https://220cf296.ngrok.io/search', callback);
+        // filterForm.className = 'hide';
     }
 
-    console.log(filterButton);
     filterButton.addEventListener('click', function() {
 
-        // filterForm.className = "hide-filter";
 
-        if (filterForm.className) {
-            console.log('test');
+        if (filterForm.className === 'hide' || filterForm.className === 'hide-filter') {
 
             filterButton.className = 'move-button';
             filterForm.className = '';
-            // filterForm.style.width = '300px';
-
 
         } else {
             filterForm.className = 'hide-filter';
             filterButton.className = '';
-            // filterForm.style.width = '0';
 
         }
     });
-    init();
+
+    // document.onreadystatechange = function(e) {
+    //     if (document.readyState === 'complete') {
+    //         init();
+
+    //     }
+    // };
 
 }());

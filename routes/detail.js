@@ -9,7 +9,7 @@ router.get('/:id', function(req, res) {
     seriesName = req.params.id;
     //get serie based on serie name
     username = req.session.user;
-    // console.log(username);
+
     if (req.user) {
 
         userStatusCheck(res, 'Uitloggen', '/logout');

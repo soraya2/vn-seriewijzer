@@ -83,7 +83,7 @@
                     <section class="match-overview-container">
                         <div class="placeholder-message">
                             <h2>Hier komen jouw Top 5 matches</h2>
-                            <a href="/seriespel">Speel het Seriespel!</a>
+                            <a class="cta-btn" href="/seriespel">Speel het Seriespel!</a>
                         </div>
                         <div class="best-match">
                             <picture>
@@ -142,9 +142,19 @@
                             <div class="persona-message">
                                 <h2>Hier komen jouw Persona Check resultaten</h2>
                                 <p>Doe de Persona Check om er achter te komen welke series er goed bij je passen!</p>
-                                <a href="/persona">Doe de check</a>
+                                <div class="persona-img-list">
+                                    <picture>
+                                        <img class="persona-icon" src="img/icons-bigbang.png">
+                                    </picture>
+                                    <picture>
+                                        <img class="persona-icon" src="img/icons-jack.png">
+                                    </picture>
+                                    <picture>
+                                        <img class="persona-icon" src="img/icons-darryl.png">
+                                    </picture>
+                                </div>
+                                <a class="cta-btn" href="/persona">Doe de check</a>
                             </div>
-                            <div class="overlay"></div>
                         </section>
                     <% } %>
 
@@ -179,7 +189,7 @@
                                     <!-- Gemanipuleerde reviewData sturen naar de view, niet in de view doen -->
                                     <p class="intro-text"><%= reviewData[i].review.reviewPlot.substring(0, 210) %>
                                         ...
-                                        <a class="bottom-link" href="/detail/<%= reviewData[i].review.seriesName %>">
+                                        <a class="bottom-link" href="/review/<%= reviewData[i].review.seriesName %>">
                                             Lees meer
                                         </a>
                                     </p>

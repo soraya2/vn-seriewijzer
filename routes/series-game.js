@@ -20,7 +20,11 @@ router.get('/', function (req, res) {
             reviewArr = docs;
         }
     });
-    res.render('series-game/intro');
+    if (req.user) {
+        userStatusCheckIntro(res, 'Uitloggen', '/logout');
+    } else {
+        userStatusCheckIntro(res, 'Log In', '/auth/facebook');
+    }
 });
 router.get('/step/:step', function(req, res) {
     // Save the tvshows by filtering them from the database
@@ -234,7 +238,13 @@ router.get('/details/:id', function(req, res) {
         res.render('series-game/detail-view', { data: series });
     });
 });
-
+// Function that renders intro page with the login status' included
+function userStatusCheckIntro(res, status, statusPath) {
+    res.render('series-game/intro', {
+        userStatus: status,
+        userStatusPath: statusPath,
+    });
+}
 // Function that renders step page with the login status' included
 function userStatusCheck(res, status, statusPath) {
     res.render('series-game/steps', {

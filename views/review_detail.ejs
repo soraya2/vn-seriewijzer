@@ -1,0 +1,701 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../stylesheets/uploadform.css">
+  <title><%= data.review.reviewTitle %></title>
+</head>
+    <body class="upload-form-body">
+        <a class="back-btn" href='/review_overview'>Terug naar overzicht</a>
+       <main>
+        <form id="review-form" action="/review_edit/<%=data._id%>" method="post" autocomplete="on">
+        <h1><%= data.review.reviewTitle %></h1>
+          <section>
+            <h2>Over de recensent</h2>
+            <label>
+              <p>Je naam:</p>
+              <input type="text" name="name" required value="<%= data.user.name %>">
+            </label>
+
+            <label>
+              <p>Je email:</p>
+              <input type="email" name="email" required value="<%= data.user.email %>">
+            </label>
+
+            <label>
+              <p>Datum</p>
+              <input type="date" name="postDate" required value="<%= data.user.postDate %>">
+            </label>
+
+          </section>
+
+          <section>
+            <h2>Serie meta informatie</h2>
+
+            <label>
+              <p>Titel:</p>
+              <p class="sub-line">Zorg ervoor dat de titel uniek is. Wanneer een serie twee verschillende titels heeft. Gebruik dan de meest frequent gebruikte titel.</p>
+              <input type="text" name="seriesName" required value="<%= data.review.seriesName %>">
+            </label>
+
+            <label>
+              <p>Land van herkomst:</p>
+              <p class="sub-line">Gebruik de internationale landcodes. Zorg ervoor dat ze allemaal in hoofdletters zijn, zodat er altijd overeenkomsten zijn.</p>
+              <input type="text" name="regionCode" value="<%= data.review.region %>" required>
+            </label>
+
+            <label>
+              <p>Beginjaar:</p>
+              <p class="sub-line">Het jaartal waarin de serie begon met opnemen.</p>
+              <input type="text" name="startingYear" value="<%= data.review.startYear %>" required>
+            </label>
+
+            <label>
+              <p>Eindjaar:</p>
+              <p class="sub-line">Draait de serie nog steeds? Zet dan ‘heden’ in het veld.</p>
+              <input type="text" name="endYear" value="<%= data.review.endYear %>" required>
+            </label>
+
+            <div>
+              <h3>Categorie:</h3>
+              <p class="sub-line">Vink de genres aan waarbin deze serie hoort.</p>
+              <label>
+                  <input type="checkbox"
+                      <% if (data.review.genre.includes('action')) { %>
+                          checked
+                      <% } %>
+                  name="genre" value="action">
+                  <span>Actie</span>
+              </label>
+              <label>
+                  <input type="checkbox"
+                  <% if (data.review.genre.includes('adventure')) { %>
+                      checked
+                  <% } %>
+                  name="genre" value="adventure">
+                  <span>Avontuur</span>
+              </label>
+
+              <label>
+                  <input type="checkbox"
+                  <% if (data.review.genre.includes('comedy')) { %>
+                      checked
+                  <% } %>
+                  name="genre" value="comedy">
+                  <span>Comedy</span>
+              </label>
+
+              <label>
+                  <input type="checkbox"
+                  <% if (data.review.genre.includes('documentary')) { %>
+                      checked
+                  <% } %>
+                   name="genre" value="documentary">
+                  <span>Documentaire</span>
+              </label>
+
+              <label>
+                  <input type="checkbox"
+                  <% if (data.review.genre.includes('drama')) { %>
+                      checked
+                  <% } %>
+                 name="genre" value="drama">
+                  <span>Drama</span>
+              </label>
+
+              <label>
+                  <input type="checkbox"
+                  <% if (data.review.genre.includes('epic')) { %>
+                      checked
+                  <% } %>
+                  name="genre" value="epic">
+                  <span>Episch
+              </label>
+
+              <label>
+                  <input type="checkbox"
+                  <% if (data.review.genre.includes('horror')) { %>
+                      checked
+                  <% } %>
+                  name="genre" value="horror">
+                  <span>Horror</span>
+              </label>
+
+              <label>
+                  <input type="checkbox"
+                  <% if (data.review.genre.includes('scifi')) { %>
+                      checked
+                  <% } %>
+                  name="genre" value="scifi">
+                  <span>Sci-fi</span>
+              </label>
+
+              <label>
+                  <input type="checkbox"
+                  <% if (data.review.genre.includes('war')) { %>
+                      checked
+                  <% } %>
+                  name="genre" value="war">
+                  <span>Oorlog</span>
+              </label>
+
+              <label>
+                  <input type="checkbox"
+                  <% if (data.review.genre.includes('romance')) { %>
+                      checked
+                  <% } %>
+                  name="genre" value="romance">
+                  <span>Romantiek</span>
+              </label>
+
+              <label>
+                  <input type="checkbox"
+                  <% if (data.review.genre.includes('music')) { %>
+                      checked
+                  <% } %>
+                  name="genre" value="music">
+                  <span>Muziek</span>
+              </label>
+
+              <label>
+                  <input type="checkbox"
+                  <% if (data.review.genre.includes('fantasy')) { %>
+                      checked
+                  <% } %>
+                  name="genre" value="fantasy">
+                  <span>Fantasy</span>
+              </label>
+
+              <label>
+                  <input type="checkbox"
+                  <% if (data.review.genre.includes('thriller')) { %>
+                      checked
+                  <% } %>
+                  name="genre" value="thriller">
+                  <span>Thriller</span>
+              </label>
+
+              <label>
+                  <input type="checkbox"
+                  <% if (data.review.genre.includes('crime')) { %>
+                      checked
+                  <% } %>
+                  name="genre" value="crime">
+                  <span>Misdaad</span>
+              </label>
+
+              <label>
+                  <input type="checkbox"
+                  <% if (data.review.genre.includes('sport')) { %>
+                      checked
+                  <% } %>
+                  name="genre" value="sport">
+                  <span>Sport</span>
+              </label>
+
+              <label>
+                  <input type="checkbox"
+                  <% if (data.review.genre.includes('mystery')) { %>
+                      checked
+                  <% } %>
+                  name="genre" value="mystery">
+                  <span>Mystery</span>
+              </label>
+            </div>
+
+            <div>
+              <h3>Beschikbaarheid</h3>
+              <p class="sub-line">Op welk platform kan de serie bekeken worden?</p>
+              <label>
+                <input type="checkbox"
+                <% if (data.review.platform.includes('netflix')) { %>
+                    checked
+                <% } %>
+                name="platform" value="netflix">
+                <span>Netflix</span>
+              </label>
+              <label>
+                <input type="checkbox"
+                <% if (data.review.platform.includes('hbo')) { %>
+                    checked
+                <% } %>
+                name="platform" value="hbo">
+                <span>HBO</span>
+              </label>
+              <label>
+                <input type="checkbox"
+                <% if (data.review.platform.includes('videoland')) { %>
+                    checked
+                <% } %>
+                name="platform" value="videoland">
+                <span>Videoland</span>
+              </label>
+              <label>
+                <input type="checkbox"
+                <% if (data.review.platform.includes('disc')) { %>
+                    checked
+                <% } %>
+                name="platform" value="disc">
+                <span>DVD/Bluray</span>
+              </label>
+            </div>
+
+            <div>
+              <h3>Tijdperk</h3>
+              <p class="sub-line">In welke tijd speelt het verhaal zich af?</p>
+              <label>
+                <input type="checkbox"
+                <% if (data.review.period.includes('prehistoric')) { %>
+                    checked
+                <% } %>
+                name="period" value="prehistoric">
+                <span>Prehistorie</span>
+
+              </label>
+              <label>
+                <input type="checkbox"
+                <% if (data.review.period.includes('roman')) { %>
+                    checked
+                <% } %>
+                name="period" value="roman">
+                <span>Romeinse Tijd</span>
+
+              </label>
+              <label>
+                <input type="checkbox"
+                <% if (data.review.period.includes('middleages')) { %>
+                    checked
+                <% } %>
+                name="period" value="middleages">
+                <span>Middeleeuwen</span>
+
+              </label>
+              <label>
+                <input type="checkbox"
+                <% if (data.review.period.includes('victorian')) { %>
+                    checked
+                <% } %>
+                name="period" value="victorian">
+                <span>Victoriaanse Tijd</span>
+
+              </label>
+              <label>
+                <input type="checkbox"
+                <% if (data.review.period.includes('wo1')) { %>
+                    checked
+                <% } %>
+                name="period" value="wo1">
+                <span>Eerste Wereldoorlog</span>
+
+              </label>
+              <label>
+                <input type="checkbox"
+                <% if (data.review.period.includes('wo2')) { %>
+                    checked
+                <% } %>
+                name="period" value="wo2">
+                <span>Tweede Wereldoorlog</span>
+
+              </label>
+              <label>
+                <input type="checkbox"
+                <% if (data.review.period.includes('late20')) { %>
+                    checked
+                <% } %>
+                name="period" value="late20">
+                <span>Late 20e Eeuw</span>
+
+              </label>
+              <label>
+                <input type="checkbox"
+                <% if (data.review.period.includes('present')) { %>
+                    checked
+                <% } %>
+                name="period" value="present">
+                <span>Heden</span>
+
+              </label>
+              <label>
+                <input type="checkbox"
+                <% if (data.review.period.includes('future')) { %>
+                    checked
+                <% } %>
+                name="period" value="future">
+                <span>Toekomst</span>
+
+              </label>
+            </div>
+
+            <div>
+              <h3>Passende Persona's</h3>
+              <p>Welke persona's passen het beste bij deze serie?</p>
+              <label>
+                <input type="checkbox"
+                <% if (data.review.persona.includes('foodie')) { %>
+                    checked
+                <% } %>
+                name="persona" value="foodie">
+                <span>Foodie</span>
+
+              </label>
+              <label>
+                <input type="checkbox"
+                <% if (data.review.persona.includes('creative')) { %>
+                    checked
+                <% } %>
+                name="persona" value="creative">
+                <span>Creatieveling</span>
+
+              </label>
+              <label>
+                <input type="checkbox"
+                <% if (data.review.persona.includes('sensationalist')) { %>
+                    checked
+                <% } %>
+                name="persona" value="sensationalist">
+                <span>Sensatiezoeker</span>
+
+              </label>
+              <label>
+                <input type="checkbox"
+                <% if (data.review.persona.includes('joker')) { %>
+                    checked
+                <% } %>
+                name="persona" value="joker">
+                <span>Grappenmaker</span>
+
+              </label>
+              <label>
+                <input type="checkbox"
+                <% if (data.review.persona.includes('girly')) { %>
+                    checked
+                <% } %>
+                name="persona" value="girly">
+                <span>Girly Girl</span>
+
+              </label>
+              <label>
+                <input type="checkbox"
+                <% if (data.review.persona.includes('tomboy')) { %>
+                    checked
+                <% } %>
+                name="persona" value="tomboy">
+                <span>Tomboy</span>
+
+              </label>
+              <label>
+                <input type="checkbox"
+                <% if (data.review.persona.includes('daredevil')) { %>
+                    checked
+                <% } %>
+                name="persona" value="daredevil">
+                <span>Waaghals</span>
+
+              </label>
+              <label>
+                <input type="checkbox"
+                <% if (data.review.persona.includes('adventurer')) { %>
+                    checked
+                <% } %>
+                name="persona" value="adventurer">
+                <span>Avonturier</span>
+
+              </label>
+              <label>
+                <input type="checkbox"
+                <% if (data.review.persona.includes('nerd')) { %>
+                    checked
+                <% } %>
+                name="persona" value="nerd">
+                <span>Geeky Nerd</span>
+
+              </label>
+              <label>
+                <input type="checkbox"
+                <% if (data.review.persona.includes('animallover')) { %>
+                    checked
+                <% } %>
+                name="persona" value="animallover">
+                <span>Dierenliefhebber</span>
+
+              </label>
+              <label>
+                <input type="checkbox"
+                <% if (data.review.persona.includes('intellectual')) { %>
+                    checked
+                <% } %>
+                name="persona" value="intellectual">
+                <span>Intellectueell</span>
+
+              </label>
+            </div>
+
+            <div>
+              <h3>Passende Hobby's</h3>
+              <p class="sub-line">Welke hobby's passen het beste bij deze serie?</p>
+              <label>
+                <input type="checkbox"
+                <% if (data.review.hobby.includes('gaming')) { %>
+                    checked
+                <% } %>
+                name="hobby" value="gaming">
+                <span>Gamen</span>
+
+              </label>
+              <label>
+                <input type="checkbox"
+                <% if (data.review.hobby.includes('party')) { %>
+                    checked
+                <% } %>
+                name="hobby" value="party">
+                <span>Uitgaan/borrelen</span>
+
+              </label>
+              <label>
+                <input type="checkbox"
+                <% if (data.review.hobby.includes('travel')) { %>
+                    checked
+                <% } %>
+                name="hobby" value="travel">
+                <span>Reizen</span>
+
+              </label>
+              <label>
+                <input type="checkbox"
+                <% if (data.review.hobby.includes('music')) { %>
+                    checked
+                <% } %>
+                name="hobby" value="music">
+                <span>Muziek</span>
+
+              </label>
+              <label>
+                <input type="checkbox"
+                <% if (data.review.hobby.includes('shopping')) { %>
+                    checked
+                <% } %>
+                name="hobby" value="shopping">
+                <span>Shoppen</span>
+
+              </label>
+              <label>
+                <input type="checkbox"
+                <% if (data.review.hobby.includes('cooking')) { %>
+                    checked
+                <% } %>
+                name="hobby" value="cooking">
+                <span>Koken</span>
+
+              </label>
+              <label>
+                <input type="checkbox"
+                <% if (data.review.hobby.includes('sport')) { %>
+                    checked
+                <% } %>
+                name="hobby" value="sport">
+                <span>Sporten</span>
+
+              </label>
+              <label>
+                <input type="checkbox"
+                <% if (data.review.hobby.includes('reading')) { %>
+                    checked
+                <% } %>
+                name="hobby" value="reading">
+                <span>Lezen</span>
+
+              </label>
+              <label>
+                <input type="checkbox"
+                <% if (data.review.hobby.includes('drugs')) { %>
+                    checked
+                <% } %>
+                name="hobby" value="drugs">
+                <span>Drugs</span>
+
+              </label>
+              <label>
+                <input type="checkbox"
+                <% if (data.review.hobby.includes('working')) { %>
+                    checked
+                <% } %>
+                name="hobby" value="working">
+                <span>Werken</span>
+
+              </label>
+            </div>
+
+            <div>
+              <h3>Passende Moods</h3>
+              <p class="sub-line">Welke moods passen het beste bij deze serie?</p>
+              <label>
+                <input type="checkbox"
+                <% if (data.review.mood.includes('scared')) { %>
+                    checked
+                <% } %>
+                name="mood" value="scared">
+                <span>Ik wil bang gemaakt worden</span>
+
+              </label>
+              <label>
+                <input type="checkbox"
+                <% if (data.review.mood.includes('cry')) { %>
+                    checked
+                <% } %>
+                name="mood" value="cry">
+                <span>Ik wil lekker janken</span>
+
+              </label>
+              <label>
+                <input type="checkbox"
+                <% if (data.review.mood.includes('thrill')) { %>
+                    checked
+                <% } %>
+                name="mood" value="thrill">
+                <span>Ik wil van spanning stoppen met ademen</span>
+
+              </label>
+              <label>
+                <input type="checkbox"
+                <% if (data.review.mood.includes('laugh')) { %>
+                    checked
+                <% } %>
+                name="mood" value="laugh">
+                <span>Ik wil huilen van het lachen</span>
+
+              </label>
+              <label>
+                <input type="checkbox"
+                <% if (data.review.mood.includes('chill')) { %>
+                    checked
+                <% } %>
+                name="mood" value="chill">
+                <span>Ik wil hersendood voor de TV zitten</span>
+
+              </label>
+              <label>
+                <input type="checkbox"
+                <% if (data.review.mood.includes('learn')) { %>
+                    checked
+                <% } %>
+                name="mood" value="learn">
+                <span>Ik wil iets leren</span>
+
+              </label>
+            </div>
+
+            <div>
+              <h3>Leeftijdsclassificatie</h3>
+              <label>
+                <p class="sub-line">Vanaf welke leeftijd mag de serie bekeken worden?</p>
+                <input type="text" name="ageRestriction" value="<%= data.review.ageRestriction %>" required>
+              </label>
+            </div>
+
+            <div>
+              <h3>Seizoenen</h3>
+              <label>
+                <span>Aantal:</span>
+                <input type="text" name="seasons" value="<%= data.review.seasons %>" required>
+              </label>
+            </div>
+
+            <div>
+              <h3>Afleveringen</h3>
+              <label>
+                <span>Totaal Aantal:</span>
+                <input type="text" name="episodes" value="<%= data.review.episodes %>" required>
+              </label>
+              <label>
+                <span>Duur per aflevering: (Alleen een cijfer invullen)</span>
+                <input type="text" name="duration" value="<%= data.review.duration %>" required>
+              </label>
+            </div>
+
+            <div>
+              <h3>Cast</h3>
+              <label>
+                <span>Hoofdacteurs/actrices (maximaal 6, scheiden met komma)</span>
+                <input type="text" name="actors" value="<%= data.review.actors %>" required>
+              </label>
+            </div>
+
+            <div>
+              <h3>Regie</h3>
+              <label>
+                <span>Regie (maximaal 2, scheiden met komma)</span>
+                <input type="text" name="producers" value="<%= data.review.producers %>" required>
+              </label>
+            </div>
+
+            <div>
+              <h3>IMDB rating</h3>
+              <label>
+                <span>Wat is de IMDB beoordeling?</span>
+                <input type="text" name="imdbRating" value="<%= data.review.imdbRating %>" required>
+              </label>
+            </div>
+
+            <div>
+              <h3>Trailer</h3>
+              <p class="sub-line">Plaats hier de <em>Embed URL</em> (dus niet de reguliere link) naar de trailer op YouTube. Geen trailer? Laat het veld dan leeg.</p>
+              <label>
+                <span>Link naar de trailer</span>
+                <input type="text" name="trailerURL" value="<%= data.review.trailerURL %>" placeholder="Bijv. https://www.youtube.com/embed/v7MGUNV8MxU">
+              </label>
+            </div>
+
+            <div>
+              <h3>Afbeelding</h3>
+              <p class="sub-line">Plaats hier de URL naar de poster van de serie, in portret modus.</p>
+              <label>
+                <span>Link naar afbeelding</span>
+                <input type="text" name="imgURL" value="<%= data.review.imgURL %>" required>
+              </label>
+            </div>
+
+
+          </section>
+          <section>
+            <h2>Recensie</h2>
+
+            <label>
+              <h3>Titel</h3>
+              <input type="text" name="reviewTitle" value="<%= data.review.reviewTitle %>">
+            </label>
+
+            <label>
+              <h3>Plot:</h3>
+              <p class="sub-line">Korte omschrijving van de serie (voor op de website):</p>
+              <textarea name="reviewPlot" rows="8" cols="80" required><%= data.review.reviewPlot %></textarea>
+            </label>
+
+            <label>
+              <h3>Inleiding:</h3>
+              <textarea name="reviewIntro" rows="8" cols="80"><%= data.review.reviewIntro %></textarea>
+            </label>
+
+            <label>
+              <h3>Recensie:</h3>
+              <textarea name="reviewBody" rows="8" cols="80"><%= data.review.reviewBody %></textarea>
+            </label>
+
+            <label>
+              Welk cijfer geef je aan deze serie? (1 t/m 10): <br>
+                <input type="text" name="reviewRating" required value="<%= data.review.reviewRating %>">
+            </label>
+          </section>
+
+          <input id="upload" class="upload-btn" type="submit" value="Bijwerken">
+          <div class="hidden success" id="success">
+              <strong>Bijwerken...</strong>
+          </div>
+        </form>
+    </main>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/javascripts/cms.js"></script>
+</body>
+</html>

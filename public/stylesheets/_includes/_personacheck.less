@@ -1,0 +1,459 @@
+// GENERAL PERSONACHECK
+@keyframes feedback {
+    0%{background-color:#F76655; color: white}
+    80%{background-color:#F76655; color: white}
+    100%{background-color:white; color: #333}
+}
+main {
+    display: block;
+}
+button,
+input[type="submit"] {
+    -webkit-appearance: none;
+    appearance: none;
+}
+[hidden] {
+    display: none;
+}
+button[disabled], button[disabled]:hover, button[disabled]:active {
+    background-color: #eee;
+    color: #ccc;
+    cursor: not-allowed;
+}
+.check {
+    background-color: white;
+    margin: 0.5rem;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+.hide {
+    display: none;
+}
+.fade-in {
+    opacity: 1;
+    position: static;
+    transition: opacity 0.5s;
+    transition-delay: 0.2s;
+}
+.fade-out {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    transition: opacity 0.5s;
+    width: 100%;
+    z-index: -1;
+}
+@supports(display:flex) {
+    .flexdiv, #personal-list {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: 100%;
+    }
+}
+@supports(display:grid) {
+    .flexdiv, #personal-list {
+        display: grid;
+        grid-column-gap: 0.5rem;
+        grid-row-gap: 0.5rem;
+        grid-template-columns: auto auto auto;
+        grid-template-rows: auto auto auto;
+    }
+}
+.item, #personal-list li {
+    display: inline-block;
+    margin-top: 0.5rem;
+    position: relative;
+    text-align: center;
+    width: 30vw;
+}
+.submit-persona {
+    background-color: #F76655;
+    border: none;
+    border-radius: 0;
+    bottom: 0;
+    color: white;
+    font-size: 1.3rem;
+    font-weight: bold;
+    left: 0;
+    padding: 0.7rem;
+    position: fixed;
+    text-align: center;
+    text-transform: lowercase;
+    transition: background-color 0.2s;
+    width: 50%;
+}
+.submit-persona:hover {
+    background-color: #FF5300;
+    cursor: pointer;
+}
+.go-back {
+    background-color: #ddd;
+    color: black;
+}
+.go-back:hover {
+    background-color: #ccc;
+    color: black;
+}
+.item:hover {
+    background-color: #ddd;
+}
+.invalid-submit {
+    border: 2px solid #F76655;
+    border-radius: 3px;
+    background-color: rgba(247,102,85, 0.5);
+    color: black;
+    font-size: 1.2rem;
+    padding: 0.5rem;
+}
+.notify {
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.9);
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.login h2, .check h2 {
+    color: #F76655;
+    font-family: "Lato", sans-serif;
+}
+.check p, .login li, .check label {
+    font-family: 'Alegreya', 'Lucida Grande';
+}
+.form-for-check fieldset {
+    margin-bottom: 3.5rem;
+}
+.form-for-check p {
+    margin: 0.5rem 0;
+}
+.check fieldset {
+    border: 0 none;
+}
+.check h1 {
+    font-family: 'Helvetica';
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+.check h3 {
+    font-weight: normal;
+    max-width: none;
+    white-space: normal;
+}
+.check p {
+    font-size: 1rem;
+}
+.persona-check legend {
+    margin-bottom: 0.5rem;
+}
+.check picture {
+    border-radius: 100%;
+    height: 30vw;
+    position: relative;
+    width: 30vw;
+}
+.check source, .check img, #personal-list img {
+    background-color: #F76655;
+    border-radius: 100%;
+    height: 30vw;
+    width: 30vw;
+}
+.notify h4 {
+    position: absolute;
+    -ms-transform: translateY(50%);
+    transform: translateY(50%);
+}
+.item p {
+    color: #333;
+    font-size: 1rem;
+    font-weight: 400;
+}
+.item img, .item picture {
+    filter: gray;
+    transition: 0.2s filter;
+}
+@supports (filter: grayscale(70%)){
+    .item picture {
+        -webkit-filter: grayscale(70%);
+        filter: grayscale(70%);
+    }
+    .item img {
+        filter: none;
+    }
+}
+.item label:hover {
+    color: #F76655;
+    cursor: pointer;
+}
+.item label:active {
+    color: #333;
+}
+.item label::after {
+    bottom: 0;
+    content: '';
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+@supports(filter: grayscale(30%)){
+    .item:hover {
+        background-color: white;
+    }
+    .item:hover picture {
+        -webkit-filter: grayscale(30%);
+        filter: grayscale(30%);
+    }
+    .item:active img, .item:active source {
+        -webkit-filter: grayscale(70%);
+        filter: grayscale(70%);
+    }
+}
+@supports(clip:rect(0, 0, 0, 0)) {
+    .item input[type="checkbox"] {
+        clip: rect(0, 0, 0, 0);
+        position: absolute;
+    }
+}
+.check fieldset legend {
+    display: block;
+}
+.form-for-check > form {
+    position: relative;
+}
+.item input:checked + picture {
+    filter: grayscale(0%);
+}
+.item input:checked + picture > img {
+    filter: none;
+}
+.item input:checked + picture + h3 > label {
+    color: #F76655;
+}
+.item input:focus + picture + h3 > label::after,
+.submit-persona:focus {
+    outline: #333 dashed;
+}
+#condition {
+    color: #F76655;
+    padding: 0.5rem 0;
+}
+#nojs-submit {
+    width: 100%;
+}
+#persona-button {
+    left: 50%;
+    right: 0;
+}
+#personal-list img {
+    width: 24vw;
+    height: 24vw;
+}
+@supports (left: initial) {
+    #persona-button {
+        left: initial;
+    }
+}
+
+// LOGIN
+.login {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    width: 100vw;
+}
+.login header {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    margin-left: 2rem;
+}
+.login h1 {
+    font-family: "Lato", sans-serif;
+    font-size: 3.5rem;
+    margin: 0;
+    order: 2;
+}
+.login h2 {
+    color: #333;
+    font-size: 2rem;
+    margin: 1rem 0;
+    order: 1;
+}
+.login p {
+    color: #F76655;
+    display: inline;
+    font-style: italic;
+    order: 3;
+    padding: 0.3rem;
+}
+#login-button {
+    text-decoration: none;
+    width: 100%;
+}
+
+//CONFIRMATION PAGE
+#confirm-persona {
+    background-color: rgba(0, 0, 0, 0.9);
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+}
+#confirm-persona div {
+    background-color: white;
+    height: auto;
+    position: fixed;
+    padding: 0.5rem;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    width: 100vw;
+}
+#confirm-persona h2 {
+    font-size: 1.8rem;
+}
+#confirm-persona h3 {
+    font-family: 'Helvetica';
+    font-weight: bold;
+}
+#confirm-persona ul {
+    list-style-type: initial;
+    margin: 0.5rem 0;
+    padding-left: 0;
+}
+#confirm-persona li {
+    font-size: 1rem;
+    padding-bottom: 0.3rem;
+}
+#confirm-persona .submit-persona {
+    box-shadow: none;
+    font-size: 1rem;
+    position: static;
+    -ms-transform: none;
+    transform: none;
+    width: 60%;
+}
+#confirm-persona button.submit-persona {
+    float: left;
+    width: 40%;
+}
+
+@media screen and (min-width: 38rem) {
+    .check {
+        background-color: #F6F6F6;
+    }
+    .header-personacheck {
+        margin-bottom: 3rem;
+        -ms-transform: rotate(-10deg);
+        transform: rotate(-10deg);
+    }
+    .form-for-check {
+        background-color: white;
+        box-shadow: 5px 5px 0 0 #ddd;
+    }
+    .header-personacheck,
+    .form-for-check {
+        box-sizing: border-box;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0.5rem;
+        width: 37rem;
+    }
+    .flexdiv {
+        transform: translateX(1%);
+        justify-content: flex-start;
+    }
+    .item, #personal-list li {
+        margin: 0 0.4rem;
+        width: 8rem;
+    }
+    @supports(display:grid) {
+        .flexdiv, #personal-list {
+            grid-column-gap: 1.1rem;
+            grid-template-columns: auto auto auto auto;
+
+        }
+         .item, #personal-list li {
+             margin: 0.5rem 0 0 0;
+         }
+    }
+    .submit-persona {
+        box-shadow: none;
+        float: right;
+        padding: 0.5rem 4rem;
+        position: relative;
+        width: auto;
+    }
+    .go-back {
+        float: left;
+    }
+    .login header {
+        background-color: white;
+        left: 50%;
+        margin-left: auto;
+        padding: 1rem;
+        width: 30rem;
+    }
+    .login p {
+        margin-bottom: 2rem;
+    }
+    .header-personacheck h1 {
+        font-size: 5rem;
+    }
+    .header-personacheck p {
+        font-size: 1rem;
+    }
+    .form-for-check fieldset {
+        margin-bottom: 4rem;
+    }
+    .form-for-check h2 {
+        font-size: 2rem;
+    }
+    .login p, .check h3 label, .check p {
+        font-size: 1.2rem;
+    }
+    .item picture, .item source, .item img, #personal-list img {
+        height: 8rem;
+        width: 8rem;
+    }
+    .item p {
+        font-size: 1.2rem;
+        padding: 0.4rem 0;
+    }
+    #nojs-submit {
+        width: auto;
+    }
+    #back, #persona-button, #nojs-submit {
+        -ms-transform: translateY(-2.5rem);
+        transform: translateY(-2.5rem);
+    }
+    #login-button {
+        order: 4;
+    }
+    #persona-button {
+        left: 0%;
+    }
+    #confirm-persona h2 {
+        font-size: 2.8rem;
+    }
+    #confirm-persona h3 {
+        font-size: 1.8rem;
+    }
+    #confirm-persona li {
+        font-size: 1.2rem;
+    }
+    #confirm-persona div {
+        box-shadow: 5px 5px 0 0 #ddd;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        max-width: 37rem;
+    }
+    #confirm-persona .submit-persona {
+        font-size: 1.3rem;
+        width: auto;
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "short_name": "Vrij-Nederland",
+    "name": "Collectie Vrij-Nederland",
+    "start_url": "/?homescreen=1",
+    "display": "standalone",
+    "orientation": "portrait",
+    "theme_color": "#ffffff ",
+    "background_color": "#FFFFFF ",
+    "icons": [{
+        "src": "../img/VrijNederland.jpg",
+        "sizes": "329 × 329",
+        "type": "image/jpg"
+    }]
+}

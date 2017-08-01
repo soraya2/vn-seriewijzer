@@ -57,8 +57,24 @@ typings/
 # dotenv environment variables file
 .env
 
-.DS_Store
+# thumbs.db
+thumbs.db
+
 
 routes/backup.js
 
 data/data.json
+
+public/assets/.DS_Store
+public/img/.DS_Store
+public/.DS_Store
+
+.DS_Store
+
+public/img/placeholders/.DS_Store
+
+.DS_Store
+
+.DS_Store
+
+.DS_Store

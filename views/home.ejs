@@ -1,12 +1,202 @@
 <!DOCTYPE html>
-<html>
+<html lang="nl">
+
 <%- include partials/head.ejs %>
-<title>Details</title>
-</head>
+    <title>
+        <%= title %>
+    </title>
+    </head>
+    <body>
+        <%- include partials/header.ejs %>
 
-<body>
-<div></div>
+            <main class="overview-container">
+
+                <section class="welcome-banner">
+                    <div class="welcome-message">
+                        <h1>Welkom bij de Vrij Nederland Seriewijzer.</h1>
+                        <p>Hier lees je onze recensies van de nieuwste series
+                        én kun je een gepersonaliseerd aanbod bekijken op basis van wat jij leuk vind!</p>
+                    </div>
+                    <div class="overlay"></div>
+                </section>
+
+                <% if (userData) { %>
+                    <% if (userData.user.profile.matches.length > 0) { %>
+                    <section class="match-overview-container">
+                        <h2>Speciaal voor jou, uit het Seriespel</h2>
+                        <div class="best-match animated">
+                            <span class="match-percentage"><%=userData.user.profile.matches[0][0].matchAll %>%</span>
+                            <a href="/review/<%=userData.user.profile.matches[0][0].data.review.seriesName %>">
+                                <picture>
+                                    <img class="match-img" src="<%=userData.user.profile.matches[0][0].data.review.imgURL%>" alt="<%=userData.user.profile.matches[0][0].data.review.seriesName%>">
+                                </picture>
+                                <h2 class="best-match-header">Jouw Beste Match</h2>
+                            </a>
+                        </div>
+                        <% for(var i=1; i<userData.user.profile.matches[0].length; i++) {%>
+                            <div class="secondary-match animated">
+                                <span class="match-percentage"><%=userData.user.profile.matches[0][i].matchAll %>%</span>
+                                <a href="/review/<%=userData.user.profile.matches[0][i].data.review.seriesName %>">
+                                    <picture>
+                                        <img class="match-img" src="<%=userData.user.profile.matches[0][i].data.review.imgURL%>" alt="<%=userData.user.profile.matches[0][i].data.review.seriesName%>">
+                                    </picture>
+                                </a>
+                            </div>
+                        <% } %>
+                    </section>
+                    <% } else { %>
+                        <section class="match-overview-container">
+                            <div class="placeholder-message">
+                                <h2>Hier komen jouw Top 5 matches</h2>
+                                <a href="/seriespel">Speel het Seriespel!</a>
+                            </div>
+                            <div class="best-match">
+                                <picture>
+                                    <img class="match-img" src="/img/placeholders/placeholder1.png" alt="Jouw serie hier">
+                                </picture>
+                                </a>
+                            </div>
+                            <div class="secondary-match">
+                                <picture>
+                                    <img class="match-img" src="/img/placeholders/placeholder2.png" alt="Jouw serie hier">
+                                </picture>
+                            </div>
+                            <div class="secondary-match">
+                                <picture>
+                                    <img class="match-img" src="/img/placeholders/placeholder3.png" alt="Jouw serie hier">
+                                </picture>
+                            </div>
+                            <div class="secondary-match">
+                                <picture>
+                                    <img class="match-img" src="/img/placeholders/placeholder4.png" alt="Jouw serie hier">
+                                </picture>
+                            </div>
+                            <div class="secondary-match">
+                                <picture>
+                                    <img class="match-img" src="/img/placeholders/placeholder5.png" alt="Jouw serie hier">
+                                </picture>
+                            </div>
+                        </section>
+                    <% } %>
+
+                <% } else { %>
+                    <section class="match-overview-container">
+                        <div class="placeholder-message">
+                            <h2>Hier komen jouw Top 5 matches</h2>
+                            <a class="cta-btn" href="/seriespel">Speel het Seriespel!</a>
+                        </div>
+                        <div class="best-match">
+                            <picture>
+                                <img class="match-img" src="/img/placeholders/placeholder1.png" alt="Jouw serie hier">
+                            </picture>
+                            </a>
+                        </div>
+                        <div class="secondary-match">
+                            <picture>
+                                <img class="match-img" src="/img/placeholders/placeholder2.png" alt="Jouw serie hier">
+                            </picture>
+                        </div>
+                        <div class="secondary-match">
+                            <picture>
+                                <img class="match-img" src="/img/placeholders/placeholder3.png" alt="Jouw serie hier">
+                            </picture>
+                        </div>
+                        <div class="secondary-match">
+                            <picture>
+                                <img class="match-img" src="/img/placeholders/placeholder4.png" alt="Jouw serie hier">
+                            </picture>
+                        </div>
+                        <div class="secondary-match">
+                            <picture>
+                                <img class="match-img" src="/img/placeholders/placeholder5.png" alt="Jouw serie hier">
+                            </picture>
+                        </div>
+                    </section>
+                <% } %>
 
 
-</body>
-</html>
+                <% if (userData && userData.user.profile.personacheck.length > 0) { %>
+                    <section class="persona-banner">
+                        <div class="persona-message">
+                            <h2>Jouw Persona Check Resultaten</h2>
+                            <p>Volgens onze persona check passen deze series goed bij jou!</p>
+                        </div>
+                        <div class="overlay"></div>
+                    </section>
+                    <section id="personacheck_results" class="persona-overview-container">
+                        <h2>Persona Check Resultaten</h2>
+                        <% for(var i=0; i<12; i++) {%>
+                            <div class="secondary-match animated">
+                                <a href="/review/<%=userData.user.profile.personacheck[i].review.seriesName %>">
+                                    <picture>
+                                        <img class="match-img" src="<%=userData.user.profile.personacheck[i].review.imgURL%>" alt="<%=userData.user.profile.personacheck[i].review.seriesName%>">
+                                    </picture>
+                                </a>
+                            </div>
+                        <% } %>
+                    </section>
+                     <% }
+
+                     else { %>
+                        <section class="persona-banner">
+                            <div class="persona-message">
+                                <h2>Hier komen jouw Persona Check resultaten</h2>
+                                <p>Doe de Persona Check om er achter te komen welke series er goed bij je passen!</p>
+                                <div class="persona-img-list">
+                                    <picture>
+                                        <img class="persona-icon" src="img/icons-bigbang.png">
+                                    </picture>
+                                    <picture>
+                                        <img class="persona-icon" src="img/icons-jack.png">
+                                    </picture>
+                                    <picture>
+                                        <img class="persona-icon" src="img/icons-darryl.png">
+                                    </picture>
+                                </div>
+                                <a class="cta-btn" href="/persona">Doe de check</a>
+                            </div>
+                        </section>
+                    <% } %>
+
+                <section class="review-banner">
+                    <div class="review-message">
+                        <h2>Lees de laatste recensies.</h2>
+                        <p>We hebben een hoop series bekeken. Hier kun je lezen wat wij er van vonden.</p>
+                        <a href="/recensies">Of bekijk alle recensies ➔</a>
+                    </div>
+                    <div class="overlay"></div>
+                </section>
+                <% if (reviewData) { %>
+                    <section class="review-overview-container">
+                        <% for(var i=0; i<6; i++) {%>
+                            <div class="review">
+                                <div>
+                                <a class="detail-link" href="/review/<%= reviewData[i].review.seriesName %>">
+                                    <picture>
+                                        <img src="<%=reviewData[i].review.imgURL%>" alt="<%=reviewData[i].review.seriesName%>">
+                                    </picture>
+                                </a>
+                                </div>
+                                <div class="text-container">
+                                    <span class="rating">Score: <%= reviewData[i].review.reviewRating %></span>
+                                    <a class="detail-link" href="/review/<%= reviewData[i].review.seriesName %>">
+                                        <h3><%= reviewData[i].review.seriesName %></h3>
+                                    </a>
+                                    <p class="post-date">Op: <%= reviewData[i].user.postDate %></p>
+                                    <h4><%= reviewData[i].review.reviewTitle %></h4>
+                                    <p class="post-user">Door <%= reviewData[i].user.name %></p>
+                                    <!-- Laatste spatie opzoeken uit de array (lastIndexOf) en dan het woord erna weghalen -->
+                                    <!-- Gemanipuleerde reviewData sturen naar de view, niet in de view doen -->
+                                    <p class="intro-text"><%= reviewData[i].review.reviewPlot.substring(0, 210) %>
+                                        ...
+                                        <a class="bottom-link" href="/review/<%= reviewData[i].review.seriesName %>">
+                                            Lees meer
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                            <% } %>
+                    </section>
+                <% } %>
+            </main>
+<%- include partials/footer.ejs %>

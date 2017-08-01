@@ -26,7 +26,9 @@ var user = mongoose.Schema({
 
         profile: {
             messages: Array,
-            preferences: Array
+            preferences: Array,
+            personacheck: Array,
+            matches: Array
         }
     }
 });

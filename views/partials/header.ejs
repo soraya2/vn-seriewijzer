@@ -1,11 +1,49 @@
 <header class="header-nav">
-<h2 class="titel">Vrij Nederland seriewijzer</h2>
- <nav>
-   <ul class="navigation">
-    <li> <a  class="active" href="/">Home</a></li>
-    <li> <a href="#">About</a></li>
-    <li> <a class="twitter" href="/auth/facebook">Facebook login</a></li>
-    <li> <a class="twitter" href="/upload">Upload Review</a></li>
-   </ul>
- </nav>
+    <div id="hamburger">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <!--[if IE]>
+        <div class="browser-warning">
+            <h1>Let op: Je gebruikt een verouderde browser.</h1>
+            <p>Wij raden je aan om een van de onderstaande browsers te gebruiken voor een optimale ervaring en veilig gebruik.</p>
+            <div class="browser-container">
+                <ul>
+                    <li>
+                        <a href="https://www.google.com/chrome/browser/desktop/index.html" target="_blank">
+                        <img class="browser-img" src="/img/browser-icons/chrome.png" alt="Google Chrome">
+                        </a>
+                    </li>
+                   <li>
+                       <a href="https://www.mozilla.org/nl/firefox/new/" target="_blank">
+                           <img class="browser-img" src="/img/browser-icons/firefox.png" alt="Mozilla Firefox">
+                       </a>
+                   </li>
+                   <li>
+                       <a href="https://www.opera.com/nl" target="_blank">
+                           <img class="browser-img" src="/img/browser-icons/opera.png" alt="Opera">
+                       </a>
+                   </li>
+                   <li>
+                       <a href="https://support.apple.com/nl_NL/downloads/safari" target="_blank">
+                           <img class="browser-img" src="/img/browser-icons/safari.png" alt="Apple Safari">
+                       </a>
+                   </li>
+                </ul>
+                <p>Klik op een van de iconen om naar de downloadpagina te gaan.</p>
+            </div>
+        </div>
+    <![endif]-->
+    <nav class="main-navigation" id="main-nav">
+        <a class="titel-link active" href="/home">
+            <span class="titel">Vrij Nederland Seriewijzer</span>
+        </a>
+        <ul class="nav-list">
+            <li><a href="/persona">Doe de Persona Check</a></li>
+            <li><a href="/seriespel">Speel het Seriespel</a></li>
+            <li><a href="/recensies">Recensies</a></li>
+            <li><a href="<%= userStatusPath%>"><%= userStatus%></a></li>
+        </ul>
+    </nav>
 </header>

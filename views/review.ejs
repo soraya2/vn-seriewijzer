@@ -11,14 +11,22 @@
     <!-- <a href="javascript:history.back()">Terug</a> -->
 
         <section>
-
             <div>
                 <h1><%=data.review.seriesName%></h1>
-
+                <hr>
                 <ul class="meta">
-                    <li><span>Seizoenen:</span><%=data.review.seasons %></li>
-                    <li><span>IMDB cijfer:</span><%=data.review.imdbRating %></li>
-                    <li><span>Gemiddelde tijd per aflevering:</span><%=data.review.duration %></li>
+                    <li>
+                        <span>Seizoenen:</span>
+                        <span class="meta-data"><%=data.review.seasons %></span>
+                    </li>
+                    <li>
+                        <span>IMDB cijfer:</span>
+                        <span class="meta-data"><%=data.review.imdbRating %></span>
+                    </li>
+                    <li>
+                        <span>Gem. min per aflevering:</span>
+                        <span class="meta-data"><%=data.review.duration.replace(' minuten', '') %></span>
+                    </li>
                 </ul>
                 <hr>
                 <p>
@@ -82,7 +90,7 @@
 
                     <li>
 
-                        <p class="rating"><span><%=data.comments[i].rating%></span>Cijfer</p>
+                        <p class="rating">Cijfer: <%=data.comments[i].rating%></p>
                         <p class="text"><%=data.comments[i].text%></p>
 
                         <h4><%= data.comments[i].username%> </h4>

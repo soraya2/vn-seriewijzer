@@ -86,6 +86,7 @@
             <h2>Wat vind u van deze serie?</h2>
 
             <ul class="comment-list">
+                <% if(data.comments.length > 0){%>
                 <% for(var i =0; i < data.comments.length;  i++){%>
 
                     <li>
@@ -97,6 +98,11 @@
                         <time><%= data.comments[i].time%></time>
 
                     </li>
+                <% } %>
+                <% } else {%>
+                    <p>
+                        Niemand heeft nog zijn mening laten horen. Wees de eerste!
+                    </p>
                     <% } %>
             </ul>
         </section>

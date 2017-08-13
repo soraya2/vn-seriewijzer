@@ -37,7 +37,7 @@ body {
     background-color: white;
     width: 100%;
     top: 0;
-    padding: 1.5em 0;
+    padding: 1em 0;
     position: relative;
     border-bottom: 1px solid #ECECEC;
     a {
@@ -54,6 +54,12 @@ body {
         text-decoration: none;
         color: #F76655;
     }
+    >a {
+        margin-left: 1rem;
+        @media screen and (min-width: 55em) {
+            display: none;
+        }
+    }
     .main-navigation {
         max-width: 80em;
         color: #333333;
@@ -63,9 +69,7 @@ body {
     }
     .titel-link {
         @media screen and (max-width: 55em) {
-            display: block;
-            text-align: center;
-            margin-top: 2em;
+            display: none;
         }
     }
     #hamburger {
@@ -77,6 +81,10 @@ body {
         top: 0.2em;
         right: 0.2em;
         height: 2.2rem;
+        a {
+            position: absolute;
+            left: 0;
+        }
         span {
             color: #BBB;
             font-size: 0.9rem;
@@ -132,6 +140,10 @@ body {
                 -ms-flex-pack: start;
                 justify-content: flex-start;
                 width: 100vw;
+                border-top: 1px solid #eee;
+                padding: 0;
+                margin-top: 1rem;
+                padding: 0.5rem 1rem 0 1rem;
             }
             .nav-list {
                 display: flex;
@@ -140,7 +152,6 @@ body {
                 width: 60%;
                 @media screen and (max-width: 55em) {
                     flex-direction: column;
-                    text-align: center;
                     width: 100%;
                 }
                 li {

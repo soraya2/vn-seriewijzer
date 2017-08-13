@@ -91,7 +91,7 @@
 
                     <li>
 
-                        <p class="rating">Cijfer: <%=data.comments[i].rating%></p>
+                        <p class="rating">Cijfer: <span><%=data.comments[i].rating%></span></p>
                         <p class="text"><%=data.comments[i].text%></p>
 
                         <h4><%= data.comments[i].username%> </h4>
@@ -110,6 +110,7 @@
 </main>
     <script src="/socket.io/socket.io.js"></script>
     <script src="/javascripts/comment.js"></script>
+    <script src="/javascripts/navigation.js"></script>
 </body>
 
 </html>

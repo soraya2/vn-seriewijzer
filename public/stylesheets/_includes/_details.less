@@ -180,6 +180,10 @@
             font-size: 19.2px;
             font-size: 1.2em;
         }
+        @media (min-width: 60rem){
+            font-size: 20.8px;
+            font-size: 1.3em;
+        }
     }
     hr {
         margin: 0.5em 0 0.5em 0;
@@ -229,7 +233,7 @@ body {
         padding: 0;
         margin: 2rem;
     }
-    @media (min-width: 50em){
+    @media (min-width: 60em){
         margin: 2rem auto;
         max-width: 60rem;
     }
@@ -262,6 +266,10 @@ body {
         @media screen and (min-width: 26rem){
             font-size: 32px;
             font-size: 2rem;
+        }
+        @media (min-width: 60rem){
+            font-size: 48px;
+            font-size: 3rem;
         }
     }
     p {
@@ -309,9 +317,6 @@ body {
         flex-direction: column;
         margin: 2em 0;
         width: 100%;
-        @media (min-width: 40em) {
-            width: 60%;
-        }
         fieldset {
             border: none;
         }
@@ -348,16 +353,15 @@ body {
         text-align: center;
     }
     input[type="submit"] {
-        padding: 0.5rem 0.5rem;
-        width: 50%;
+        padding: 0.5rem;
         margin-top: 0.5em;
         background-color: #F76655;
         border: none;
-        box-shadow: grey 1px 1px 5px;
         color: white;
         cursor: pointer;
         font-size: 20.8px;
         font-size: 1.2em;
+        width: fit-content;
     }
     >h2 {
         border-bottom: 1px solid #bbb;

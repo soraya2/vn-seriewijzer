@@ -8,6 +8,9 @@
     article {
         section:first-child {
             -ms-transform: rotate(180deg);
+            @media (min-width: 50em) {
+                order: 1;
+            }
             div {
                 -ms-transform: rotate(-180deg);
                 vertical-align: middle;
@@ -25,9 +28,17 @@
                     vertical-align: middle;
                 }
             }
+            @media (min-width: 50em){
+                order: 3;
+                width: 60%;
+            }
         }
         section {
             width: 100%;
+            @media (min-width: 50em) {
+                order: 3;
+                width: 60%;
+            }
             @supports (display: flex) {
                 display: -ms-flexbox;
                 display: flex;
@@ -35,7 +46,6 @@
                 min-height: 25em;
                 align-items: center;
                 @media (min-width: 50em) {
-                    padding: 1em;
                     flex-direction: row-reverse;
                     flex-wrap: wrap;
                     justify-content: space-between;
@@ -43,28 +53,21 @@
                 @media (max-width: 50em) {
                     order: 3;
                 }
-                @media (max-width: 50em) {
-                    order: 3;
-                }
             }
             >div:first-child {
-                @media (max-width: 50em) {
-                    display: block;
-                    margin: 0 auto;
+                display: block;
+                margin: 0 auto;
+                padding: 1em 0 0 0;
+                @media (min-width: 50em){
+                    order: 2;
                 }
             }
             .img-container {
+                display: block;
                 position: relative;
-                margin-left: 12%;
-                @media (min-width: 30em) {
-                    width: 38%;
-                }
-                @media (max-width: 50em) {
-                    display: block;
-                    margin: 0 auto;
-                }
-                @supports (display: flex) {
-                    margin: 1rem;
+                @media (min-width: 30em){
+                    margin: 1rem auto;
+                    width: 50%;
                 }
                 img {
                     width: 100%;
@@ -81,13 +84,6 @@
             h1 {
                 @media (min-width: 50em) {
                     width: 100%;
-                }
-            }
-            > div:first-child {
-                padding: 1em;
-                @media (min-width: 50em) {
-                    width: 48%;
-                    padding: 0em;
                 }
             }
             .meta {
@@ -139,10 +135,6 @@
     main {
         display: block;
         width: 100%;
-        @media (min-width: 50em) {
-            width: 90%;
-            margin: 8em auto 0 auto;
-        }
         a {
             color: #F76655;
             cursor: pointer;
@@ -161,7 +153,7 @@
             border-radius: 3px;
             font-size: 19.2px;
             font-size: 1.2rem;
-            margin-bottom: 1.5rem;
+            margin: 1rem 0;
             padding: 0.5rem;
             a {
                 color: black;
@@ -232,15 +224,21 @@ body {
 
 // video container
 .movie-details {
+    padding: 1rem;
+    @media (min-width: 50em){
+        padding: 0;
+        margin: 2rem;
+    }
+    @media (min-width: 50em){
+        margin: 2rem auto;
+        max-width: 60rem;
+    }
     @supports (display: flex) {
         display: flex;
         flex-wrap: wrap-reverse;
-        align-items: center;
         @media (min-width: 50em) {
             flex-wrap: wrap;
             flex-direction: row;
-            align-items: center;
-            justify-content: space-around;
             margin-bottom: 2em;
         }
     }
@@ -293,18 +291,18 @@ body {
 }
 
 .review-page .comments {
-    padding: 0 1em;
-    margin-bottom: 1rem;
+    order: 1;
+    margin-top: 2rem;
     width: 100%;
     display: unset;
     max-width: 40.39rem;
     margin-left: auto;
     margin-right: auto;
-    @media (max-width: 50em) {
-        order: 1;
-    }
     @media (min-width: 50em) {
-        width: 100%;
+        order: 2;
+        margin: 0;
+        padding: 0 0 0 2rem;
+        width: 40%;
     }
     form {
         display: flex;
@@ -367,9 +365,6 @@ body {
 }
 
 .comment-list {
-    @media (min-width: 50em) {
-        width: 47%;
-    }
     >p{
         color: #F76655;
     }
@@ -408,7 +403,6 @@ body {
             right: 0;
             padding: 0.2rem 0.3rem;
             position: absolute;
-            margin: 0 1em 0 0;
             background-color: #F76655;
             @media screen and (min-width: 37.5rem){
                 font-size: 17.6px;
@@ -450,22 +444,9 @@ body {
 }
 
 .youtubevideowrap {
+    margin-left: auto;
+    margin-right: auto;
     width: 100%;
-    @supports (display: flex) {
-        margin-left: 0;
-    }
-    @media (min-width: 40.39rem){
-        max-width: 40.39rem;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    @media (min-width: 50em) {
-        width: 46%;
-        margin-left: 1.2%;
-    }
-    @media (min-width: 70em) {
-        margin-left: 4%;
-    }
 }
 
 .video-container {

@@ -6,7 +6,10 @@ body {
 
 .titel {
     font-weight: bold;
-    font-size: 140%;
+    font-size: 1.3rem;
+    @media screen and (min-width: 62rem){
+        font-size: 140%;
+    }
 }
 
 .unhide {
@@ -151,15 +154,16 @@ body {
             .nav-list {
                 display: flex;
                 flex-direction: row;
-                justify-content: space-between;
-                width: 60%;
+                justify-content: flex-end;
+                width: 64%;
                 @media screen and (max-width: 55em) {
                     flex-direction: column;
                     width: 100%;
                 }
                 li {
-                    @media screen and (max-width: 55em) {
-                        margin: 0.5em 0;
+                    margin-left: 1.5rem;
+                    @media screen and (min-width: 62rem) {
+                        margin-left: 2rem;
                     }
                 }
             }

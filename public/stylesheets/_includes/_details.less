@@ -232,16 +232,22 @@ body {
 
 // video container
 .movie-details {
+    margin: 2rem auto;
     padding: 1rem;
     @media (min-width: 50em){
         padding: 0;
-        margin: 2rem;
+        max-width: 35rem;
+        @supports(display: flex){
+            max-width: 100%;
+            margin: 2rem;
+        }
     }
     @media (min-width: 60em){
-        margin: 2rem;
+        margin: 2rem auto;
         max-width: 50rem;
         @supports(display: flex){
             max-width: 76rem;
+            margin: 2rem;
         }
     }
     @media (min-width: 78rem){
@@ -285,7 +291,9 @@ body {
     p {
         line-height: 160%;
         padding: 0.3em 0;
-        max-width: 35rem;
+        @supports(display: flex){
+            max-width: 35rem;
+        }
         @media (min-width: 60rem){
             max-width: 100%;
         }
@@ -316,9 +324,11 @@ body {
     margin-top: 2rem;
     width: 100%;
     display: unset;
-    max-width: 35rem;;
     margin-left: auto;
     margin-right: auto;
+    @supports(display: flex){
+        max-width: 35rem;
+    }
     @media (min-width: 50em) {
         order: 2;
         margin: 0;

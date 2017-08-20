@@ -6,7 +6,8 @@ body {
 
 .titel {
     font-weight: bold;
-    font-size: 1.3rem;
+    font-size: 17.6px;
+    font-size: 1.1rem;
     @media screen and (min-width: 62rem){
         font-size: 140%;
     }
@@ -64,13 +65,28 @@ body {
         }
     }
     .main-navigation {
+        margin-left: 2rem;
+        margin-right: 2rem;
         max-width: 80em;
         color: #333333;
+        @media screen and (min-width: 80em) {
+            margin-left: auto;
+            margin-right: auto;
+        }
         @media screen and (max-width: 55em) {
             display: none;
         }
         .nav-list {
+            display: inline-block;
+            float: right;
             text-transform: lowercase;
+            li {
+                display: inline-block;
+                margin-left: 1.5rem;
+                @media screen and (min-width: 62rem) {
+                    margin-left: 2rem;
+                }
+            }
         }
     }
     .titel-link {
@@ -80,13 +96,21 @@ body {
     }
     #hamburger {
         cursor: pointer;
-        display: flex;
+        display: table;
+        float: right;
         margin-top: 0.3rem;
         margin-left: 0.3rem;
-        position: absolute;
-        top: 0.2em;
-        right: 0.2em;
-        height: 2.2rem;
+        -ms-transform: translateY(-1.5rem);
+        transform: translateY(-1.5rem);
+        @supports(display:flex){
+            display: flex;
+            -ms-transform: translateY(0);
+            transform: translateY(0);
+            position: absolute;
+            top: 0.2em;
+            right: 0.2em;
+            height: 2.2rem;
+        }
         a {
             position: absolute;
             left: 0;
@@ -94,8 +118,12 @@ body {
         span {
             color: #BBB;
             font-size: 0.9rem;
-            padding-top: 0.5rem;
             text-transform: lowercase;
+            display: table-cell;
+	        vertical-align: middle;
+            @supports(display:flex){
+                padding-top: 0.5rem;
+            }
         }
         div {
             display: inline-block;
@@ -153,18 +181,13 @@ body {
             }
             .nav-list {
                 display: flex;
+                float: right;
                 flex-direction: row;
                 justify-content: flex-end;
                 width: 64%;
                 @media screen and (max-width: 55em) {
                     flex-direction: column;
                     width: 100%;
-                }
-                li {
-                    margin-left: 1.5rem;
-                    @media screen and (min-width: 62rem) {
-                        margin-left: 2rem;
-                    }
                 }
             }
         }

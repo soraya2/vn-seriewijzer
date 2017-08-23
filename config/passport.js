@@ -32,6 +32,7 @@ module.exports = function(passport) {
             clientID: process.env.FACEBOOK_KEY,
             clientSecret: process.env.FACEBOOK_SECRET,
             callbackURL: process.env.FACEBOOK_CALLBACK,
+            enableProof: true,
             profileFields: ['id', 'emails', 'name', 'gender', 'displayName']
         },
 

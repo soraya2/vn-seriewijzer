@@ -33,7 +33,7 @@
 
                             <p class="intro-text"><%= reviewData[i].review.reviewPlot.substring(0, 210) %>
                                 ...
-                                <a class="bottom-link" href="/detail/<%= reviewData[i].review.seriesName %>">
+                                <a class="bottom-link" href="/review/<%= reviewData[i].review.seriesName %>">
                                     Lees meer
                                 </a>
                             </p>
@@ -42,6 +42,7 @@
                     <% } %>
             </section>
         </main>
+            <script src="/socket.io/socket.io.js"></script>
             <script src="/javascripts/filter_interaction.js"></script>
             <script src="/javascripts/navigation.js"></script>
             <script src="/javascripts/filter.js"></script>

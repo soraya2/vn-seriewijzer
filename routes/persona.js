@@ -4,18 +4,22 @@ var router = express.Router();
 var env = require('dotenv').config();
 
 router.get('/', function(req, res) {
-    res.render('persona', {
-        message: 'undefined'
-    });
+    if (req.user) {
+        res.render('persona', {
+            message: 'undefined'
+        });
+        console.log(req.session.email, "personajs");
+
+    } else {
+
+        res.redirect('/auth/facebook');
+
+    }
 });
 
 router.post('/', function(req, res) {
-    req.session.personaform = req.body;
-    if (req.user) {
-        req.session.user = req.user.user.facebook.displayName;
-        req.session.email = req.user.user.facebook.email;
-    }
 
+    req.session.personaform = req.body;
     validate(req.body, res);
 });
 

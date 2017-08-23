@@ -22,14 +22,16 @@ var uploadComplete = require('./routes/upload_complete');
 var reviewOverview = require('./routes/review_overview')(io);
 var reviewEditDetail = require('./routes/review_detail');
 var login = require('./routes/login');
+var logout = require('./routes/logout');
 var persona = require('./routes/persona');
 var seriesGame = require('./routes/series-game');
 var fbLogin = require('./routes/facebook-login')(passport, io);
 var personaResults = require('./routes/persona_results');
 var reviewDetail = require('./routes/detail')(io);
 var home = require('./routes/home');
-var allReviews = require('./routes/all_reviews');
+var allReviews = require('./routes/all_reviews')(io);
 var search = require('./routes/search');
+var errorPage = require('./routes/error');
 
 require('./config/passport')(passport);
 
@@ -49,8 +51,8 @@ app.use(sessions({
     secret: process.env.EXPRESS_SESSION_SECRET,
     // Name: cookie_name,
     proxy: true,
-    resave: true,
-    saveUninitialized: true,
+    resave: false,
+    saveUninitialized: false,
     cookie: { secure: false, expires: false }
 
 }));
@@ -66,6 +68,7 @@ app.use('/upload_complete', uploadComplete);
 app.use('/review_edit', reviewEditDetail);
 app.use('/review_overview', reviewOverview);
 app.use('/login', login);
+app.use('/logout', logout);
 app.use('/persona', persona);
 app.use('/auth/facebook', fbLogin);
 app.use('/recensies', allReviews);
@@ -82,21 +85,29 @@ app.use(lessMiddleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 // Catch 404 and forward to error handler
 app.use(function(req, res, next) {
-    var err = new Error('Not Found');
-    err.status = 404;
-    next(err);
+    if(req.user){
+        res.render('pagenotfound', {
+            userStatusPath: '/logout',
+            userStatus: 'Uitloggen'
+        });
+    } else {
+        res.render('pagenotfound', {
+            userStatusPath: '/auth/facebook',
+            userStatus: 'Log in'
+        })
+    }
 });
 
 // Error handler
-app.use(function(err, req, res) {
-    // Set locals, only providing error in development
-    res.locals.message = err.message;
-    res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-    // Render the error page
-    res.status(err.status || 500);
-    res.render('error');
-});
+// app.use(function(err, req, res) {
+//     // Set locals, only providing error in development
+//     res.locals.message = err.message;
+//     res.locals.error = req.app.get('env') === 'development' ? err : {};
+//
+//     // Render the error page
+//     res.status(err.status || 500);
+//     res.render('error');
+// });
 
 io.on('connection', function(socket) {
     socket.broadcast.on('comment', function(comm) {

@@ -1,16 +1,23 @@
 (function() {
     'use strict';
+    var socket = io.connect();
     var overviewContainer = document.getElementsByClassName('review-overview-container');
     var filterCheckbox = document.getElementsByClassName('filter-checkbox');
     var filters = {};
     var checkboxValue;
     var filterButton = document.querySelector('#filter-button');
     var filterForm = document.querySelector('.form-filter > form');
-    // console.log(document.querySelector('.form-filter > form'));
+
     function init() {
-        // filterForm.className = 'hide-filter';
-        getReviewData('https://220cf296.ngrok.io/search', reviewCallback);
+
+
     }
+
+    socket.on('get reviews', function(url) {
+        console.log(url.dataURL);
+        getReviewData(url.dataURL, reviewCallback);
+
+    });
 
     function getReviewData(theUrl, callback) {
         var xmlHttp = new XMLHttpRequest();
@@ -18,11 +25,12 @@
             if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
                 callback(xmlHttp.responseText);
         };
-        xmlHttp.open("GET", theUrl, true); // true for asynchronous
+        xmlHttp.open("POST", theUrl, true); // true for asynchronous
         xmlHttp.send(null);
     }
 
     function reviewCallback(data) {
+
         var reviews = JSON.parse(data);
         for (var i = 0; i < filterCheckbox.length; i++) {
 

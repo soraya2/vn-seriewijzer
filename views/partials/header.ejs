@@ -1,9 +1,4 @@
 <header class="header-nav">
-    <div id="hamburger">
-        <div></div>
-        <div></div>
-        <div></div>
-    </div>
     <!--[if IE]>
         <div class="browser-warning">
             <h1>Let op: Je gebruikt een verouderde browser.</h1>
@@ -35,15 +30,26 @@
             </div>
         </div>
     <![endif]-->
+    <a class="mobile-link" href="/">
+        <span>Vrij Nederland Seriewijzer</span>
+    </a>
+    <div id="hamburger">
+        <span>Menu</span>
+        <div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
     <nav class="main-navigation">
-        <a class="titel-link active" href="/home">
+        <a class="titel-link active" href="/">
             <span class="titel">Vrij Nederland Seriewijzer</span>
         </a>
         <ul class="nav-list">
             <li><a href="/persona">Doe de Persona Check</a></li>
             <li><a href="/seriespel">Speel het Seriespel</a></li>
             <li><a href="/recensies">Recensies</a></li>
-            <li><a class="login-btn" href="/auth/facebook">Log In</a></li>
+            <li><a href="<%= userStatusPath%>"><%= userStatus%></a></li>
         </ul>
     </nav>
 </header>

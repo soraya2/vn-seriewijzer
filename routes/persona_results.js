@@ -35,8 +35,8 @@ router.post('/', function(req, res) {
                 });
             });
         });
-
-        resultsToDatabase(filterdData);
+        console.log(req.session.email, "PERSONA RESULTS");
+        resultsToDatabase(filterdData, req.session.email);
 
         res.redirect('/');
     });
@@ -72,34 +72,37 @@ function filterLenghtCheck(filterData) {
 }
 
 
-function resultsToDatabase(filterData) {
+function resultsToDatabase(filterData, email) {
+    if (email) {
+        // clean the persona check
+        user.findOneAndUpdate({ 'user.facebook.email': email }, {
 
-    // clean the persona check
-    // user.findOneAndUpdate({ 'user.facebook.email': 'shyantavleugel@gmail.com' }, {
-
-    //     '$set': {
-    //         'user.profile.personacheck': []
-    //     }
-    // }, { upsert: true }, function(err, document) {
-
-    //     if (err) {
-    //         return console.log(err);
-    //     }
-    // });
-    // update the persona check with new values
-    user.findOneAndUpdate({ 'user.facebook.email': 'shyantavleugel@gmail.com' }, {
-
-        '$addToSet': {
-            'user.profile.personacheck': {
-                $each: filterData
+            '$set': {
+                'user.profile.personacheck': []
             }
-        }
-    }, { upsert: true }, function(err, document) {
+        }, { upsert: true }, function(err, document) {
 
-        if (err) {
-            return console.log(err);
-        }
-    });
+            if (err) {
+                return console.log(err);
+            }
+        });
+        // update the persona check with new values
+
+
+        user.findOneAndUpdate({ 'user.facebook.email': email }, {
+
+            '$addToSet': {
+                'user.profile.personacheck': {
+                    $each: filterData
+                }
+            }
+        }, { upsert: true }, function(err, document) {
+
+            if (err) {
+                return console.log(err);
+            }
+        });
+    }
 
 
 

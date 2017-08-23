@@ -33,19 +33,31 @@
             var listItem = document.createElement('li'),
                 textEl = document.createElement('p'),
                 userEl = document.createElement('h4'),
-                timeEl = document.createElement('time');
+                timeEl = document.createElement('time'),
+                ratingEl = document.createElement('p'),
+                ratingNumberEl = document.createElement('span');
 
             var textNode = document.createTextNode(newComment.text),
                 userNode = document.createTextNode(newComment.username),
-                timeNode = document.createTextNode(newComment.time);
+                timeNode = document.createTextNode(newComment.time),
+                ratingNodeNumber = document.createTextNode(newComment.rating),
+                ratingNode = document.createTextNode('Cijfer');
+
 
             textEl.appendChild(textNode);
             userEl.appendChild(userNode);
             timeEl.appendChild(timeNode);
+            ratingEl.appendChild(ratingNode);
+            ratingNumberEl.appendChild(ratingNodeNumber);
+            ratingEl.className = "rating";
+            textEl.className = "text";
 
+            ratingEl.appendChild(ratingNumberEl);
+            listItem.appendChild(ratingEl);
             listItem.appendChild(userEl);
             listItem.appendChild(textEl);
             listItem.appendChild(timeEl);
+
 
             commentList.insertBefore(listItem, commentList.childNodes[0]);
         }
@@ -54,13 +66,14 @@
     //When the server sends a new comment
     socket.on('comment', function(comm) {
         //If the tv show title of the comment matches the one on this page, render the comment
-        if(comm.title == showTitle){
+        console.log(comm);
+        if (comm.title == showTitle) {
             comment.render(comm);
         }
     });
 
     //if your logged on, commenting is enabled so add an addEventListener
-    if(document.querySelector('[type="submit"]')){
+    if (document.querySelector('[type="submit"]')) {
         document.querySelector('[type="submit"]').addEventListener('click', function(e) {
             e.preventDefault();
 

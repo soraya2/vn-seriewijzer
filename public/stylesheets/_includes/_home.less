@@ -10,9 +10,16 @@
     color: white;
     display: block;
     margin: 0 auto 2em;
+    margin-top: -1rem;
     padding: 1em;
+    p {
+        color: #eee !important;
+    }
+    li {
+        display: inline-block;
+    }
     .browser-img {
-        width: 10em;
+        width: 5em;
     }
 }
 
@@ -83,9 +90,6 @@ img {
     .review-banner {
         background: url('/img/placeholders/review-banner.jpg') no-repeat;
     }
-    .persona-banner {
-        background: url('/img/placeholders/review-banner.jpg') no-repeat;
-    }
     .welcome-banner,
     .review-banner,
     .persona-banner {
@@ -129,6 +133,35 @@ img {
                 font-size: 160%;
                 width: 12em;
                 margin: 0 auto;
+            }
+        }
+    }
+    .persona-banner {
+        padding: 5em 0;
+        background-color: white;
+        .persona-message {
+            p {
+                color: #333;
+            }
+            .persona-img-list {
+                width: 10em;
+                margin: 0 auto;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+                .persona-icon {
+                    height: 2em;
+                    width: auto;
+                }
+            }
+            .cta-btn {
+                background-color: RGBA(247, 102, 85, 1.00);
+                color: white;
+                padding: 0.5em 1em;
+            }
+            .cta-btn:hover {
+                background-color: crimson;
+                color: white;
             }
         }
     }
@@ -301,6 +334,7 @@ h3 {
             height: auto;
             padding-bottom: 2em;
             border-bottom: 1px solid #ECECEC;
+            margin-left: 2.8em;
         }
         img {
             display: inline-block;
@@ -409,7 +443,7 @@ h3 {
             -ms-flex-pack: justify;
             justify-content: space-between;
             @media screen and (max-width: 40em) {
-                width: 80%;
+                width: 74%;
                 -webkit-box-orient: vertical;
                 -webkit-box-direction: normal;
                 -ms-flex-direction: column;
@@ -417,4 +451,17 @@ h3 {
             }
         }
     }
+}
+
+.persona-banner {
+    .overlay {
+        background: white;
+    }
+}
+
+.persona-overview-container h2 {
+    width: 100%;
+    margin: 1em 0;
+    font-size: 200%;
+    display: none;
 }

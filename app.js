@@ -14,8 +14,8 @@ var passport = require('passport');
 var app = express();
 var server = http.createServer(app);
 var io = require('socket.io').listen(server); // Use socket io in seperate files
-var port = process.env.PORT || 3006;
-
+var port = process.env.PORT || 3000;
+var tunnel = require('tunnel-ssh');
 //routes
 var upload = require('./routes/upload');
 var uploadComplete = require('./routes/upload_complete');
@@ -59,7 +59,14 @@ app.use(sessions({
 
 app.use(passport.initialize());
 app.use(passport.session());
+
 mongoose.connect(process.env.USERDB);
+
+
+
+
+
+
 
 app.use('/', home);
 app.use('/home', home);
@@ -77,7 +84,7 @@ app.use('/review', reviewDetail);
 app.use('/persona_results', personaResults);
 app.use('/search', search);
 
-mongoose.connect(process.env.USERDB);
+// mongoose.connect(process.env.USERDB);
 // Console.log(mongoose.connection.readyState); //test database connection
 
 app.use(express.static(path.join(__dirname, './')));

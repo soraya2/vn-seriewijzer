@@ -65,6 +65,7 @@ body {
         }
     }
     .main-navigation {
+        height: 7rem;
         margin-left: 2rem;
         margin-right: 2rem;
         max-width: 80em;
@@ -82,7 +83,9 @@ body {
             text-transform: lowercase;
             li {
                 display: inline-block;
-                margin-left: 1.5rem;
+                @media screen and (min-width: 55rem) {
+                    margin-left: 1.5rem;
+                }
                 @media screen and (min-width: 62rem) {
                     margin-left: 2rem;
                 }

@@ -12,23 +12,19 @@ var hobby = [];
 var mood = [];
 var persona = [];
 
-Reviews.find("review", function(err, docs) {
-    if (err) {
-        return err;
+router.get('/', function (req, res) {
+    Reviews.find("review", function(err, docs) {
+        if (err) {
+            return err;
+        } else {
+            reviewArr = docs;
+        }
+    });
+    if (req.user) {
+        userStatusCheckIntro(res, 'Uitloggen', '/logout');
     } else {
-        reviewArr = docs;
+        userStatusCheckIntro(res, 'Log In', '/auth/facebook');
     }
-});
-
-router.get('/', function(req, res) {
-    var one = [
-        { data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'fawlty towers') },
-        { data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'teen wolf') },
-        { data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'friends') },
-        { data: reviewArr.find(o => o.review.seriesName.toLowerCase() === 'game of thrones') }
-    ];
-    res.locals.introData = one;
-    res.render('series-game/intro');
 });
 router.get('/step/:step', function(req, res) {
     // Save the tvshows by filtering them from the database
@@ -204,8 +200,8 @@ router.get('/overview', function(req, res) {
     console.log(bestResults);
 
     // Clear the matches array in the database at the logged in user
-    User.findOneAndUpdate({
-        'user.facebook.email': req.session.email
+    User.findOneAndUpdate( {
+        'user.facebook.email' : req.session.email
     }, {
         '$set': {
             'user.profile.matches': []
@@ -216,8 +212,8 @@ router.get('/overview', function(req, res) {
         }
     });
     // Push the best results in the matches array in the database at the logged in user
-    User.findOneAndUpdate({
-        'user.facebook.email': req.session.email
+    User.findOneAndUpdate( {
+        'user.facebook.email' : req.session.email
     }, {
         '$push': {
             'user.profile.matches': bestResults
@@ -242,7 +238,13 @@ router.get('/details/:id', function(req, res) {
         res.render('series-game/detail-view', { data: series });
     });
 });
-
+// Function that renders intro page with the login status' included
+function userStatusCheckIntro(res, status, statusPath) {
+    res.render('series-game/intro', {
+        userStatus: status,
+        userStatusPath: statusPath,
+    });
+}
 // Function that renders step page with the login status' included
 function userStatusCheck(res, status, statusPath) {
     res.render('series-game/steps', {

@@ -18,11 +18,14 @@ body {
 }
 
 .active {
-    background-color: #F76655;
-    color: #ffffff!important;
+    background-color: white !important;
     padding: 0.5em 1em;
     -webkit-transition: 0.2s;
     transition: 0.2s;
+    .titel {
+        border-bottom: 4px solid  #F76655;
+        color: #F76655!important;
+    }
     @media screen and (max-width: 40em) {
         padding: 0;
     }
@@ -30,9 +33,12 @@ body {
 
 .active:hover {
     text-decoration: none;
-    background-color: crimson;
-    -webkit-transition: 0.2s;
-    transition: 0.2s;
+    .titel {
+        border-bottom: 4px solid crimson;
+        color: crimson !important;
+        -webkit-transition: 0.2s;
+        transition: 0.2s;
+    }
 }
 
 .header-nav {

@@ -85,8 +85,14 @@ img {
         margin-top: 0;
     }
     .welcome-banner {
-        background: url('http://images4.fanpop.com/image/photos/16800000/-Sherlock-sherlock-16827094-2048-1365.jpg') no-repeat;
-        background-position: center;
+        background: url('/img/sherlock-medium.jpg') no-repeat;
+        @media screen and (min-width: 62rem){
+            background: url('/img/sherlock-large.jpg') no-repeat;
+        }
+        @media screen and (min-width: 96rem){
+            background: url('/img/sherlock-xl.jpg') no-repeat;
+        }
+        background-position: center top;
         h1, p {
             color: black !important;
             text-shadow: 2px 2px 7px #aaa;
@@ -95,7 +101,6 @@ img {
             background-color: white;
         }
         @media screen and (min-width: 53rem){
-            background-position: center top !important;
             background-size: 53rem auto !important;
         }
     }
@@ -116,8 +121,10 @@ img {
         .persona-message {
             font-family: 'Alegreya', serif;
             z-index: 100;
+            margin: 0 auto;
             position: inherit;
-            font-size: 230%;
+            font-size: 160%;
+            width: 12em;
             h1 {
                 color: RGBA(247, 102, 85, 1.00);
             }
@@ -141,10 +148,18 @@ img {
             a:hover {
                 color: crimson;
             }
-            @media screen and (max-width: 40em) {
-                font-size: 160%;
-                width: 12em;
+            @media screen and (min-width: 35rem){
                 margin: 0 auto;
+                width: 17em;
+            }
+            @media screen and (min-width: 40rem){
+                font-size: 230%;
+            }
+            @media screen and (min-width: 60rem){
+                width: 25em;
+            }
+            @media screen and (min-width: 80rem){
+                width: 30em;
             }
         }
     }
@@ -240,6 +255,7 @@ img {
         z-index: 200;
         text-align: center;
         color: white;
+        padding: 1rem;
         position: absolute;
         display: block;
         margin: 0 auto;
@@ -292,7 +308,6 @@ img {
         display: inline-block;
         @media screen and (max-width: 40em) {
             width: 40%;
-            margin-top: 1.5em;
         }
     }
     .animated {
@@ -329,6 +344,7 @@ h3 {
 }
 
 .review-overview-container {
+    margin: 0 1rem;
     h2 {
         width: 100%;
         margin: 0 0 1em 0;
@@ -339,31 +355,37 @@ h3 {
         display: inline-block;
         width: 40%;
         height: 19em;
-        margin: 2em 2em 0;
         position: relative;
         @media screen and (max-width: 40em) {
             width: 100%;
             height: auto;
-            padding-bottom: 2em;
+            padding: 1rem 0;
             border-bottom: 1px solid #ECECEC;
-            margin-left: 2.8em;
         }
         img {
             display: inline-block;
-            height: 16em;
-            width: 11em;
             margin-right: 1em;
-            @media screen and (max-width: 40em) {
-                width: 7em;
-                height: 10em;
+            width: 7em;
+            height: 10em;
+            @media screen and (min-width: 35rem){
+                width: 10rem;
+                height: auto;
+            }
+            @media screen and (min-width: 40rem) {
+                height: 16em;
+                width: 11em;
             }
         }
         .text-container {
             display: inline-block;
             overflow: hidden;
             width: 100%;
+            h4 {
+                padding: 0.6rem 0;
+            }
             .post-user {
                 color: grey;
+                padding-bottom: 0.6rem;
             }
             .post-date {
                 position: absolute;
@@ -387,17 +409,14 @@ h3 {
                 color: #F76655;
                 font-size: 120%;
             }
-            p {
-                margin-top: 0.5em;
-            }
             .bottom-link {
                 color: #0090E3;
             }
         }
         .rating {
             position: absolute;
-            top: -0.7em;
-            left: -0.7em;
+            top: 1rem;
+            right: 0;
             background: #F76655;
             color: white;
             font-weight: bold;
@@ -434,6 +453,22 @@ h3 {
             justify-content: space-around;
         }
     }
+    .match-overview-container {
+        .placeholder-message {
+            @media screen and (min-width: 40rem){
+                top: 1em;
+            }
+        }
+        .secondary-match, .best-match {
+            @media screen and (min-width: 40rem){
+                width: 20%;
+                img {
+                    height: 92%;
+                    width: 100%;
+                }
+            }
+        }
+    }
     .review-overview-container {
         -ms-flex-wrap: wrap;
         flex-wrap: wrap;
@@ -447,19 +482,21 @@ h3 {
             display: -webkit-box;
             display: -ms-flexbox;
             display: flex;
-            -webkit-box-orient: horizontal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            -webkit-box-orient: vertical;
             -webkit-box-direction: normal;
-            -ms-flex-direction: row;
-            flex-direction: row;
             -webkit-box-pack: justify;
             -ms-flex-pack: justify;
             justify-content: space-between;
+            width: 100%;
+            @media screen and (min-width: 29rem){
+                -ms-flex-direction: row;
+                flex-direction: row;
+            }
             @media screen and (max-width: 40em) {
-                width: 74%;
-                -webkit-box-orient: vertical;
+                -webkit-box-orient: horizontal;
                 -webkit-box-direction: normal;
-                -ms-flex-direction: column;
-                flex-direction: column;
             }
         }
     }

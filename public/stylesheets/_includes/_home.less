@@ -80,7 +80,6 @@ img {
 //     flex-direction: column;
 // }
 .overview-container {
-    text-align: center;
     @media screen and (max-width: 40em) {
         margin-top: 0;
     }
@@ -101,6 +100,7 @@ img {
             background-color: white;
         }
         @media screen and (min-width: 53rem){
+            background-position: center top;
             background-size: 53rem auto !important;
         }
     }
@@ -123,6 +123,7 @@ img {
             z-index: 100;
             margin: 0 auto;
             position: inherit;
+            text-align: center;
             font-size: 160%;
             width: 12em;
             h1 {
@@ -130,6 +131,7 @@ img {
             }
             h2 {
                 color: RGBA(247, 102, 85, 1.00);
+                text-align: center;
             }
             p {
                 display: block;
@@ -204,16 +206,16 @@ img {
 }
 
 .match-overview-container,
-.review-overview-container {
+.persona-overview-container {
     background-color: white;
     display: inline-block;
     text-align: left;
-    max-width: 80em;
-    margin: 1em auto 2em;
-}
-
-.match-overview-container,
-.persona-overview-container {
+    max-width: 100%;
+    margin: 2em auto;
+    position: relative;
+    @media screen and (min-width: 76rem){
+        max-width: 76rem;
+    }
     .match-img {
         height: 20em;
         width: 14em;
@@ -222,9 +224,6 @@ img {
             height: 100%;
         }
     }
-    max-width: 100%;
-    margin: 2em auto;
-    position: relative;
     h2 {
         width: 100%;
         margin: 1em 0;
@@ -329,6 +328,24 @@ img {
     }
 }
 
+.match-overview-container {
+    .placeholder-message{
+        top: 0;
+        @media screen and (min-width: 52rem){
+            top: 1rem;
+        }
+        @media screen and (min-width: 62rem){
+            top: 2rem;
+        }
+        @media screen and (min-width: 63rem){
+            top: 3rem;
+        }
+        @media screen and (min-width: 63rem){
+            top: 4rem;
+        }
+    }
+}
+
 h3 {
     max-width: 11em;
     white-space: nowrap;
@@ -345,6 +362,10 @@ h3 {
 
 .review-overview-container {
     margin: 0 1rem;
+    max-width: 40rem;
+    @media screen and (min-width: 42rem){
+        margin: 0 auto;
+    }
     h2 {
         width: 100%;
         margin: 0 0 1em 0;
@@ -352,15 +373,14 @@ h3 {
         font-size: 200%;
     }
     .review {
+        border-bottom: 1px solid #ECECEC;
         display: inline-block;
-        width: 40%;
-        height: 19em;
+        width: 100%;
+        height: auto;
+        padding: 1rem 0;
         position: relative;
-        @media screen and (max-width: 40em) {
-            width: 100%;
-            height: auto;
-            padding: 1rem 0;
-            border-bottom: 1px solid #ECECEC;
+        @media screen and (min-width: 64rem) {
+            border: none;
         }
         img {
             display: inline-block;
@@ -388,16 +408,9 @@ h3 {
                 padding-bottom: 0.6rem;
             }
             .post-date {
-                position: absolute;
-                right: 0;
-                top: -1em;
                 font-family: 'Alegreya', serif;
                 color: grey;
                 font-size: 100%;
-                @media screen and (max-width: 40em) {
-                    position: inherit;
-                    margin: 0;
-                }
             }
             .intro-text {
                 text-overflow: ellipsis;
@@ -454,11 +467,6 @@ h3 {
         }
     }
     .match-overview-container {
-        .placeholder-message {
-            @media screen and (min-width: 40rem){
-                top: 1em;
-            }
-        }
         .secondary-match, .best-match {
             @media screen and (min-width: 40rem){
                 width: 20%;
@@ -478,13 +486,20 @@ h3 {
             -ms-flex-direction: column;
             flex-direction: column;
         }
+        @media screen and (min-width: 64rem){
+            max-width: 76rem;
+            margin: 0 1rem;
+        }
+        @media screen and (min-width: 78rem){
+            margin: 0 auto;
+        }
         .review {
             display: -webkit-box;
             display: -ms-flexbox;
             display: flex;
             -ms-flex-direction: column;
             flex-direction: column;
-            -webkit-box-orient: vertical;
+            -webkit-box-orient: horizontal;
             -webkit-box-direction: normal;
             -webkit-box-pack: justify;
             -ms-flex-pack: justify;
@@ -494,9 +509,12 @@ h3 {
                 -ms-flex-direction: row;
                 flex-direction: row;
             }
-            @media screen and (max-width: 40em) {
-                -webkit-box-orient: horizontal;
+            @media screen and (min-width: 40rem){
+                -webkit-box-orient: vertical;
                 -webkit-box-direction: normal;
+            }
+            @media screen and (min-width: 64rem){
+                width: 49%;
             }
         }
     }

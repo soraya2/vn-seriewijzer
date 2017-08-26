@@ -62,8 +62,18 @@ img {
     width: 100%;
 }
 
+.cta-btn {
+    background-color: RGBA(247, 102, 85, 1.00);
+    color: white;
+    padding: 0.5em 1em;
+}
+.cta-btn:hover {
+    background-color: crimson;
+    color: white;
+}
+
 .default-footer {
-    padding: 2em 0;
+    padding: 0.5rem 1rem;
     text-align: center;
     color: white;
     background-color: RGBA(247, 102, 85, 1.00);
@@ -106,6 +116,7 @@ img {
     }
     .review-banner {
         background: url('/img/placeholders/review-banner.jpg') no-repeat;
+        background-position: 58% 0;
     }
     .welcome-banner,
     .review-banner,
@@ -125,37 +136,45 @@ img {
             position: inherit;
             text-align: center;
             font-size: 160%;
-            width: 12em;
             h1 {
                 color: RGBA(247, 102, 85, 1.00);
             }
             h2 {
                 color: RGBA(247, 102, 85, 1.00);
+                font-size: 2rem;
+                padding-bottom: 1rem;
                 text-align: center;
             }
             p {
                 display: block;
-                margin: 0 auto;
+                margin: 0 auto 1rem auto;
                 font-family: inherit;
                 color: white;
                 font-size: 60%;
                 max-width: 40em;
             }
             a {
-                color: RGBA(247, 102, 85, 1.00);
+                color: white;
                 text-decoration: none;
-                font-size: 60%;
+                font-size: 1.2rem;
                 font-weight: bold;
             }
             a:hover {
                 color: crimson;
             }
-            @media screen and (min-width: 35rem){
-                margin: 0 auto;
-                width: 17em;
-            }
             @media screen and (min-width: 40rem){
                 font-size: 230%;
+            }
+        }
+        .welcome-message {
+            h1, p {
+                padding-left: 5%;
+                padding-right: 5%;
+            }
+            @media screen and (min-width: 35rem){
+                margin: 0 auto;
+                padding: 0;
+                width: 17em;
             }
             @media screen and (min-width: 60rem){
                 width: 25em;
@@ -164,33 +183,36 @@ img {
                 width: 30em;
             }
         }
+        .review-message {
+            padding: 0 1rem;
+            h2 {
+                color: white;
+            }
+        }
     }
     .persona-banner {
-        padding: 5em 0;
+        padding: 0;
         background-color: white;
+        @media screen and (min-width: 40rem){
+            padding: 0 0 2rem 0;
+        }
         .persona-message {
+            background-color: #f4f4f4;
+            max-width: 76rem;
+            padding: 1rem 1rem 2rem 1rem;
             p {
                 color: #333;
             }
             .persona-img-list {
                 width: 10em;
-                margin: 0 auto;
+                margin: 1rem auto;
                 display: flex;
                 flex-direction: row;
                 justify-content: space-around;
                 .persona-icon {
-                    height: 2em;
+                    height: 5rem;
                     width: auto;
                 }
-            }
-            .cta-btn {
-                background-color: RGBA(247, 102, 85, 1.00);
-                color: white;
-                padding: 0.5em 1em;
-            }
-            .cta-btn:hover {
-                background-color: crimson;
-                color: white;
             }
         }
     }
@@ -211,7 +233,7 @@ img {
     display: inline-block;
     text-align: left;
     max-width: 100%;
-    margin: 2em auto;
+    margin: 2em auto 0 auto;
     position: relative;
     @media screen and (min-width: 76rem){
         max-width: 76rem;
@@ -261,12 +283,12 @@ img {
         width: 100%;
         top: 5em;
         h2 {
-            font-size: 200%;
+            font-size: 2rem;
             margin-bottom: 1em;
             color: white;
         }
         a {
-            font-size: 150%;
+            font-size: 1.2rem;
             font-weight: bold;
             text-decoration: none;
             color: white;
@@ -491,7 +513,7 @@ h3 {
             margin: 0 1rem;
         }
         @media screen and (min-width: 78rem){
-            margin: 0 auto;
+            margin: 2rem auto;
         }
         .review {
             display: -webkit-box;

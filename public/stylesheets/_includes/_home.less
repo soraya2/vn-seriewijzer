@@ -85,7 +85,19 @@ img {
         margin-top: 0;
     }
     .welcome-banner {
-        background: url('/img/placeholders/welcome-banner.jpg') no-repeat;
+        background: url('http://images4.fanpop.com/image/photos/16800000/-Sherlock-sherlock-16827094-2048-1365.jpg') no-repeat;
+        background-position: center;
+        h1, p {
+            color: black !important;
+            text-shadow: 2px 2px 7px #aaa;
+        }
+        .overlay {
+            background-color: white;
+        }
+        @media screen and (min-width: 53rem){
+            background-position: center top !important;
+            background-size: 53rem auto !important;
+        }
     }
     .review-banner {
         background: url('/img/placeholders/review-banner.jpg') no-repeat;
@@ -95,7 +107,7 @@ img {
     .persona-banner {
         position: relative;
         background-size: cover;
-        background-color: rgba(255, 255, 255, 0.5);
+        background-color: #F4F4F4;
         width: 100%;
         color: white;
         padding: 10em 0;

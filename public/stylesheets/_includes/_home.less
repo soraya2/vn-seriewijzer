@@ -79,16 +79,6 @@ img {
     background-color: RGBA(247, 102, 85, 1.00);
 }
 
-// .message-area {
-//     margin: 0 0.5em;
-//     display: -webkit-box;
-//     display: -ms-flexbox;
-//     display: flex;
-//     -webkit-box-orient: vertical;
-//     -webkit-box-direction: normal;
-//     -ms-flex-direction: column;
-//     flex-direction: column;
-// }
 .overview-container {
     @media screen and (max-width: 40em) {
         margin-top: 0;
@@ -117,6 +107,11 @@ img {
     .review-banner {
         background: url('/img/placeholders/review-banner.jpg') no-repeat;
         background-position: 58% 0;
+        @media screen and (min-width: 80rem){
+            background-size: 80rem auto !important;
+            background-color: #000811 !important;
+            background-position: center top;
+        }
     }
     .welcome-banner,
     .review-banner,
@@ -144,23 +139,30 @@ img {
                 font-size: 2rem;
                 padding-bottom: 1rem;
                 text-align: center;
+                @media screen and (min-width: 46rem){
+                    font-size: 2.5rem;
+                }
             }
             p {
                 display: block;
                 margin: 0 auto 1rem auto;
                 font-family: inherit;
                 color: white;
-                font-size: 60%;
+                font-size: 1.1rem;
                 max-width: 40em;
+                @media screen and (min-width: 46rem){
+                    font-size: 1.3rem;
+                }
             }
             a {
                 color: white;
                 text-decoration: none;
+                text-transform: lowercase;
                 font-size: 1.2rem;
                 font-weight: bold;
             }
             a:hover {
-                color: crimson;
+                color: white;
             }
             @media screen and (min-width: 40rem){
                 font-size: 230%;
@@ -286,6 +288,9 @@ img {
             font-size: 2rem;
             margin-bottom: 1em;
             color: white;
+            @media screen and (min-width: 46rem){
+                font-size: 2.5rem;
+            }
         }
         a {
             font-size: 1.2rem;
@@ -294,6 +299,7 @@ img {
             color: white;
             background-color: #F76655;
             padding: 0.5em 1em;
+            text-transform: lowercase;
             transition: 0.2s;
         }
         a:hover {
@@ -305,6 +311,11 @@ img {
         display: inline-block;
         position: relative;
         transition: 0.2s;
+        overflow: hidden;
+        height: 55vw;
+        @media screen and (min-width: 40rem) {
+            height: auto;
+        }
         a {
             color: #333;
         }
@@ -318,17 +329,27 @@ img {
             text-align: center;
         }
         .match-img {
-            @media screen and (max-width: 40em) {
+            width: 100vw;
+            height: 154vw;
+            margin-top: -8rem;
+            @media screen and (min-width: 24rem){
+                margin-top: -10rem;
+            }
+            @media screen and (min-width: 40rem) {
+                margin: 0;
+                height: 92%;
                 width: 100%;
-                height: 100%;
             }
         }
     }
     .secondary-match {
-        max-width: 25%;
+        margin-top: -5px;
+        max-height: 36vw;
+        max-width: 25vw;
         display: inline-block;
-        @media screen and (max-width: 40em) {
-            width: 40%;
+        float: left;
+        @media screen and (min-width: 40rem){
+            margin-top: 0;
         }
     }
     .animated {
@@ -351,19 +372,24 @@ img {
 }
 
 .match-overview-container {
+    position: relative;
+    @media screen and (min-width: 40rem){
+        height: 29.4vw;
+        margin-bottom: 1rem;
+    }
+    @media screen and (min-width: 76rem){
+        height: 22rem;
+    }
     .placeholder-message{
-        top: 0;
-        @media screen and (min-width: 52rem){
-            top: 1rem;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        h2 {
+            margin: 0;
+            padding-bottom: 2rem;
         }
-        @media screen and (min-width: 62rem){
-            top: 2rem;
-        }
-        @media screen and (min-width: 63rem){
-            top: 3rem;
-        }
-        @media screen and (min-width: 63rem){
-            top: 4rem;
+        @media screen and (min-width: 40rem){
+            height: 9rem;
         }
     }
 }
@@ -484,9 +510,8 @@ h3 {
     {
         -ms-flex-wrap: wrap;
         flex-wrap: wrap;
-        @media screen and (max-width: 40em) {
-            justify-content: space-around;
-        }
+        -ms-flex-direction: row;
+        flex-direction: row;
     }
     .match-overview-container {
         .secondary-match, .best-match {

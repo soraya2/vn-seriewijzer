@@ -81,35 +81,37 @@
 
                 <% } else { %>
                     <section class="match-overview-container">
-                        <div class="placeholder-message">
-                            <h2>Hier komen jouw Top 5 matches</h2>
-                            <a class="cta-btn" href="/seriespel">Speel het Seriespel!</a>
-                        </div>
-                        <div class="best-match">
-                            <picture>
-                                <img class="match-img" src="/img/placeholders/placeholder1.png" alt="Jouw serie hier">
-                            </picture>
-                            </a>
-                        </div>
-                        <div class="secondary-match">
-                            <picture>
-                                <img class="match-img" src="/img/placeholders/placeholder2.png" alt="Jouw serie hier">
-                            </picture>
-                        </div>
-                        <div class="secondary-match">
-                            <picture>
-                                <img class="match-img" src="/img/placeholders/placeholder3.png" alt="Jouw serie hier">
-                            </picture>
-                        </div>
-                        <div class="secondary-match">
-                            <picture>
-                                <img class="match-img" src="/img/placeholders/placeholder4.png" alt="Jouw serie hier">
-                            </picture>
-                        </div>
-                        <div class="secondary-match">
-                            <picture>
-                                <img class="match-img" src="/img/placeholders/placeholder5.png" alt="Jouw serie hier">
-                            </picture>
+                        <div>
+                            <div class="placeholder-message">
+                                <h2>Hier komen jouw Top 5 matches</h2>
+                                <a class="cta-btn" href="/seriespel">Speel het Seriespel!</a>
+                            </div>
+                            <div class="best-match">
+                                <picture>
+                                    <img class="match-img" src="/img/placeholders/placeholder1.png" alt="Jouw serie hier">
+                                </picture>
+                                </a>
+                            </div>
+                            <div class="secondary-match">
+                                <picture>
+                                    <img class="match-img" src="/img/placeholders/placeholder2.png" alt="Jouw serie hier">
+                                </picture>
+                            </div>
+                            <div class="secondary-match">
+                                <picture>
+                                    <img class="match-img" src="/img/placeholders/placeholder3.png" alt="Jouw serie hier">
+                                </picture>
+                            </div>
+                            <div class="secondary-match">
+                                <picture>
+                                    <img class="match-img" src="/img/placeholders/placeholder4.png" alt="Jouw serie hier">
+                                </picture>
+                            </div>
+                            <div class="secondary-match">
+                                <picture>
+                                    <img class="match-img" src="/img/placeholders/placeholder5.png" alt="Jouw serie hier">
+                                </picture>
+                            </div>
                         </div>
                     </section>
                 <% } %>
@@ -170,7 +172,7 @@
                     <section class="review-overview-container">
                         <% for(var i=0; i<6; i++) {%>
                             <div class="review">
-                                <div>
+                                <div class="pic-name">
                                 <a class="detail-link" href="/review/<%= reviewData[i].review.seriesName %>">
                                     <picture>
                                         <img src="<%=reviewData[i].review.imgURL%>" alt="<%=reviewData[i].review.seriesName%>">

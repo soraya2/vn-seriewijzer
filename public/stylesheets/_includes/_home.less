@@ -235,11 +235,16 @@ img {
     display: inline-block;
     text-align: left;
     max-width: 100%;
-    margin: 2em auto 0 auto;
+    margin: 32px auto 0 auto;
+    margin: 2rem auto 0 auto;
     overflow: hidden;
     position: relative;
     @media screen and (min-width: 76rem){
-        max-width: 76rem;
+        width: 100%;
+        >div {
+            margin: 2rem auto 0 auto;
+            max-width: 76rem;
+        }
     }
     .match-img {
         height: 20em;
@@ -285,6 +290,9 @@ img {
         margin: 0 auto;
         width: 100%;
         top: 5em;
+        @media screen and (min-width: 76rem){
+            width: 76rem;
+        }
         h2 {
             font-size: 2rem;
             margin-bottom: 1em;
@@ -315,6 +323,7 @@ img {
         overflow: hidden;
         height: 55vw;
         @media screen and (min-width: 40rem) {
+            width: 20%;
             height: auto;
         }
         a {
@@ -345,12 +354,15 @@ img {
     }
     .secondary-match {
         margin-top: -5px;
-        max-height: 36vw;
-        max-width: 25vw;
+        height: 38vw;
+        max-width: 25%;
         display: inline-block;
         float: left;
+        overflow: hidden;
         @media screen and (min-width: 40rem){
+            height: auto;
             margin-top: 0;
+            width: 20%;
         }
     }
     .animated {
@@ -393,6 +405,14 @@ img {
             height: 9rem;
         }
     }
+    .secondary-match, .best-match {
+        @media screen and (min-width: 40rem){
+            img {
+                height: 92%;
+                width: 100%;
+            }
+        }
+    }
 }
 
 h3 {
@@ -415,6 +435,9 @@ h3 {
     @media screen and (min-width: 42rem){
         margin: 0 auto;
     }
+    @media screen and (min-width: 64rem){
+        max-width: 76rem;
+    }
     h2 {
         width: 100%;
         margin: 1rem 0 0 0;
@@ -432,7 +455,19 @@ h3 {
         padding: 1rem 0;
         position: relative;
         @media screen and (min-width: 64rem) {
+            margin-right: 1rem;
             border: none;
+            width: 48%;
+        }
+        .pic-name {
+            @media screen and (min-width: 29rem){
+                display: inline-block;
+                float: left;
+                width: 8rem;
+            }
+            @media screen and (min-width: 35rem){
+                width: 10rem;
+            }
         }
         img {
             display: inline-block;
@@ -450,8 +485,14 @@ h3 {
         }
         .text-container {
             display: inline-block;
+            float: right;
             overflow: hidden;
-            width: 100%;
+            @media screen and (min-width: 29rem){
+                width: calc(100% - 27rem);
+            }
+            @media screen and (min-width: 35rem){
+                width: calc(100% - 33rem);
+            }
             h4 {
                 padding: 0.6rem 0;
             }
@@ -525,17 +566,6 @@ h3 {
         -ms-flex-direction: row;
         flex-direction: row;
     }
-    .match-overview-container {
-        .secondary-match, .best-match {
-            @media screen and (min-width: 40rem){
-                width: 20%;
-                img {
-                    height: 92%;
-                    width: 100%;
-                }
-            }
-        }
-    }
     .review-overview-container {
         -ms-flex-wrap: wrap;
         flex-wrap: wrap;
@@ -562,6 +592,7 @@ h3 {
             -webkit-box-direction: normal;
             -webkit-box-pack: justify;
             -ms-flex-pack: justify;
+            margin-right: 0;
             justify-content: space-between;
             width: 100%;
             @media screen and (min-width: 29rem){
@@ -574,6 +605,12 @@ h3 {
             }
             @media screen and (min-width: 64rem){
                 width: 49%;
+            }
+            .pic-name {
+                width: auto;
+            }
+            .text-container {
+                width: 100%;
             }
         }
     }

@@ -48,12 +48,16 @@
                 }
             }
         }
-        // Check if the fourth class exists, if so, enable the submit button (this makes sure the user
+        // Check if one off the classes is missing, if so, enable the submit button (this makes sure the user
         // ranks every tvshow before proceding)
-        if (document.querySelector('.four') !== null) {
-            nextBtn.disabled = false;
-        } else {
+        if (document.querySelector('.one') === null || document.querySelector('.two') === null || document.querySelector('.three') === null || document.querySelector('.four') === null) {
             nextBtn.disabled = true;
+        } else {
+            nextBtn.disabled = false;
         }
     }
+	// if (nextBtn.disabled === false) {
+	// 	var active = document.getElementById('active');
+	// 	active.removeAttribute('id', 'active');
+	// }
 }());

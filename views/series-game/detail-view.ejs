@@ -6,24 +6,34 @@
      <main>
         <% if (data) { %>
             <a class="backlink" href="javascript:history.back()">✕</a>
-            <h1><%= data.review.seriesName %></h1>
-            <section class="poster">
-                <div class="poster-container">
-                    <img src="<%= data.review.imgURL %>">
-                </div>
-                <span class="rating"><%= data.review.imdbRating %></span>
+			<section class="video">=
+                <iframe src="<%= data.review.trailerURL %>?controls=0&showinfo=0&hd=1?rel=0" allowfullscreen="" width="640" height="352" frameborder="0"></iframe>
             </section>
             <section class="meta">
-                <h3><%= data.review.producers %></h3>
-                <p class="year"><%= data.review.startYear %> - <%= data.review.endYear %></p>
-                <p><%- data.review.reviewPlot %></p>
+				<h1><%= data.review.seriesName %></h1>
+				<hr>
+				<ul>
+					<li>
+						<span>Seizoenen:</span>
+						<span><%= data.review.seasons %></span>
+					</li>
+					<li>
+						<span>IMDB cijfer:</span>
+						<span><%= data.review.imdbRating %></span>
+					</li>
+					<li>
+						<span>Gem. min per aflevering:</span>
+						<span><%= data.review.duration %></span>
+					</li>
+				</ul>
             </section>
-            <section class="video">
-                <h3>Bekijk de trailer</h3>
-                <iframe src="<%= data.review.trailerURL %>?controls=0&showinfo=0&hd=1?rel=0" allowfullscreen=""></iframe>
-            </section>
+			<section>
+				<h1>Wat vinden anderen van deze serie?</h1>
+				<hr>
+				<p><%- data.review.reviewPlot %></p>
+			</section>
         <% } else { %>
             <h2>Uh oh.. serie niet gevonden.</h2>
         <% }%>
      </main>
- </body>
+</body>

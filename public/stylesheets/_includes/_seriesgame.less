@@ -65,7 +65,7 @@
     line-height: 40px;
     text-align: center;
     font-size: 1em;
-    background-color: #f66556;
+    background-color: #F76655;
     border-radius: 50%;
 }
 
@@ -78,21 +78,22 @@
 .series-game-intro .start-btn {
     transition: 0.3s;
     font-size: 1em;
+	font-weight: bold;
     line-height: 3;
     height: 3em;
-    text-transform: uppercase;
     display: block;
     text-align: center;
     text-decoration: none;
     cursor: pointer;
     color: #fff;
-    background-color: #f66556;
+    background-color: #F76655;
+	transition: .3s;
 }
 
 .series-game-intro .start-btn:hover,
 .series-game-intro .start-btn:focus {
     transition: 0.3s;
-    background-color: #d85244;
+    background-color: crimson;
 }
 
 @media screen and (min-width: 50em){
@@ -181,130 +182,3 @@
 
 
 /*SERIES DETAIL PAGE STYLING*/
-#series-detail {
-    background-color: #f6f6f6;
-    color: #000;
-}
-    #series-detail h1,
-    #series-detail h3,
-    #series-detail p {
-        padding: 0 1em;
-    }
-    #series-detail h1 {
-        font-size: 2em;
-        line-height: 2;
-        width: 100%;
-        text-align: center;
-        background-color: #fff;
-        box-shadow: 0px 3px 3px #ddd;
-    }
-    #series-detail p.year {
-        font-weight: bold;
-        font-size: 1.2em;
-    }
-    #series-detail .backlink {
-        color: #000;
-        font-size: 3em;
-        position: absolute;
-        left: 10px;
-        top: 0px;
-        line-height: 1.5;
-    }
-        #series-detail section.poster {
-            display: block;
-            position: relative;
-        }
-            #series-detail section.poster .poster-container{
-                max-height: 30em;
-                overflow: hidden;
-            }
-            #series-detail section.poster span {
-                position: absolute;
-                right: 0;
-                bottom: -35px;
-                width: 70px;
-                height: 70px;
-                background-color: #f66556;
-                color: #fff;
-                border-radius: 50%;
-                text-align: center;
-                font-size: 2em;
-                line-height: 70px;
-                z-index: 3;
-            }
-        #series-detail section.video {
-            text-align: center;
-        }
-            #series-detail section.video h3 {
-                margin: 1em 0;
-                font-size: 1.3em;
-            }
-            #series-detail section.video iframe {
-                border: none;
-                width: 350px;
-                height: 250px;
-            }
-    @media screen and (min-width: 40em){
-        #series-detail section.poster {
-            width: 50%;
-            float: left;
-        }
-            #series-detail section.poster .poster-container {
-                max-height: calc(100% - 4em);
-                overflow: hidden;
-            }
-            #series-detail section.poster span {
-                position: absolute;
-                right: -35px;
-                bottom: 0;
-            }
-        #series-detail section.meta {
-            width: 50%;
-            float: right;
-            padding: 1em;
-        }
-        #series-detail section.video {
-            width: 100%;
-            float: left;
-        }
-            #series-detail section.video iframe {
-                width: 100%;
-                height: 500px;
-            }
-    }
-    @media screen and (min-width: 60em){
-        #series-detail section.poster {
-            width: 50%;
-            float: left;
-        }
-        #series-detail section.meta {
-            width: 50%;
-            float: right;
-            padding: 1em;
-        }
-        #series-detail section.video {
-            width: 50%;
-            float: right;
-        }
-            #series-detail section.video iframe {
-                width: 70%;
-                height: 250px;
-            }
-    }
-    @media screen and (min-width: 70em){
-        #series-detail {
-            position: relative;
-        }
-            #series-detail section.meta {
-                vertical-align: center;
-            }
-            #series-detail section.video {
-                position: fixed;
-                bottom: 0;
-                right: 0;
-            }
-                #series-detail section.video iframe {
-                    width: 100%;
-                    height: 400px;
-                }
-    }

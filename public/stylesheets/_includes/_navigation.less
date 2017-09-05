@@ -6,7 +6,11 @@ body {
 
 .titel {
     font-weight: bold;
-    font-size: 140%;
+    font-size: 17.6px;
+    font-size: 1.1rem;
+    @media screen and (min-width: 62rem){
+        font-size: 140%;
+    }
 }
 
 .unhide {
@@ -37,7 +41,8 @@ body {
     background-color: white;
     width: 100%;
     top: 0;
-    padding: 1.5em 0;
+    padding: 1em 0;
+    position: relative;
     border-bottom: 1px solid #ECECEC;
     a {
         -webkit-transition: 0.2s;
@@ -53,33 +58,94 @@ body {
         text-decoration: none;
         color: #F76655;
     }
+    >a {
+        margin-left: 1rem;
+        @media screen and (min-width: 55em) {
+            display: none;
+        }
+    }
     .main-navigation {
+        // height: 7rem;
+        margin-left: 2rem;
+        margin-right: 2rem;
         max-width: 80em;
         color: #333333;
+        @media screen and (min-width: 80em) {
+            margin-left: auto;
+            margin-right: auto;
+        }
         @media screen and (max-width: 55em) {
             display: none;
+        }
+        .nav-list {
+            display: inline-block;
+            float: right;
+            text-transform: lowercase;
+            li {
+                display: inline-block;
+                @media screen and (min-width: 55rem) {
+                    margin-left: 1.5rem;
+                }
+                @media screen and (min-width: 62rem) {
+                    margin-left: 2rem;
+                }
+            }
         }
     }
     .titel-link {
         @media screen and (max-width: 55em) {
-            display: block;
-            text-align: center;
-            margin-top: 2em;
+            display: none;
         }
     }
     #hamburger {
         cursor: pointer;
-        position: absolute;
-        top: 0.2em;
-        left: 0.2em;
-        width: 3.5rem;
-        height: 2.2rem;
+        display: table;
+        float: right;
+        margin-top: 0.3rem;
+        margin-left: 0.3rem;
+        -ms-transform: translateY(-1.5rem);
+        transform: translateY(-1.5rem);
+        @supports(display:flex){
+            display: flex;
+            -ms-transform: translateY(0);
+            transform: translateY(0);
+            position: absolute;
+            top: 0.2em;
+            right: 0.2em;
+            height: 2.2rem;
+        }
+        a {
+            position: absolute;
+            left: 0;
+        }
+        span {
+            color: #BBB;
+            font-size: 0.9rem;
+            text-transform: lowercase;
+            display: table-cell;
+	        vertical-align: middle;
+            @supports(display:flex){
+                padding-top: 0.5rem;
+            }
+        }
         div {
-            height: 6px;
-            width: 60%;
-            background: #d3531a;
-            border-radius: 9px;
-            margin: 5px;
+            display: inline-block;
+            div {
+                display: block;
+                height: 4px;
+                width: 2rem;
+                background: #BBB;
+                margin: 6px;
+            }
+            div:nth-of-type(1){
+                width: 0.7rem;
+            }
+            div:nth-of-type(2){
+                width: 1rem;
+            }
+            div:nth-of-type(3){
+                width: 0.7rem;
+            }
         }
         @media screen and (min-width: 55em) {
             display: none;
@@ -111,21 +177,20 @@ body {
                 -ms-flex-pack: start;
                 justify-content: flex-start;
                 width: 100vw;
+                border-top: 1px solid #eee;
+                padding: 0;
+                margin-top: 1rem;
+                padding: 0.5rem 1rem 0 1rem;
             }
             .nav-list {
                 display: flex;
+                float: right;
                 flex-direction: row;
-                justify-content: space-between;
-                width: 60%;
+                justify-content: flex-end;
+                width: 64%;
                 @media screen and (max-width: 55em) {
                     flex-direction: column;
-                    text-align: center;
                     width: 100%;
-                }
-                li {
-                    @media screen and (max-width: 55em) {
-                        margin: 0.5em 0;
-                    }
                 }
             }
         }

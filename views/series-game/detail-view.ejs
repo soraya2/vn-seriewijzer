@@ -6,32 +6,36 @@
      <main>
         <% if (data) { %>
             <a class="backlink" href="javascript:history.back()">✕</a>
-			<section class="video">=
-                <iframe src="<%= data.review.trailerURL %>?controls=0&showinfo=0&hd=1?rel=0" allowfullscreen="" width="640" height="352" frameborder="0"></iframe>
-            </section>
-            <section class="meta">
-				<h1><%= data.review.seriesName %></h1>
-				<hr>
-				<ul>
-					<li>
-						<span>Seizoenen:</span>
-						<span><%= data.review.seasons %></span>
-					</li>
-					<li>
-						<span>IMDB cijfer:</span>
-						<span><%= data.review.imdbRating %></span>
-					</li>
-					<li>
-						<span>Gem. min per aflevering:</span>
-						<span><%= data.review.duration %></span>
-					</li>
-				</ul>
-            </section>
-			<section>
-				<h1>Wat vinden anderen van deze serie?</h1>
-				<hr>
-				<p><%- data.review.reviewPlot %></p>
-			</section>
+            <article class="movie-details">
+                <section>
+                    <div>
+                        <h1><%=data.review.seriesName%></h1>
+
+                        <ul class="meta">
+                            <li><span>Seizoenen:</span><%=data.review.seasons %></li>
+                            <li><span>IMDB cijfer:</span><%=data.review.imdbRating %></li>
+                            <li><span>Gemiddelde tijd per aflervering:</span><%=data.review.duration %></li>
+                        </ul>
+                        <hr>
+                        <p>
+                         <%= data.review.reviewPlot%>
+                        </p>
+                    </div>
+                    <div class="youtubevideowrap">
+                        <aside class="video-container">
+                            <iframe src="<%=data.review.trailerURL%>?controls=0&showinfo=0&hd=1?rel=0" allowfullscreen="" width="640" height="352" frameborder="0"></iframe>
+                        </aside>
+                    </div>
+                </section>
+                <section class="review">
+                    <h1>Wat vinden anderen van deze serie?</h1>
+                    <hr>
+                    <div>
+                        <h2><%= data.review.reviewTitle%></h2>
+                        <p class="text"><%= data.review.reviewIntro %></p>
+                    </div>
+                </section>
+            </article>
         <% } else { %>
             <h2>Uh oh.. serie niet gevonden.</h2>
         <% }%>

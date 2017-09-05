@@ -2,24 +2,21 @@
     <title><%= data.review.seriesName %></title>
 </head>
 
-<body id="series-detail">
+<body id="series-detail" class="review-page">
      <main>
         <% if (data) { %>
-            <a class="backlink" href="javascript:history.back()">✕</a>
+            <a class="backlink" href="javascript:history.back()"><span class="text"></span></a>
             <article class="movie-details">
-                <section>
+                <section class="meta">
                     <div>
                         <h1><%=data.review.seriesName%></h1>
-
-                        <ul class="meta">
-                            <li><span>Seizoenen:</span><%=data.review.seasons %></li>
-                            <li><span>IMDB cijfer:</span><%=data.review.imdbRating %></li>
-                            <li><span>Gemiddelde tijd per aflervering:</span><%=data.review.duration %></li>
-                        </ul>
                         <hr>
-                        <p>
-                         <%= data.review.reviewPlot%>
-                        </p>
+                        <ul class="meta">
+                            <li><span>Seizoenen:</span><span class="meta-data"><%=data.review.seasons %></span></li>
+                            <li><span>IMDB cijfer:</span><span class="meta-data"><%=data.review.imdbRating %></span</li>
+                            <li><span>Gemiddelde tijd per aflervering:</span><span class="meta-data"><%=data.review.duration %></span</li>
+                        </ul>
+
                     </div>
                     <div class="youtubevideowrap">
                         <aside class="video-container">
@@ -28,7 +25,12 @@
                     </div>
                 </section>
                 <section class="review">
-                    <h1>Wat vinden anderen van deze serie?</h1>
+                    <h1>Waar gaat het over?</h1>
+                    <hr>
+                    <p>
+                     <%= data.review.reviewPlot%>
+                    </p>
+                    <h1 class="sub">Wat vinden anderen van deze serie?</h1>
                     <hr>
                     <div>
                         <h2><%= data.review.reviewTitle%></h2>

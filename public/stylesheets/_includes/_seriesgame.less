@@ -182,3 +182,74 @@
 
 
 /*SERIES DETAIL PAGE STYLING*/
+#series-detail {
+    background-color: #f6f6f6
+}
+#series-detail a.backlink {
+    width: 100%;
+    margin: 0;
+    height: 70px;
+    line-height: 70px;
+    font-size: 2rem;
+    background-color: white;
+    box-shadow: 1px 0px 10px #ccc;
+    & .text {
+        display: block;
+        max-width: 76rem;
+        margin: 0 auto;
+        background-image: url('/img/left-arrow.png');
+        background-size: 40px;
+        background-repeat: no-repeat;
+        background-position: center left;
+        height: 70px;
+    }
+}
+#series-detail .movie-details {
+    flex-wrap: nowrap;
+    margin: 0 auto;
+    margin-top: 10px;
+    section {
+        align-items: flex-start;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+}
+#series-detail .movie-details section>div:first-child {
+    width: 100%;
+}
+#series-detail hr {
+    width: 100%;
+}
+#series-detail .review {
+    padding: 0 20px;
+    width: 50%;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-top: 0;
+    h1 {
+        font-size: 1.3rem;
+        margin-top: 0;
+        margin-bottom: 0;
+        &.sub {
+            margin-top: 20px;
+        }
+        & + hr {
+            margin-bottom: 30px;
+        }
+    }
+}
+@media screen and (max-width: 50em){
+    #series-detail .movie-details{
+        flex-direction: column;
+    }
+    #series-detail .movie-details section.meta {
+        width: 100%;
+        order: 1;
+        flex-direction: column-reverse;
+    }
+    #series-detail .review {
+        width: 70%;
+        order: 2;
+        margin: 0 auto;
+    }
+}

@@ -7,16 +7,31 @@
         <%- include ../partials/header.ejs %>
         <h1>Jouw persoonlijke top 5</h1>
         <main>
-            <% for (var i = 0; i < results.length; i++) { %>
-                <section data-num="<%- i + 1 %>">
-                    <a href="/seriespel/details/<%- results[i].name%>">
-                        <div>
-                            <img src="<%- results[i].data.review.imgURL%>" alt="<%- results[i].name%>">
-                        </div>
-                        <h2><%- results[i].matchAll + '%'%></h2>
-                    </a>
-                </section>
-            <% } %>
+            <div class="row-big">
+                <% for (var i = 0; i < 2; i++) { %>
+                    <section data-num="<%- i + 1 %>">
+                        <a href="/seriespel/details/<%- results[i].name%>">
+                            <div>
+                                <img src="<%- results[i].data.review.imgURL%>" alt="<%- results[i].name%>">
+                            </div>
+                            <h2><%- results[i].matchAll + '%'%></h2>
+                        </a>
+                    </section>
+                <% } %>
+            </div>
+            <div class="row-small">
+                <% for (var j = 2; j < 5; j++) { %>
+                    <section data-num="<%- j + 1 %>">
+                        <a href="/seriespel/details/<%- results[j].name%>">
+                            <div>
+                                <img src="<%- results[j].data.review.imgURL%>" alt="<%- results[j].name%>">
+                            </div>
+                            <h2><%- results[j].matchAll + '%'%></h2>
+                        </a>
+                    </section>
+                <% } %>
+            </div>
+
         </main>
     </body>
 </html>

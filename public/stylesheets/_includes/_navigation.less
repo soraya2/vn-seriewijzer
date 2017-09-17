@@ -18,11 +18,13 @@ body {
 }
 
 .active {
-    background-color: #F76655;
-    color: #ffffff!important;
-    padding: 0.5em 1em;
+    background-color: white !important;
     -webkit-transition: 0.2s;
     transition: 0.2s;
+    .titel {
+        border-bottom: 4px solid  #F76655;
+        color: #F76655!important;
+    }
     @media screen and (max-width: 40em) {
         padding: 0;
     }
@@ -30,14 +32,17 @@ body {
 
 .active:hover {
     text-decoration: none;
-    background-color: crimson;
-    -webkit-transition: 0.2s;
-    transition: 0.2s;
+    .titel {
+        border-bottom: 4px solid crimson;
+        color: crimson !important;
+        -webkit-transition: 0.2s;
+        transition: 0.2s;
+    }
 }
 
 .header-nav {
     font-family: 'Helvetica Neue', Helvetica, sans-serif;
-    z-index: 999;
+    z-index: 2;
     background-color: white;
     width: 100%;
     top: 0;
@@ -65,7 +70,8 @@ body {
         }
     }
     .main-navigation {
-        // height: 7rem;
+        display: none;
+        height: 6rem;
         margin-left: 2rem;
         margin-right: 2rem;
         max-width: 80em;
@@ -74,17 +80,23 @@ body {
             margin-left: auto;
             margin-right: auto;
         }
-        @media screen and (max-width: 55em) {
-            display: none;
+        @media screen and (min-width: 55em) {
+            display: block;
+            height: auto;
         }
         .nav-list {
             display: inline-block;
-            float: right;
             text-transform: lowercase;
+            @media screen and (min-width: 55rem) {
+                float: right;
+            }
             li {
-                display: inline-block;
+                display: block;
+                padding-bottom: 0.2rem;
                 @media screen and (min-width: 55rem) {
+                    display: inline-block;
                     margin-left: 1.5rem;
+                    padding-bottom: 0rem;
                 }
                 @media screen and (min-width: 62rem) {
                     margin-left: 2rem;
@@ -101,15 +113,17 @@ body {
         cursor: pointer;
         display: table;
         float: right;
-        margin-top: 0.3rem;
-        margin-left: 0.3rem;
-        -ms-transform: translateY(-1.5rem);
-        transform: translateY(-1.5rem);
+        margin-top: -0.5rem;
+        margin-right: -4.3rem;
+        -ms-transform: translateX(-4.3rem);
+        transform: translateX(-4.3rem);
         @supports(display:flex){
             display: flex;
-            -ms-transform: translateY(0);
-            transform: translateY(0);
+            -ms-transform: translateX(0);
+            transform: translateX(0);
             position: absolute;
+            margin-top: 0.5rem;
+            margin-right: 0;
             top: 0.2em;
             right: 0.2em;
             height: 2.2rem;
@@ -177,7 +191,6 @@ body {
                 -ms-flex-pack: start;
                 justify-content: flex-start;
                 width: 100vw;
-                border-top: 1px solid #eee;
                 padding: 0;
                 margin-top: 1rem;
                 padding: 0.5rem 1rem 0 1rem;

@@ -43,7 +43,9 @@
         <div>
 
             <h2><%= data.review.reviewTitle%></h2>
+            <p class="post-user">Door <%= data.user.name %></p>
             <p class="text"><%= data.review.reviewIntro %></p>
+            <p class="text"><%= data.review.reviewBody %></p>
         </div>
             <div class="img-container">
                 <img alt="<%= data.review.reviewTitle%> cover" src="<%=data.review.imgURL%>">

@@ -3,6 +3,7 @@
 
     var filterButton = document.querySelector('#filter-button');
     var filterForm = document.querySelector('.form-filter > form');
+    var overlay = document.querySelector('.filter-overlay');
     // console.log(document.querySelector('.form-filter > form'));
 
 
@@ -17,11 +18,12 @@
 
             filterButton.className = 'move-button';
             filterForm.className = '';
+            overlay.className += ' show';
 
         } else {
             filterForm.className = 'hide-filter';
             filterButton.className = '';
-
+            overlay.className = overlay.className.replace(' show', '');
         }
     });
 

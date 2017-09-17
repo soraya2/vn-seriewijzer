@@ -12,12 +12,12 @@
             <main class="overview-container">
 
                 <section class="welcome-banner">
+                    <div class="overlay"></div>
                     <div class="welcome-message">
                         <h1>Welkom bij de Vrij Nederland Seriewijzer.</h1>
                         <p>Hier lees je onze recensies van de nieuwste series
                         én kun je een gepersonaliseerd aanbod bekijken op basis van wat jij leuk vind!</p>
                     </div>
-                    <div class="overlay"></div>
                 </section>
 
                 <% if (userData) { %>
@@ -81,35 +81,37 @@
 
                 <% } else { %>
                     <section class="match-overview-container">
-                        <div class="placeholder-message">
-                            <h2>Hier komen jouw Top 5 matches</h2>
-                            <a class="cta-btn" href="/seriespel">Speel het Seriespel!</a>
-                        </div>
-                        <div class="best-match">
-                            <picture>
-                                <img class="match-img" src="/img/placeholders/placeholder1.png" alt="Jouw serie hier">
-                            </picture>
-                            </a>
-                        </div>
-                        <div class="secondary-match">
-                            <picture>
-                                <img class="match-img" src="/img/placeholders/placeholder2.png" alt="Jouw serie hier">
-                            </picture>
-                        </div>
-                        <div class="secondary-match">
-                            <picture>
-                                <img class="match-img" src="/img/placeholders/placeholder3.png" alt="Jouw serie hier">
-                            </picture>
-                        </div>
-                        <div class="secondary-match">
-                            <picture>
-                                <img class="match-img" src="/img/placeholders/placeholder4.png" alt="Jouw serie hier">
-                            </picture>
-                        </div>
-                        <div class="secondary-match">
-                            <picture>
-                                <img class="match-img" src="/img/placeholders/placeholder5.png" alt="Jouw serie hier">
-                            </picture>
+                        <div>
+                            <div class="placeholder-message">
+                                <h2>Hier komen jouw Top 5 matches</h2>
+                                <a class="cta-btn" href="/seriespel">Speel het Seriespel!</a>
+                            </div>
+                            <div class="best-match">
+                                <picture>
+                                    <img class="match-img" src="/img/placeholders/placeholder1.png" alt="Jouw serie hier">
+                                </picture>
+                                </a>
+                            </div>
+                            <div class="secondary-match">
+                                <picture>
+                                    <img class="match-img" src="/img/placeholders/placeholder2.png" alt="Jouw serie hier">
+                                </picture>
+                            </div>
+                            <div class="secondary-match">
+                                <picture>
+                                    <img class="match-img" src="/img/placeholders/placeholder3.png" alt="Jouw serie hier">
+                                </picture>
+                            </div>
+                            <div class="secondary-match">
+                                <picture>
+                                    <img class="match-img" src="/img/placeholders/placeholder4.png" alt="Jouw serie hier">
+                                </picture>
+                            </div>
+                            <div class="secondary-match">
+                                <picture>
+                                    <img class="match-img" src="/img/placeholders/placeholder5.png" alt="Jouw serie hier">
+                                </picture>
+                            </div>
                         </div>
                     </section>
                 <% } %>
@@ -162,7 +164,7 @@
                     <div class="review-message">
                         <h2>Lees de laatste recensies.</h2>
                         <p>We hebben een hoop series bekeken. Hier kun je lezen wat wij er van vonden.</p>
-                        <a href="/recensies">Of bekijk alle recensies ➔</a>
+                        <a href="/recensies" class="cta-btn">Of bekijk alle recensies ➔</a>
                     </div>
                     <div class="overlay"></div>
                 </section>
@@ -170,7 +172,7 @@
                     <section class="review-overview-container">
                         <% for(var i=0; i<6; i++) {%>
                             <div class="review">
-                                <div>
+                                <div class="pic-name">
                                 <a class="detail-link" href="/review/<%= reviewData[i].review.seriesName %>">
                                     <picture>
                                         <img src="<%=reviewData[i].review.imgURL%>" alt="<%=reviewData[i].review.seriesName%>">
@@ -182,8 +184,8 @@
                                     <a class="detail-link" href="/review/<%= reviewData[i].review.seriesName %>">
                                         <h3><%= reviewData[i].review.seriesName %></h3>
                                     </a>
-                                    <p class="post-date">Op: <%= reviewData[i].user.postDate %></p>
                                     <h4><%= reviewData[i].review.reviewTitle %></h4>
+                                    <p class="post-date">Op: <%= reviewData[i].user.postDate %></p>
                                     <p class="post-user">Door <%= reviewData[i].user.name %></p>
                                     <!-- Laatste spatie opzoeken uit de array (lastIndexOf) en dan het woord erna weghalen -->
                                     <!-- Gemanipuleerde reviewData sturen naar de view, niet in de view doen -->

@@ -80,3 +80,7 @@ public/img/placeholders/.DS_Store
 .DS_Store
 
 public/stylesheets/style.css
+
+routes/keycloak_settings.js
+
+views/keycloak.js

@@ -8,14 +8,13 @@
     </head>
     <body>
         <%- include partials/header.ejs %>
-        <%- include partials/filter.ejs %>
         <main class="overview-container">
 
             <section class="review-overview-container">
                 <h2>Laatste Recensies</h2>
                 <% for(var i=0; i<reviewData.length; i++) {%>
                     <div class="review">
-                        <div>
+                        <div class="pic-name">
                             <img src="<%=reviewData[i].review.imgURL%>" alt="">
                         </div>
                         <div class="text-container">
@@ -23,8 +22,8 @@
                             <a class="detail-link" href="/review/<%= reviewData[i].review.seriesName %>">
                                 <h3><%= reviewData[i].review.seriesName %></h3>
                             </a>
-                            <p class="post-date">Op: <%= reviewData[i].user.postDate %></p>
                             <h4><%= reviewData[i].review.reviewTitle %></h4>
+                            <p class="post-date">Op: <%= reviewData[i].user.postDate %></p>
                             <p class="post-user">Door <%= reviewData[i].user.name %></p>
 
 
@@ -41,6 +40,10 @@
                     </div>
                     <% } %>
             </section>
+            <div class="filter-overlay">
+
+            </div>
+            <%- include partials/filter.ejs %>
         </main>
             <script src="/socket.io/socket.io.js"></script>
             <script src="/javascripts/filter_interaction.js"></script>

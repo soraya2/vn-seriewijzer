@@ -2,28 +2,44 @@
     <title><%= data.review.seriesName %></title>
 </head>
 
-<body id="series-detail">
+<body id="series-detail" class="review-page">
      <main>
         <% if (data) { %>
-            <a class="backlink" href="javascript:history.back()">✕</a>
-            <h1><%= data.review.seriesName %></h1>
-            <section class="poster">
-                <div class="poster-container">
-                    <img src="<%= data.review.imgURL %>">
-                </div>
-                <span class="rating"><%= data.review.imdbRating %></span>
-            </section>
-            <section class="meta">
-                <h3><%= data.review.producers %></h3>
-                <p class="year"><%= data.review.startYear %> - <%= data.review.endYear %></p>
-                <p><%- data.review.reviewPlot %></p>
-            </section>
-            <section class="video">
-                <h3>Bekijk de trailer</h3>
-                <iframe src="<%= data.review.trailerURL %>?controls=0&showinfo=0&hd=1?rel=0" allowfullscreen=""></iframe>
-            </section>
+            <a class="backlink" href="javascript:history.back()"><span class="text"></span></a>
+            <article class="movie-details">
+                <section class="meta">
+                    <div>
+                        <h1><%=data.review.seriesName%></h1>
+                        <hr>
+                        <ul class="meta">
+                            <li><span>Seizoenen:</span><span class="meta-data"><%=data.review.seasons %></span></li>
+                            <li><span>IMDB cijfer:</span><span class="meta-data"><%=data.review.imdbRating %></span</li>
+                            <li><span>Gemiddelde tijd per aflervering:</span><span class="meta-data"><%=data.review.duration %></span</li>
+                        </ul>
+
+                    </div>
+                    <div class="youtubevideowrap">
+                        <aside class="video-container">
+                            <iframe src="<%=data.review.trailerURL%>?controls=0&showinfo=0&hd=1?rel=0" allowfullscreen="" width="640" height="352" frameborder="0"></iframe>
+                        </aside>
+                    </div>
+                </section>
+                <section class="review">
+                    <h1>Waar gaat het over?</h1>
+                    <hr>
+                    <p>
+                     <%= data.review.reviewPlot%>
+                    </p>
+                    <h1 class="sub">Wat vinden anderen van deze serie?</h1>
+                    <hr>
+                    <div>
+                        <h2><%= data.review.reviewTitle%></h2>
+                        <p class="text"><%= data.review.reviewIntro %></p>
+                    </div>
+                </section>
+            </article>
         <% } else { %>
             <h2>Uh oh.. serie niet gevonden.</h2>
         <% }%>
      </main>
- </body>
+</body>

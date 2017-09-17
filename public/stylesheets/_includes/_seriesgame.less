@@ -9,7 +9,7 @@
 
 .series-game-intro header, .series-game-intro section {
     text-align: center;
-    padding-top: 1em;
+    padding-top: .5em;
 }
 
 .series-game-intro section p {
@@ -37,18 +37,18 @@
 
 .series-game-intro .block {
     float: left;
-    margin: 1em;
-    height: 10em;
-    width: 7em;
+    margin: 1em 1.5em;
+    height: 9em;
+    width: 6em;
     background: transparent;
     color: #fff;
     position: relative;
 }
 .series-game-intro .block.active{
-    transform: scale(1.2);
+    transform: scale(1.1);
 }
 .series-game-intro .block.active img {
-    transform: scaleX(1.4) scaleY(1.1);
+    transform: scaleX(1.1) scaleY(1.1);
 }
 .series-game-intro .block img,
 .series-game-intro .block.active img  {
@@ -117,7 +117,7 @@
     }
     .series-game-intro #intro-1, .series-game-intro #intro-2, .series-game-intro #intro-3 {
         position: absolute;
-        top: 1em;
+        top: 0.5em;
         left: 0;
         right: 0;
         display: flex;
@@ -128,7 +128,7 @@
         animation-iteration-count: infinite;
     }
     .series-game-intro #intro-3 {
-        margin-top: 10em;
+        margin-top: 5em;
     }
     .series-game-intro #next {
         position: fixed;
@@ -208,6 +208,7 @@
     flex-wrap: nowrap;
     margin: 0 auto;
     margin-top: 10px;
+    padding: 0;
     section {
         align-items: flex-start;
         flex-direction: column;
@@ -241,6 +242,9 @@
         }
     }
 }
+#series-detail.review-page article section {
+  min-height: auto;
+}
 @media screen and (max-width: 50em){
     #series-detail .movie-details{
         flex-direction: column;
@@ -251,7 +255,7 @@
         flex-direction: column-reverse;
     }
     #series-detail .review {
-        width: 70%;
+        width: 100%;
         order: 2;
         margin: 0 auto;
     }
